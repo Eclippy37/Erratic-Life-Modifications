@@ -1,0 +1,28 @@
+{
+    "hidden": true,
+    "type": "origins:multiple",
+    "main": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:damage",
+            "damage_type": "wither",
+            "amount": 3
+        },
+        "key": {
+            "key": "key.sneak",
+            "continuous": true
+        },
+        "cooldown": 10
+    },
+    "callback": {
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:execute_command",
+            "command": "tag @s add vote.negative.sneak_damage"
+        },
+        "entity_action_lost": {
+            "type": "origins:execute_command",
+            "command": "tag @s remove vote.negative.sneak_damage"
+        }
+    }
+}

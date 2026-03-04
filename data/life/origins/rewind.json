@@ -1,0 +1,14 @@
+{
+    "powers": [
+        "life:quirk/rewind"
+    ],
+    "icon": {
+        "id": "minecraft:red_wool"
+    },
+    "name": "Rewind",
+    "description": "",
+    "order": 0,
+    "impact": 0,
+    "loading_priority": 1,
+    "unchoosable": false
+}

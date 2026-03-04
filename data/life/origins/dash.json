@@ -1,0 +1,14 @@
+{
+    "powers": [
+        "life:quirk/dash"
+    ],
+    "icon": {
+        "id": "minecraft:cyan_wool"
+    },
+    "name": "Dash",
+    "description": "",
+    "order": 0,
+    "impact": 0,
+    "loading_priority": 1,
+    "unchoosable": false
+}

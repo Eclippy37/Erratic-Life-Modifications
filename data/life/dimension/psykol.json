@@ -1,0 +1,26 @@
+{
+    "type": "life:psykol",
+    "generator": {
+        "type": "minecraft:flat",
+        "settings": {
+            "biome": "life:psykol",
+            "lakes": false,
+            "features": false,
+            "layers": [
+                {
+                    "height": 1,
+                    "block": "minecraft:barrier"
+                },
+                {
+                    "height": 382,
+                    "block": "minecraft:water"
+                },
+                {
+                    "height": 1,
+                    "block": "minecraft:barrier"
+                }
+            ],
+            "structure_overrides": []
+        }
+    }
+}

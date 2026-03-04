@@ -1,0 +1,14 @@
+{
+    "powers": [
+        "life:quirk/float"
+    ],
+    "icon": {
+        "id": "minecraft:white_wool"
+    },
+    "name": "Float",
+    "description": "",
+    "order": 0,
+    "impact": 0,
+    "loading_priority": 1,
+    "unchoosable": false
+}

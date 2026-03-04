@@ -1,0 +1,14 @@
+{
+    "powers": [
+        "life:quirk/void"
+    ],
+    "icon": {
+        "id": "minecraft:black_wool"
+    },
+    "name": "Void",
+    "description": "",
+    "order": 0,
+    "impact": 0,
+    "loading_priority": 1,
+    "unchoosable": false
+}

@@ -1,0 +1,106 @@
+{
+    "hidden": true,
+    "type": "origins:multiple",
+    "main": {
+        "type": "origins:active_self",
+        "key": "key.origins.primary_active",
+        "entity_action": {
+            "type": "origins:if_else_list",
+            "actions": [
+                {
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "*:*_cooldown",
+                                "operation": "set",
+                                "change": 50
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute in life:psykol run tp @s ~ ~ ~"
+                            }
+                        ]
+                    },
+                    "condition": {
+                        "type": "origins:dimension",
+                        "dimension": "life:psykol",
+                        "inverted": true
+                    }
+                },
+                {
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "*:*_cooldown",
+                                "operation": "set",
+                                "change": 50
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute in minecraft:overworld run tp @s ~ ~ ~"
+                            }
+                        ]
+                    },
+                    "condition": {
+                        "type": "origins:dimension",
+                        "dimension": "life:psykol",
+                        "inverted": false
+                    }
+                }
+            ]
+        },
+        "cooldown": 10
+    },
+    "cooldown": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 50,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
+            "bar_index": 1,
+            "inverted": false,
+            "condition": {
+                "type": "origins:resource",
+                "resource": "*:*_cooldown",
+                "comparison": ">",
+                "compare_to": 0,
+                "inverted": false
+            }
+        }
+    },
+    "cooldown_over_time": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "*:*_cooldown",
+            "operation": "add",
+            "change": -1
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_cooldown",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "seek": {
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:grant_power",
+            "power": "life:quirk/misc/power",
+            "source": "*:*"
+        },
+        "entity_action_lost": {
+            "type": "origins:remove_power",
+            "power": "life:quirk/misc/power",
+            "source": "*:*"
+        }
+    }
+}

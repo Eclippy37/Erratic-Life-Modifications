@@ -1,0 +1,14 @@
+{
+    "powers": [
+        "life:quirk/jester"
+    ],
+    "icon": {
+        "id": "minecraft:green_wool"
+    },
+    "name": "Jester",
+    "description": "",
+    "order": 0,
+    "impact": 0,
+    "loading_priority": 1,
+    "unchoosable": false
+}

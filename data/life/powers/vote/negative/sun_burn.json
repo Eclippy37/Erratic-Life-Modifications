@@ -1,0 +1,23 @@
+{
+    "hidden": true,
+    "type": "origins:multiple",
+    "main": {
+        "type": "origins:burn",
+        "interval": 20,
+        "burn_duration": 6,
+        "condition": {
+            "type": "origins:exposed_to_sun"
+        }
+    },
+    "callback": {
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:execute_command",
+            "command": "tag @s add vote.negative.sun_burn"
+        },
+        "entity_action_lost": {
+            "type": "origins:execute_command",
+            "command": "tag @s remove vote.negative.sun_burn"
+        }
+    }
+}

@@ -1,0 +1,43 @@
+{
+    "hidden": true,
+    "type": "origins:multiple",
+    "main": {
+        "type": "origins:restrict_armor",
+        "head": {
+            "type": "origins:empty",
+            "inverted": true
+        },
+        "chest": {
+            "type": "origins:empty",
+            "inverted": true
+        },
+        "legs": {
+            "type": "origins:empty",
+            "inverted": true
+        },
+        "feet": {
+            "type": "origins:empty",
+            "inverted": true
+        }
+    },
+    "callback": {
+        "type": "origins:action_on_callback",
+        "entity_action_added": {
+            "type": "origins:drop_inventory",
+            "slots": [
+                "armor.head",
+                "armor.chest",
+                "armor.legs",
+                "armor.feet"
+            ]
+        },
+        "entity_action_gained": {
+            "type": "origins:execute_command",
+            "command": "tag @s add vote.negative.restrict_armor"
+        },
+        "entity_action_lost": {
+            "type": "origins:execute_command",
+            "command": "tag @s remove vote.negative.restrict_armor"
+        }
+    }
+}

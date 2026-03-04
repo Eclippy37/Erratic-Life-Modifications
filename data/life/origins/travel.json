@@ -1,0 +1,14 @@
+{
+    "powers": [
+        "life:quirk/travel"
+    ],
+    "icon": {
+        "id": "minecraft:lime_wool"
+    },
+    "name": "Travel",
+    "description": "",
+    "order": 0,
+    "impact": 0,
+    "loading_priority": 1,
+    "unchoosable": false
+}

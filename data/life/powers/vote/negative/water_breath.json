@@ -1,0 +1,105 @@
+{
+    "hidden": true,
+    "type": "origins:multiple",
+    "water_breathing": {
+        "type": "origins:water_breathing"
+    },
+    "night_vision": {
+        "type": "origins:night_vision",
+        "strength": 1.0,
+        "condition": {
+            "type": "origins:submerged_in",
+            "fluid": "minecraft:water"
+        }
+    },
+    "no_delay": {
+        "type": "origins:water_vision"
+    },
+    "attribute": {
+        "type": "origins:attribute",
+        "modifier": {
+            "id": "*:*",
+            "attribute": "additionalentityattributes:generic.water_speed",
+            "amount": 1.5,
+            "operation": "add_multiplied_base"
+        }
+    },
+    "like_water": {
+        "type": "origins:like_water"
+    },
+    "conduit_power_on_land": {
+        "type": "origins:conduit_power_on_land"
+    },
+    "aquatic": {
+        "type": "origins:modify_type_tag",
+        "tag": "minecraft:aquatic"
+    },
+	"aqua_affinity": {
+		"type": "origins:modify_break_speed",
+		"modifier": {
+			"amount": 4,
+			"operation": "multiply_total_multiplicative"
+		},
+		"condition": {
+			"type": "origins:all_of",
+			"conditions": [
+				{
+					"type": "origins:submerged_in",
+					"fluid": "minecraft:water"
+				},
+				{
+					"type": "origins:enchantment",
+					"enchantment": "minecraft:aqua_affinity",
+					"comparison": "==",
+					"compare_to": 0
+				}
+			]
+		}
+	},
+    "air_from_potions": {
+        "type": "origins:action_on_item_use",
+        "item_condition": {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "item": "minecraft:potion"
+            }
+        },
+        "entity_action": {
+            "type": "origins:gain_air",
+            "value": 200
+        }
+    },
+    "ungrounded": {
+        "type": "origins:modify_break_speed",
+        "modifier": {
+            "amount": 4,
+            "operation": "multiply_total_multiplicative"
+        },
+        "condition": {
+            "type": "origins:all_of",
+            "conditions": [
+                {
+                    "type": "origins:fluid_height",
+                    "fluid": "minecraft:water",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:on_block",
+                    "inverted": true
+                }
+            ]
+        }
+    },
+    "callback": {
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:execute_command",
+            "command": "tag @s add vote.negative.water_breath"
+        },
+        "entity_action_lost": {
+            "type": "origins:execute_command",
+            "command": "tag @s remove vote.negative.water_breath"
+        }
+    }
+}

@@ -1,0 +1,267 @@
+{
+    "hidden": true,
+    "type": "origins:multiple",
+    "main": {
+        "type": "origins:active_self",
+        "key": "key.origins.primary_active",
+        "entity_action": {
+            "type": "origins:if_else_list",
+            "actions": [
+                {
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "*:*_toggle",
+                                "operation": "set",
+                                "change": 1
+                            },
+                            {
+                                "type": "origins:play_sound",
+                                "sound": "minecraft:block.beacon.activate",
+                                "volume": 0.3,
+                                "pitch": 1.75
+                            }
+                        ]
+                    },
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "*:*_toggle",
+                        "comparison": "==",
+                        "compare_to": 0
+                    }
+                },
+                {
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "*:*_toggle",
+                                "operation": "set",
+                                "change": 0
+                            },
+                            {
+                                "type": "origins:play_sound",
+                                "sound": "minecraft:block.beacon.deactivate",
+                                "volume": 0.3,
+                                "pitch": 2
+                            }
+                        ]
+                    },
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "*:*_toggle",
+                        "comparison": "==",
+                        "compare_to": 1
+                    }
+                }
+            ]
+        },
+        "cooldown": 70,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
+            "bar_index": 1,
+            "order": 1,
+            "inverted": false
+        }
+    },
+    "toggle": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png",
+            "bar_index": 8,
+            "inverted": false,
+            "condition": {
+                "type": "origins:resource",
+                "resource": "*:*_toggle",
+                "comparison": "==",
+                "compare_to": 1
+            }
+        }
+    },
+    "overlay": {
+        "type": "origins:overlay",
+        "texture": "life:ice",
+        "strength": 0.05,
+        "red": 0,
+        "green": 0,
+        "blue": 1,
+        "draw_mode": "texture",
+        "draw_phase": "below_hud",
+        "hide_with_hud": false,
+        "visible_in_third_person": true,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_toggle",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    },
+    "particle_effect": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:area_of_effect",
+            "radius": 5,
+            "bientity_action": {
+                "type": "origins:target_action",
+                "action": {
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "origins:spawn_particles",
+                            "particle": {
+                                "type": "minecraft:dust",
+                                "params": "{color:[0.3,0.8,1.0],scale:1.8}"
+                            },
+                            "count": 100,
+                            "speed": 0,
+                            "force": true,
+                            "spread": {
+                                "x": 0.3,
+                                "y": 0.3,
+                                "z": 0.3
+                            },
+                            "offset_y": 0.5
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "kill @s"
+                        },
+                        {
+                            "type": "origins:play_sound",
+                            "sound": "minecraft:block.enchantment_table.use",
+                            "volume": 0.6,
+                            "pitch": 2
+                        }
+                    ]
+                }
+            },
+            "bientity_condition": {
+                "type": "origins:target_condition",
+                "condition": {
+                    "type": "origins:in_tag",
+                    "tag": "life:projectiles"
+                }
+            },
+            "include_target": false
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_toggle",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    },
+    "damage_taken": {
+        "type": "origins:modify_damage_taken",
+        "modifier": {
+            "operation": "multiply_total_multiplicative",
+            "amount": -0.5,
+            "id": "life:reduced_damage_taken"
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_toggle",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    },
+    "meteor_strike": {
+        "type": "origins:target_action_on_hit",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:delay",
+                    "ticks": 20,
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "summon firework_rocket ~ ~25 ~ {Silent:1b,LifeTime:1200,ShotAtAngle:1b,Motion:[0.0,-1.5,0.0],FireworksItem:{id:\"minecraft:firework_rocket\",count:1,components:{\"minecraft:fireworks\":{explosions:[{shape:\"burst\",colors:[I;2651799,2437522,1973019],fade_colors:[I;2651799,2437522,1973019]},{shape:\"burst\",colors:[I;2651799,2437522,1973019],fade_colors:[I;2651799,2437522,1973019]},{shape:\"burst\",colors:[I;2651799,2437522,1973019],fade_colors:[I;2651799,2437522,1973019]}]}}}}"
+                    }
+                },
+                {
+                    "type": "origins:play_sound",
+                    "sound": "minecraft:entity.illusioner.mirror_move",
+                    "volume": 1,
+                    "pitch": 2
+                }
+            ]
+        },
+        "cooldown": 900,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
+            "bar_index": 0,
+            "order": 1
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "mainhand",
+                    "item_condition": {
+                        "type": "origins:empty"
+                    }
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_toggle",
+                    "comparison": "==",
+                    "compare_to": 1
+                }
+            ]
+        }
+    },
+    "gravity_attribute": {
+        "type": "origins:conditioned_attribute",
+        "modifiers": [
+            {
+                "id": "life:gravity",
+                "attribute": "minecraft:generic.gravity",
+                "operation": "add_multiplied_total",
+                "amount": -0.75
+            },
+            {
+                "id": "life:safe_fall_distance",
+                "attribute": "minecraft:generic.safe_fall_distance",
+                "operation": "add_multiplied_total",
+                "amount": 2.5
+            },
+            {
+                "id": "life:fall_damage",
+                "attribute": "minecraft:generic.fall_damage_multiplier",
+                "operation": "add_multiplied_total",
+                "amount": -0.5
+            }
+        ],
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_toggle",
+            "comparison": "==",
+            "compare_to": 1
+        },
+        "tick_rate": 10
+    },
+    "seek": {
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:grant_power",
+            "power": "life:quirk/misc/power",
+            "source": "*:*"
+        },
+        "entity_action_lost": {
+            "type": "origins:remove_power",
+            "power": "life:quirk/misc/power",
+            "source": "*:*"
+        }
+    }
+}

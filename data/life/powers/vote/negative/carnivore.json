@@ -1,0 +1,41 @@
+{
+    "hidden": true,
+    "type": "origins:multiple",
+    "main": {
+        "name": "Carnivore",
+        "type": "origins:prevent_item_use",
+        "item_condition": {
+            "type": "origins:all_of",
+            "conditions": [
+                {
+                    "type": "origins:ingredient",
+                    "ingredient": {
+                        "tag": "origins:ignore_diet"
+                    },
+                    "inverted": true
+                },
+                {
+                    "type": "origins:ingredient",
+                    "ingredient": {
+                        "tag": "origins:meat"
+                    },
+                    "inverted": true
+                },
+                {
+                    "type": "origins:food"
+                }
+            ]
+        }
+    },
+    "callback": {
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:execute_command",
+            "command": "tag @s add vote.negative.carnivore"
+        },
+        "entity_action_lost": {
+            "type": "origins:execute_command",
+            "command": "tag @s remove vote.negative.carnivore"
+        }
+    }
+}

@@ -1,0 +1,275 @@
+{
+    "hidden": true,
+    "type": "origins:multiple",
+    "pink_glow": {
+        "type": "origins:self_glow",
+        "use_teams": false,
+        "red": 1.0,
+        "green": 0.6784,
+        "blue": 1.0,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_resource",
+            "comparison": "==",
+            "compare_to": 0
+        }
+    },
+    "red_glow": {
+        "type": "origins:self_glow",
+        "use_teams": false,
+        "red": 0.6471,
+        "green": 0.0824,
+        "blue": 0.0824,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_resource",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    },
+    "red_attributes": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "id": "life:speed",
+            "attribute": "minecraft:generic.movement_speed",
+            "operation": "add_multiplied_total",
+            "amount": 0.1
+        },
+        "tick_rate": 10,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_resource",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    },
+    "attributes": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "id": "life:speed",
+            "attribute": "minecraft:generic.movement_speed",
+            "operation": "add_multiplied_total",
+            "amount": 0.4
+        },
+        "tick_rate": 10,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_resource",
+            "comparison": "==",
+            "compare_to": 0
+        }
+    },
+    "keep_inventory": {
+        "type": "origins:keep_inventory"
+    },
+    "pink_damage": {
+        "type": "origins:modify_damage_taken",
+        "modifier": {
+            "id": "life:pink_damage",
+            "operation": "add_multiplied_total",
+            "amount": -1
+        },
+        "bientity_condition": {
+            "type": "origins:target_condition",
+            "condition": {
+                "type": "origins:resource",
+                "resource": "*:*_resource",
+                "comparison": "==",
+                "compare_to": 0
+            }
+        }
+    },
+    "red_damage": {
+        "type": "origins:modify_damage_taken",
+        "modifier": {
+            "id": "life:red_damage",
+            "operation": "add_multiplied_total",
+            "amount": -0.20
+        },
+        "bientity_condition": {
+            "type": "origins:target_condition",
+            "condition": {
+                "type": "origins:resource",
+                "resource": "*:*_resource",
+                "comparison": "==",
+                "compare_to": 1
+            }
+        }
+    },
+    "resource": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "command_over_time": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:if_else_list",
+            "actions": [
+                {
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "execute if score #jnv erraticlife matches 0 run resource set @s life:jnv/main_resource 0"
+                    },
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "*:*_resource",
+                        "comparison": "==",
+                        "compare_to": 0,
+                        "inverted": true
+                    }
+                },
+                {
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "execute if score #jnv erraticlife matches 1 run resource set @s life:jnv/main_resource 1"
+                    },
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "*:*_resource",
+                        "comparison": "==",
+                        "compare_to": 1,
+                        "inverted": true
+                    }
+                }
+            ]
+        },
+        "interval": 20
+    },
+    "timer": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 600,
+        "start_value": 600,
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:if_else_list",
+                    "actions": [
+                        {
+                            "action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:change_resource",
+                                        "resource": "*:*_resource",
+                                        "operation": "set",
+                                        "change": 1
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "scoreboard players set #jnv erraticlife 1"
+                                    }
+                                ]
+                            },
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "*:*_resource",
+                                "comparison": "==",
+                                "compare_to": 0
+                            }
+                        },
+                        {
+                            "action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:change_resource",
+                                        "resource": "*:*_resource",
+                                        "operation": "set",
+                                        "change": 0
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "scoreboard players set #jnv erraticlife 0"
+                                    }
+                                ]
+                            },
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "*:*_resource",
+                                "comparison": "==",
+                                "compare_to": 1
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "*:*_timer",
+                    "operation": "set",
+                    "change": 600
+                }
+            ]
+        },
+        "hud_render": [
+            {
+                "should_render": true,
+                "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png",
+                "bar_index": 9,
+                "inverted": false,
+                "condition": {
+                    "type": "origins:resource",
+                    "resource": "*:*_resource",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            },
+            {
+                "should_render": true,
+                "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
+                "bar_index": 5,
+                "inverted": false,
+                "condition": {
+                    "type": "origins:resource",
+                    "resource": "*:*_resource",
+                    "comparison": "==",
+                    "compare_to": 1
+                }
+            }
+        ]
+    },
+    "timer_over_time": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "*:*_timer",
+            "operation": "add",
+            "change": -1
+        },
+        "interval": 20,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:command",
+                    "command": "execute if score Status Session matches 2",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_timer",
+                    "comparison": ">",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+    "callback": {
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:execute_command",
+            "command": "scoreboard players set #jnv erraticlife 0"
+        },
+        "entity_action_lost": {
+            "type": "origins:execute_command",
+            "command": "scoreboard players set #jnv erraticlife 0"
+        }
+    }
+}

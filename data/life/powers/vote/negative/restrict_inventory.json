@@ -1,0 +1,42 @@
+{
+    "hidden": true,
+    "type": "origins:multiple",
+    "main": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:drop_inventory",
+            "slots": [
+                "inventory.9",
+                "inventory.10",
+                "inventory.11",
+                "inventory.12",
+                "inventory.13",
+                "inventory.14",
+                "inventory.15",
+                "inventory.16",
+                "inventory.17",
+                "inventory.18",
+                "inventory.19",
+                "inventory.20",
+                "inventory.21",
+                "inventory.22",
+                "inventory.23",
+                "inventory.24",
+                "inventory.25",
+                "inventory.26"
+            ]
+        },
+        "interval": 10
+    },
+    "callback": {
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:execute_command",
+            "command": "tag @s add vote.negative.restrict_inventory"
+        },
+        "entity_action_lost": {
+            "type": "origins:execute_command",
+            "command": "tag @s remove vote.negative.restrict_inventory"
+        }
+    }
+}

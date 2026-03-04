@@ -1,0 +1,222 @@
+{
+    "hidden": true,
+    "type": "origins:multiple",
+    "main": {
+        "type": "origins:active_self",
+        "key": "key.origins.primary_active",
+        "entity_action": {
+            "type": "origins:if_else_list",
+            "actions": [
+                {
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "*:*_timer",
+                                "operation": "set",
+                                "change": 2400
+                            },
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "*:*_cooldown",
+                                "operation": "set",
+                                "change": 0
+                            },
+                            {
+                                "type": "origins:set_fall_distance",
+                                "fall_distance": 0
+                            }
+                        ]
+                    },
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "*:*_timer",
+                        "comparison": "==",
+                        "compare_to": 0
+                    }
+                },
+                {
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "*:*_timer",
+                                "operation": "set",
+                                "change": 0
+                            },
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "*:*_cooldown",
+                                "operation": "set",
+                                "change": 100
+                            },
+                            {
+                                "type": "origins:set_fall_distance",
+                                "fall_distance": 0
+                            }
+                        ]
+                    },
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "*:*_timer",
+                        "comparison": ">",
+                        "compare_to": 0
+                    }
+                }
+            ]
+        },
+        "cooldown": 5,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_cooldown",
+            "comparison": "==",
+            "compare_to": 0
+        }
+    },
+    "attribute": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "id": "life:gravity",
+            "attribute": "minecraft:generic.gravity",
+            "operation": "add_multiplied_total",
+            "amount": -1
+        },
+        "tick_rate": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_timer",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "cooldown": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 100,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
+            "bar_index": 1,
+            "inverted": false,
+            "condition": {
+                "type": "origins:resource",
+                "resource": "*:*_cooldown",
+                "comparison": ">",
+                "compare_to": 0
+            }
+        }
+    },
+    "cooldown_over_time": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "*:*_cooldown",
+            "operation": "add",
+            "change": -1
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_cooldown",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "timer": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 2400,
+        "start_value": 0,
+        "min_action": {
+            "type": "origins:if_else",
+            "if_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_cooldown",
+                        "operation": "set",
+                        "change": 100
+                    },
+                    {
+                        "type": "origins:set_fall_distance",
+                        "fall_distance": 0
+                    }
+                ]
+            },
+            "condition": {
+                "type": "origins:resource",
+                "resource": "*:*_cooldown",
+                "comparison": "==",
+                "compare_to": 0
+            }
+        },
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/resource_bar.png",
+            "bar_index": 4,
+            "inverted": false,
+            "condition": {
+                "type": "origins:resource",
+                "resource": "*:*_timer",
+                "comparison": ">",
+                "compare_to": 0
+            }
+        }
+    },
+    "timer_over_time": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "*:*_timer",
+            "operation": "add",
+            "change": -1
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_timer",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "effect_over_time": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:apply_effect",
+            "effects": [
+                {
+                    "id": "minecraft:slow_falling",
+                    "duration": 75,
+                    "amplifier": 0,
+                    "ambient": true,
+                    "show_icon": false,
+                    "show_particles": false
+                }
+            ]
+        },
+        "interval": 5,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_timer",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "seek": {
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:grant_power",
+            "power": "life:quirk/misc/power",
+            "source": "*:*"
+        },
+        "entity_action_lost": {
+            "type": "origins:remove_power",
+            "power": "life:quirk/misc/power",
+            "source": "*:*"
+        }
+    }
+}

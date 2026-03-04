@@ -1,0 +1,20 @@
+{
+    "hidden": true,
+    "type": "origins:multiple",
+    "swap": {
+        "type": "origins:active_self",
+        "key": "key.attack",
+        "entity_action": {
+            "type": "origins:raycast",
+            "entity": true,
+            "block": false,
+            "shape_type": "collider",
+            "fluid_handling": "none",
+            "command_at_hit": "lifeskins swap @s[team=!watcher,tag=!watcher] @p[team=!watcher,tag=!watcher]"
+        },
+        "cooldown": 200,
+        "hud_render": {
+            "should_render": false
+        }
+    }
+}

@@ -1,0 +1,264 @@
+{
+    "hidden": true,
+    "type": "origins:multiple",
+    "main": {
+        "type": "origins:active_self",
+        "key": "key.origins.primary_active",
+        "entity_action": {
+            "type": "origins:if_else_list",
+            "actions": [
+                {
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "*:*_resource",
+                                "operation": "set",
+                                "change": 1
+                            }
+                        ]
+                    },
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "*:*_resource",
+                        "comparison": "==",
+                        "compare_to": 0
+                    }
+                },
+                {
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "*:*_resource",
+                                "operation": "set",
+                                "change": -1
+                            }
+                        ]
+                    },
+                    "condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:resource",
+                                "resource": "*:*_resource",
+                                "comparison": "==",
+                                "compare_to": 1
+                            },
+                            {
+                                "type": "origins:sneaking",
+                                "inverted": true
+                            }
+                        ]
+                    }
+                },
+                {
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "*:*_resource",
+                                "operation": "set",
+                                "change": 1
+                            }
+                        ]
+                    },
+                    "condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:resource",
+                                "resource": "*:*_resource",
+                                "comparison": "==",
+                                "compare_to": -1
+                            },
+                            {
+                                "type": "origins:sneaking",
+                                "inverted": true
+                            }
+                        ]
+                    }
+                },
+                {
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "*:*_resource",
+                                "operation": "set",
+                                "change": 0
+                            }
+                        ]
+                    },
+                    "condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:resource",
+                                "resource": "*:*_resource",
+                                "comparison": "!=",
+                                "compare_to": 0
+                            },
+                            {
+                                "type": "origins:sneaking",
+                                "inverted": false
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "cooldown": 200,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
+            "bar_index": 1,
+            "inverted": true,
+            "order": 1
+        }
+    },
+    "increase_slipperiness": {
+        "type": "origins:modify_slipperiness",
+        "modifier": {
+            "operation": "set_total",
+            "amount": 0.98
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_resource",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    },
+    "increase_movement_speed": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "id": "life:movement_speed",
+            "attribute": "minecraft:generic.movement_speed",
+            "operation": "add_multiplied_total",
+            "amount": 0.8
+        },
+        "tick_rate": 5,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_resource",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    },
+    "decrease_movement_speed": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "id": "life:movement_speed",
+            "attribute": "minecraft:generic.movement_speed",
+            "operation": "add_multiplied_total",
+            "amount": -0.3
+        },
+        "tick_rate": 5,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_resource",
+            "comparison": "==",
+            "compare_to": -1
+        }
+    },
+    "wall_jump": {
+        "type": "origins:grounded",
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "origins:block_collision",
+                            "offset_x": 0.01,
+                            "offset_z": 0.01,
+                            "offset_y": 0
+                        },
+                        {
+                            "type": "origins:block_collision",
+                            "offset_x": -0.01,
+                            "offset_z": -0.01,
+                            "offset_y": 0
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_resource",
+                    "comparison": "==",
+                    "compare_to": -1
+                }
+            ]
+        }
+    },
+    "resource": {
+        "type": "origins:resource",
+        "min": -1,
+        "max": 1,
+        "start_value": 0,
+        "hud_render": [
+            {
+                "should_render": true,
+                "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_03.png",
+                "bar_index": 12,
+                "order": 0,
+                "inverted": false,
+                "condition": {
+                    "type": "origins:resource",
+                    "resource": "*:*_resource",
+                    "comparison": "==",
+                    "compare_to": 1
+                }
+            },
+            {
+                "should_render": true,
+                "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_03.png",
+                "bar_index": 19,
+                "order": 0,
+                "inverted": true,
+                "condition": {
+                    "type": "origins:resource",
+                    "resource": "*:*_resource",
+                    "comparison": "==",
+                    "compare_to": -1
+                }
+            }
+        ]
+    },
+    "seek": {
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:grant_power",
+            "power": "life:quirk/misc/power",
+            "source": "*:*"
+        },
+        "entity_action_lost": {
+            "type": "origins:remove_power",
+            "power": "life:quirk/misc/power",
+            "source": "*:*"
+        }
+    },
+    "seek_over_time": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "*:quirk/misc/power_resource",
+            "operation": "set",
+            "change": 10
+        },
+        "interval": 10,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_resource",
+            "comparison": "==",
+            "compare_to": 0,
+            "inverted": true
+        }
+    }
+}

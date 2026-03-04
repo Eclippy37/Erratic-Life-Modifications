@@ -1,0 +1,46 @@
+{
+    "hidden": true,
+    "type": "origins:multiple",
+    "shader": {
+        "type": "origins:shader",
+        "shader": "minecraft:shaders/post/blobs2.json"
+    },
+    "effects_over_time": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:apply_effect",
+            "effects": [
+                {
+                    "id": "minecraft:water_breathing",
+                    "duration": 19,
+                    "amplifier": 0,
+                    "ambient": true,
+                    "show_icon": false,
+                    "show_particles": false
+                },
+                {
+                    "id": "minecraft:saturation",
+                    "duration": 1,
+                    "amplifier": 0,
+                    "ambient": true,
+                    "show_icon": false,
+                    "show_particles": false
+                }
+            ]
+        },
+        "interval": 10
+    },
+    "remove_on_leave": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:remove_power",
+            "power": "life:quirk/dim/psykol"
+        },
+        "interval": 20,
+        "condition": {
+            "type": "origins:dimension",
+            "dimension": "life:psykol",
+            "inverted": true
+        }
+    }
+}

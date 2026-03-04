@@ -1,0 +1,196 @@
+{
+    "hidden": true,
+    "type": "origins:multiple",
+    "main": {
+        "type": "origins:active_self",
+        "key": "key.origins.primary_active",
+        "entity_action": {
+            "type": "origins:if_else_list",
+            "actions": [
+                {
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "function life:quirk/travel/teleport"
+                            },
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "*:*_timer",
+                                "operation": "set",
+                                "change": 35
+                            },
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "*:_cooldown",
+                                "operation": "set",
+                                "change": 0
+                            }
+                        ]
+                    },
+                    "condition": {
+                        "type": "origins:gamemode",
+                        "gamemode": "spectator",
+                        "inverted": true
+                    }
+                },
+                {
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "function life:quirk/travel/teleport"
+                            },
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "*:*_timer",
+                                "operation": "set",
+                                "change": 0
+                            },
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "*:*_cooldown",
+                                "operation": "set",
+                                "change": 300
+                            }
+                        ]
+                    },
+                    "condition": {
+                        "type": "origins:gamemode",
+                        "gamemode": "spectator",
+                        "inverted": false
+                    }
+                }
+            ]
+        },
+        "cooldown": 5,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_cooldown",
+            "comparison": "==",
+            "compare_to": 0
+        }
+    },
+    "cooldown": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 300,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
+            "bar_index": 1,
+            "inverted": false,
+            "condition": {
+                "type": "origins:resource",
+                "resource": "*:*_cooldown",
+                "comparison": ">",
+                "compare_to": 0,
+                "inverted": false
+            }
+        }
+    },
+    "cooldown_over_time": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "*:*_cooldown",
+            "operation": "add",
+            "change": -1
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_cooldown",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "timer": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 35,
+        "start_value": 0,
+        "min_action": {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:gamemode",
+                "gamemode": "spectator",
+                "inverted": false
+            },
+            "if_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:execute_command",
+                        "command": "function life:quirk/travel/teleport"
+                    },
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_timer",
+                        "operation": "set",
+                        "change": 0
+                    },
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_cooldown",
+                        "operation": "set",
+                        "change": 300
+                    }
+                ]
+            }
+        },
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/resource_bar.png",
+            "bar_index": 6,
+            "inverted": false,
+            "condition": {
+                "type": "origins:resource",
+                "resource": "*:*_timer",
+                "comparison": ">",
+                "compare_to": 0,
+                "inverted": false
+            }
+        }
+    },
+    "timer_over_time": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "*:*_timer",
+            "operation": "add",
+            "change": -1
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_timer",
+            "comparison": ">",
+            "compare_to": 0,
+            "inverted": false
+        }
+    },
+    "remove": {
+	    "type": "origins:action_on_callback",
+        "entity_action_lost": {
+            "type": "origins:execute_command",
+            "command": "function life:quirk/travel/clear"
+        }
+    },
+    "seek": {
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:grant_power",
+            "power": "life:quirk/misc/power",
+            "source": "*:*"
+        },
+        "entity_action_lost": {
+            "type": "origins:remove_power",
+            "power": "life:quirk/misc/power",
+            "source": "*:*"
+        }
+    }
+}

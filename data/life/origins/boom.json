@@ -1,0 +1,14 @@
+{
+    "powers": [
+        "life:quirk/boom"
+    ],
+    "icon": {
+        "id": "minecraft:orange_wool"
+    },
+    "name": "Boom",
+    "description": "",
+    "order": 0,
+    "impact": 0,
+    "loading_priority": 1,
+    "unchoosable": false
+}

@@ -1,0 +1,113 @@
+{
+    "hidden": true,
+    "type": "origins:multiple",
+    "main": {
+        "type": "origins:active_self",
+        "key": "key.origins.primary_active",
+        "entity_action": {
+            "type": "origins:if_else_list",
+            "actions": [
+                {
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:raycast",
+                                "block": false,
+                                "entity": true,
+                                "shape_type": "collider",
+                                "fluid_handling": "none",
+                                "bientity_action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:actor_action",
+                                            "action": {
+                                                "type": "origins:execute_command",
+                                                "command": "function life:quirk/track/actor/hit"
+                                            }
+                                        },
+                                        {
+                                            "type": "origins:target_action",
+                                            "action": {
+                                                "type": "origins:execute_command",
+                                                "command": "function life:quirk/track/target/hit"
+                                            }
+                                        }
+                                    ]
+                                },
+                                "miss_action": {
+                                    "type": "origins:execute_command",
+                                    "command": "function life:quirk/track/actor/miss"
+                                }
+                            }
+                        ]
+                    },
+                    "condition": {
+                        "type": "origins:sneaking",
+                        "inverted": true
+                    }
+                },
+                {
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "function life:quirk/track/actor/clear"
+                    },
+                    "condition": {
+                        "type": "origins:sneaking",
+                        "inverted": false
+                    }
+                }
+            ]
+        },
+        "cooldown": 10
+    },
+    "tick_over_time": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "function life:quirk/track/tick"
+        },
+        "interval": 1
+    },
+    "glow": {
+        "type": "origins:entity_glow",
+        "entity_condition": {
+            "type": "origins:nbt",
+            "nbt": "{Tags:['quirk.track.target']}"
+        },
+        "bientity_condition": {
+            "type": "origins:distance",
+            "comparison": "<=",
+            "compare_to": 128
+        }
+    },
+    "remove": {
+	    "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:execute_command",
+            "command": "function life:quirk/track/clear_full"
+        },
+        "entity_action_respawned": {
+            "type": "origins:execute_command",
+            "command": "function life:quirk/track/clear_full"
+        },
+        "entity_action_lost": {
+            "type": "origins:execute_command",
+            "command": "function life:quirk/track/clear_full"
+        }
+    },
+    "seek": {
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:grant_power",
+            "power": "life:quirk/misc/power",
+            "source": "*:*"
+        },
+        "entity_action_lost": {
+            "type": "origins:remove_power",
+            "power": "life:quirk/misc/power",
+            "source": "*:*"
+        }
+    }
+}

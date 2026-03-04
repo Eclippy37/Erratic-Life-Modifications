@@ -1,0 +1,14 @@
+{
+    "powers": [
+        "life:quirk/track"
+    ],
+    "icon": {
+        "id": "minecraft:yellow_wool"
+    },
+    "name": "Track",
+    "description": "",
+    "order": 0,
+    "impact": 0,
+    "loading_priority": 1,
+    "unchoosable": false
+}

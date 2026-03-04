@@ -1,0 +1,14 @@
+{
+    "powers": [
+        "life:quirk/smoke"
+    ],
+    "icon": {
+        "id": "minecraft:gray_wool"
+    },
+    "name": "Smoke",
+    "description": "",
+    "order": 0,
+    "impact": 0,
+    "loading_priority": 1,
+    "unchoosable": false
+}

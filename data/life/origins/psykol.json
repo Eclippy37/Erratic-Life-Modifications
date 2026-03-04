@@ -1,0 +1,14 @@
+{
+    "powers": [
+        "life:quirk/psykol"
+    ],
+    "icon": {
+        "id": "minecraft:pink_wool"
+    },
+    "name": "Psykol",
+    "description": "",
+    "order": 0,
+    "impact": 0,
+    "loading_priority": 1,
+    "unchoosable": false
+}

@@ -1,0 +1,313 @@
+{
+    "hidden": true,
+    "type": "origins:multiple",
+    "main": {
+        "type": "origins:active_self",
+        "key": "key.origins.primary_active",
+        "entity_action": {
+            "type": "origins:if_else_list",
+            "actions": [
+                {
+                    "action": {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_timer",
+                        "operation": "set",
+                        "change": 300
+                    },
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "*:*_timer",
+                        "comparison": "==",
+                        "compare_to": 0
+                    }
+                },
+                {
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "*:*_timer",
+                                "operation": "set",
+                                "change": 0
+                            },
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "*:*_cooldown",
+                                "operation": "set",
+                                "change": 1200
+                            }
+                        ]
+                    },
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "*:*_timer",
+                        "comparison": ">",
+                        "compare_to": 0
+                    }
+                }
+            ]
+        },
+        "cooldown": 5,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_cooldown",
+            "comparison": "==",
+            "compare_to": 0
+        }
+    },
+    "cooldown": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1200,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
+            "bar_index": 1,
+            "inverted": false,
+            "condition": {
+                "type": "origins:resource",
+                "resource": "*:*_cooldown",
+                "comparison": ">",
+                "compare_to": 0
+            }
+        }
+    },
+    "cooldown_over_time": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "*:*_cooldown",
+            "operation": "add",
+            "change": -1
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_cooldown",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "timer": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 300,
+        "start_value": 0,
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "*:*_timer",
+                    "operation": "set",
+                    "change": 0
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "*:*_cooldown",
+                    "operation": "set",
+                    "change": 1200
+                }
+            ]
+        },
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
+            "bar_index": 0,
+            "inverted": false,
+            "condition": {
+                "type": "origins:resource",
+                "resource": "*:*_timer",
+                "comparison": ">",
+                "compare_to": 0
+            }
+        }
+    },
+    "timer_over_time": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "*:*_timer",
+            "operation": "add",
+            "change": -1
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_timer",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "invisibility": {
+        "type": "origins:invisibility",
+        "render_armor": false,
+        "render_outline": false,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_timer",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "effect_over_time": {
+        "type": "origins:action_over_time",
+        "interval": 10,
+        "entity_action": {
+            "type": "origins:apply_effect",
+            "effects": [
+                {
+                    "id": "minecraft:hunger",
+                    "duration": 19,
+                    "amplifier": 2,
+                    "ambient": true,
+                    "show_particles": false,
+                    "show_icon": false
+                },
+                {
+                    "id": "minecraft:slow_falling",
+                    "duration": 39,
+                    "amplifier": 0,
+                    "ambient": true,
+                    "show_particles": false,
+                    "show_icon": false
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_timer",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "prevent_item_use": {
+        "name": "Disabled",
+        "type": "origins:prevent_item_use",
+        "item_condition": {
+            "type": "origins:constant",
+            "value": true
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_timer",
+            "comparison": ">",
+            "compare_to": 1
+        }
+    },
+    "smoke_attributes": {
+        "type": "origins:conditioned_attribute",
+        "modifiers": [
+            {
+                "id": "life:block_reach",
+                "attribute": "minecraft:player.block_interaction_range",
+                "operation": "add_multiplied_total",
+                "amount": -1.0
+            },
+            {
+                "id": "life:entity_reach",
+                "attribute": "minecraft:player.entity_interaction_range",
+                "operation": "add_multiplied_total",
+                "amount": -1.0
+            }
+        ],
+        "tick_rate": 10,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_timer",
+            "comparison": ">",
+            "compare_to": 1
+        }
+    },
+    "smoke_over_time": {
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type": "origins:if_else",
+            "if_action": {
+                "type": "origins:execute_command",
+                "command": "particle minecraft:campfire_signal_smoke ~ ~ ~ 0.5 0.5 0.5 0 15 force @a"
+            },
+            "condition": {
+                "type": "origins:resource",
+                "resource": "*:*_timer",
+                "comparison": ">",
+                "compare_to": 0
+            }
+        }
+    },
+    "elytra": {
+        "type": "origins:elytra_flight",
+        "render_elytra": false,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_timer",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "air_swim": {
+        "type": "origins:swimming",
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_timer",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "damage_cooldown": {
+        "type": "origins:action_when_damage_taken",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "*:*_timer",
+                    "operation": "set",
+                    "change": 0
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "*:*_cooldown",
+                    "operation": "set",
+                    "change": 1200
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_timer",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "modify_damage_taken": {
+        "type": "origins:modify_damage_taken",
+        "modifier": {
+            "id": "life:smoke_damage",
+            "operation": "add_multiplied_total",
+            "amount": 2.0
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_timer",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "seek": {
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:grant_power",
+            "power": "life:quirk/misc/power",
+            "source": "*:*"
+        },
+        "entity_action_lost": {
+            "type": "origins:remove_power",
+            "power": "life:quirk/misc/power",
+            "source": "*:*"
+        }
+    }
+}

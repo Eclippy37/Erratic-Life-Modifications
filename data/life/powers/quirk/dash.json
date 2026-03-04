@@ -1,0 +1,162 @@
+{
+    "hidden": true,
+    "type": "origins:multiple",
+    "main": {
+        "type": "origins:active_self",
+        "key": "key.origins.primary_active",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:add_velocity",
+                    "z": 1.25,
+                    "space": "local"
+                },
+                {
+                    "type": "origins:add_velocity",
+                    "y": 0.25
+                },
+                {
+                    "type": "origins:play_sound",
+                    "sound": "minecraft:entity.breeze.jump",
+                    "category": "players",
+                    "volume": 1.0,
+                    "pitch": 1.25,
+                    "targets": "@a"
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "*:*_resource",
+                    "operation": "add",
+                    "change": -200
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "*:*_fall_resource",
+                    "operation": "set",
+                    "change": 1
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_resource",
+            "comparison": ">=",
+            "compare_to": 200
+        }
+    },
+    "resource": {
+        "hidden": true,
+        "type": "origins:resource",
+        "min": 0,
+        "max": 700,
+        "start_value": 700,
+        "max_action": {
+            "type": "origins:play_sound",
+            "sound": "minecraft:entity.breeze.inhale",
+            "category": "players",
+            "volume": 1.0,
+            "pitch": 1.25,
+            "targets": "@s"
+        },
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
+            "bar_index": 3,
+            "inverted": false,
+            "condition": {
+                "type": "origins:resource",
+                "resource": "*:*_resource",
+                "comparison": "<",
+                "compare_to": 700
+            }
+        }
+    },
+    "resource_over_time": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "*:*_resource",
+            "operation": "add",
+            "change": 1
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_resource",
+            "comparison": "<",
+            "compare_to": 700
+        }
+    },
+    "no_fall": {
+        "type": "origins:invulnerability",
+        "damage_condition": {
+            "type": "origins:name",
+            "name": "fall"
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_fall_resource",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    },
+    "fall_resource": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "reset_over_time": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "*:*_fall_resource",
+            "operation": "set",
+            "change": 0
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:all_of",
+            "conditions": [
+                {
+                    "type": "origins:on_block"
+                },
+                {
+                    "type": "origins:fluid_height",
+                    "fluid": "minecraft:water",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:fluid_height",
+                    "fluid": "minecraft:lava",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_fall_resource",
+                    "comparison": "==",
+                    "compare_to": 1
+                }
+            ]
+        }
+    },
+    "seek": {
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:grant_power",
+            "power": "life:quirk/misc/power",
+            "source": "*:*"
+        },
+        "entity_action_lost": {
+            "type": "origins:remove_power",
+            "power": "life:quirk/misc/power",
+            "source": "*:*"
+        }
+    }
+}

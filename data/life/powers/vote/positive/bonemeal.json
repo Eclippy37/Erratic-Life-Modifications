@@ -1,0 +1,49 @@
+{
+    "hidden": true,
+    "type": "origins:multiple",
+    "main": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:block_action_at",
+            "block_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:offset",
+                        "x": 0,
+                        "y": -1,
+                        "z": 0,
+                        "action": {
+                            "type": "origins:bonemeal"
+                        }
+                    },
+                    {
+                        "type": "origins:offset",
+                        "x": 0,
+                        "y": 1,
+                        "z": 0,
+                        "action": {
+                            "type": "origins:bonemeal"
+                        }
+                    }
+                ]
+            }
+        },
+        "interval": 10
+    },
+    "callback": {
+        "type": "origins:action_on_callback",
+        "entity_action_removed": {
+            "type": "origins:clear_effect",
+            "effect": "minecraft:saturation"
+        },
+        "entity_action_gained": {
+            "type": "origins:execute_command",
+            "command": "tag @s add vote.positive.saturation"
+        },
+        "entity_action_lost": {
+            "type": "origins:execute_command",
+            "command": "tag @s remove vote.positive.saturation"
+        }
+    }
+}

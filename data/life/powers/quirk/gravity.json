@@ -1,0 +1,244 @@
+{
+    "hidden": true,
+    "type": "origins:multiple",
+    "main": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:if_else",
+            "if_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:execute_command",
+                        "command": "function life:quirk/gravity/check"
+                    },
+                    {
+                        "type": "origins:apply_effect",
+                        "effect": {
+                            "id": "minecraft:slow_falling",
+                            "duration": 600,
+                            "amplifier": 0,
+                            "ambient": true,
+                            "show_particles": false,
+                            "show_icon": false
+                        }
+                    },
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_activated_resource",
+                        "operation": "set",
+                        "change": 1
+                    },
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_resource",
+                        "operation": "add",
+                        "change": -50
+                    }
+                ]
+            },
+            "else_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:execute_command",
+                        "command": "function life:quirk/gravity/check"
+                    },
+                    {
+                        "type": "origins:apply_effect",
+                        "effect": {
+                            "id": "minecraft:slow_falling",
+                            "duration": 40,
+                            "amplifier": 0,
+                            "ambient": true,
+                            "show_particles": false,
+                            "show_icon": false
+                        }
+                    },
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_resource",
+                        "operation": "add",
+                        "change": -50
+                    }
+                ]
+            },
+            "condition": {
+                "type": "origins:resource",
+                "resource": "*:*_activated_resource",
+                "comparison": "==",
+                "compare_to": 0
+            }
+        },
+	    "cooldown": 20,
+	    "hud_render": {
+            "should_render": false
+	    },
+	    "key": {
+		    "key": "key.origins.primary_active",
+	    	"continuous": false
+	    },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_resource",
+            "comparison": ">=",
+            "compare_to": 100
+        }
+    },
+    "resource": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1400,
+        "start_value": 1400,
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "function life:quirk/gravity/set/down"
+                },
+                {
+                    "type": "origins:apply_effect",
+                    "effect": {
+                        "id": "minecraft:slow_falling",
+                        "duration": 40,
+                        "amplifier": 0,
+                        "ambient": true,
+                        "show_particles": false,
+                        "show_icon": false
+                    }
+                }
+            ]
+        },
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_03.png",
+            "bar_index": 23,
+            "condition": {
+                "type": "origins:resource",
+                "resource": "*:*_resource",
+                "comparison": "<",
+                "compare_to": 1400
+            }
+        }
+    },
+    "resource_gain_over_time": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "*:*_resource",
+            "operation": "add",
+            "change": 3
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_resource",
+                    "comparison": "<=",
+                    "compare_to": 1400
+                },
+                {
+                    "type": "origins:command",
+                    "command": "execute if entity @s[tag=!quirk.gravity.up,tag=!quirk.gravity.north,tag=!quirk.gravity.east,tag=!quirk.gravity.south,tag=!quirk.gravity.west]",
+                    "comparison": "==",
+                    "compare_to": 1
+                }
+            ]
+        }
+    },
+    "resource_loss_over_time": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "*:*_resource",
+            "operation": "add",
+            "change": -2
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_resource",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:command",
+                    "command": "execute unless entity @s[tag=!quirk.gravity.up,tag=!quirk.gravity.north,tag=!quirk.gravity.east,tag=!quirk.gravity.south,tag=!quirk.gravity.west]",
+                    "comparison": "==",
+                    "compare_to": 1
+                }
+            ]
+        }
+    },
+    "activated_resource": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "remove": {
+        "type": "origins:action_on_callback",
+        "entity_action_respawned": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "function life:quirk/gravity/set/down"
+                },
+                {
+                    "type": "origins:apply_effect",
+                    "effect": {
+                        "id": "minecraft:slow_falling",
+                        "duration": 40,
+                        "amplifier": 0,
+                        "ambient": true,
+                        "show_particles": false,
+                        "show_icon": false
+                    }
+                }
+            ]
+        },
+        "entity_action_lost": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "function life:quirk/gravity/set/down"
+                },
+                {
+                    "type": "origins:apply_effect",
+                    "effect": {
+                        "id": "minecraft:slow_falling",
+                        "duration": 40,
+                        "amplifier": 0,
+                        "ambient": true,
+                        "show_particles": false,
+                        "show_icon": false
+                    }
+                }
+            ]
+        }
+    },
+    "seek": {
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:grant_power",
+            "power": "life:quirk/misc/power",
+            "source": "*:*"
+        },
+        "entity_action_lost": {
+            "type": "origins:remove_power",
+            "power": "life:quirk/misc/power",
+            "source": "*:*"
+        }
+    }
+}
