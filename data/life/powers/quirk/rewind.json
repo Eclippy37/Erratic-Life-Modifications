@@ -133,8 +133,12 @@
             "type": "origins:and",
             "actions": [
                 {
+                    "type": "origins:heal",
+                    "amount": 100
+                },
+                {
                     "type": "origins:execute_command",
-                    "command": "function life:quirk/rewind/end"
+                    "command": "function life:quirk/rewind/return"
                 },
                 {
                     "type": "origins:change_resource",
@@ -146,11 +150,18 @@
                     "type": "origins:change_resource",
                     "resource": "*:*_cooldown",
                     "operation": "set",
-                    "change": 2400
+                    "change": 1200
                 },
                 {
-                    "type": "origins:execute_command",
-                    "command": "playsound minecraft:block.crafter.fail player @s ~ ~ ~ 1 1.25"
+                    "type": "origins:set_fall_distance",
+                    "fall_distance": 0
+                },
+                {
+                    "type": "origins:extinguish"
+                },
+                {
+                    "type": "origins:gain_air",
+                    "value": 20
                 }
             ]
         },
@@ -174,6 +185,20 @@
             "resource": "*:*_timer",
             "operation": "add",
             "change": -1
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_timer",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "tick_over_time": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "execute if entity @e[type=marker,tag=quirk.rewind.point,distance=..50] at @e[tag=quirk.rewind.point,distance=..50] run particle minecraft:reverse_portal ~ ~1 ~ 0.2 0.35 0.2 0.025 10 normal @s"
         },
         "interval": 1,
         "condition": {

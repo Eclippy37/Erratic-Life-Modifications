@@ -243,22 +243,5 @@
             "power": "life:quirk/misc/power",
             "source": "*:*"
         }
-    },
-    "seek_over_time": {
-        "type": "origins:action_over_time",
-        "entity_action": {
-            "type": "origins:change_resource",
-            "resource": "*:quirk/misc/power_resource",
-            "operation": "set",
-            "change": 10
-        },
-        "interval": 10,
-        "condition": {
-            "type": "origins:resource",
-            "resource": "*:*_resource",
-            "comparison": "==",
-            "compare_to": 0,
-            "inverted": true
-        }
     }
 }

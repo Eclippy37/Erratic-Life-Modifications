@@ -1,0 +1,14 @@
+{
+    "powers": [
+        "life:quirk/trap"
+    ],
+    "icon": {
+        "id": "minecraft:tripwire"
+    },
+    "name": "Trap",
+    "description": "",
+    "order": 0,
+    "impact": 0,
+    "loading_priority": 1,
+    "unchoosable": false
+}

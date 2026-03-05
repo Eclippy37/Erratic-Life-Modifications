@@ -60,6 +60,64 @@
             }
         }
     },
+    "tick_over_time": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "function life:quirk/seek/tick"
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_toggle",
+            "comparison": "==",
+            "compare_to": 1
+        },
+        "interval": 1
+    },
+    "glow": {
+        "type": "origins:entity_glow",
+        "entity_condition": {
+            "type": "origins:resource",
+            "resource": "*:quirk/misc/power_resource",
+            "comparison": ">",
+            "compare_to": 0
+        },
+        "bientity_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:distance",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:distance",
+                    "comparison": "<=",
+                    "compare_to": 512
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_toggle",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    },
+    "sound": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "execute at @p[tag=quirk.active,distance=0.1..32] run playsound minecraft:block.note_block.basedrum record @s ~ ~ ~ 1.75 1"
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_toggle",
+            "comparison": "==",
+            "compare_to": 1
+        },
+        "interval": 20
+    },
     "raycast": {
         "type": "origins:action_over_time",
         "entity_action": {
@@ -71,33 +129,6 @@
             "bientity_action": {
                 "type": "origins:if_else_list",
                 "actions": [
-                    {
-                        "action": {
-                            "type": "origins:actor_action",
-                            "action": {
-                                "type": "origins:execute_command",
-                                "command": "title @s actionbar {\"color\":\"gray\",\"text\":\"Friction\"}"
-                            }
-                        },
-                        "condition": {
-                            "type": "origins:target_condition",
-                            "condition": {
-                                "type": "origins:and",
-                                "conditions": [
-                                    {
-                                        "type": "origins:resource",
-                                        "resource": "*:quirk/misc/power_resource",
-                                        "comparison": ">",
-                                        "compare_to": 0
-                                    },
-                                    {
-                                        "type": "origins:power",
-                                        "power": "life:quirk/abrasion"
-                                    }
-                                ]
-                            }
-                        }
-                    },
                     {
                         "action": {
                             "type": "origins:actor_action",
@@ -211,6 +242,33 @@
                             "type": "origins:actor_action",
                             "action": {
                                 "type": "origins:execute_command",
+                                "command": "title @s actionbar {\"color\":\"gray\",\"text\":\"Friction\"}"
+                            }
+                        },
+                        "condition": {
+                            "type": "origins:target_condition",
+                            "condition": {
+                                "type": "origins:and",
+                                "conditions": [
+                                    {
+                                        "type": "origins:resource",
+                                        "resource": "*:quirk/misc/power_resource",
+                                        "comparison": ">",
+                                        "compare_to": 0
+                                    },
+                                    {
+                                        "type": "origins:power",
+                                        "power": "life:quirk/friction"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "action": {
+                            "type": "origins:actor_action",
+                            "action": {
+                                "type": "origins:execute_command",
                                 "command": "title @s actionbar {\"color\":\"gray\",\"text\":\"Gravity\"}"
                             }
                         },
@@ -282,6 +340,33 @@
                                     {
                                         "type": "origins:power",
                                         "power": "life:quirk/psykol"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "action": {
+                            "type": "origins:actor_action",
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "title @s actionbar {\"color\":\"gray\",\"text\":\"Push & Pull\"}"
+                            }
+                        },
+                        "condition": {
+                            "type": "origins:target_condition",
+                            "condition": {
+                                "type": "origins:and",
+                                "conditions": [
+                                    {
+                                        "type": "origins:resource",
+                                        "resource": "*:quirk/misc/power_resource",
+                                        "comparison": ">",
+                                        "compare_to": 0
+                                    },
+                                    {
+                                        "type": "origins:power",
+                                        "power": "life:quirk/push_pull"
                                     }
                                 ]
                             }
@@ -513,64 +598,6 @@
             "compare_to": 1
         },
         "interval": 1
-    },
-    "tick_over_time": {
-        "type": "origins:action_over_time",
-        "entity_action": {
-            "type": "origins:execute_command",
-            "command": "function life:quirk/seek/tick"
-        },
-        "condition": {
-            "type": "origins:resource",
-            "resource": "*:*_toggle",
-            "comparison": "==",
-            "compare_to": 1
-        },
-        "interval": 1
-    },
-    "glow": {
-        "type": "origins:entity_glow",
-        "entity_condition": {
-            "type": "origins:resource",
-            "resource": "*:quirk/misc/power_resource",
-            "comparison": ">",
-            "compare_to": 0
-        },
-        "bientity_condition": {
-            "type": "origins:and",
-            "conditions": [
-                {
-                    "type": "origins:distance",
-                    "comparison": ">",
-                    "compare_to": 0
-                },
-                {
-                    "type": "origins:distance",
-                    "comparison": "<=",
-                    "compare_to": 512
-                }
-            ]
-        },
-        "condition": {
-            "type": "origins:resource",
-            "resource": "*:*_toggle",
-            "comparison": "==",
-            "compare_to": 1
-        }
-    },
-    "sound": {
-        "type": "origins:action_over_time",
-        "entity_action": {
-            "type": "origins:execute_command",
-            "command": "execute at @p[tag=quirk.active,distance=0.1..32] run playsound minecraft:block.note_block.basedrum record @s ~ ~ ~ 1.75 1"
-        },
-        "condition": {
-            "type": "origins:resource",
-            "resource": "*:*_toggle",
-            "comparison": "==",
-            "compare_to": 1
-        },
-        "interval": 20
     },
     "seek": {
         "type": "origins:action_on_callback",

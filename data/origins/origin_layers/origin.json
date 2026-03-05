@@ -16,10 +16,12 @@
         "life:void",
         "life:smoke",
         "life:feruchemy",
-        "life:abrasion",
+        "life:friction",
         "life:psykol",
         "life:star",
-        "life:seek"
+        "life:seek",
+        "life:push_pull",
+        "life:trap"
     ],
     "allow_random": true,
     "exclude_random": [

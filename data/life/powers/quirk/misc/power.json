@@ -91,32 +91,6 @@
             ]
         }
     },
-    "abrasion": {
-        "type": "origins:action_over_time",
-        "entity_action": {
-            "type": "origins:change_resource",
-            "resource": "*:quirk/misc/power_resource",
-            "operation": "set",
-            "change": 10
-        },
-        "interval": 10,
-        "condition": {
-            "type": "origins:and",
-            "conditions": [
-                {
-                    "type": "origins:resource",
-                    "resource": "*:quirk/abrasion_resource",
-                    "comparison": "==",
-                    "compare_to": 0,
-                    "inverted": true
-                },
-                {
-                    "type": "origins:power",
-                    "power": "life:quirk/abrasion"
-                }
-            ]
-        }
-    },
     "dash": {
         "type": "origins:active_self",
         "key": "key.origins.primary_active",
@@ -189,6 +163,32 @@
                 {
                     "type": "origins:power",
                     "power": "life:quirk/float"
+                }
+            ]
+        }
+    },
+    "friction": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "*:quirk/misc/power_resource",
+            "operation": "set",
+            "change": 10
+        },
+        "interval": 10,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/friction_resource",
+                    "comparison": "==",
+                    "compare_to": 0,
+                    "inverted": true
+                },
+                {
+                    "type": "origins:power",
+                    "power": "life:quirk/friction"
                 }
             ]
         }
@@ -274,6 +274,34 @@
             ]
         },
         "cooldown": 10
+    },
+    "push_pull": {
+        "type": "origins:active_self",
+        "key": {
+            "key": "key.origins.primary_active",
+            "continuous": true
+        },
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "*:quirk/misc/power_resource",
+            "operation": "set",
+            "change": 10
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/push_pull_timer",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:power",
+                    "power": "life:quirk/push_pull"
+                }
+            ]
+        }
     },
     "rewind": {
         "type": "origins:action_over_time",

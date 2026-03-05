@@ -1,11 +1,11 @@
 {
     "powers": [
-        "life:quirk/abrasion"
+        "life:quirk/push_pull"
     ],
     "icon": {
-        "id": "minecraft:light_gray_wool"
+        "id": "minecraft:iron_block"
     },
-    "name": "Abrasion",
+    "name": "Push & Pull",
     "description": "",
     "order": 0,
     "impact": 0,

@@ -8,7 +8,7 @@
             "features": false,
             "layers": [
                 {
-                    "height": 1,
+                    "height": 65,
                     "block": "minecraft:barrier"
                 }
             ],

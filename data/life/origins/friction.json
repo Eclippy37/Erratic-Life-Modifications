@@ -1,0 +1,14 @@
+{
+    "powers": [
+        "life:quirk/friction"
+    ],
+    "icon": {
+        "id": "minecraft:light_gray_wool"
+    },
+    "name": "Friction",
+    "description": "",
+    "order": 0,
+    "impact": 0,
+    "loading_priority": 1,
+    "unchoosable": false
+}
