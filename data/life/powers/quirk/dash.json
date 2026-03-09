@@ -17,12 +17,8 @@
                     "y": 0.25
                 },
                 {
-                    "type": "origins:play_sound",
-                    "sound": "minecraft:entity.breeze.jump",
-                    "category": "players",
-                    "volume": 1.0,
-                    "pitch": 1.25,
-                    "targets": "@a"
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.breeze.jump player @s ~ ~ ~ 1 1.25"
                 },
                 {
                     "type": "origins:change_resource",
@@ -51,14 +47,6 @@
         "min": 0,
         "max": 700,
         "start_value": 700,
-        "max_action": {
-            "type": "origins:play_sound",
-            "sound": "minecraft:entity.breeze.inhale",
-            "category": "players",
-            "volume": 1.0,
-            "pitch": 1.25,
-            "targets": "@s"
-        },
         "hud_render": {
             "should_render": true,
             "sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
