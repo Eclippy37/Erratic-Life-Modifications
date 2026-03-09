@@ -3,7 +3,7 @@
         "life:quirk/swap"
     ],
     "icon": {
-        "id": "minecraft:magenta_wool"
+        "id": "minecraft:lead"
     },
     "name": "Swap",
     "description": "",

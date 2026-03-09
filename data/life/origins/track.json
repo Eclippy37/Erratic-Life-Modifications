@@ -3,7 +3,7 @@
         "life:quirk/track"
     ],
     "icon": {
-        "id": "minecraft:yellow_wool"
+        "id": "minecraft:compass"
     },
     "name": "Track",
     "description": "",

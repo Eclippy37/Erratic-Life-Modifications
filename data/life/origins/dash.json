@@ -3,7 +3,7 @@
         "life:quirk/dash"
     ],
     "icon": {
-        "id": "minecraft:cyan_wool"
+        "id": "minecraft:breeze_rod"
     },
     "name": "Dash",
     "description": "",

@@ -3,7 +3,7 @@
         "life:quirk/seek"
     ],
     "icon": {
-        "id": "minecraft:brown_wool"
+        "id": "minecraft:spyglass"
     },
     "name": "Seeker",
     "description": "",

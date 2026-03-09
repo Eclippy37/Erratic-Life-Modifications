@@ -3,7 +3,7 @@
         "life:quirk/star"
     ],
     "icon": {
-        "id": "minecraft:purple_wool"
+        "id": "minecraft:nether_star"
     },
     "name": "Star",
     "description": "",

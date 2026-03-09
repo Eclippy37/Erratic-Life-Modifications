@@ -3,7 +3,7 @@
         "life:quirk/friction"
     ],
     "icon": {
-        "id": "minecraft:light_gray_wool"
+        "id": "minecraft:ice"
     },
     "name": "Friction",
     "description": "",

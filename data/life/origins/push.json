@@ -1,0 +1,14 @@
+{
+    "powers": [
+        "life:quirk/push"
+    ],
+    "icon": {
+        "id": "minecraft:light_blue_dye"
+    },
+    "name": "Push",
+    "description": "",
+    "order": 0,
+    "impact": 0,
+    "loading_priority": 1,
+    "unchoosable": false
+}

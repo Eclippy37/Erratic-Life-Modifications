@@ -3,7 +3,7 @@
         "life:quirk/trap"
     ],
     "icon": {
-        "id": "minecraft:tripwire"
+        "id": "minecraft:tripwire_hook"
     },
     "name": "Trap",
     "description": "",

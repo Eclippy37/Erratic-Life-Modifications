@@ -3,7 +3,7 @@
         "life:quirk/travel"
     ],
     "icon": {
-        "id": "minecraft:lime_wool"
+        "id": "minecraft:ender_pearl"
     },
     "name": "Travel",
     "description": "",

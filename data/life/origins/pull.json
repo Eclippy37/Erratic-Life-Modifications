@@ -1,0 +1,14 @@
+{
+    "powers": [
+        "life:quirk/pull"
+    ],
+    "icon": {
+        "id": "minecraft:red_dye"
+    },
+    "name": "Pull",
+    "description": "",
+    "order": 0,
+    "impact": 0,
+    "loading_priority": 1,
+    "unchoosable": false
+}

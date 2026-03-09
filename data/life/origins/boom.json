@@ -3,7 +3,7 @@
         "life:quirk/boom"
     ],
     "icon": {
-        "id": "minecraft:orange_wool"
+        "id": "minecraft:tnt"
     },
     "name": "Boom",
     "description": "",

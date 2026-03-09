@@ -3,7 +3,7 @@
         "life:quirk/smoke"
     ],
     "icon": {
-        "id": "minecraft:gray_wool"
+        "id": "minecraft:smoker"
     },
     "name": "Smoke",
     "description": "",

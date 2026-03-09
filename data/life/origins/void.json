@@ -3,7 +3,7 @@
         "life:quirk/void"
     ],
     "icon": {
-        "id": "minecraft:black_wool"
+        "id": "minecraft:bedrock"
     },
     "name": "Void",
     "description": "",

@@ -3,7 +3,7 @@
         "life:quirk/rewind"
     ],
     "icon": {
-        "id": "minecraft:red_wool"
+        "id": "minecraft:clock"
     },
     "name": "Rewind",
     "description": "",

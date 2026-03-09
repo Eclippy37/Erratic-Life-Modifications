@@ -3,7 +3,7 @@
         "life:quirk/jester"
     ],
     "icon": {
-        "id": "minecraft:green_wool"
+        "id": "minecraft:note_block"
     },
     "name": "Jester",
     "description": "",

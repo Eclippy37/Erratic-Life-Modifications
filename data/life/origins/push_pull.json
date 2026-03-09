@@ -3,7 +3,7 @@
         "life:quirk/push_pull"
     ],
     "icon": {
-        "id": "minecraft:iron_block"
+        "id": "minecraft:purple_dye"
     },
     "name": "Push & Pull",
     "description": "",
