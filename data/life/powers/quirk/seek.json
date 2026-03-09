@@ -377,6 +377,60 @@
                             "type": "origins:actor_action",
                             "action": {
                                 "type": "origins:execute_command",
+                                "command": "title @s actionbar {\"color\":\"gray\",\"text\":\"Push\"}"
+                            }
+                        },
+                        "condition": {
+                            "type": "origins:target_condition",
+                            "condition": {
+                                "type": "origins:and",
+                                "conditions": [
+                                    {
+                                        "type": "origins:resource",
+                                        "resource": "*:quirk/misc/power_resource",
+                                        "comparison": ">",
+                                        "compare_to": 0
+                                    },
+                                    {
+                                        "type": "origins:power",
+                                        "power": "life:quirk/push"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "action": {
+                            "type": "origins:actor_action",
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "title @s actionbar {\"color\":\"gray\",\"text\":\"Pull\"}"
+                            }
+                        },
+                        "condition": {
+                            "type": "origins:target_condition",
+                            "condition": {
+                                "type": "origins:and",
+                                "conditions": [
+                                    {
+                                        "type": "origins:resource",
+                                        "resource": "*:quirk/misc/power_resource",
+                                        "comparison": ">",
+                                        "compare_to": 0
+                                    },
+                                    {
+                                        "type": "origins:power",
+                                        "power": "life:quirk/pull"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "action": {
+                            "type": "origins:actor_action",
+                            "action": {
+                                "type": "origins:execute_command",
                                 "command": "title @s actionbar {\"color\":\"gray\",\"text\":\"Rewind\"}"
                             }
                         },

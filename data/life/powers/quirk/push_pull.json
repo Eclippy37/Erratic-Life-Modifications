@@ -15,8 +15,8 @@
                     "distance": 10,
                     "block": true,
                     "entity": true,
-                    "shape_type": "outline",
-                    "fluid_handling": "any",
+                    "shape_type": "collider",
+                    "fluid_handling": "none",
                     "hit_action": {
                         "type": "origins:and",
                         "actions": [
@@ -59,11 +59,11 @@
                     "distance": 10,
                     "block": false,
                     "entity": true,
-                    "shape_type": "outline",
-                    "fluid_handling": "any",
+                    "shape_type": "collider",
+                    "fluid_handling": "none",
                     "bientity_action": {
                         "type": "origins:add_velocity",
-                        "z": 0.125,
+                        "z": 0.25,
                         "client": true,
                         "server": true
                     },
@@ -106,11 +106,11 @@
             "actions": [
                 {
                     "type": "origins:raycast",
-                    "distance": 14,
+                    "distance": 16,
                     "block": true,
                     "entity": true,
-                    "shape_type": "outline",
-                    "fluid_handling": "any",
+                    "shape_type": "collider",
+                    "fluid_handling": "none",
                     "hit_action": {
                         "type": "origins:and",
                         "actions": [
@@ -150,14 +150,14 @@
                 },
                 {
                     "type": "origins:raycast",
-                    "distance": 12,
+                    "distance": 16,
                     "block": false,
                     "entity": true,
-                    "shape_type": "outline",
-                    "fluid_handling": "any",
+                    "shape_type": "collider",
+                    "fluid_handling": "none",
                     "bientity_action": {
                         "type": "origins:add_velocity",
-                        "z": -0.125,
+                        "z": -0.25,
                         "client": true,
                         "server": true
                     },
