@@ -17,6 +17,10 @@
                         "command": "function life:quirk/gravity/check"
                     },
                     {
+                        "type": "origins:execute_command",
+                        "command": "playsound minecraft:block.beacon.activate player @s ~ ~ ~ 0.5 2"
+                    },
+                    {
                         "type": "origins:change_resource",
                         "resource": "*:*_resource",
                         "operation": "add",
@@ -38,10 +42,8 @@
                         "command": "function life:quirk/gravity/set/down"
                     },
                     {
-                        "type": "origins:change_resource",
-                        "resource": "*:*_resource",
-                        "operation": "add",
-                        "change": -50
+                        "type": "origins:execute_command",
+                        "command": "playsound minecraft:block.beacon.deactivate player @s ~ ~ ~ 0.5 2"
                     },
                     {
                         "type": "origins:change_resource",
@@ -52,8 +54,19 @@
                 ]
             },
             "condition": {
-                "type": "origins:sneaking",
-                "inverted": true
+                "type": "origins:or",
+                "conditions": [
+                    {
+                        "type": "origins:sneaking",
+                        "inverted": true
+                    },
+                    {
+                        "type": "origins:command",
+                        "command": "execute if entity @s[tag=!quirk.gravity.up,tag=!quirk.gravity.north,tag=!quirk.gravity.east,tag=!quirk.gravity.south,tag=!quirk.gravity.west]",
+                        "comparison": "==",
+                        "compare_to": 1
+                    }
+                ]
             }
         },
         "cooldown": 10,

@@ -8,6 +8,3 @@ tag @s remove quirk.gravity.west
 
 # Set Gravity Direction
 gravity set_base_direction down
-
-# Playsound
-playsound minecraft:block.beacon.deactivate player @s ~ ~ ~ 1 2

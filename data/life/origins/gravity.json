@@ -3,7 +3,7 @@
         "life:quirk/gravity"
     ],
     "icon": {
-        "id": "minecraft:blue_wool"
+        "id": "minecraft:phantom_membrane"
     },
     "name": "Gravity",
     "description": "",
