@@ -112,7 +112,7 @@
                 }
             ]
         },
-        "cooldown": 200,
+        "cooldown": 60,
         "hud_render": {
             "should_render": true,
             "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
@@ -137,7 +137,7 @@
     "increase_movement_speed": {
         "type": "origins:conditioned_attribute",
         "modifier": {
-            "id": "life:movement_speed",
+            "id": "life:increase_movement_speed",
             "attribute": "minecraft:generic.movement_speed",
             "operation": "add_multiplied_total",
             "amount": 0.8
@@ -153,7 +153,7 @@
     "decrease_movement_speed": {
         "type": "origins:conditioned_attribute",
         "modifier": {
-            "id": "life:movement_speed",
+            "id": "life:decrease_movement_speed",
             "attribute": "minecraft:generic.movement_speed",
             "operation": "add_multiplied_total",
             "amount": -0.3
@@ -166,25 +166,48 @@
             "compare_to": -1
         }
     },
-    "wall_jump": {
-        "type": "origins:grounded",
+    "wall_climb": {
+        "type": "origins:climbing",
         "condition": {
-            "type": "origins:and",
+            "type": "origins:all_of",
             "conditions": [
                 {
-                    "type": "origins:or",
+                    "type": "origins:any_of",
                     "conditions": [
                         {
-                            "type": "origins:block_collision",
-                            "offset_x": 0.01,
-                            "offset_z": 0.01,
-                            "offset_y": 0
+                            "type": "origins:all_of",
+                            "conditions": [
+                                {
+                                    "type": "origins:sneaking",
+                                    "inverted": true
+                                },
+                                {
+                                    "type": "origins:collided_horizontally"
+                                }
+                            ]
                         },
                         {
-                            "type": "origins:block_collision",
-                            "offset_x": -0.01,
-                            "offset_z": -0.01,
-                            "offset_y": 0
+                            "type": "origins:all_of",
+                            "conditions": [
+                                {
+                                    "type": "origins:sneaking"
+                                },
+                                {
+                                    "type": "origins:any_of",
+                                    "conditions": [
+                                        {
+                                            "type": "origins:block_collision",
+                                            "offset_x": 0.01,
+                                            "offset_z": 0.01
+                                        },
+                                        {
+                                            "type": "origins:block_collision",
+                                            "offset_x": -0.01,
+                                            "offset_z": -0.01
+                                        }
+                                    ]
+                                }
+                            ]
                         }
                     ]
                 },

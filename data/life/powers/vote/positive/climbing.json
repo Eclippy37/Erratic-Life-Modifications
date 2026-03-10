@@ -1,0 +1,58 @@
+{
+    "hidden": true,
+    "type": "origins:multiple",
+    "main": {
+        "type": "origins:climbing",
+        "condition": {
+            "type": "origins:or",
+            "conditions": [
+                {
+                    "type": "origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:sneaking",
+                            "inverted": true
+                        },
+                        {
+                            "type": "origins:collided_horizontally"
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:sneaking"
+                        },
+                        {
+                            "type": "origins:or",
+                            "conditions": [
+                                {
+                                    "type": "origins:block_collision",
+                                    "offset_x": 0.01,
+                                    "offset_z": 0.01
+                                },
+                                {
+                                    "type": "origins:block_collision",
+                                    "offset_x": -0.01,
+                                    "offset_z": -0.01
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "callback": {
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:execute_command",
+            "command": "tag @s add vote.positive.climbing"
+        },
+        "entity_action_lost": {
+            "type": "origins:execute_command",
+            "command": "tag @s remove vote.positive.climbing"
+        }
+    }
+}

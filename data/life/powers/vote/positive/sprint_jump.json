@@ -1,0 +1,34 @@
+{
+    "hidden": true,
+    "type": "origins:multiple",
+    "main": {
+        "type": "origins:modify_jump",
+        "modifier": {
+            "amount": 0.5,
+            "operation": "multiply_base_multiplicative"
+        },
+        "condition": {
+            "type": "origins:sprinting"
+        }
+    },
+    "safe_fall": {
+        "type": "origins:attribute",
+        "modifier": {
+            "id": "*:*",
+            "attribute": "minecraft:generic.safe_fall_distance",
+            "operation": "add_multiplied_total",
+            "amount": 1.0
+        }
+    },
+    "callback": {
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:execute_command",
+            "command": "tag @s add vote.positive.sprint_jump"
+        },
+        "entity_action_lost": {
+            "type": "origins:execute_command",
+            "command": "tag @s remove vote.positive.sprint_jump"
+        }
+    }
+}

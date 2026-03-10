@@ -12,6 +12,8 @@ scoreboard objectives add quirk.track.rotation.player dummy
 scoreboard objectives add quirk.track.rotation.marker dummy
 scoreboard objectives add health health
 scoreboard objectives add health.save dummy
+scoreboard objectives add vote trigger
+scoreboard objectives add erraticlife.vote dummy
 
 # Set scoreboard
 scoreboard players set #ErraticLife quirk.track.rotation.player 360
