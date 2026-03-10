@@ -9,80 +9,438 @@
             "actions": [
                 {
                     "action": {
-                        "type": "origins:and",
+                        "type": "origins:if_else_list",
                         "actions": [
                             {
-                                "type": "origins:raycast",
-                                "block": false,
-                                "entity": true,
-                                "shape_type": "collider",
-                                "fluid_handling": "none",
-                                "bientity_action": {
+                                "action": {
                                     "type": "origins:and",
                                     "actions": [
                                         {
-                                            "type": "origins:actor_action",
-                                            "action": {
-                                                "type": "origins:execute_command",
-                                                "command": "function life:quirk/track/actor/hit"
-                                            }
+                                            "type": "origins:execute_command",
+                                            "command": "title @s actionbar [{\"text\":\"TNT\",\"color\":\"gray\"}]"
                                         },
                                         {
-                                            "type": "origins:target_action",
-                                            "action": {
-                                                "type": "origins:execute_command",
-                                                "command": "function life:quirk/track/target/hit"
-                                            }
+                                            "type": "origins:change_resource",
+                                            "resource": "*:*_resource",
+                                            "operation": "set",
+                                            "change": 1
                                         }
                                     ]
                                 },
-                                "miss_action": {
-                                    "type": "origins:execute_command",
-                                    "command": "function life:quirk/track/actor/miss"
+                                "condition": {
+                                    "type": "origins:resource",
+                                    "resource": "*:*_resource",
+                                    "comparison": "==",
+                                    "compare_to": 5
+                                }
+                            },
+                            {
+                                "action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "title @s actionbar [{\"text\":\"Decoy\",\"color\":\"gray\"}]"
+                                        },
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "*:*_resource",
+                                            "operation": "set",
+                                            "change": 2
+                                        }
+                                    ]
+                                },
+                                "condition": {
+                                    "type": "origins:resource",
+                                    "resource": "*:*_resource",
+                                    "comparison": "==",
+                                    "compare_to": 1
+                                }
+                            },
+                            {
+                                "action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "title @s actionbar [{\"text\":\"Wither\",\"color\":\"gray\"}]"
+                                        },
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "*:*_resource",
+                                            "operation": "set",
+                                            "change": 3
+                                        }
+                                    ]
+                                },
+                                "condition": {
+                                    "type": "origins:resource",
+                                    "resource": "*:*_resource",
+                                    "comparison": "==",
+                                    "compare_to": 2
+                                }
+                            },
+                            {
+                                "action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "title @s actionbar [{\"text\":\"Fall\",\"color\":\"gray\"}]"
+                                        },
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "*:*_resource",
+                                            "operation": "set",
+                                            "change": 4
+                                        }
+                                    ]
+                                },
+                                "condition": {
+                                    "type": "origins:resource",
+                                    "resource": "*:*_resource",
+                                    "comparison": "==",
+                                    "compare_to": 3
+                                }
+                            },
+                            {
+                                "action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "title @s actionbar [{\"text\":\"Blind\",\"color\":\"gray\"}]"
+                                        },
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "*:*_resource",
+                                            "operation": "set",
+                                            "change": 5
+                                        }
+                                    ]
+                                },
+                                "condition": {
+                                    "type": "origins:resource",
+                                    "resource": "*:*_resource",
+                                    "comparison": "==",
+                                    "compare_to": 4
+                                }
+                            },
+                            {
+                                "action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "title @s actionbar [{\"text\":\"Poison\",\"color\":\"gray\"}]"
+                                        },
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "*:*_resource",
+                                            "operation": "set",
+                                            "change": 6
+                                        }
+                                    ]
+                                },
+                                "condition": {
+                                    "type": "origins:resource",
+                                    "resource": "*:*_resource",
+                                    "comparison": "==",
+                                    "compare_to": 5
                                 }
                             }
                         ]
                     },
                     "condition": {
-                        "type": "origins:sneaking",
-                        "inverted": true
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:sneaking",
+                                "inverted": false
+                            },
+                            {
+                                "type": "origins:command",
+                                "command": "execute unless entity @e[type=minecraft:block_display,tag=quirk.trap.point]",
+                                "comparison": ">=",
+                                "compare_to": 1
+                            }
+                        ]
                     }
                 },
                 {
                     "action": {
-                        "type": "origins:execute_command",
-                        "command": "function life:quirk/track/actor/clear"
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "kill @e[type=minecraft:block_display,tag=quirk.trap.point]"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "minecraft:entity.vex.hurt player @s ~ ~ ~ 1 2"
+                            }
+                        ]
                     },
                     "condition": {
-                        "type": "origins:sneaking",
-                        "inverted": false
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:sneaking",
+                                "inverted": false
+                            },
+                            {
+                                "type": "origins:command",
+                                "command": "execute if entity @e[type=minecraft:block_display,tag=quirk.trap.point]",
+                                "comparison": ">=",
+                                "compare_to": 1
+                            }
+                        ]
+                    }
+                },
+                {
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "execute as @e[type=minecraft:block_display,tag=quirk.trap.point] at @s run function life:quirk/trap/activate"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "playsound minecraft:entity.wither.shoot player @s ~ ~ ~ 1 2"
+                            },
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "*:*_cooldown",
+                                "operation": "set",
+                                "change": 12
+                            }
+                        ]
+                    },
+                    "condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:sneaking",
+                                "inverted": true
+                            },
+                            {
+                                "type": "origins:resource",
+                                "resource": "*:*_cooldown",
+                                "comparison": "==",
+                                "compare_to": 0
+                            },
+                            {
+                                "type": "origins:command",
+                                "command": "execute if entity @e[type=minecraft:block_display,tag=quirk.trap.point]",
+                                "comparison": ">=",
+                                "compare_to": 1
+                            }
+                        ]
+                    }
+                },
+                {
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:if_else_list",
+                                "actions": [
+                                    {
+                                        "action": {
+                                            "type": "origins:execute_command",
+                                            "command": "function life:quirk/trap/set/explode"
+                                        },
+                                        "condition": {
+                                            "type": "origins:resource",
+                                            "resource": "*:*_resource",
+                                            "comparison": "==",
+                                            "compare_to": 1
+                                        }
+                                    },
+                                    {
+                                        "action": {
+                                            "type": "origins:execute_command",
+                                            "command": "function life:quirk/trap/set/fake"
+                                        },
+                                        "condition": {
+                                            "type": "origins:resource",
+                                            "resource": "*:*_resource",
+                                            "comparison": "==",
+                                            "compare_to": 2
+                                        }
+                                    },
+                                    {
+                                        "action": {
+                                            "type": "origins:execute_command",
+                                            "command": "function life:quirk/trap/set/wither"
+                                        },
+                                        "condition": {
+                                            "type": "origins:resource",
+                                            "resource": "*:*_resource",
+                                            "comparison": "==",
+                                            "compare_to": 3
+                                        }
+                                    },
+                                    {
+                                        "action": {
+                                            "type": "origins:execute_command",
+                                            "command": "function life:quirk/trap/set/fall"
+                                        },
+                                        "condition": {
+                                            "type": "origins:resource",
+                                            "resource": "*:*_resource",
+                                            "comparison": "==",
+                                            "compare_to": 4
+                                        }
+                                    },
+                                    {
+                                        "action": {
+                                            "type": "origins:execute_command",
+                                            "command": "function life:quirk/trap/set/blind"
+                                        },
+                                        "condition": {
+                                            "type": "origins:resource",
+                                            "resource": "*:*_resource",
+                                            "comparison": "==",
+                                            "compare_to": 5
+                                        }
+                                    },
+                                    {
+                                        "action": {
+                                            "type": "origins:execute_command",
+                                            "command": "function life:quirk/trap/set/poison"
+                                        },
+                                        "condition": {
+                                            "type": "origins:resource",
+                                            "resource": "*:*_resource",
+                                            "comparison": "==",
+                                            "compare_to": 6
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "playsound minecraft:entity.chicken.egg player @s ~ ~ ~ 1 2"
+                            },
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "*:*_cooldown",
+                                "operation": "set",
+                                "change": 12
+                            }
+                        ]
+                    },
+                    "condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:sneaking",
+                                "inverted": true
+                            },
+                            {
+                                "type": "origins:resource",
+                                "resource": "*:*_cooldown",
+                                "comparison": "==",
+                                "compare_to": 0
+                            },
+                            {
+                                "type": "origins:command",
+                                "command": "execute unless entity @e[type=minecraft:block_display,tag=quirk.trap.point]",
+                                "comparison": ">=",
+                                "compare_to": 1
+                            }
+                        ]
                     }
                 }
             ]
         },
-        "cooldown": 10
+        "cooldown": 5
+    },
+    "cooldown": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1200,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
+            "bar_index": 1,
+            "inverted": false,
+            "condition": {
+                "type": "origins:resource",
+                "resource": "*:*_cooldown",
+                "comparison": ">",
+                "compare_to": 0
+            }
+        }
+    },
+    "cooldown_over_time": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "*:*_cooldown",
+            "operation": "add",
+            "change": -1
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_cooldown",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "resource": {
+        "type": "origins:resource",
+        "min": 1,
+        "max": 6,
+        "start_value": 1,
+        "hud_render": {
+            "should_render": false
+        }
     },
     "tick_over_time": {
         "type": "origins:action_over_time",
         "entity_action": {
             "type": "origins:execute_command",
-            "command": "function life:quirk/track/tick"
+            "command": "function life:quirk/trap/tick"
         },
         "interval": 1
     },
+    "glow": {
+        "type": "origins:entity_glow",
+        "entity_condition": {
+            "type": "origins:nbt",
+            "nbt": "{Tags:['quirk.trap.point']}"
+        },
+        "bientity_condition": {
+            "type": "origins:distance",
+            "comparison": "<=",
+            "compare_to": 64
+        }
+    },
     "remove": {
         "type": "origins:action_on_callback",
-        "entity_action_gained": {
-            "type": "origins:execute_command",
-            "command": "function life:quirk/track/clear_full"
-        },
         "entity_action_respawned": {
             "type": "origins:execute_command",
-            "command": "function life:quirk/track/clear_full"
+            "command": "kill @e[type=minecraft:block_display,tag=quirk.trap.point]"
         },
         "entity_action_lost": {
             "type": "origins:execute_command",
-            "command": "function life:quirk/track/clear_full"
+            "command": "kill @e[type=minecraft:block_display,tag=quirk.trap.point]"
+        }
+    },
+    "tag": {
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:execute_command",
+            "command": "tag @s add quirk.trap"
+        },
+        "entity_action_lost": {
+            "type": "origins:execute_command",
+            "command": "tag @s remove quirk.trap"
         }
     },
     "seek": {

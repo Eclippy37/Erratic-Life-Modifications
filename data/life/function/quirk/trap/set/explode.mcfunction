@@ -1,0 +1,2 @@
+# Summon Temp Marker
+summon minecraft:block_display ~ ~ ~ {Tags:["quirk.trap.point","quirk.trap.point.explode"],block_state:{Name:"minecraft:tnt"},transformation:{left_rotation:[0.0,0.0,0.0,1.0],right_rotation:[0.0,0.0,0.0,1.0],scale:[0.05,0.05,0.05],translation:[-0.025,-0.025,-0.025]},view_range:0.0093896715f}
