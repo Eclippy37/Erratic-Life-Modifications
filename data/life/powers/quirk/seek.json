@@ -104,6 +104,24 @@
             "compare_to": 1
         }
     },
+    "glow_trap": {
+        "type": "origins:entity_glow",
+        "entity_condition": {
+            "type": "origins:nbt",
+            "nbt": "{Tags:['quirk.trap.point']}"
+        },
+        "bientity_condition": {
+            "type": "origins:distance",
+            "comparison": "<=",
+            "compare_to": 64
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_toggle",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    },
     "sound": {
         "type": "origins:action_over_time",
         "entity_action": {
@@ -583,6 +601,33 @@
                                     {
                                         "type": "origins:power",
                                         "power": "life:quirk/track"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "action": {
+                            "type": "origins:actor_action",
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "title @s actionbar {\"color\":\"gray\",\"text\":\"Trap\"}"
+                            }
+                        },
+                        "condition": {
+                            "type": "origins:target_condition",
+                            "condition": {
+                                "type": "origins:and",
+                                "conditions": [
+                                    {
+                                        "type": "origins:resource",
+                                        "resource": "*:quirk/misc/power_resource",
+                                        "comparison": ">",
+                                        "compare_to": 0
+                                    },
+                                    {
+                                        "type": "origins:power",
+                                        "power": "life:quirk/trap"
                                     }
                                 ]
                             }
