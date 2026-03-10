@@ -23,7 +23,14 @@
                             {
                                 "type": "origins:add_velocity",
                                 "z": 0.125,
+                                "y": 0.01,
                                 "space": "local",
+                                "client": true,
+                                "server": true
+                            },
+                            {
+                                "type": "origins:add_velocity",
+                                "space": "world",
                                 "client": true,
                                 "server": true
                             },
