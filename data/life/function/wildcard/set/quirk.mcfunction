@@ -1,5 +1,5 @@
-# Set wildcard scoreboard to speed
-scoreboard players set #wildcard erraticlife 7
+# Set #wildcardset scoreboard
+scoreboard players set #wildcardset erraticlife 7
 
 # Tellraw
-tellraw @s [{"text":"Prepared Superpowers wildcard","color":"gray"}]
+tellraw @s [{"text":"Prepared Quirks wildcard","color":"gray"}]

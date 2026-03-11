@@ -1,4 +1,4 @@
-# Set wildcard scoreboard to speed
+# Set #wildcardset scoreboard
 scoreboard players set #wildcardset erraticlife 8
 
 # Tellraw

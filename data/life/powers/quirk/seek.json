@@ -5,35 +5,43 @@
         "type": "origins:active_self",
         "key": "key.origins.primary_active",
         "entity_action": {
-            "type": "origins:if_else_list",
+            "type": "origins:and",
             "actions": [
                 {
-                    "action": {
-                        "type": "origins:change_resource",
-                        "resource": "*:*_toggle",
-                        "operation": "set",
-                        "change": 1
-                    },
-                    "condition": {
-                        "type": "origins:resource",
-                        "resource": "*:*_toggle",
-                        "comparison": "==",
-                        "compare_to": 0
-                    }
+                    "type": "origins:if_else_list",
+                    "actions": [
+                        {
+                            "action": {
+                                "type": "origins:change_resource",
+                                "resource": "*:*_toggle",
+                                "operation": "set",
+                                "change": 1
+                            },
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "*:*_toggle",
+                                "comparison": "==",
+                                "compare_to": 0
+                            }
+                        },
+                        {
+                            "action": {
+                                "type": "origins:change_resource",
+                                "resource": "*:*_toggle",
+                                "operation": "set",
+                                "change": 0
+                            },
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "*:*_toggle",
+                                "comparison": "==",
+                                "compare_to": 1
+                            }
+                        }
+                    ]
                 },
                 {
-                    "action": {
-                        "type": "origins:change_resource",
-                        "resource": "*:*_toggle",
-                        "operation": "set",
-                        "change": 0
-                    },
-                    "condition": {
-                        "type": "origins:resource",
-                        "resource": "*:*_toggle",
-                        "comparison": "==",
-                        "compare_to": 1
-                    }
+                    "type": "origins:playsound
                 }
             ]
         },

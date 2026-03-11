@@ -1,0 +1,1 @@
+function life:title/start

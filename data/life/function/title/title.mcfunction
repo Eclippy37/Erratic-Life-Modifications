@@ -105,11 +105,12 @@ execute if score #TitleTime erraticlife matches ..230 run schedule function life
 execute unless score #TitleTime erraticlife matches ..230 run function life:title/stop
 
 # Activate Wildcard
-execute unless score #TitleTime erraticlife matches ..230 if score #wildcardset erraticlife matches 1 run function life:activate/skin
-execute unless score #TitleTime erraticlife matches ..230 if score #wildcardset erraticlife matches 2 run function life:activate/vote
-execute unless score #TitleTime erraticlife matches ..230 if score #wildcardset erraticlife matches 3 run function life:activate/gravity
-execute unless score #TitleTime erraticlife matches ..230 if score #wildcardset erraticlife matches 4 run function life:activate/murder
-execute unless score #TitleTime erraticlife matches ..230 if score #wildcardset erraticlife matches 5 run function life:activate/jnv
-execute unless score #TitleTime erraticlife matches ..230 if score #wildcardset erraticlife matches 6 run function life:activate/zombie
-execute unless score #TitleTime erraticlife matches ..230 if score #wildcardset erraticlife matches 7 run function life:activate/quirk
-execute unless score #TitleTime erraticlife matches ..230 if score #wildcardset erraticlife matches 8 run function life:activate/callback
+execute unless score #TitleTime erraticlife matches ..230 unless score #wildcardset erraticlife matches 1..8 run tellraw @a {"color":"red","text":"No wildcard was activated"}
+execute unless score #TitleTime erraticlife matches ..230 if score #wildcardset erraticlife matches 1 run function life:wildcard/activate/skin
+execute unless score #TitleTime erraticlife matches ..230 if score #wildcardset erraticlife matches 2 run function life:wildcard/activate/vote
+execute unless score #TitleTime erraticlife matches ..230 if score #wildcardset erraticlife matches 3 run function life:wildcard/activate/gravity
+#execute unless score #TitleTime erraticlife matches ..230 if score #wildcardset erraticlife matches 4 run function life:wildcard/activate/murder
+execute unless score #TitleTime erraticlife matches ..230 if score #wildcardset erraticlife matches 5 run function life:wildcard/activate/jnv
+execute unless score #TitleTime erraticlife matches ..230 if score #wildcardset erraticlife matches 6 run function life:wildcard/activate/zombie
+execute unless score #TitleTime erraticlife matches ..230 if score #wildcardset erraticlife matches 7 run function life:wildcard/activate/quirk
+execute unless score #TitleTime erraticlife matches ..230 if score #wildcardset erraticlife matches 8 run function life:wildcard/activate/callback

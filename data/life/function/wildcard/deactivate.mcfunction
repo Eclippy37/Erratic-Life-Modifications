@@ -24,3 +24,6 @@ scoreboard players reset #VoteNeg2 erraticlife
 
 # Reset vote powers
 function life:vote/activate/none
+
+# Remove Quirks
+function life:quirk/remove
