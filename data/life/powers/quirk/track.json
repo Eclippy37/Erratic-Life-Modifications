@@ -97,6 +97,17 @@
             "command": "function life:quirk/track/clear_full"
         }
     },
+    "tag": {
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:execute_command",
+            "command": "tag @s add quirk.track"
+        },
+        "entity_action_lost": {
+            "type": "origins:execute_command",
+            "command": "tag @s remove quirk.track"
+        }
+    },
     "seek": {
         "type": "origins:action_on_callback",
         "entity_action_gained": {

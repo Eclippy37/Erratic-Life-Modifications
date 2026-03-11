@@ -251,6 +251,17 @@
         },
         "tick_rate": 10
     },
+    "tag": {
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:execute_command",
+            "command": "tag @s add quirk.star"
+        },
+        "entity_action_lost": {
+            "type": "origins:execute_command",
+            "command": "tag @s remove quirk.star"
+        }
+    },
     "seek": {
         "type": "origins:action_on_callback",
         "entity_action_gained": {

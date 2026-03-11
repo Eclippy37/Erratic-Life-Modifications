@@ -219,6 +219,17 @@
             "command": "function life:quirk/rewind/end"
         }
     },
+    "tag": {
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:execute_command",
+            "command": "tag @s add quirk.rewind"
+        },
+        "entity_action_lost": {
+            "type": "origins:execute_command",
+            "command": "tag @s remove quirk.rewind"
+        }
+    },
     "seek": {
         "type": "origins:action_on_callback",
         "entity_action_gained": {
