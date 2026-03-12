@@ -1,7 +1,7 @@
-# Set wildcard scoreboard to speed
+# Set #wildcard scoreboard
 scoreboard players set #wildcard erraticlife 2
 
-# Reset wildcardset scoreboard
+# Reset #wildcardset scoreboard
 scoreboard players reset #wildcardset erraticlife
 
 # Initialize numbers
