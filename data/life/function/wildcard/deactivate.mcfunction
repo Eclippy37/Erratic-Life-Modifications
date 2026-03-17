@@ -6,8 +6,6 @@ scoreboard players set #wildcard erraticlife 0
 
 # Reset wildcardset scoreboard
 scoreboard players reset #wildcardset erraticlife
-scoreboard players reset #wildcardset erraticlife
-scoreboard players reset #wildcardset erraticlife
 
 
 # Reset vote scoreboards
@@ -24,6 +22,9 @@ scoreboard players reset #VoteNeg2 erraticlife
 
 # Reset vote powers
 function life:vote/activate/none
+
+# Remove Gravity
+execute as @a run function life:gravity/activate/down
 
 # Remove Quirks
 function life:quirk/remove

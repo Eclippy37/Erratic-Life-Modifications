@@ -1,1 +1,2 @@
-say Skin reload failed
+#say Skin reload failed
+#tellraw @a "skin reload failed"
