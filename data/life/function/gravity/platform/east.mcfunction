@@ -1,0 +1,1 @@
+fill ~10 ~2 ~2 ~10 ~-2 ~-2 minecraft:glass replace #minecraft:air
