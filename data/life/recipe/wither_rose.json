@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "category": "misc",
+    "ingredients": [
+        {
+            "tag": "minecraft:small_flowers"
+        },
+        {
+            "item": "minecraft:coal"
+        },
+        {
+            "item": "minecraft:bone"
+        }
+    ],
+    "result": {
+        "id": "minecraft:wither_rose",
+        "count": 1
+    }
+}

@@ -1,0 +1,18 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "show_notification": false,
+    "category": "equipment",
+    "key": {
+        "X": {
+            "item": "minecraft:copper_ingot"
+        }
+    },
+    "pattern": [
+        "XXX",
+        "X X"
+    ],
+    "result": {
+        "count": 1,
+        "id": "minecraft:air"
+    }
+}
