@@ -155,7 +155,7 @@
                                 "type": "origins:change_resource",
                                 "resource": "*:*_cooldown",
                                 "operation": "set",
-                                "change": 1200
+                                "change": 2400
                             }
                         ]
                     },
@@ -222,7 +222,7 @@
     "cooldown": {
         "type": "origins:resource",
         "min": 0,
-        "max": 1200,
+        "max": 2400,
         "start_value": 0,
         "hud_render": {
             "should_render": true,
