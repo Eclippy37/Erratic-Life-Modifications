@@ -91,6 +91,31 @@
             ]
         }
     },
+    "boom": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "*:quirk/misc/power_resource",
+            "operation": "set",
+            "change": 10
+        },
+        "interval": 10,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/boom_toggle",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:power",
+                    "power": "life:quirk/boom"
+                }
+            ]
+        }
+    },
     "dash": {
         "type": "origins:active_self",
         "key": "key.origins.primary_active",
