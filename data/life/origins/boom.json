@@ -3,7 +3,7 @@
         "life:quirk/boom"
     ],
     "icon": {
-        "id": "minecraft:tnt"
+        "id": "minecraft:fire_charge"
     },
     "name": "Boom",
     "description": "",
