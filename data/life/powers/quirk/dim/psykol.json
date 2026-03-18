@@ -1,11 +1,15 @@
 {
     "hidden": true,
     "type": "origins:multiple",
-    "shader": {
-        "type": "origins:shader",
-        "shader": "minecraft:shaders/post/blobs2.json"
+    "tick_over_time": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "function life:quirk/psykol/tick"
+        },
+        "interval": 1
     },
-    "effects_over_time": {
+    "effect_over_time": {
         "type": "origins:action_over_time",
         "entity_action": {
             "type": "origins:apply_effect",
@@ -14,15 +18,15 @@
                     "id": "minecraft:water_breathing",
                     "duration": 19,
                     "amplifier": 0,
-                    "ambient": true,
+                    "ambient": false,
                     "show_icon": false,
                     "show_particles": false
                 },
                 {
-                    "id": "minecraft:saturation",
-                    "duration": 1,
+                    "id": "minecraft:slow_falling",
+                    "duration": 39,
                     "amplifier": 0,
-                    "ambient": true,
+                    "ambient": false,
                     "show_icon": false,
                     "show_particles": false
                 }
@@ -30,13 +34,55 @@
         },
         "interval": 10
     },
+    "prevent_exhaustion": {
+        "type": "origins:modify_exhaustion",
+        "modifier": {
+            "id": "*:*",
+            "operation": "add_multiplied_base",
+            "amount": -1
+        }
+    },
+    "prevent_healing": {
+        "type": "origins:modify_healing",
+        "modifier": {
+            "id": "*:*",
+            "operation": "add_multiplied_base",
+            "amount": -1
+        }
+    },
+    "prevent_natural_regen": {
+        "type": "origins:disable_regen"
+    },
+    "like_water": {
+        "type": "origins:like_water"
+    },
+    "night_vision": {
+        "type": "origins:night_vision",
+        "strength": 1.0,
+        "condition": {
+            "type": "origins:submerged_in",
+            "fluid": "minecraft:water"
+        }
+    },
+    "water_vision": {
+        "type": "origins:water_vision"
+    },
+    "attribute": {
+        "type": "origins:attribute",
+        "modifier": {
+            "id": "*:*",
+            "attribute": "additionalentityattributes:generic.water_speed",
+            "amount": 0.5,
+            "operation": "add_multiplied_base"
+        }
+    },
     "remove_on_leave": {
         "type": "origins:action_over_time",
         "entity_action": {
             "type": "origins:remove_power",
             "power": "life:quirk/dim/psykol"
         },
-        "interval": 20,
+        "interval": 10,
         "condition": {
             "type": "origins:dimension",
             "dimension": "life:psykol",

@@ -13,20 +13,36 @@
                         "actions": [
                             {
                                 "type": "origins:change_resource",
-                                "resource": "*:*_cooldown",
-                                "operation": "set",
-                                "change": 50
+                                "resource": "*:*_resource",
+                                "operation": "add",
+                                "change": -1
                             },
                             {
                                 "type": "origins:execute_command",
-                                "command": "execute in life:psykol run tp @s ~ ~ ~"
+                                "command": "execute in life:psykol run tp @s ~ ~.5 ~"
+                            },
+                            {
+                                "type": "origins:grant_power",
+                                "power": "*:quirk/dim/psykol",
+                                "source": "*:*"
                             }
                         ]
                     },
                     "condition": {
-                        "type": "origins:dimension",
-                        "dimension": "life:psykol",
-                        "inverted": true
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:dimension",
+                                "dimension": "minecraft:overworld",
+                                "inverted": false
+                            },
+                            {
+                                "type": "origins:resource",
+                                "resource": "*:*_resource",
+                                "comparison": ">",
+                                "compare_to": 0
+                            }
+                        ]
                     }
                 },
                 {
@@ -34,14 +50,13 @@
                         "type": "origins:and",
                         "actions": [
                             {
-                                "type": "origins:change_resource",
-                                "resource": "*:*_cooldown",
-                                "operation": "set",
-                                "change": 50
+                                "type": "origins:execute_command",
+                                "command": "execute in minecraft:overworld run tp @s ~ ~.5 ~"
                             },
                             {
-                                "type": "origins:execute_command",
-                                "command": "execute in minecraft:overworld run tp @s ~ ~ ~"
+                                "type": "origins:remove_power",
+                                "power": "*:quirk/dim/psykol",
+                                "source": "*:*"
                             }
                         ]
                     },
@@ -50,44 +65,80 @@
                         "dimension": "life:psykol",
                         "inverted": false
                     }
+                },
+                {
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "playsound minecraft:block.beacon.deactivate player @s ~ ~ ~ 0.5 0.8"
+                            }
+                        ]
+                    },
+                    "condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:dimension",
+                                "dimension": "life:psykol",
+                                "inverted": true
+                            },
+                            {
+                                "type": "origins:or",
+                                "conditions": [
+                                    {
+                                        "type": "origins:dimension",
+                                        "dimension": "minecraft:overworld",
+                                        "inverted": true
+                                    },
+                                    {
+                                        "type": "origins:resource",
+                                        "resource": "*:*_resource",
+                                        "comparison": "==",
+                                        "compare_to": 0
+                                    }
+                                ]
+                            }
+                        ]
+                    }
                 }
             ]
         },
         "cooldown": 10
     },
-    "cooldown": {
-        "type": "origins:resource",
-        "min": 0,
-        "max": 50,
-        "start_value": 0,
-        "hud_render": {
-            "should_render": true,
-            "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
-            "bar_index": 1,
-            "inverted": false,
-            "condition": {
-                "type": "origins:resource",
-                "resource": "*:*_cooldown",
-                "comparison": ">",
-                "compare_to": 0,
-                "inverted": false
-            }
-        }
-    },
-    "cooldown_over_time": {
+    "sleeping": {
         "type": "origins:action_over_time",
         "entity_action": {
             "type": "origins:change_resource",
-            "resource": "*:*_cooldown",
+            "resource": "*:*_resource",
             "operation": "add",
-            "change": -1
+            "change": 1
         },
-        "interval": 1,
+        "interval": 20,
         "condition": {
-            "type": "origins:resource",
-            "resource": "*:*_cooldown",
-            "comparison": ">",
-            "compare_to": 0
+            "type": "origins:nbt",
+            "nbt": "{SleepTimer:0s}",
+            "inverted": true
+        }
+    },
+    "resource": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 7,
+        "start_value": 7,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png",
+            "bar_index": 7,
+            "inverted": false,
+            "condition": {
+                "type": "origins:resource",
+                "resource": "*:*_resource",
+                "comparison": "<",
+                "compare_to": 7,
+                "inverted": false
+            }
         }
     },
     "tag": {

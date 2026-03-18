@@ -22,9 +22,9 @@
         },
         "particle": {
             "options": {
-                "type": "minecraft:end_rod"
+                "type": "minecraft:enchant"
             },
-            "probability": 0.0017428
+            "probability": 0.00017
         },
         "sky_color": 13067491,
         "water_color": 11288522,
