@@ -12,7 +12,7 @@
             "fluid": "minecraft:water"
         }
     },
-    "no_delay": {
+    "water_vision": {
         "type": "origins:water_vision"
     },
     "attribute": {
