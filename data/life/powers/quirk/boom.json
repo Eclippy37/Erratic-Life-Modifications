@@ -1,5 +1,5 @@
 {
-    "hidden": false,
+    "hidden": true,
     "type": "origins:multiple",
     "main": {
         "type": "origins:active_self",
@@ -12,22 +12,14 @@
                         "type": "origins:and",
                         "actions": [
                             {
-                                "type": "origins:raycast",
-                                "distance": 10,
-                                "block": true,
-                                "entity": false,
-                                "shape_type": "collider",
-                                "fluid_handling": "source_only",
-                                "block_action": {
-                                    "type": "origins:spawn_entity",
-                                    "entity_type": "minecraft:creeper"
-                                }
-                            },
-                            {
                                 "type": "origins:change_resource",
-                                "resource": "*:*_resource",
+                                "resource": "*:*_toggle",
                                 "operation": "set",
                                 "change": 1
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "playsound minecraft:block.vault.activate player @s ~ ~ ~ 0.8 1.2"
                             }
                         ]
                     },
@@ -36,33 +28,15 @@
                         "conditions": [
                             {
                                 "type": "origins:resource",
-                                "resource": "*:*_cooldown",
+                                "resource": "*:*_toggle",
                                 "comparison": "==",
                                 "compare_to": 0
                             },
                             {
-                                "type": "origins:raycast",
-                                "distance": 10,
-                                "block": true,
-                                "entity": false,
-                                "shape_type": "collider",
-                                "fluid_handling": "source_only"
-                            },
-                            {
-                                "type": "origins:raycast",
-                                "distance": 10,
-                                "block": false,
-                                "entity": true,
-                                "shape_type": "collider",
-                                "fluid_handling": "source_only",
-                                "match_bientity_condition": {
-                                    "type": "origins:target_condition",
-                                    "condition": {
-                                        "type": "origins:entity_type",
-                                        "entity_type": "minecraft:creeper"
-                                    }
-                                },
-                                "inverted": true
+                                "type": "origins:resource",
+                                "resource": "*:*_cooldown",
+                                "comparison": "==",
+                                "compare_to": 0
                             }
                         ]
                     }
@@ -76,29 +50,186 @@
                                 "resource": "*:*_toggle",
                                 "operation": "set",
                                 "change": 0
+                            },
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "*:*_resource",
+                                "operation": "set",
+                                "change": 0
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "playsound minecraft:block.vault.deactivate player @s ~ ~ ~ 0.8 1"
+                            },
+                            {
+                                "type": "origins:action_on_entity_set",
+                                "set": "*:*_set",
+                                "bientity_action": {
+                                    "type": "origins:remove_from_entity_set",
+                                    "set": "*:*_set"
+                                }
                             }
                         ]
                     },
                     "condition": {
-                        "type": "origins:resource",
-                        "resource": "*:*_toggle",
-                        "comparison": "==",
-                        "compare_to": 1
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:resource",
+                                "resource": "*:*_toggle",
+                                "comparison": "==",
+                                "compare_to": 1
+                            },
+                            {
+                                "type": "origins:or",
+                                "conditions": [
+                                    {
+                                        "type": "origins:sneaking",
+                                        "inverted": false
+                                    },
+                                    {
+                                        "type": "origins:entity_set_size",
+                                        "set": "*:*_set",
+                                        "comparison": "==",
+                                        "compare_to": 0
+                                    },
+                                    {
+                                        "type": "origins:resource",
+                                        "resource": "*:*_resource",
+                                        "comparison": ">",
+                                        "compare_to": 0
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:action_on_entity_set",
+                                "set": "*:*_set",
+                                "limit": 1,
+                                "bientity_action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:target_action",
+                                            "action": {
+                                                "type": "origins:and",
+                                                "actions": [
+                                                    {
+                                                        "type": "origins:explode",
+                                                        "power": 5,
+                                                        "damage_self": false,
+                                                        "create_fire": true
+                                                    },
+                                                    {
+                                                        "type": "origins:damage",
+                                                        "amount": 8,
+                                                        "damage_type": "minecraft:explosion"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "type": "origins:remove_from_entity_set",
+                                            "set": "*:*_set"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "playsound minecraft:block.trial_spawner.ominous_activate player @s ~ ~ ~ 0.8 0.8"
+                            },
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "*:*_toggle",
+                                "operation": "set",
+                                "change": 0
+                            },
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "*:*_cooldown",
+                                "operation": "set",
+                                "change": 1200
+                            }
+                        ]
+                    },
+                    "condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:resource",
+                                "resource": "*:*_toggle",
+                                "comparison": "==",
+                                "compare_to": 1
+                            },
+                            {
+                                "type": "origins:resource",
+                                "resource": "*:*_resource",
+                                "comparison": "==",
+                                "compare_to": 0
+                            },
+                            {
+                                "type": "origins:resource",
+                                "resource": "*:*_cooldown",
+                                "comparison": "==",
+                                "compare_to": 0
+                            },
+                            {
+                                "type": "origins:sneaking",
+                                "inverted": true
+                            },
+                            {
+                                "type": "origins:entity_set_size",
+                                "set": "*:*_set",
+                                "comparison": ">",
+                                "compare_to": 0
+                            }
+                        ]
                     }
                 }
             ]
+        },
+        "cooldown": 5,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "toggle": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
+            "bar_index": 5,
+            "inverted": false,
+            "order": -1,
+            "condition": {
+                "type": "origins:resource",
+                "resource": "*:*_toggle",
+                "comparison": "==",
+                "compare_to": 1
+            }
         }
     },
     "cooldown": {
         "type": "origins:resource",
         "min": 0,
-        "max": 100,
+        "max": 1200,
         "start_value": 0,
         "hud_render": {
             "should_render": true,
             "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
             "bar_index": 1,
             "inverted": false,
+            "order": 1,
             "condition": {
                 "type": "origins:resource",
                 "resource": "*:*_cooldown",
@@ -107,20 +238,172 @@
             }
         }
     },
+    "cooldown_over_time": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "*:*_cooldown",
+            "operation": "add",
+            "change": -1
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_cooldown",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
     "resource": {
         "type": "origins:resource",
         "min": 0,
-        "max": 1,
+        "max": 900,
         "start_value": 0,
         "hud_render": {
-            "should_render": true
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
+            "bar_index": 7,
+            "inverted": false,
+            "order": 2,
+            "condition": {
+                "type": "origins:resource",
+                "resource": "*:*_resource",
+                "comparison": ">",
+                "compare_to": 0
+            }
         }
+    },
+    "resource_over_time": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "*:*_resource",
+            "operation": "add",
+            "change": -1
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_resource",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "attack": {
+        "type": "origins:action_on_hit",
+        "bientity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:actor_action",
+                    "action": {
+                        "type": "origins:action_on_entity_set",
+                        "set": "*:*_set",
+                        "bientity_action": {
+                            "type": "origins:remove_from_entity_set",
+                            "set": "*:*_set"
+                        }
+                    }
+                },
+                {
+                    "type": "origins:add_to_entity_set",
+                    "set": "*:*_set"
+                },
+                {
+                    "type": "origins:actor_action",
+                    "action": {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_resource",
+                        "operation": "set",
+                        "change": 900
+                    }
+                }
+            ]
+        },
+        "bientity_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:target_condition",
+                    "condition": {
+                        "type": "origins:nbt",
+                        "nbt": "{Tags:['quirk.boom.target']}",
+                        "inverted": true
+                    }
+                },
+                {
+                    "type": "origins:actor_condition",
+                    "condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:resource",
+                                "resource": "*:*_toggle",
+                                "comparison": "==",
+                                "compare_to": 1
+                            },
+                            {
+                                "type": "origins:resource",
+                                "resource": "*:*_cooldown",
+                                "comparison": "==",
+                                "compare_to": 0
+                            },
+                            {
+                                "type": "origins:sneaking",
+                                "inverted": true
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "set": {
+        "type": "origins:entity_set",
+        "action_on_add": {
+            "type": "origins:target_action",
+            "action": {
+                "type": "origins:execute_command",
+                "command": "tag @s add quirk.boom.target"
+            }
+        },
+        "action_on_remove": {
+            "type": "origins:target_action",
+            "action": {
+                "type": "origins:execute_command",
+                "command": "tag @s remove quirk.boom.target"
+            }
+        }
+    },
+    "target_glow": {
+        "type": "origins:entity_glow",
+        "bientity_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:can_see"
+                },
+                {
+                    "type": "origins:distance",
+                    "comparison": "<=",
+                    "compare_to": 10
+                },
+                {
+                    "type": "origins:in_entity_set",
+                    "set": "*:*_set"
+                }
+            ]
+        },
+        "use_teams": false,
+        "red": 0.9258,
+        "green": 0.3828,
+        "blue": 0.25
     },
     "scare": {
         "type": "origins:scare_creepers",
         "condition": {
             "type": "origins:resource",
-            "resource": "*:*_resource",
+            "resource": "*:*_toggle",
             "comparison": "==",
             "compare_to": 1
         }
@@ -133,7 +416,7 @@
         },
         "condition": {
             "type": "origins:resource",
-            "resource": "*:*_resource",
+            "resource": "*:*_toggle",
             "comparison": "==",
             "compare_to": 1
         }
@@ -146,7 +429,7 @@
         },
         "condition": {
             "type": "origins:resource",
-            "resource": "*:*_resource",
+            "resource": "*:*_toggle",
             "comparison": "==",
             "compare_to": 1
         }
@@ -166,12 +449,12 @@
         "type": "origins:action_on_callback",
         "entity_action_gained": {
             "type": "origins:grant_power",
-            "power": "life:quirk/misc/power",
+            "power": "*:quirk/misc/power",
             "source": "*:*"
         },
         "entity_action_lost": {
             "type": "origins:remove_power",
-            "power": "life:quirk/misc/power",
+            "power": "*:quirk/misc/power",
             "source": "*:*"
         }
     }
