@@ -9,106 +9,101 @@
             "actions": [
                 {
                     "action": {
-                        "type": "origins:and",
-                        "actions": [
-                            {
-                                "type": "origins:raycast",
-                                "block": false,
-                                "entity": true,
-                                "shape_type": "collider",
-                                "fluid_handling": "none",
-                                "bientity_action": {
-                                    "type": "origins:if_else",
-                                    "if_action": {
-                                        "type": "origins:if_else_list",
-                                        "actions": [
-                                            {
-                                                "action": {
-                                                    "type": "origins:and",
-                                                    "actions": [
-                                                        {
-                                                            "type": "origins:actor_action",
-                                                            "action": {
-                                                                "type": "origins:execute_command",
-                                                                "command": "function life:quirk/swap/actor/hit_unset"
-                                                            }
-                                                        },
-                                                        {
-                                                            "type": "origins:target_action",
-                                                            "action": {
-                                                                "type": "origins:execute_command",
-                                                                "command": "function life:quirk/swap/target/hit"
-                                                            }
-                                                        }
-                                                    ]
-                                                },
-                                                "condition": {
-                                                    "type": "origins:target_condition",
-                                                    "condition": {
-                                                        "type": "origins:command",
-                                                        "command": "execute if entity @s[tag=!quirk.swap.target.1,tag=!quirk.swap.target.2]",
-                                                        "comparison": "==",
-                                                        "compare_to": 1
-                                                    }
-                                                }
-                                            },
-                                            {
-                                                "action": {
-                                                    "type": "origins:and",
-                                                    "actions": [
-                                                        {
-                                                            "type": "origins:actor_action",
-                                                            "action": {
-                                                                "type": "origins:execute_command",
-                                                                "command": "function life:quirk/swap/actor/hit_set"
-                                                            }
-                                                        }
-                                                    ]
-                                                },
-                                                "condition": {
-                                                    "type": "origins:target_condition",
-                                                    "condition": {
-                                                        "type": "origins:or",
-                                                        "conditions": [
-                                                            {
-                                                                "type": "origins:command",
-                                                                "command": "execute if entity @s[tag=quirk.swap.target.1]",
-                                                                "comparison": "==",
-                                                                "compare_to": 1
-                                                            },
-                                                            {
-                                                                "type": "origins:command",
-                                                                "command": "execute if entity @s[tag=quirk.swap.target.2]",
-                                                                "comparison": "==",
-                                                                "compare_to": 1
-                                                            }
-                                                        ]
-                                                    }
-                                                }
-                                            }
-                                        ]
-                                    },
-                                    "else_action": {
-                                        "type": "origins:actor_action",
+                        "type": "origins:raycast",
+                        "block": false,
+                        "entity": true,
+                        "shape_type": "collider",
+                        "fluid_handling": "none",
+                        "bientity_action": {
+                            "type": "origins:if_else",
+                            "if_action": {
+                                "type": "origins:if_else_list",
+                                "actions": [
+                                    {
                                         "action": {
-                                            "type": "origins:execute_command",
-                                            "command": "function life:quirk/swap/actor/miss"
+                                            "type": "origins:and",
+                                            "actions": [
+                                                {
+                                                    "type": "origins:actor_action",
+                                                    "action": {
+                                                        "type": "origins:execute_command",
+                                                        "command": "playsound minecraft:block.note_block.chime player @s ~ ~ ~ 0.8 2"
+                                                    }
+                                                },
+                                                {
+                                                    "type": "origins:add_to_entity_set",
+                                                    "set": "*:*_set"
+                                                }
+                                            ]
+                                        },
+                                        "condition": {
+                                            "type": "origins:in_entity_set",
+                                            "set": "*:*_set",
+                                            "inverted": true
                                         }
                                     },
-                                    "condition": {
-                                        "type": "origins:target_condition",
+                                    {
+                                        "action": {
+                                            "type": "origins:actor_action",
+                                            "action": {
+                                                "type": "origins:and",
+                                                "actions": [
+                                                    {
+                                                        "type": "origins:execute_command",
+                                                        "command": "title @s actionbar \"This player is already a target\""
+                                                    },
+                                                    {
+                                                        "type": "origins:execute_command",
+                                                        "command": "playsound minecraft:block.note_block.bass player @s ~ ~ ~ 0.8 1"
+                                                    }
+                                                ]
+                                            }
+                                        },
                                         "condition": {
-                                            "type": "origins:entity_type",
-                                            "entity_type": "minecraft:player"
+                                            "type": "origins:in_entity_set",
+                                            "set": "*:*_set",
+                                            "inverted": false
                                         }
                                     }
-                                },
-                                "miss_action": {
-                                    "type": "origins:execute_command",
-                                    "command": "function life:quirk/swap/actor/miss"
+                                ]
+                            },
+                            "else_action": {
+                                "type": "origins:actor_action",
+                                "action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "title @s actionbar \"You are not looking at a player\""
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "playsound minecraft:block.note_block.bass player @s ~ ~ ~ 0.8 1"
+                                        }
+                                    ]
+                                }
+                            },
+                            "condition": {
+                                "type": "origins:target_condition",
+                                "condition": {
+                                    "type": "origins:entity_type",
+                                    "entity_type": "minecraft:player"
                                 }
                             }
-                        ]
+                        },
+                        "miss_action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "title @s actionbar \"You are not looking at a player\""
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "playsound minecraft:block.note_block.bass player @s ~ ~ ~ 0.8 1"
+                                }
+                            ]
+                        }
                     },
                     "condition": {
                         "type": "origins:and",
@@ -118,29 +113,36 @@
                                 "inverted": true
                             },
                             {
-                                "type": "origins:or",
-                                "conditions": [
-                                    {
-                                        "type": "origins:command",
-                                        "command": "execute unless entity @a[tag=quirk.swap.target.1]",
-                                        "comparison": "==",
-                                        "compare_to": 1
-                                    },
-                                    {
-                                        "type": "origins:command",
-                                        "command": "execute unless entity @a[tag=quirk.swap.target.2]",
-                                        "comparison": "==",
-                                        "compare_to": 1
-                                    }
-                                ]
+                                "type": "origins:entity_set_size",
+                                "set": "*:*_set",
+                                "comparison": "<",
+                                "compare_to": 2
                             }
                         ]
                     }
                 },
                 {
                     "action": {
-                        "type": "origins:execute_command",
-                        "command": "function life:quirk/swap/actor/clear"
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:action_on_entity_set",
+                                "set": "*:*_set",
+                                "bientity_action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:remove_from_entity_set",
+                                            "set": "*:*_set"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "playsound minecraft:block.beacon.deactivate player @s ~ ~ ~ 0.8 1.25"
+                            }
+                        ]
                     },
                     "condition": {
                         "type": "origins:and",
@@ -150,21 +152,10 @@
                                 "inverted": false
                             },
                             {
-                                "type": "origins:or",
-                                "conditions": [
-                                    {
-                                        "type": "origins:command",
-                                        "command": "execute if entity @a[tag=quirk.swap.target.1]",
-                                        "comparison": "==",
-                                        "compare_to": 1
-                                    },
-                                    {
-                                        "type": "origins:command",
-                                        "command": "execute if entity @a[tag=quirk.swap.target.2]",
-                                        "comparison": "==",
-                                        "compare_to": 1
-                                    }
-                                ]
+                                "type": "origins:entity_set_size",
+                                "set": "*:*_set",
+                                "comparison": ">",
+                                "compare_to": 0
                             }
                         ]
                     }
@@ -174,20 +165,73 @@
                         "type": "origins:and",
                         "actions": [
                             {
+                                "type": "origins:action_on_entity_set",
+                                "set": "*:*_set",
+                                "bientity_action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:target_action",
+                                            "action": {
+                                                "type": "origins:execute_command",
+                                                "command": "tag @s add quirk.swap.target.active"
+                                            }
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "origins:action_on_entity_set",
+                                "set": "*:*_set",
+                                "limit": 1,
+                                "bientity_action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:target_action",
+                                            "action": {
+                                                "type": "origins:execute_command",
+                                                "command": "execute at @s run function life:quirk/swap/teleport"
+                                            }
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "origins:action_on_entity_set",
+                                "set": "*:*_set",
+                                "bientity_action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:remove_from_entity_set",
+                                            "set": "*:*_set"
+                                        },
+                                        {
+                                            "type": "origins:target_action",
+                                            "action": {
+                                                "type": "origins:execute_command",
+                                                "command": "tag @s remove quirk.swap.target.active"
+                                            }
+                                        }
+                                    ]
+                                }
+                            },
+                            {
                                 "type": "origins:execute_command",
-                                "command": "function life:quirk/swap/actor/teleport"
+                                "command": "playsound minecraft:entity.player.teleport player @s ~ ~ ~ 0.8 1"
                             },
                             {
                                 "type": "origins:change_resource",
                                 "resource": "*:*_cooldown",
                                 "operation": "set",
-                                "change": 2400
+                                "change": 24
                             },
                             {
                                 "type": "origins:change_resource",
-                                "resource": "*:*_timer",
+                                "resource": "*:*_resource",
                                 "operation": "set",
-                                "change": 200
+                                "change": 20
                             }
                         ]
                     },
@@ -199,10 +243,10 @@
                                 "inverted": true
                             },
                             {
-                                "type": "origins:command",
-                                "command": "execute if entity @a[tag=quirk.swap.target.1] if entity @a[tag=quirk.swap.target.2]",
+                                "type": "origins:entity_set_size",
+                                "set": "*:*_set",
                                 "comparison": "==",
-                                "compare_to": 1
+                                "compare_to": 2
                             }
                         ]
                     }
@@ -277,14 +321,14 @@
         "type": "origins:action_over_time",
         "entity_action": {
             "type": "origins:change_resource",
-            "resource": "*:*_timer",
+            "resource": "*:*_resource",
             "operation": "add",
             "change": -1
         },
         "interval": 1,
         "condition": {
             "type": "origins:resource",
-            "resource": "*:*_timer",
+            "resource": "*:*_resource",
             "comparison": ">",
             "compare_to": 0
         }
@@ -320,33 +364,70 @@
         "tick_rate": 1,
         "condition": {
             "type": "origins:resource",
-            "resource": "*:*_timer",
+            "resource": "*:*_resource",
             "comparison": ">",
             "compare_to": 0
         }
     },
-    "tick_over_time": {
-        "type": "origins:action_over_time",
-        "entity_action": {
-            "type": "origins:execute_command",
-            "command": "function life:quirk/swap/tick"
-        },
-        "interval": 1
-    },
     "remove": {
 	    "type": "origins:action_on_callback",
-        "entity_action_gained": {
-            "type": "origins:execute_command",
-            "command": "function life:quirk/swap/clear_full"
-        },
         "entity_action_respawned": {
-            "type": "origins:execute_command",
-            "command": "function life:quirk/swap/clear_full"
+            "type": "origins:action_on_entity_set",
+            "set": "*:*_set",
+            "bientity_action": {
+                "type": "origins:remove_from_entity_set",
+                "set": "*:*_set"
+            }
         },
         "entity_action_lost": {
-            "type": "origins:execute_command",
-            "command": "function life:quirk/swap/clear_full"
+            "type": "origins:action_on_entity_set",
+            "set": "*:*_set",
+            "bientity_action": {
+                "type": "origins:remove_from_entity_set",
+                "set": "*:*_set"
+            }
         }
+    },
+    "set": {
+        "type": "origins:entity_set",
+        "action_on_add": {
+            "type": "origins:target_action",
+            "action": {
+                "type": "origins:execute_command",
+                "command": "tag @s add quirk.swap.target"
+            }
+        },
+        "action_on_remove": {
+            "type": "origins:target_action",
+            "action": {
+                "type": "origins:execute_command",
+                "command": "tag @s remove quirk.swap.target"
+            }
+        }
+    },
+    "set_glow": {
+        "type": "origins:entity_glow",
+        "bientity_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:can_see"
+                },
+                {
+                    "type": "origins:distance",
+                    "comparison": "<=",
+                    "compare_to": 24
+                },
+                {
+                    "type": "origins:in_entity_set",
+                    "set": "*:*_set"
+                }
+            ]
+        },
+        "use_teams": false,
+        "red": 0.333,
+        "green": 0.0,
+        "blue": 0.333
     },
     "tag": {
         "type": "origins:action_on_callback",
