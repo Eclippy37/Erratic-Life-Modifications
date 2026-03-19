@@ -194,7 +194,36 @@
                             "actions": [
                                 {
                                     "type": "origins:execute_command",
-                                    "command": "#title @s actionbar [{\"text\":\"Pewter Attack Damage\",\"color\":\"red\"}]"
+                                    "command": "title @s actionbar [{\"text\":\"Iron Weight\",\"color\":\"gray\"}]"
+                                },
+                                {
+                                    "type": "origins:change_resource",
+                                    "resource": "*:*_resource",
+                                    "operation": "set",
+                                    "change": 1
+                                },
+                                {
+                                    "type": "origins:change_resource",
+                                    "resource": "*:*_power",
+                                    "operation": "set",
+                                    "change": 0
+                                }
+                            ]
+                        },
+                        "condition": {
+                            "type": "origins:resource",
+                            "resource": "*:*_resource",
+                            "comparison": "==",
+                            "compare_to": 7
+                        }
+                    },
+                    {
+                        "action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "title @s actionbar [{\"text\":\"Pewter Attack Damage\",\"color\":\"red\"}]"
                                 },
                                 {
                                     "type": "origins:change_resource",
@@ -223,7 +252,7 @@
                             "actions": [
                                 {
                                     "type": "origins:execute_command",
-                                    "command": "#title @s actionbar [{\"text\":\"Zinc Attack Speed\",\"color\":\"yellow\"}]"
+                                    "command": "title @s actionbar [{\"text\":\"Zinc Attack Speed\",\"color\":\"yellow\"}]"
                                 },
                                 {
                                     "type": "origins:change_resource",
@@ -252,7 +281,7 @@
                             "actions": [
                                 {
                                     "type": "origins:execute_command",
-                                    "command": "#title @s actionbar [{\"text\":\"Steel Movement Speed\",\"color\":\"green\"}]"
+                                    "command": "title @s actionbar [{\"text\":\"Steel Movement Speed\",\"color\":\"green\"}]"
                                 },
                                 {
                                     "type": "origins:change_resource",
@@ -281,7 +310,7 @@
                             "actions": [
                                 {
                                     "type": "origins:execute_command",
-                                    "command": "#title @s actionbar [{\"text\":\"Gold Max Health\",\"color\":\"dark_green\"}]"
+                                    "command": "title @s actionbar [{\"text\":\"Gold Max Health\",\"color\":\"dark_green\"}]"
                                 },
                                 {
                                     "type": "origins:change_resource",
@@ -310,7 +339,7 @@
                             "actions": [
                                 {
                                     "type": "origins:execute_command",
-                                    "command": "#title @s actionbar [{\"text\":\"Brass Armor\",\"color\":\"aqua\"}]"
+                                    "command": "title @s actionbar [{\"text\":\"Brass Armor\",\"color\":\"aqua\"}]"
                                 },
                                 {
                                     "type": "origins:change_resource",
@@ -339,7 +368,7 @@
                             "actions": [
                                 {
                                     "type": "origins:execute_command",
-                                    "command": "#title @s actionbar [{\"text\":\"Tin Vision\",\"color\":\"blue\"}]"
+                                    "command": "title @s actionbar [{\"text\":\"Tin Vision\",\"color\":\"blue\"}]"
                                 },
                                 {
                                     "type": "origins:change_resource",
@@ -360,35 +389,6 @@
                             "resource": "*:*_resource",
                             "comparison": "==",
                             "compare_to": 6
-                        }
-                    },
-                    {
-                        "action": {
-                            "type": "origins:and",
-                            "actions": [
-                                {
-                                    "type": "origins:execute_command",
-                                    "command": "#title @s actionbar [{\"text\":\"Iron Weight\",\"color\":\"gray\"}]"
-                                },
-                                {
-                                    "type": "origins:change_resource",
-                                    "resource": "*:*_resource",
-                                    "operation": "set",
-                                    "change": 1
-                                },
-                                {
-                                    "type": "origins:change_resource",
-                                    "resource": "*:*_power",
-                                    "operation": "set",
-                                    "change": 0
-                                }
-                            ]
-                        },
-                        "condition": {
-                            "type": "origins:resource",
-                            "resource": "*:*_resource",
-                            "comparison": "==",
-                            "compare_to": 7
                         }
                     }
                 ]
