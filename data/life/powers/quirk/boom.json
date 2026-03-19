@@ -375,7 +375,7 @@
             }
         }
     },
-    "target_glow": {
+    "set_glow": {
         "type": "origins:entity_glow",
         "bientity_condition": {
             "type": "origins:and",
@@ -386,7 +386,7 @@
                 {
                     "type": "origins:distance",
                     "comparison": "<=",
-                    "compare_to": 10
+                    "compare_to": 24
                 },
                 {
                     "type": "origins:in_entity_set",
