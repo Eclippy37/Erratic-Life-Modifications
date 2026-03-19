@@ -27,30 +27,22 @@
             "compare_to": 1
         }
     },
-    "red_attributes": {
+    "pink_attributes": {
         "type": "origins:conditioned_attribute",
-        "modifier": {
-            "id": "life:speed",
-            "attribute": "minecraft:generic.movement_speed",
-            "operation": "add_multiplied_total",
-            "amount": 0.1
-        },
-        "tick_rate": 10,
-        "condition": {
-            "type": "origins:resource",
-            "resource": "*:*_resource",
-            "comparison": "==",
-            "compare_to": 1
-        }
-    },
-    "attributes": {
-        "type": "origins:conditioned_attribute",
-        "modifier": {
-            "id": "life:speed",
-            "attribute": "minecraft:generic.movement_speed",
-            "operation": "add_multiplied_total",
-            "amount": 0.4
-        },
+        "modifiers": [
+            {
+                "id": "life:pink_movement_speed",
+                "attribute": "minecraft:generic.movement_speed",
+                "operation": "add_multiplied_total",
+                "amount": 0.1
+            },
+            {
+                "id": "life:pink_attack_damage",
+                "attribute": "minecraft:generic.attack_damage",
+                "operation": "add_multiplied_total",
+                "amount": -0.99
+            }
+        ],
         "tick_rate": 10,
         "condition": {
             "type": "origins:resource",
@@ -59,42 +51,67 @@
             "compare_to": 0
         }
     },
-    "keep_inventory": {
-        "type": "origins:keep_inventory"
+    "red_attributes": {
+        "type": "origins:conditioned_attribute",
+        "modifiers": [
+            {
+                "id": "life:red_movement_speed",
+                "attribute": "minecraft:generic.movement_speed",
+                "operation": "add_multiplied_total",
+                "amount": 0.4
+            },
+            {
+                "id": "life:red_attack_damage",
+                "attribute": "minecraft:generic.attack_damage",
+                "operation": "add_multiplied_total",
+                "amount": 0.3
+            }
+        ],
+        "tick_rate": 10,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_resource",
+            "comparison": "==",
+            "compare_to": 1
+        }
     },
     "pink_damage": {
         "type": "origins:modify_damage_taken",
         "modifier": {
-            "id": "life:pink_damage",
-            "operation": "multiply_total_multiplicative",
+            "operation": "multiply_base_multiplicative",
             "amount": -1
         },
-        "bientity_condition": {
-            "type": "origins:target_condition",
-            "condition": {
-                "type": "origins:resource",
-                "resource": "*:*_resource",
-                "comparison": "==",
-                "compare_to": 0
-            }
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_resource",
+            "comparison": "==",
+            "compare_to": 0
         }
     },
     "red_damage": {
         "type": "origins:modify_damage_taken",
         "modifier": {
-            "id": "life:red_damage",
-            "operation": "multiply_total_multiplicative",
+            "operation": "multiply_base_multiplicative",
             "amount": -0.20
         },
-        "bientity_condition": {
-            "type": "origins:target_condition",
-            "condition": {
-                "type": "origins:resource",
-                "resource": "*:*_resource",
-                "comparison": "==",
-                "compare_to": 1
-            }
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_resource",
+            "comparison": "==",
+            "compare_to": 1
         }
+    },
+    "red_shaking": {
+        "type": "origins:shaking",
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_resource",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    },
+    "keep_inventory": {
+        "type": "origins:keep_inventory"
     },
     "resource": {
         "type": "origins:resource",
@@ -104,41 +121,6 @@
         "hud_render": {
             "should_render": false
         }
-    },
-    "command_over_time": {
-        "type": "origins:action_over_time",
-        "entity_action": {
-            "type": "origins:if_else_list",
-            "actions": [
-                {
-                    "action": {
-                        "type": "origins:execute_command",
-                        "command": "execute if score #jnv erraticlife matches 0 run resource set @s life:jnv/main_resource 0"
-                    },
-                    "condition": {
-                        "type": "origins:resource",
-                        "resource": "*:*_resource",
-                        "comparison": "==",
-                        "compare_to": 0,
-                        "inverted": true
-                    }
-                },
-                {
-                    "action": {
-                        "type": "origins:execute_command",
-                        "command": "execute if score #jnv erraticlife matches 1 run resource set @s life:jnv/main_resource 1"
-                    },
-                    "condition": {
-                        "type": "origins:resource",
-                        "resource": "*:*_resource",
-                        "comparison": "==",
-                        "compare_to": 1,
-                        "inverted": true
-                    }
-                }
-            ]
-        },
-        "interval": 20
     },
     "timer": {
         "type": "origins:resource",
@@ -160,10 +142,6 @@
                                         "resource": "*:*_resource",
                                         "operation": "set",
                                         "change": 1
-                                    },
-                                    {
-                                        "type": "origins:execute_command",
-                                        "command": "scoreboard players set #jnv erraticlife 1"
                                     }
                                 ]
                             },
@@ -183,10 +161,6 @@
                                         "resource": "*:*_resource",
                                         "operation": "set",
                                         "change": 0
-                                    },
-                                    {
-                                        "type": "origins:execute_command",
-                                        "command": "scoreboard players set #jnv erraticlife 0"
                                     }
                                 ]
                             },
@@ -259,17 +233,6 @@
                     "compare_to": 0
                 }
             ]
-        }
-    },
-    "callback": {
-        "type": "origins:action_on_callback",
-        "entity_action_gained": {
-            "type": "origins:execute_command",
-            "command": "scoreboard players set #jnv erraticlife 0"
-        },
-        "entity_action_lost": {
-            "type": "origins:execute_command",
-            "command": "scoreboard players set #jnv erraticlife 0"
         }
     }
 }

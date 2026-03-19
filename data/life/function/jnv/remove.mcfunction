@@ -1,0 +1,1 @@
+power remove @s life:jnv
