@@ -106,7 +106,7 @@
             "actions": [
                 {
                     "type": "origins:raycast",
-                    "distance": 16,
+                    "distance": 24,
                     "block": true,
                     "entity": true,
                     "shape_type": "collider",
@@ -151,7 +151,7 @@
                 },
                 {
                     "type": "origins:raycast",
-                    "distance": 16,
+                    "distance": 24,
                     "block": false,
                     "entity": true,
                     "shape_type": "collider",
