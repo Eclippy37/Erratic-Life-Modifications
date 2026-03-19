@@ -1054,7 +1054,7 @@
                 }
             ]
         },
-        "tick_rate": 10
+        "tick_rate": 5
     },
     "attribute_1_increment": {
         "type": "origins:conditioned_attribute",
@@ -1113,7 +1113,7 @@
                 }
             ]
         },
-        "tick_rate": 10
+        "tick_rate": 5
     },
     "attribute_2_decrement": {
         "type": "origins:conditioned_attribute",
@@ -1154,7 +1154,7 @@
                 }
             ]
         },
-        "tick_rate": 10
+        "tick_rate": 5
     },
     "attribute_2_increment": {
         "type": "origins:conditioned_attribute",
@@ -1195,7 +1195,7 @@
                 }
             ]
         },
-        "tick_rate": 10
+        "tick_rate": 5
     },
     "attribute_3_decrement": {
         "type": "origins:conditioned_attribute",
@@ -1236,7 +1236,7 @@
                 }
             ]
         },
-        "tick_rate": 10
+        "tick_rate": 5
     },
     "attribute_3_increment": {
         "type": "origins:conditioned_attribute",
@@ -1318,7 +1318,7 @@
                 }
             ]
         },
-        "tick_rate": 10
+        "tick_rate": 5
     },
     "attribute_4_increment": {
         "type": "origins:conditioned_attribute",
@@ -1359,7 +1359,7 @@
                 }
             ]
         },
-        "tick_rate": 10
+        "tick_rate": 5
     },
     "attribute_5_decrement": {
         "type": "origins:conditioned_attribute",
@@ -1400,7 +1400,7 @@
                 }
             ]
         },
-        "tick_rate": 10
+        "tick_rate": 5
     },
     "attribute_5_increment": {
         "type": "origins:conditioned_attribute",
@@ -1441,7 +1441,7 @@
                 }
             ]
         },
-        "tick_rate": 10
+        "tick_rate": 5
     },
     "attribute_6_decrement": {
         "type": "origins:conditioned_attribute",
@@ -1482,7 +1482,7 @@
                 }
             ]
         },
-        "tick_rate": 10
+        "tick_rate": 5
     },
     "attribute_6_increment": {
         "type": "origins:conditioned_attribute",
@@ -1523,7 +1523,7 @@
                 }
             ]
         },
-        "tick_rate": 10
+        "tick_rate": 5
     },
     "attribute_7_decrement": {
         "type": "origins:shader",
@@ -1557,7 +1557,7 @@
                 }
             ]
         },
-        "interval": 10
+        "interval": 5
     },
     "attribute_7_increment_glow": {
         "type": "origins:entity_glow",
