@@ -112,7 +112,7 @@
                 }
             ]
         },
-        "cooldown": 60,
+        "cooldown": 20,
         "hud_render": {
             "should_render": true,
             "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
@@ -156,7 +156,7 @@
             "id": "life:decrease_movement_speed",
             "attribute": "minecraft:generic.movement_speed",
             "operation": "add_multiplied_total",
-            "amount": -0.3
+            "amount": -0.2
         },
         "tick_rate": 5,
         "condition": {
