@@ -7,3 +7,6 @@ effect give @a[tag=gravity.up] gravity_changer:up 5 0 true
 
 # Randomise Missing
 #execute as @a[team=!watcher,tag=!gravity.north,tag=!gravity.east,tag=!gravity.south,tag=!gravity.west,tag=!gravity.up] run function life:gravity/randomise
+
+# Scoreboard
+scoreboard players remove #GravityTimer erraticlife 1
