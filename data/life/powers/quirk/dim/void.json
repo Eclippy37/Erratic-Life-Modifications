@@ -33,10 +33,10 @@
             "type": "origins:remove_power",
             "power": "life:quirk/dim/void"
         },
-        "interval": 20,
+        "interval": 10,
         "condition": {
             "type": "origins:dimension",
-            "dimension": "life:void",
+            "dimension": "life:the_void",
             "inverted": true
         }
     },
