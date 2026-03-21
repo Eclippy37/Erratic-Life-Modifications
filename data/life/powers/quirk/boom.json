@@ -200,6 +200,75 @@
             "should_render": false
         }
     },
+    "attack": {
+        "type": "origins:action_on_hit",
+        "bientity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:actor_action",
+                    "action": {
+                        "type": "origins:action_on_entity_set",
+                        "set": "*:*_set",
+                        "bientity_action": {
+                            "type": "origins:remove_from_entity_set",
+                            "set": "*:*_set"
+                        }
+                    }
+                },
+                {
+                    "type": "origins:add_to_entity_set",
+                    "set": "*:*_set"
+                },
+                {
+                    "type": "origins:actor_action",
+                    "action": {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_resource",
+                        "operation": "set",
+                        "change": 900
+                    }
+                }
+            ]
+        },
+        "bientity_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:target_condition",
+                    "condition": {
+                        "type": "origins:nbt",
+                        "nbt": "{Tags:['quirk.boom.target']}",
+                        "inverted": true
+                    }
+                },
+                {
+                    "type": "origins:actor_condition",
+                    "condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:resource",
+                                "resource": "*:*_toggle",
+                                "comparison": "==",
+                                "compare_to": 1
+                            },
+                            {
+                                "type": "origins:resource",
+                                "resource": "*:*_cooldown",
+                                "comparison": "==",
+                                "compare_to": 0
+                            },
+                            {
+                                "type": "origins:sneaking",
+                                "inverted": true
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    },
     "toggle": {
         "type": "origins:resource",
         "min": 0,
@@ -287,75 +356,6 @@
             "resource": "*:*_resource",
             "comparison": ">",
             "compare_to": 0
-        }
-    },
-    "attack": {
-        "type": "origins:action_on_hit",
-        "bientity_action": {
-            "type": "origins:and",
-            "actions": [
-                {
-                    "type": "origins:actor_action",
-                    "action": {
-                        "type": "origins:action_on_entity_set",
-                        "set": "*:*_set",
-                        "bientity_action": {
-                            "type": "origins:remove_from_entity_set",
-                            "set": "*:*_set"
-                        }
-                    }
-                },
-                {
-                    "type": "origins:add_to_entity_set",
-                    "set": "*:*_set"
-                },
-                {
-                    "type": "origins:actor_action",
-                    "action": {
-                        "type": "origins:change_resource",
-                        "resource": "*:*_resource",
-                        "operation": "set",
-                        "change": 900
-                    }
-                }
-            ]
-        },
-        "bientity_condition": {
-            "type": "origins:and",
-            "conditions": [
-                {
-                    "type": "origins:target_condition",
-                    "condition": {
-                        "type": "origins:nbt",
-                        "nbt": "{Tags:['quirk.boom.target']}",
-                        "inverted": true
-                    }
-                },
-                {
-                    "type": "origins:actor_condition",
-                    "condition": {
-                        "type": "origins:and",
-                        "conditions": [
-                            {
-                                "type": "origins:resource",
-                                "resource": "*:*_toggle",
-                                "comparison": "==",
-                                "compare_to": 1
-                            },
-                            {
-                                "type": "origins:resource",
-                                "resource": "*:*_cooldown",
-                                "comparison": "==",
-                                "compare_to": 0
-                            },
-                            {
-                                "type": "origins:sneaking",
-                                "inverted": true
-                            }
-                        ]
-                    }
-                }
-            ]
         }
     },
     "set": {
