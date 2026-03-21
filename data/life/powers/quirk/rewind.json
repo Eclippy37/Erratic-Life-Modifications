@@ -198,7 +198,7 @@
         "type": "origins:action_over_time",
         "entity_action": {
             "type": "origins:execute_command",
-            "command": "execute if entity @e[type=marker,tag=quirk.rewind.point,distance=..50] at @e[tag=quirk.rewind.point,distance=..50] run particle minecraft:reverse_portal ~ ~1 ~ 0.2 0.35 0.2 0.025 10 normal @s"
+            "command": "execute if entity @e[type=marker,tag=quirk.rewind.point,distance=..32] at @e[tag=quirk.rewind.point,distance=..32] run particle minecraft:reverse_portal ~ ~1 ~ 0.2 0.35 0.2 0.025 10 normal @s"
         },
         "interval": 1,
         "condition": {
