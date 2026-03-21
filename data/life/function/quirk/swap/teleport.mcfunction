@@ -20,4 +20,4 @@ execute as @a[tag=quirk.swap.target.active,tag=quirk.swap.target.active.2,limit=
 
 # Remove Tags
 tag @s remove quirk.swap.target.active.1
-tag @a[tag=quirk.swap.target.active,tag=quirk.swap.target.active.active.2,limit=1,sort=nearest] remove quirk.swap.target.active.2
+tag @a[tag=quirk.swap.target.active,tag=quirk.swap.target.active.2,limit=1,sort=nearest] remove quirk.swap.target.active.2
