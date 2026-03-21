@@ -1,2 +1,2 @@
 #say Skin reload failed
-#tellraw @a "skin reload failed"
+tellraw @s {"color":"dark_red","text":"Skin reload failed"}
