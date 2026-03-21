@@ -225,13 +225,13 @@
                                 "type": "origins:change_resource",
                                 "resource": "*:*_cooldown",
                                 "operation": "set",
-                                "change": 24
+                                "change": 2400
                             },
                             {
                                 "type": "origins:change_resource",
                                 "resource": "*:*_resource",
                                 "operation": "set",
-                                "change": 20
+                                "change": 200
                             }
                         ]
                     },
