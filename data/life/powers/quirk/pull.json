@@ -23,7 +23,7 @@
                             {
                                 "type": "origins:add_velocity",
                                 "z": 0.125,
-                                "y": 0.01,
+                                "y": 0.02,
                                 "space": "local",
                                 "client": true,
                                 "server": true
@@ -36,7 +36,7 @@
                             },
                             {
                                 "type": "origins:set_fall_distance",
-                                "fall_distance": 3
+                                "fall_distance": 2
                             },
                             {
                                 "type": "origins:apply_effect",
@@ -71,6 +71,7 @@
                     "bientity_action": {
                         "type": "origins:add_velocity",
                         "z": -0.25,
+                        "y": 0.02,
                         "client": true,
                         "server": true
                     },
