@@ -44,7 +44,7 @@
         "type": "origins:action_over_time",
         "entity_action": {
             "type": "origins:feed",
-            "food": 10,
+            "nutrition": 10,
             "saturation": 10
         },
         "interval": 20
