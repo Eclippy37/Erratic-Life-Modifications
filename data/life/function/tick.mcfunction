@@ -10,4 +10,4 @@ execute if score Status Session matches 2 if score #wildcard erraticlife matches
 execute as @e[distance=0..,type=palegardenbackport:creaking] run attribute @s minecraft:generic.attack_damage base set 7
 
 # Dimension Powers
-execute in life:psykol as @a[distance=0..] run power grant @s life:quirk/dim/psykol
+#execute in life:psykol as @a[distance=0..] run power grant @s life:quirk/dim/psykol

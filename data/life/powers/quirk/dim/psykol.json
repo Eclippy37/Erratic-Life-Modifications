@@ -1,6 +1,10 @@
 {
     "hidden": true,
     "type": "origins:multiple",
+    "shader": {
+        "type": "origins:shader",
+        "shader": "minecraft:shaders/post/blur.json"
+    },
     "tick_over_time": {
         "type": "origins:action_over_time",
         "entity_action": {
@@ -80,13 +84,25 @@
         "type": "origins:action_over_time",
         "entity_action": {
             "type": "origins:remove_power",
-            "power": "life:quirk/dim/psykol"
+            "power": "*:*",
+            "source": "*:*"
         },
         "interval": 10,
         "condition": {
             "type": "origins:dimension",
             "dimension": "life:psykol",
             "inverted": true
+        }
+    },
+    "tag": {
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:execute_command",
+            "command": "tag @s add quirk.psykol.dimension"
+        },
+        "entity_action_lost": {
+            "type": "origins:execute_command",
+            "command": "tag @s remove quirk.psykol.dimension"
         }
     }
 }
