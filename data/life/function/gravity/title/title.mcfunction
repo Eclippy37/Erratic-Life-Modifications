@@ -15,6 +15,8 @@ execute if score #TitleTime erraticlife matches -120 run title @a title ""
 execute if score #TitleTime erraticlife matches -75 run title @a title [{"text":",","bold":true,"color":"green"}]
 execute if score #TitleTime erraticlife matches -50 run title @a title [{"text":",","bold":true,"color":"green"},{"text":" ,","bold":true,"color":"yellow"}]
 execute if score #TitleTime erraticlife matches -25 run title @a title [{"text":",","bold":true,"color":"green"},{"text":" ,","bold":true,"color":"yellow"},{"text":" ,","bold":true,"color":"red"}]
+execute if score #TitleTime erraticlife matches 0 run title @a title ""
+execute if score #TitleTime erraticlife matches 0 run title @a subtitle ""
 
 # Scoreboard Change
 execute if score #TitleTime erraticlife matches ..30 run scoreboard players add #TitleTime erraticlife 1
@@ -26,7 +28,7 @@ execute if score #TitleTime erraticlife matches ..30 run schedule function life:
 execute unless score #TitleTime erraticlife matches ..30 run function life:gravity/title/stop
 
 # Randomise Gravity
-execute if score #TitleTime erraticlife matches 0 as @a[team=!watcher] at @s run function life:gravity/randomise
+execute if score #TitleTime erraticlife matches 0 as @a[team=!watcher] run tag @s remove gravity.randomised
 
 # Set Timer
 execute if score #TitleTime erraticlife matches 0 store result score #GravityTimer erraticlife run random value 18000..36000

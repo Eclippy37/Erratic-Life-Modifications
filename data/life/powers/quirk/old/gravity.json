@@ -1,0 +1,268 @@
+{
+    "hidden": true,
+    "type": "origins:multiple",
+    "main": {
+        "type": "origins:active_self",
+        "key": {
+            "key": "key.origins.primary_active",
+            "continuous": false
+        },
+        "entity_action": {
+            "type": "origins:if_else",
+            "if_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:execute_command",
+                        "command": "function life:quirk/gravity/check"
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "playsound minecraft:block.beacon.activate player @s ~ ~ ~ 0.5 2"
+                    },
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_resource",
+                        "operation": "add",
+                        "change": -50
+                    },
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_fall_resource",
+                        "operation": "set",
+                        "change": 3
+                    }
+                ]
+            },
+            "else_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:execute_command",
+                        "command": "function life:quirk/gravity/set/down"
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "playsound minecraft:block.beacon.deactivate player @s ~ ~ ~ 0.5 2"
+                    },
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_fall_resource",
+                        "operation": "set",
+                        "change": 3
+                    }
+                ]
+            },
+            "condition": {
+                "type": "origins:or",
+                "conditions": [
+                    {
+                        "type": "origins:sneaking",
+                        "inverted": true
+                    },
+                    {
+                        "type": "origins:command",
+                        "command": "execute if entity @s[tag=!quirk.gravity.up,tag=!quirk.gravity.north,tag=!quirk.gravity.east,tag=!quirk.gravity.south,tag=!quirk.gravity.west]",
+                        "comparison": "==",
+                        "compare_to": 1
+                    }
+                ]
+            }
+        },
+        "cooldown": 10,
+        "hud_render": {
+            "should_render": false
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_resource",
+            "comparison": ">=",
+            "compare_to": 52
+        }
+    },
+    "resource": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 2800,
+        "start_value": 2800,
+        "min_action": {
+            "type": "origins:execute_command",
+            "command": "function life:quirk/gravity/set/down"
+        },
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
+            "bar_index": 3,
+            "condition": {
+                "type": "origins:resource",
+                "resource": "*:*_resource",
+                "comparison": "<",
+                "compare_to": 2800
+            }
+        }
+    },
+    "resource_gain_over_time": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "*:*_resource",
+            "operation": "add",
+            "change": 1
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_resource",
+                    "comparison": "<=",
+                    "compare_to": 2800
+                },
+                {
+                    "type": "origins:command",
+                    "command": "execute if entity @s[tag=!quirk.gravity.up,tag=!quirk.gravity.north,tag=!quirk.gravity.east,tag=!quirk.gravity.south,tag=!quirk.gravity.west]",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_fall_resource",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+    "resource_loss_over_time": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "*:*_resource",
+            "operation": "add",
+            "change": -1
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_resource",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "origins:command",
+                            "command": "execute unless entity @s[tag=!quirk.gravity.up,tag=!quirk.gravity.north,tag=!quirk.gravity.east,tag=!quirk.gravity.south,tag=!quirk.gravity.west]",
+                            "comparison": "==",
+                            "compare_to": 1
+                        },
+                        {
+                            "type": "origins:resource",
+                            "resource": "*:*_fall_resource",
+                            "comparison": ">",
+                            "compare_to": 0
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "remove": {
+        "type": "origins:action_on_callback",
+        "entity_action_respawned": {
+            "type": "origins:execute_command",
+            "command": "function life:quirk/gravity/set/down"
+        },
+        "entity_action_lost": {
+            "type": "origins:execute_command",
+            "command": "function life:quirk/gravity/set/down"
+        }
+    },
+    "no_fall": {
+        "type": "origins:invulnerability",
+        "damage_condition": {
+            "type": "origins:name",
+            "name": "fall"
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_fall_resource",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "fall_resource": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 3,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "reset_over_time": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "*:*_fall_resource",
+            "operation": "add",
+            "change": -1
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:all_of",
+            "conditions": [
+                {
+                    "type": "origins:on_block"
+                },
+                {
+                    "type": "origins:fluid_height",
+                    "fluid": "minecraft:water",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:fluid_height",
+                    "fluid": "minecraft:lava",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_fall_resource",
+                    "comparison": ">",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+    "tag": {
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:execute_command",
+            "command": "tag @s add quirk.gravity"
+        },
+        "entity_action_lost": {
+            "type": "origins:execute_command",
+            "command": "tag @s remove quirk.gravity"
+        }
+    },
+    "seek": {
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:grant_power",
+            "power": "life:quirk/misc/power",
+            "source": "*:*"
+        },
+        "entity_action_lost": {
+            "type": "origins:remove_power",
+            "power": "life:quirk/misc/power",
+            "source": "*:*"
+        }
+    }
+}
