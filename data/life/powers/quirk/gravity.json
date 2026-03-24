@@ -13,8 +13,1257 @@
                 "type": "origins:and",
                 "actions": [
                     {
-                        "type": "origins:execute_command",
-                        "command": "function life:quirk/gravity/check"
+                        "type": "origins:if_else_list",
+                        "actions": [
+                            {
+                                "action": {
+                                    "type": "origins:if_else_list",
+                                    "actions": [
+                                        {
+                                            "action": {
+                                                "type": "origins:and",
+                                                "actions": [
+                                                    {
+                                                        "type": "origins:change_resource",
+                                                        "resource": "*:*_gravity",
+                                                        "operation": "set",
+                                                        "change": 1
+                                                    }
+                                                ]
+                                            },
+                                            "condition": {
+                                                "type": "origins:command",
+                                                "command": "execute if entity @s[x_rotation=75..90]",
+                                                "comparison": "==",
+                                                "compare_to": 1
+                                            }
+                                        },
+                                        {
+                                            "action": {
+                                                "type": "origins:and",
+                                                "actions": [
+                                                    {
+                                                        "type": "origins:change_resource",
+                                                        "resource": "*:*_gravity",
+                                                        "operation": "set",
+                                                        "change": 2
+                                                    },
+                                                    {
+                                                        "type": "origins:apply_effect",
+                                                        "effect": {
+                                                            "id": "gravity_changer:up",
+                                                            "duration": 19,
+                                                            "amplifier": 0,
+                                                            "ambient": false,
+                                                            "show_icon": false,
+                                                            "show_particles": false
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            "condition": {
+                                                "type": "origins:command",
+                                                "command": "execute if entity @s[x_rotation=-90..-75]",
+                                                "comparison": "==",
+                                                "compare_to": 1
+                                            }
+                                        },
+                                        {
+                                            "action": {
+                                                "type": "origins:and",
+                                                "actions": [
+                                                    {
+                                                        "type": "origins:change_resource",
+                                                        "resource": "*:*_gravity",
+                                                        "operation": "set",
+                                                        "change": 3
+                                                    },
+                                                    {
+                                                        "type": "origins:apply_effect",
+                                                        "effect": {
+                                                            "id": "gravity_changer:north",
+                                                            "duration": 19,
+                                                            "amplifier": 0,
+                                                            "ambient": false,
+                                                            "show_icon": false,
+                                                            "show_particles": false
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            "condition": {
+                                                "type": "origins:or",
+                                                "conditions": [
+                                                    {
+                                                        "type": "origins:command",
+                                                        "command": "execute if entity @s[x_rotation=-75..75] if entity @s[y_rotation=135..180]",
+                                                        "comparison": "==",
+                                                        "compare_to": 1
+                                                    },
+                                                    {
+                                                        "type": "origins:command",
+                                                        "command": "execute if entity @s[x_rotation=-75..75] if entity @s[y_rotation=-180..-135]",
+                                                        "comparison": "==",
+                                                        "compare_to": 1
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "action": {
+                                                "type": "origins:and",
+                                                "actions": [
+                                                    {
+                                                        "type": "origins:change_resource",
+                                                        "resource": "*:*_gravity",
+                                                        "operation": "set",
+                                                        "change": 4
+                                                    },
+                                                    {
+                                                        "type": "origins:apply_effect",
+                                                        "effect": {
+                                                            "id": "gravity_changer:east",
+                                                            "duration": 19,
+                                                            "amplifier": 0,
+                                                            "ambient": false,
+                                                            "show_icon": false,
+                                                            "show_particles": false
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            "condition": {
+                                                "type": "origins:command",
+                                                "command": "execute if entity @s[x_rotation=-75..75] if entity @s[y_rotation=-135..-45]",
+                                                "comparison": "==",
+                                                "compare_to": 1
+                                            }
+                                        },
+                                        {
+                                            "action": {
+                                                "type": "origins:and",
+                                                "actions": [
+                                                    {
+                                                        "type": "origins:change_resource",
+                                                        "resource": "*:*_gravity",
+                                                        "operation": "set",
+                                                        "change": 5
+                                                    },
+                                                    {
+                                                        "type": "origins:apply_effect",
+                                                        "effect": {
+                                                            "id": "gravity_changer:south",
+                                                            "duration": 19,
+                                                            "amplifier": 0,
+                                                            "ambient": false,
+                                                            "show_icon": false,
+                                                            "show_particles": false
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            "condition": {
+                                                "type": "origins:command",
+                                                "command": "execute if entity @s[x_rotation=-75..75] if entity @s[y_rotation=-45..45]",
+                                                "comparison": "==",
+                                                "compare_to": 1
+                                            }
+                                        },
+                                        {
+                                            "action": {
+                                                "type": "origins:and",
+                                                "actions": [
+                                                    {
+                                                        "type": "origins:change_resource",
+                                                        "resource": "*:*_gravity",
+                                                        "operation": "set",
+                                                        "change": 6
+                                                    },
+                                                    {
+                                                        "type": "origins:apply_effect",
+                                                        "effect": {
+                                                            "id": "gravity_changer:west",
+                                                            "duration": 19,
+                                                            "amplifier": 0,
+                                                            "ambient": false,
+                                                            "show_icon": false,
+                                                            "show_particles": false
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            "condition": {
+                                                "type": "origins:command",
+                                                "command": "execute if entity @s[x_rotation=-75..75] if entity @s[y_rotation=45..135]",
+                                                "comparison": "==",
+                                                "compare_to": 1
+                                            }
+                                        }
+                                    ]
+                                },
+                                "condition": {
+                                    "type": "origins:resource",
+                                    "resource": "*:*_gravity",
+                                    "comparison": "==",
+                                    "compare_to": 1
+                                }
+                            },
+                            {
+                                "action": {
+                                    "type": "origins:if_else_list",
+                                    "actions": [
+                                        {
+                                            "action": {
+                                                "type": "origins:and",
+                                                "actions": [
+                                                    {
+                                                        "type": "origins:change_resource",
+                                                        "resource": "*:*_gravity",
+                                                        "operation": "set",
+                                                        "change": 2
+                                                    },
+                                                    {
+                                                        "type": "origins:apply_effect",
+                                                        "effect": {
+                                                            "id": "gravity_changer:up",
+                                                            "duration": 19,
+                                                            "amplifier": 0,
+                                                            "ambient": false,
+                                                            "show_icon": false,
+                                                            "show_particles": false
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            "condition": {
+                                                "type": "origins:command",
+                                                "command": "execute if entity @s[x_rotation=75..90]",
+                                                "comparison": "==",
+                                                "compare_to": 1
+                                            }
+                                        },
+                                        {
+                                            "action": {
+                                                "type": "origins:and",
+                                                "actions": [
+                                                    {
+                                                        "type": "origins:change_resource",
+                                                        "resource": "*:*_gravity",
+                                                        "operation": "set",
+                                                        "change": 1
+                                                    }
+                                                ]
+                                            },
+                                            "condition": {
+                                                "type": "origins:command",
+                                                "command": "execute if entity @s[x_rotation=-90..-75]",
+                                                "comparison": "==",
+                                                "compare_to": 1
+                                            }
+                                        },
+                                        {
+                                            "action": {
+                                                "type": "origins:and",
+                                                "actions": [
+                                                    {
+                                                        "type": "origins:change_resource",
+                                                        "resource": "*:*_gravity",
+                                                        "operation": "set",
+                                                        "change": 3
+                                                    },
+                                                    {
+                                                        "type": "origins:apply_effect",
+                                                        "effect": {
+                                                            "id": "gravity_changer:north",
+                                                            "duration": 19,
+                                                            "amplifier": 0,
+                                                            "ambient": false,
+                                                            "show_icon": false,
+                                                            "show_particles": false
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            "condition": {
+                                                "type": "origins:or",
+                                                "conditions": [
+                                                    {
+                                                        "type": "origins:command",
+                                                        "command": "execute if entity @s[x_rotation=-75..75] if entity @s[y_rotation=135..180]",
+                                                        "comparison": "==",
+                                                        "compare_to": 1
+                                                    },
+                                                    {
+                                                        "type": "origins:command",
+                                                        "command": "execute if entity @s[x_rotation=-75..75] if entity @s[y_rotation=-180..-135]",
+                                                        "comparison": "==",
+                                                        "compare_to": 1
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "action": {
+                                                "type": "origins:and",
+                                                "actions": [
+                                                    {
+                                                        "type": "origins:change_resource",
+                                                        "resource": "*:*_gravity",
+                                                        "operation": "set",
+                                                        "change": 6
+                                                    },
+                                                    {
+                                                        "type": "origins:apply_effect",
+                                                        "effect": {
+                                                            "id": "gravity_changer:west",
+                                                            "duration": 19,
+                                                            "amplifier": 0,
+                                                            "ambient": false,
+                                                            "show_icon": false,
+                                                            "show_particles": false
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            "condition": {
+                                                "type": "origins:command",
+                                                "command": "execute if entity @s[x_rotation=-75..75] if entity @s[y_rotation=-135..-45]",
+                                                "comparison": "==",
+                                                "compare_to": 1
+                                            }
+                                        },
+                                        {
+                                            "action": {
+                                                "type": "origins:and",
+                                                "actions": [
+                                                    {
+                                                        "type": "origins:change_resource",
+                                                        "resource": "*:*_gravity",
+                                                        "operation": "set",
+                                                        "change": 5
+                                                    },
+                                                    {
+                                                        "type": "origins:apply_effect",
+                                                        "effect": {
+                                                            "id": "gravity_changer:south",
+                                                            "duration": 19,
+                                                            "amplifier": 0,
+                                                            "ambient": false,
+                                                            "show_icon": false,
+                                                            "show_particles": false
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            "condition": {
+                                                "type": "origins:command",
+                                                "command": "execute if entity @s[x_rotation=-75..75] if entity @s[y_rotation=-45..45]",
+                                                "comparison": "==",
+                                                "compare_to": 1
+                                            }
+                                        },
+                                        {
+                                            "action": {
+                                                "type": "origins:and",
+                                                "actions": [
+                                                    {
+                                                        "type": "origins:change_resource",
+                                                        "resource": "*:*_gravity",
+                                                        "operation": "set",
+                                                        "change": 4
+                                                    },
+                                                    {
+                                                        "type": "origins:apply_effect",
+                                                        "effect": {
+                                                            "id": "gravity_changer:east",
+                                                            "duration": 19,
+                                                            "amplifier": 0,
+                                                            "ambient": false,
+                                                            "show_icon": false,
+                                                            "show_particles": false
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            "condition": {
+                                                "type": "origins:command",
+                                                "command": "execute if entity @s[x_rotation=-75..75] if entity @s[y_rotation=45..135]",
+                                                "comparison": "==",
+                                                "compare_to": 1
+                                            }
+                                        }
+                                    ]
+                                },
+                                "condition": {
+                                    "type": "origins:resource",
+                                    "resource": "*:*_gravity",
+                                    "comparison": "==",
+                                    "compare_to": 2
+                                }
+                            },
+                            {
+                                "action": {
+                                    "type": "origins:if_else_list",
+                                    "actions": [
+                                        {
+                                            "action": {
+                                                "type": "origins:and",
+                                                "actions": [
+                                                    {
+                                                        "type": "origins:change_resource",
+                                                        "resource": "*:*_gravity",
+                                                        "operation": "set",
+                                                        "change": 3
+                                                    },
+                                                    {
+                                                        "type": "origins:apply_effect",
+                                                        "effect": {
+                                                            "id": "gravity_changer:north",
+                                                            "duration": 19,
+                                                            "amplifier": 0,
+                                                            "ambient": false,
+                                                            "show_icon": false,
+                                                            "show_particles": false
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            "condition": {
+                                                "type": "origins:command",
+                                                "command": "execute if entity @s[x_rotation=75..90]",
+                                                "comparison": "==",
+                                                "compare_to": 1
+                                            }
+                                        },
+                                        {
+                                            "action": {
+                                                "type": "origins:and",
+                                                "actions": [
+                                                    {
+                                                        "type": "origins:change_resource",
+                                                        "resource": "*:*_gravity",
+                                                        "operation": "set",
+                                                        "change": 5
+                                                    },
+                                                    {
+                                                        "type": "origins:apply_effect",
+                                                        "effect": {
+                                                            "id": "gravity_changer:south",
+                                                            "duration": 19,
+                                                            "amplifier": 0,
+                                                            "ambient": false,
+                                                            "show_icon": false,
+                                                            "show_particles": false
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            "condition": {
+                                                "type": "origins:command",
+                                                "command": "execute if entity @s[x_rotation=-90..-75]",
+                                                "comparison": "==",
+                                                "compare_to": 1
+                                            }
+                                        },
+                                        {
+                                            "action": {
+                                                "type": "origins:and",
+                                                "actions": [
+                                                    {
+                                                        "type": "origins:change_resource",
+                                                        "resource": "*:*_gravity",
+                                                        "operation": "set",
+                                                        "change": 2
+                                                    },
+                                                    {
+                                                        "type": "origins:apply_effect",
+                                                        "effect": {
+                                                            "id": "gravity_changer:up",
+                                                            "duration": 19,
+                                                            "amplifier": 0,
+                                                            "ambient": false,
+                                                            "show_icon": false,
+                                                            "show_particles": false
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            "condition": {
+                                                "type": "origins:or",
+                                                "conditions": [
+                                                    {
+                                                        "type": "origins:command",
+                                                        "command": "execute if entity @s[x_rotation=-75..75] if entity @s[y_rotation=135..180]",
+                                                        "comparison": "==",
+                                                        "compare_to": 1
+                                                    },
+                                                    {
+                                                        "type": "origins:command",
+                                                        "command": "execute if entity @s[x_rotation=-75..75] if entity @s[y_rotation=-180..-135]",
+                                                        "comparison": "==",
+                                                        "compare_to": 1
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "action": {
+                                                "type": "origins:and",
+                                                "actions": [
+                                                    {
+                                                        "type": "origins:change_resource",
+                                                        "resource": "*:*_gravity",
+                                                        "operation": "set",
+                                                        "change": 4
+                                                    },
+                                                    {
+                                                        "type": "origins:apply_effect",
+                                                        "effect": {
+                                                            "id": "gravity_changer:east",
+                                                            "duration": 19,
+                                                            "amplifier": 0,
+                                                            "ambient": false,
+                                                            "show_icon": false,
+                                                            "show_particles": false
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            "condition": {
+                                                "type": "origins:command",
+                                                "command": "execute if entity @s[x_rotation=-75..75] if entity @s[y_rotation=-135..-45]",
+                                                "comparison": "==",
+                                                "compare_to": 1
+                                            }
+                                        },
+                                        {
+                                            "action": {
+                                                "type": "origins:and",
+                                                "actions": [
+                                                    {
+                                                        "type": "origins:change_resource",
+                                                        "resource": "*:*_gravity",
+                                                        "operation": "set",
+                                                        "change": 1
+                                                    }
+                                                ]
+                                            },
+                                            "condition": {
+                                                "type": "origins:command",
+                                                "command": "execute if entity @s[x_rotation=-75..75] if entity @s[y_rotation=-45..45]",
+                                                "comparison": "==",
+                                                "compare_to": 1
+                                            }
+                                        },
+                                        {
+                                            "action": {
+                                                "type": "origins:and",
+                                                "actions": [
+                                                    {
+                                                        "type": "origins:change_resource",
+                                                        "resource": "*:*_gravity",
+                                                        "operation": "set",
+                                                        "change": 6
+                                                    },
+                                                    {
+                                                        "type": "origins:apply_effect",
+                                                        "effect": {
+                                                            "id": "gravity_changer:west",
+                                                            "duration": 19,
+                                                            "amplifier": 0,
+                                                            "ambient": false,
+                                                            "show_icon": false,
+                                                            "show_particles": false
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            "condition": {
+                                                "type": "origins:command",
+                                                "command": "execute if entity @s[x_rotation=-75..75] if entity @s[y_rotation=45..135]",
+                                                "comparison": "==",
+                                                "compare_to": 1
+                                            }
+                                        }
+                                    ]
+                                },
+                                "condition": {
+                                    "type": "origins:resource",
+                                    "resource": "*:*_gravity",
+                                    "comparison": "==",
+                                    "compare_to": 3
+                                }
+                            },
+                            {
+                                "action": {
+                                    "type": "origins:if_else_list",
+                                    "actions": [
+                                        {
+                                            "action": {
+                                                "type": "origins:and",
+                                                "actions": [
+                                                    {
+                                                        "type": "origins:change_resource",
+                                                        "resource": "*:*_gravity",
+                                                        "operation": "set",
+                                                        "change": 4
+                                                    },
+                                                    {
+                                                        "type": "origins:apply_effect",
+                                                        "effect": {
+                                                            "id": "gravity_changer:east",
+                                                            "duration": 19,
+                                                            "amplifier": 0,
+                                                            "ambient": false,
+                                                            "show_icon": false,
+                                                            "show_particles": false
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            "condition": {
+                                                "type": "origins:command",
+                                                "command": "execute if entity @s[x_rotation=75..90]",
+                                                "comparison": "==",
+                                                "compare_to": 1
+                                            }
+                                        },
+                                        {
+                                            "action": {
+                                                "type": "origins:and",
+                                                "actions": [
+                                                    {
+                                                        "type": "origins:change_resource",
+                                                        "resource": "*:*_gravity",
+                                                        "operation": "set",
+                                                        "change": 6
+                                                    },
+                                                    {
+                                                        "type": "origins:apply_effect",
+                                                        "effect": {
+                                                            "id": "gravity_changer:west",
+                                                            "duration": 19,
+                                                            "amplifier": 0,
+                                                            "ambient": false,
+                                                            "show_icon": false,
+                                                            "show_particles": false
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            "condition": {
+                                                "type": "origins:command",
+                                                "command": "execute if entity @s[x_rotation=-90..-75]",
+                                                "comparison": "==",
+                                                "compare_to": 1
+                                            }
+                                        },
+                                        {
+                                            "action": {
+                                                "type": "origins:and",
+                                                "actions": [
+                                                    {
+                                                        "type": "origins:change_resource",
+                                                        "resource": "*:*_gravity",
+                                                        "operation": "set",
+                                                        "change": 2
+                                                    },
+                                                    {
+                                                        "type": "origins:apply_effect",
+                                                        "effect": {
+                                                            "id": "gravity_changer:up",
+                                                            "duration": 19,
+                                                            "amplifier": 0,
+                                                            "ambient": false,
+                                                            "show_icon": false,
+                                                            "show_particles": false
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            "condition": {
+                                                "type": "origins:or",
+                                                "conditions": [
+                                                    {
+                                                        "type": "origins:command",
+                                                        "command": "execute if entity @s[x_rotation=-75..75] if entity @s[y_rotation=135..180]",
+                                                        "comparison": "==",
+                                                        "compare_to": 1
+                                                    },
+                                                    {
+                                                        "type": "origins:command",
+                                                        "command": "execute if entity @s[x_rotation=-75..75] if entity @s[y_rotation=-180..-135]",
+                                                        "comparison": "==",
+                                                        "compare_to": 1
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "action": {
+                                                "type": "origins:and",
+                                                "actions": [
+                                                    {
+                                                        "type": "origins:change_resource",
+                                                        "resource": "*:*_gravity",
+                                                        "operation": "set",
+                                                        "change": 5
+                                                    },
+                                                    {
+                                                        "type": "origins:apply_effect",
+                                                        "effect": {
+                                                            "id": "gravity_changer:south",
+                                                            "duration": 19,
+                                                            "amplifier": 0,
+                                                            "ambient": false,
+                                                            "show_icon": false,
+                                                            "show_particles": false
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            "condition": {
+                                                "type": "origins:command",
+                                                "command": "execute if entity @s[x_rotation=-75..75] if entity @s[y_rotation=-135..-45]",
+                                                "comparison": "==",
+                                                "compare_to": 1
+                                            }
+                                        },
+                                        {
+                                            "action": {
+                                                "type": "origins:and",
+                                                "actions": [
+                                                    {
+                                                        "type": "origins:change_resource",
+                                                        "resource": "*:*_gravity",
+                                                        "operation": "set",
+                                                        "change": 1
+                                                    }
+                                                ]
+                                            },
+                                            "condition": {
+                                                "type": "origins:command",
+                                                "command": "execute if entity @s[x_rotation=-75..75] if entity @s[y_rotation=-45..45]",
+                                                "comparison": "==",
+                                                "compare_to": 1
+                                            }
+                                        },
+                                        {
+                                            "action": {
+                                                "type": "origins:and",
+                                                "actions": [
+                                                    {
+                                                        "type": "origins:change_resource",
+                                                        "resource": "*:*_gravity",
+                                                        "operation": "set",
+                                                        "change": 3
+                                                    },
+                                                    {
+                                                        "type": "origins:apply_effect",
+                                                        "effect": {
+                                                            "id": "gravity_changer:north",
+                                                            "duration": 19,
+                                                            "amplifier": 0,
+                                                            "ambient": false,
+                                                            "show_icon": false,
+                                                            "show_particles": false
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            "condition": {
+                                                "type": "origins:command",
+                                                "command": "execute if entity @s[x_rotation=-75..75] if entity @s[y_rotation=45..135]",
+                                                "comparison": "==",
+                                                "compare_to": 1
+                                            }
+                                        }
+                                    ]
+                                },
+                                "condition": {
+                                    "type": "origins:resource",
+                                    "resource": "*:*_gravity",
+                                    "comparison": "==",
+                                    "compare_to": 4
+                                }
+                            },
+                            {
+                                "action": {
+                                    "type": "origins:if_else_list",
+                                    "actions": [
+                                        {
+                                            "action": {
+                                                "type": "origins:and",
+                                                "actions": [
+                                                    {
+                                                        "type": "origins:change_resource",
+                                                        "resource": "*:*_gravity",
+                                                        "operation": "set",
+                                                        "change": 5
+                                                    },
+                                                    {
+                                                        "type": "origins:apply_effect",
+                                                        "effect": {
+                                                            "id": "gravity_changer:south",
+                                                            "duration": 19,
+                                                            "amplifier": 0,
+                                                            "ambient": false,
+                                                            "show_icon": false,
+                                                            "show_particles": false
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            "condition": {
+                                                "type": "origins:command",
+                                                "command": "execute if entity @s[x_rotation=75..90]",
+                                                "comparison": "==",
+                                                "compare_to": 1
+                                            }
+                                        },
+                                        {
+                                            "action": {
+                                                "type": "origins:and",
+                                                "actions": [
+                                                    {
+                                                        "type": "origins:change_resource",
+                                                        "resource": "*:*_gravity",
+                                                        "operation": "set",
+                                                        "change": 3
+                                                    },
+                                                    {
+                                                        "type": "origins:apply_effect",
+                                                        "effect": {
+                                                            "id": "gravity_changer:north",
+                                                            "duration": 19,
+                                                            "amplifier": 0,
+                                                            "ambient": false,
+                                                            "show_icon": false,
+                                                            "show_particles": false
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            "condition": {
+                                                "type": "origins:command",
+                                                "command": "execute if entity @s[x_rotation=-90..-75]",
+                                                "comparison": "==",
+                                                "compare_to": 1
+                                            }
+                                        },
+                                        {
+                                            "action": {
+                                                "type": "origins:and",
+                                                "actions": [
+                                                    {
+                                                        "type": "origins:change_resource",
+                                                        "resource": "*:*_gravity",
+                                                        "operation": "set",
+                                                        "change": 2
+                                                    },
+                                                    {
+                                                        "type": "origins:apply_effect",
+                                                        "effect": {
+                                                            "id": "gravity_changer:up",
+                                                            "duration": 19,
+                                                            "amplifier": 0,
+                                                            "ambient": false,
+                                                            "show_icon": false,
+                                                            "show_particles": false
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            "condition": {
+                                                "type": "origins:or",
+                                                "conditions": [
+                                                    {
+                                                        "type": "origins:command",
+                                                        "command": "execute if entity @s[x_rotation=-75..75] if entity @s[y_rotation=135..180]",
+                                                        "comparison": "==",
+                                                        "compare_to": 1
+                                                    },
+                                                    {
+                                                        "type": "origins:command",
+                                                        "command": "execute if entity @s[x_rotation=-75..75] if entity @s[y_rotation=-180..-135]",
+                                                        "comparison": "==",
+                                                        "compare_to": 1
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "action": {
+                                                "type": "origins:and",
+                                                "actions": [
+                                                    {
+                                                        "type": "origins:change_resource",
+                                                        "resource": "*:*_gravity",
+                                                        "operation": "set",
+                                                        "change": 6
+                                                    },
+                                                    {
+                                                        "type": "origins:apply_effect",
+                                                        "effect": {
+                                                            "id": "gravity_changer:west",
+                                                            "duration": 19,
+                                                            "amplifier": 0,
+                                                            "ambient": false,
+                                                            "show_icon": false,
+                                                            "show_particles": false
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            "condition": {
+                                                "type": "origins:command",
+                                                "command": "execute if entity @s[x_rotation=-75..75] if entity @s[y_rotation=-135..-45]",
+                                                "comparison": "==",
+                                                "compare_to": 1
+                                            }
+                                        },
+                                        {
+                                            "action": {
+                                                "type": "origins:and",
+                                                "actions": [
+                                                    {
+                                                        "type": "origins:change_resource",
+                                                        "resource": "*:*_gravity",
+                                                        "operation": "set",
+                                                        "change": 1
+                                                    }
+                                                ]
+                                            },
+                                            "condition": {
+                                                "type": "origins:command",
+                                                "command": "execute if entity @s[x_rotation=-75..75] if entity @s[y_rotation=-45..45]",
+                                                "comparison": "==",
+                                                "compare_to": 1
+                                            }
+                                        },
+                                        {
+                                            "action": {
+                                                "type": "origins:and",
+                                                "actions": [
+                                                    {
+                                                        "type": "origins:change_resource",
+                                                        "resource": "*:*_gravity",
+                                                        "operation": "set",
+                                                        "change": 4
+                                                    },
+                                                    {
+                                                        "type": "origins:apply_effect",
+                                                        "effect": {
+                                                            "id": "gravity_changer:east",
+                                                            "duration": 19,
+                                                            "amplifier": 0,
+                                                            "ambient": false,
+                                                            "show_icon": false,
+                                                            "show_particles": false
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            "condition": {
+                                                "type": "origins:command",
+                                                "command": "execute if entity @s[x_rotation=-75..75] if entity @s[y_rotation=45..135]",
+                                                "comparison": "==",
+                                                "compare_to": 1
+                                            }
+                                        }
+                                    ]
+                                },
+                                "condition": {
+                                    "type": "origins:resource",
+                                    "resource": "*:*_gravity",
+                                    "comparison": "==",
+                                    "compare_to": 5
+                                }
+                            },
+                            {
+                                "action": {
+                                    "type": "origins:if_else_list",
+                                    "actions": [
+                                        {
+                                            "action": {
+                                                "type": "origins:and",
+                                                "actions": [
+                                                    {
+                                                        "type": "origins:change_resource",
+                                                        "resource": "*:*_gravity",
+                                                        "operation": "set",
+                                                        "change": 6
+                                                    },
+                                                    {
+                                                        "type": "origins:apply_effect",
+                                                        "effect": {
+                                                            "id": "gravity_changer:west",
+                                                            "duration": 19,
+                                                            "amplifier": 0,
+                                                            "ambient": false,
+                                                            "show_icon": false,
+                                                            "show_particles": false
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            "condition": {
+                                                "type": "origins:command",
+                                                "command": "execute if entity @s[x_rotation=75..90]",
+                                                "comparison": "==",
+                                                "compare_to": 1
+                                            }
+                                        },
+                                        {
+                                            "action": {
+                                                "type": "origins:and",
+                                                "actions": [
+                                                    {
+                                                        "type": "origins:change_resource",
+                                                        "resource": "*:*_gravity",
+                                                        "operation": "set",
+                                                        "change": 4
+                                                    },
+                                                    {
+                                                        "type": "origins:apply_effect",
+                                                        "effect": {
+                                                            "id": "gravity_changer:east",
+                                                            "duration": 19,
+                                                            "amplifier": 0,
+                                                            "ambient": false,
+                                                            "show_icon": false,
+                                                            "show_particles": false
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            "condition": {
+                                                "type": "origins:command",
+                                                "command": "execute if entity @s[x_rotation=-90..-75]",
+                                                "comparison": "==",
+                                                "compare_to": 1
+                                            }
+                                        },
+                                        {
+                                            "action": {
+                                                "type": "origins:and",
+                                                "actions": [
+                                                    {
+                                                        "type": "origins:change_resource",
+                                                        "resource": "*:*_gravity",
+                                                        "operation": "set",
+                                                        "change": 2
+                                                    },
+                                                    {
+                                                        "type": "origins:apply_effect",
+                                                        "effect": {
+                                                            "id": "gravity_changer:up",
+                                                            "duration": 19,
+                                                            "amplifier": 0,
+                                                            "ambient": false,
+                                                            "show_icon": false,
+                                                            "show_particles": false
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            "condition": {
+                                                "type": "origins:or",
+                                                "conditions": [
+                                                    {
+                                                        "type": "origins:command",
+                                                        "command": "execute if entity @s[x_rotation=-75..75] if entity @s[y_rotation=135..180]",
+                                                        "comparison": "==",
+                                                        "compare_to": 1
+                                                    },
+                                                    {
+                                                        "type": "origins:command",
+                                                        "command": "execute if entity @s[x_rotation=-75..75] if entity @s[y_rotation=-180..-135]",
+                                                        "comparison": "==",
+                                                        "compare_to": 1
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "action": {
+                                                "type": "origins:and",
+                                                "actions": [
+                                                    {
+                                                        "type": "origins:change_resource",
+                                                        "resource": "*:*_gravity",
+                                                        "operation": "set",
+                                                        "change": 3
+                                                    },
+                                                    {
+                                                        "type": "origins:apply_effect",
+                                                        "effect": {
+                                                            "id": "gravity_changer:north",
+                                                            "duration": 19,
+                                                            "amplifier": 0,
+                                                            "ambient": false,
+                                                            "show_icon": false,
+                                                            "show_particles": false
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            "condition": {
+                                                "type": "origins:command",
+                                                "command": "execute if entity @s[x_rotation=-75..75] if entity @s[y_rotation=-135..-45]",
+                                                "comparison": "==",
+                                                "compare_to": 1
+                                            }
+                                        },
+                                        {
+                                            "action": {
+                                                "type": "origins:and",
+                                                "actions": [
+                                                    {
+                                                        "type": "origins:change_resource",
+                                                        "resource": "*:*_gravity",
+                                                        "operation": "set",
+                                                        "change": 1
+                                                    }
+                                                ]
+                                            },
+                                            "condition": {
+                                                "type": "origins:command",
+                                                "command": "execute if entity @s[x_rotation=-75..75] if entity @s[y_rotation=-45..45]",
+                                                "comparison": "==",
+                                                "compare_to": 1
+                                            }
+                                        },
+                                        {
+                                            "action": {
+                                                "type": "origins:and",
+                                                "actions": [
+                                                    {
+                                                        "type": "origins:change_resource",
+                                                        "resource": "*:*_gravity",
+                                                        "operation": "set",
+                                                        "change": 5
+                                                    },
+                                                    {
+                                                        "type": "origins:apply_effect",
+                                                        "effect": {
+                                                            "id": "gravity_changer:south",
+                                                            "duration": 19,
+                                                            "amplifier": 0,
+                                                            "ambient": false,
+                                                            "show_icon": false,
+                                                            "show_particles": false
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            "condition": {
+                                                "type": "origins:command",
+                                                "command": "execute if entity @s[x_rotation=-75..75] if entity @s[y_rotation=45..135]",
+                                                "comparison": "==",
+                                                "compare_to": 1
+                                            }
+                                        }
+                                    ]
+                                },
+                                "condition": {
+                                    "type": "origins:resource",
+                                    "resource": "*:*_gravity",
+                                    "comparison": "==",
+                                    "compare_to": 6
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:clear_effect",
+                                "effect": "gravity_changer:up"
+                            },
+                            {
+                                "type": "origins:clear_effect",
+                                "effect": "gravity_changer:north"
+                            },
+                            {
+                                "type": "origins:clear_effect",
+                                "effect": "gravity_changer:east"
+                            },
+                            {
+                                "type": "origins:clear_effect",
+                                "effect": "gravity_changer:south"
+                            },
+                            {
+                                "type": "origins:clear_effect",
+                                "effect": "gravity_changer:west"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "origins:if_else_list",
+                        "actions": [
+                            {
+                                "action": {
+                                    "type": "origins:clear_effect",
+                                    "effect": "gravity_changer:up"
+                                },
+                                "condition": {
+                                    "type": "origins:resource",
+                                    "resource": "*:*_gravity",
+                                    "comparison": "!=",
+                                    "compare_to": 2
+                                }
+                            },
+                            {
+                                "action": {
+                                    "type": "origins:clear_effect",
+                                    "effect": "gravity_changer:north"
+                                },
+                                "condition": {
+                                    "type": "origins:resource",
+                                    "resource": "*:*_gravity",
+                                    "comparison": "!=",
+                                    "compare_to": 3
+                                }
+                            },
+                            {
+                                "action": {
+                                    "type": "origins:clear_effect",
+                                    "effect": "gravity_changer:east"
+                                },
+                                "condition": {
+                                    "type": "origins:resource",
+                                    "resource": "*:*_gravity",
+                                    "comparison": "!=",
+                                    "compare_to": 4
+                                }
+                            },
+                            {
+                                "action": {
+                                    "type": "origins:clear_effect",
+                                    "effect": "gravity_changer:south"
+                                },
+                                "condition": {
+                                    "type": "origins:resource",
+                                    "resource": "*:*_gravity",
+                                    "comparison": "!=",
+                                    "compare_to": 5
+                                }
+                            },
+                            {
+                                "action": {
+                                    "type": "origins:clear_effect",
+                                    "effect": "gravity_changer:west"
+                                },
+                                "condition": {
+                                    "type": "origins:resource",
+                                    "resource": "*:*_gravity",
+                                    "comparison": "!=",
+                                    "compare_to": 6
+                                }
+                            }
+                        ]
                     },
                     {
                         "type": "origins:execute_command",
@@ -24,7 +1273,7 @@
                         "type": "origins:change_resource",
                         "resource": "*:*_resource",
                         "operation": "add",
-                        "change": -50
+                        "change": -30
                     },
                     {
                         "type": "origins:change_resource",
@@ -38,8 +1287,35 @@
                 "type": "origins:and",
                 "actions": [
                     {
-                        "type": "origins:execute_command",
-                        "command": "function life:quirk/gravity/set/down"
+                        "type": "origins:change_resource",
+                        "resource": "*:*_gravity",
+                        "operation": "set",
+                        "change": 1
+                    },
+                    {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:clear_effect",
+                                "effect": "gravity_changer:up"
+                            },
+                            {
+                                "type": "origins:clear_effect",
+                                "effect": "gravity_changer:north"
+                            },
+                            {
+                                "type": "origins:clear_effect",
+                                "effect": "gravity_changer:east"
+                            },
+                            {
+                                "type": "origins:clear_effect",
+                                "effect": "gravity_changer:south"
+                            },
+                            {
+                                "type": "origins:clear_effect",
+                                "effect": "gravity_changer:west"
+                            }
+                        ]
                     },
                     {
                         "type": "origins:execute_command",
@@ -61,8 +1337,8 @@
                         "inverted": true
                     },
                     {
-                        "type": "origins:command",
-                        "command": "execute if entity @s[tag=!quirk.gravity.up,tag=!quirk.gravity.north,tag=!quirk.gravity.east,tag=!quirk.gravity.south,tag=!quirk.gravity.west]",
+                        "type": "origins:resource",
+                        "resource": "*:*_gravity",
                         "comparison": "==",
                         "compare_to": 1
                     }
@@ -77,17 +1353,232 @@
             "type": "origins:resource",
             "resource": "*:*_resource",
             "comparison": ">=",
-            "compare_to": 52
+            "compare_to": 32
+        }
+    },
+    "effect_over_time": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:if_else_list",
+                    "actions": [
+                        {
+                            "action": {
+                                "type": "origins:clear_effect",
+                                "effect": "gravity_changer:up"
+                            },
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "*:*_gravity",
+                                "comparison": "!=",
+                                "compare_to": 2
+                            }
+                        },
+                        {
+                            "action": {
+                                "type": "origins:clear_effect",
+                                "effect": "gravity_changer:north"
+                            },
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "*:*_gravity",
+                                "comparison": "!=",
+                                "compare_to": 3
+                            }
+                        },
+                        {
+                            "action": {
+                                "type": "origins:clear_effect",
+                                "effect": "gravity_changer:east"
+                            },
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "*:*_gravity",
+                                "comparison": "!=",
+                                "compare_to": 4
+                            }
+                        },
+                        {
+                            "action": {
+                                "type": "origins:clear_effect",
+                                "effect": "gravity_changer:south"
+                            },
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "*:*_gravity",
+                                "comparison": "!=",
+                                "compare_to": 5
+                            }
+                        },
+                        {
+                            "action": {
+                                "type": "origins:clear_effect",
+                                "effect": "gravity_changer:west"
+                            },
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "*:*_gravity",
+                                "comparison": "!=",
+                                "compare_to": 6
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:if_else_list",
+                    "actions": [
+                        {
+                            "action": {
+                                "type": "origins:apply_effect",
+                                "effect": {
+                                    "id": "gravity_changer:up",
+                                    "duration": 19,
+                                    "amplifier": 0,
+                                    "ambient": false,
+                                    "show_icon": false,
+                                    "show_particles": false
+                                }
+                            },
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "*:*_gravity",
+                                "comparison": "==",
+                                "compare_to": 2
+                            }
+                        },
+                        {
+                            "action": {
+                                "type": "origins:apply_effect",
+                                "effect": {
+                                    "id": "gravity_changer:north",
+                                    "duration": 19,
+                                    "amplifier": 0,
+                                    "ambient": false,
+                                    "show_icon": false,
+                                    "show_particles": false
+                                }
+                            },
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "*:*_gravity",
+                                "comparison": "==",
+                                "compare_to": 3
+                            }
+                        },
+                        {
+                            "action": {
+                                "type": "origins:apply_effect",
+                                "effect": {
+                                    "id": "gravity_changer:east",
+                                    "duration": 19,
+                                    "amplifier": 0,
+                                    "ambient": false,
+                                    "show_icon": false,
+                                    "show_particles": false
+                                }
+                            },
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "*:*_gravity",
+                                "comparison": "==",
+                                "compare_to": 4
+                            }
+                        },
+                        {
+                            "action": {
+                                "type": "origins:apply_effect",
+                                "effect": {
+                                    "id": "gravity_changer:south",
+                                    "duration": 19,
+                                    "amplifier": 0,
+                                    "ambient": false,
+                                    "show_icon": false,
+                                    "show_particles": false
+                                }
+                            },
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "*:*_gravity",
+                                "comparison": "==",
+                                "compare_to": 5
+                            }
+                        },
+                        {
+                            "action": {
+                                "type": "origins:apply_effect",
+                                "effect": {
+                                    "id": "gravity_changer:west",
+                                    "duration": 19,
+                                    "amplifier": 0,
+                                    "ambient": false,
+                                    "show_icon": false,
+                                    "show_particles": false
+                                }
+                            },
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "*:*_gravity",
+                                "comparison": "==",
+                                "compare_to": 6
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "interval": 1
+    },
+    "gravity": {
+        "type": "origins:resource",
+        "min": 1,
+        "max": 6,
+        "start_value": 1,
+        "hud_render": {
+            "should_render": false
         }
     },
     "resource": {
         "type": "origins:resource",
         "min": 0,
-        "max": 2800,
-        "start_value": 2800,
+        "max": 3000,
+        "start_value": 3000,
         "min_action": {
-            "type": "origins:execute_command",
-            "command": "function life:quirk/gravity/set/down"
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "*:*_gravity",
+                    "operation": "set",
+                    "change": 1
+                },
+                {
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "origins:clear_effect",
+                            "effect": "gravity_changer:up"
+                        },
+                        {
+                            "type": "origins:clear_effect",
+                            "effect": "gravity_changer:north"
+                        },
+                        {
+                            "type": "origins:clear_effect",
+                            "effect": "gravity_changer:east"
+                        },
+                        {
+                            "type": "origins:clear_effect",
+                            "effect": "gravity_changer:south"
+                        },
+                        {
+                            "type": "origins:clear_effect",
+                            "effect": "gravity_changer:west"
+                        }
+                    ]
+                }
+            ]
         },
         "hud_render": {
             "should_render": true,
@@ -97,7 +1588,7 @@
                 "type": "origins:resource",
                 "resource": "*:*_resource",
                 "comparison": "<",
-                "compare_to": 2800
+                "compare_to": 3000
             }
         }
     },
@@ -116,12 +1607,12 @@
                 {
                     "type": "origins:resource",
                     "resource": "*:*_resource",
-                    "comparison": "<=",
-                    "compare_to": 2800
+                    "comparison": "<",
+                    "compare_to": 3000
                 },
                 {
-                    "type": "origins:command",
-                    "command": "execute if entity @s[tag=!quirk.gravity.up,tag=!quirk.gravity.north,tag=!quirk.gravity.east,tag=!quirk.gravity.south,tag=!quirk.gravity.west]",
+                    "type": "origins:resource",
+                    "resource": "*:*_gravity",
                     "comparison": "==",
                     "compare_to": 1
                 },
@@ -156,9 +1647,9 @@
                     "type": "origins:or",
                     "conditions": [
                         {
-                            "type": "origins:command",
-                            "command": "execute unless entity @s[tag=!quirk.gravity.up,tag=!quirk.gravity.north,tag=!quirk.gravity.east,tag=!quirk.gravity.south,tag=!quirk.gravity.west]",
-                            "comparison": "==",
+                            "type": "origins:resource",
+                            "resource": "*:*_gravity",
+                            "comparison": ">",
                             "compare_to": 1
                         },
                         {
@@ -175,12 +1666,76 @@
     "remove": {
         "type": "origins:action_on_callback",
         "entity_action_respawned": {
-            "type": "origins:execute_command",
-            "command": "function life:quirk/gravity/set/down"
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "*:*_gravity",
+                    "operation": "set",
+                    "change": 1
+                },
+                {
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "origins:clear_effect",
+                            "effect": "gravity_changer:up"
+                        },
+                        {
+                            "type": "origins:clear_effect",
+                            "effect": "gravity_changer:north"
+                        },
+                        {
+                            "type": "origins:clear_effect",
+                            "effect": "gravity_changer:east"
+                        },
+                        {
+                            "type": "origins:clear_effect",
+                            "effect": "gravity_changer:south"
+                        },
+                        {
+                            "type": "origins:clear_effect",
+                            "effect": "gravity_changer:west"
+                        }
+                    ]
+                }
+            ]
         },
         "entity_action_lost": {
-            "type": "origins:execute_command",
-            "command": "function life:quirk/gravity/set/down"
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "*:*_gravity",
+                    "operation": "set",
+                    "change": 1
+                },
+                {
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "origins:clear_effect",
+                            "effect": "gravity_changer:up"
+                        },
+                        {
+                            "type": "origins:clear_effect",
+                            "effect": "gravity_changer:north"
+                        },
+                        {
+                            "type": "origins:clear_effect",
+                            "effect": "gravity_changer:east"
+                        },
+                        {
+                            "type": "origins:clear_effect",
+                            "effect": "gravity_changer:south"
+                        },
+                        {
+                            "type": "origins:clear_effect",
+                            "effect": "gravity_changer:west"
+                        }
+                    ]
+                }
+            ]
         }
     },
     "no_fall": {
