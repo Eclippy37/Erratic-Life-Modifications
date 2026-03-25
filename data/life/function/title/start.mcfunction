@@ -1,6 +1,7 @@
 # Clear Old Schedule
-schedule clear life:title/title
 schedule clear life:gravity/title/title
+schedule clear life:vote/title/title
+schedule clear life:title/title
 
 # Set Scoreboard Time 0
 scoreboard players set #TitleTime erraticlife -100
