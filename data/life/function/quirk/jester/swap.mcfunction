@@ -1,6 +1,6 @@
 # Tags Add
 tag @s add jester.swap.actor
-tag @a[tag=!jester.swap.actor,gamemode=survival,limit=1,sort=random] add jester.swap.target
+tag @a[tag=!jester.swap.actor,gamemode=survival,limit=1,sort=random,team=!watcher] add jester.swap.target
 
 # Swap Positions
 tp @s @a[tag=jester.swap.target,limit=1,sort=nearest]
