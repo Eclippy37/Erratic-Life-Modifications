@@ -394,8 +394,241 @@
                 ]
             },
             "else_action": {
-                "type": "origins:execute_command",
-                "command": "title @s actionbar \"Sneaking\""
+                "type": "origins:if_else_list",
+                "actions": [
+                    {
+                        "action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "#title @s actionbar [{\"text\":\"Iron Weight\",\"color\":\"gray\"}]"
+                                },
+                                {
+                                    "type": "origins:change_resource",
+                                    "resource": "*:*_resource",
+                                    "operation": "set",
+                                    "change": 1
+                                },
+                                {
+                                    "type": "origins:change_resource",
+                                    "resource": "*:*_power",
+                                    "operation": "set",
+                                    "change": 0
+                                }
+                            ]
+                        },
+                        "condition": {
+                            "type": "origins:resource",
+                            "resource": "*:*_resource",
+                            "comparison": "==",
+                            "compare_to": 0
+                        }
+                    },
+                    {
+                        "action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "title @s actionbar [{\"text\":\"Iron Weight\",\"color\":\"gray\"}]"
+                                },
+                                {
+                                    "type": "origins:change_resource",
+                                    "resource": "*:*_resource",
+                                    "operation": "set",
+                                    "change": 1
+                                },
+                                {
+                                    "type": "origins:change_resource",
+                                    "resource": "*:*_power",
+                                    "operation": "set",
+                                    "change": 0
+                                }
+                            ]
+                        },
+                        "condition": {
+                            "type": "origins:resource",
+                            "resource": "*:*_resource",
+                            "comparison": "==",
+                            "compare_to": 2
+                        }
+                    },
+                    {
+                        "action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "title @s actionbar [{\"text\":\"Pewter Attack Damage\",\"color\":\"red\"}]"
+                                },
+                                {
+                                    "type": "origins:change_resource",
+                                    "resource": "*:*_resource",
+                                    "operation": "set",
+                                    "change": 2
+                                },
+                                {
+                                    "type": "origins:change_resource",
+                                    "resource": "*:*_power",
+                                    "operation": "set",
+                                    "change": 0
+                                }
+                            ]
+                        },
+                        "condition": {
+                            "type": "origins:resource",
+                            "resource": "*:*_resource",
+                            "comparison": "==",
+                            "compare_to": 3
+                        }
+                    },
+                    {
+                        "action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "title @s actionbar [{\"text\":\"Zinc Attack Speed\",\"color\":\"yellow\"}]"
+                                },
+                                {
+                                    "type": "origins:change_resource",
+                                    "resource": "*:*_resource",
+                                    "operation": "set",
+                                    "change": 3
+                                },
+                                {
+                                    "type": "origins:change_resource",
+                                    "resource": "*:*_power",
+                                    "operation": "set",
+                                    "change": 0
+                                }
+                            ]
+                        },
+                        "condition": {
+                            "type": "origins:resource",
+                            "resource": "*:*_resource",
+                            "comparison": "==",
+                            "compare_to": 4
+                        }
+                    },
+                    {
+                        "action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "title @s actionbar [{\"text\":\"Steel Movement Speed\",\"color\":\"green\"}]"
+                                },
+                                {
+                                    "type": "origins:change_resource",
+                                    "resource": "*:*_resource",
+                                    "operation": "set",
+                                    "change": 4
+                                },
+                                {
+                                    "type": "origins:change_resource",
+                                    "resource": "*:*_power",
+                                    "operation": "set",
+                                    "change": 0
+                                }
+                            ]
+                        },
+                        "condition": {
+                            "type": "origins:resource",
+                            "resource": "*:*_resource",
+                            "comparison": "==",
+                            "compare_to": 5
+                        }
+                    },
+                    {
+                        "action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "title @s actionbar [{\"text\":\"Gold Max Health\",\"color\":\"dark_green\"}]"
+                                },
+                                {
+                                    "type": "origins:change_resource",
+                                    "resource": "*:*_resource",
+                                    "operation": "set",
+                                    "change": 5
+                                },
+                                {
+                                    "type": "origins:change_resource",
+                                    "resource": "*:*_power",
+                                    "operation": "set",
+                                    "change": 0
+                                }
+                            ]
+                        },
+                        "condition": {
+                            "type": "origins:resource",
+                            "resource": "*:*_resource",
+                            "comparison": "==",
+                            "compare_to": 6
+                        }
+                    },
+                    {
+                        "action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "title @s actionbar [{\"text\":\"Brass Armor\",\"color\":\"aqua\"}]"
+                                },
+                                {
+                                    "type": "origins:change_resource",
+                                    "resource": "*:*_resource",
+                                    "operation": "set",
+                                    "change": 6
+                                },
+                                {
+                                    "type": "origins:change_resource",
+                                    "resource": "*:*_power",
+                                    "operation": "set",
+                                    "change": 0
+                                }
+                            ]
+                        },
+                        "condition": {
+                            "type": "origins:resource",
+                            "resource": "*:*_resource",
+                            "comparison": "==",
+                            "compare_to": 7
+                        }
+                    },
+                    {
+                        "action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "title @s actionbar [{\"text\":\"Tin Vision\",\"color\":\"blue\"}]"
+                                },
+                                {
+                                    "type": "origins:change_resource",
+                                    "resource": "*:*_resource",
+                                    "operation": "set",
+                                    "change": 7
+                                },
+                                {
+                                    "type": "origins:change_resource",
+                                    "resource": "*:*_power",
+                                    "operation": "set",
+                                    "change": 0
+                                }
+                            ]
+                        },
+                        "condition": {
+                            "type": "origins:resource",
+                            "resource": "*:*_resource",
+                            "comparison": "==",
+                            "compare_to": 1
+                        }
+                    }
+                ]
             },
             "condition": {
                 "type": "origins:sneaking",
