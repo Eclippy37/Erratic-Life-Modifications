@@ -19,6 +19,7 @@ power remove @a[tag=vote.positive.night_vision] life:vote/positive/night_vision
 power remove @a[tag=vote.positive.phasing] life:vote/positive/phasing
 power remove @a[tag=vote.positive.resistance] life:vote/positive/resistance
 power remove @a[tag=vote.positive.size] life:vote/positive/size
+power remove @a[tag=vote.positive.slow_falling] life:vote/positive/slow_falling
 power remove @a[tag=vote.positive.speed] life:vote/positive/speed
 power remove @a[tag=vote.positive.sprint_jump] life:vote/positive/sprint_jump
 power remove @a[tag=vote.positive.sun_feed] life:vote/positive/sun_feed

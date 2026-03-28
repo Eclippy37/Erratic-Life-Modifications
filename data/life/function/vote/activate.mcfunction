@@ -23,10 +23,11 @@ execute if score #VoteOptionActive erraticlife matches 1 if score #VotePos1 erra
 execute if score #VoteOptionActive erraticlife matches 1 if score #VotePos1 erraticlife matches 19 run function life:vote/activate/positive/phasing
 execute if score #VoteOptionActive erraticlife matches 1 if score #VotePos1 erraticlife matches 20 run function life:vote/activate/positive/resistance
 execute if score #VoteOptionActive erraticlife matches 1 if score #VotePos1 erraticlife matches 21 run function life:vote/activate/positive/size
-execute if score #VoteOptionActive erraticlife matches 1 if score #VotePos1 erraticlife matches 22 run function life:vote/activate/positive/speed
-execute if score #VoteOptionActive erraticlife matches 1 if score #VotePos1 erraticlife matches 23 run function life:vote/activate/positive/sprint_jump
-execute if score #VoteOptionActive erraticlife matches 1 if score #VotePos1 erraticlife matches 24 run function life:vote/activate/positive/sun_feed
-execute if score #VoteOptionActive erraticlife matches 1 if score #VotePos1 erraticlife matches 25 run function life:vote/activate/positive/sun_heal
+execute if score #VoteOptionActive erraticlife matches 1 if score #VotePos1 erraticlife matches 22 run function life:vote/activate/positive/slow_falling
+execute if score #VoteOptionActive erraticlife matches 1 if score #VotePos1 erraticlife matches 23 run function life:vote/activate/positive/speed
+execute if score #VoteOptionActive erraticlife matches 1 if score #VotePos1 erraticlife matches 24 run function life:vote/activate/positive/sprint_jump
+execute if score #VoteOptionActive erraticlife matches 1 if score #VotePos1 erraticlife matches 25 run function life:vote/activate/positive/sun_feed
+execute if score #VoteOptionActive erraticlife matches 1 if score #VotePos1 erraticlife matches 26 run function life:vote/activate/positive/sun_heal
 
 # Negative 1
 execute if score #VoteOptionActive erraticlife matches 1 if score #VoteNeg1 erraticlife matches 01 run function life:vote/activate/negative/carnivore
@@ -84,10 +85,11 @@ execute if score #VoteOptionActive erraticlife matches 2 if score #VotePos2 erra
 execute if score #VoteOptionActive erraticlife matches 2 if score #VotePos2 erraticlife matches 19 run function life:vote/activate/positive/phasing
 execute if score #VoteOptionActive erraticlife matches 2 if score #VotePos2 erraticlife matches 20 run function life:vote/activate/positive/resistance
 execute if score #VoteOptionActive erraticlife matches 2 if score #VotePos2 erraticlife matches 21 run function life:vote/activate/positive/size
-execute if score #VoteOptionActive erraticlife matches 2 if score #VotePos2 erraticlife matches 22 run function life:vote/activate/positive/speed
-execute if score #VoteOptionActive erraticlife matches 2 if score #VotePos2 erraticlife matches 23 run function life:vote/activate/positive/sprint_jump
-execute if score #VoteOptionActive erraticlife matches 2 if score #VotePos2 erraticlife matches 24 run function life:vote/activate/positive/sun_feed
-execute if score #VoteOptionActive erraticlife matches 2 if score #VotePos2 erraticlife matches 25 run function life:vote/activate/positive/sun_heal
+execute if score #VoteOptionActive erraticlife matches 2 if score #VotePos1 erraticlife matches 22 run function life:vote/activate/positive/slow_falling
+execute if score #VoteOptionActive erraticlife matches 2 if score #VotePos2 erraticlife matches 23 run function life:vote/activate/positive/speed
+execute if score #VoteOptionActive erraticlife matches 2 if score #VotePos2 erraticlife matches 24 run function life:vote/activate/positive/sprint_jump
+execute if score #VoteOptionActive erraticlife matches 2 if score #VotePos2 erraticlife matches 25 run function life:vote/activate/positive/sun_feed
+execute if score #VoteOptionActive erraticlife matches 2 if score #VotePos2 erraticlife matches 26 run function life:vote/activate/positive/sun_heal
 
 # Negative 2
 execute if score #VoteOptionActive erraticlife matches 2 if score #VoteNeg2 erraticlife matches 01 run function life:vote/activate/negative/carnivore

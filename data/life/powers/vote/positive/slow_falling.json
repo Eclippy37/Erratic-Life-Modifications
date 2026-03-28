@@ -1,0 +1,64 @@
+{
+    "hidden": true,
+    "type": "origins:multiple",
+    "main": {
+        "type": "apoli:modify_falling",
+        "velocity": 0.01,
+        "take_fall_damage": false,
+        "condition": {
+            "type": "origins:any_of",
+            "conditions": [
+                {
+                    "type": "origins:all_of",
+                    "conditions": [
+                        {
+                            "type": "origins:sneaking"
+                        },
+                        {
+                            "type": "origins:fall_flying"
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:all_of",
+                    "conditions": [
+                        {
+                            "type": "origins:sneaking",
+                            "inverted": true
+                        },
+                        {
+                            "type": "origins:fall_flying",
+                            "inverted": true
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "like_air": {
+        "type": "origins:attribute_modify_transfer",
+        "class": "modify_air_speed",
+        "attribute": "minecraft:generic.movement_speed",
+        "multiplier": 1
+    },
+    "tailwind": {
+        "type": "origins:attribute",
+        "modifier": {
+            "id": "*:*",
+            "attribute": "minecraft:generic.movement_speed",
+            "amount": 0.2,
+            "operation": "add_multiplied_base"
+        }
+    },
+    "callback": {
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:execute_command",
+            "command": "tag @s add vote.positive.slow_falling"
+        },
+        "entity_action_lost": {
+            "type": "origins:execute_command",
+            "command": "tag @s remove vote.positive.slow_falling"
+        }
+    }
+}

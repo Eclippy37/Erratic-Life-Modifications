@@ -27,6 +27,3 @@ execute unless score #TitleTime erraticlife matches ..30 run function life:vote/
 
 # Randomise Gravity
 execute if score #TitleTime erraticlife matches 0 as @a[team=!watcher] run function life:vote/start
-
-# Set Timer
-execute if score #TitleTime erraticlife matches 0 store result score #VoteTimer erraticlife run random value 6000..24000
