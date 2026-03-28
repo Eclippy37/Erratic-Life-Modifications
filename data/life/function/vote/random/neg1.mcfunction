@@ -1,7 +1,14 @@
+# Reset
+scoreboard players reset #VoteNeg1 erraticlife
+
+# Set Option
+execute if score #VoteNeg1Set erraticlife matches 1..28 run scoreboard players operation #VoteNeg1 erraticlife = #VoteNeg1Set erraticlife
+
 # Randomise Option
-execute store result score #VoteNeg1 erraticlife run random value 1..28
-execute if score #VoteNeg1 erraticlife = #VoteNeg1Temp erraticlife run return run function life:vote/random/neg1
-execute unless score #VoteNeg1 erraticlife = #VoteNeg1Temp erraticlife run scoreboard players operation #VoteNeg1Temp erraticlife = #VoteNeg1 erraticlife
+execute unless score #VoteNeg1 erraticlife matches 1..28 store result score #VoteNeg1 erraticlife run random value 1..28
+
+# Reset Set
+scoreboard players reset #VoteNeg1Set erraticlife
 
 # Reroll on conflicting result
 execute if score #VotePos1 erraticlife matches 06 if score #VoteNeg1 erraticlife matches 18 run return run function life:vote/random/neg1

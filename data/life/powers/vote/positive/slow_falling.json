@@ -2,7 +2,7 @@
     "hidden": true,
     "type": "origins:multiple",
     "main": {
-        "type": "apoli:modify_falling",
+        "type": "origins:modify_falling",
         "velocity": 0.01,
         "take_fall_damage": false,
         "condition": {
