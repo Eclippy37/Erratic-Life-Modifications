@@ -1,0 +1,32 @@
+{
+    "type": "minecraft:generic",
+    "pools": [
+        {
+            "bonus_rolls": 0,
+            "entries": [
+                {
+                    "type": "minecraft:item",
+                    "name": "minecraft:golden_apple",
+                    "functions": [
+                        {
+                            "function": "minecraft:set_count",
+                            "count": {
+                                "type": "minecraft:binomial",
+                                "n": 7,
+                                "p": {
+                                    "type": "minecraft:uniform",
+                                    "min": 0.25,
+                                    "max": 0.5
+                                }
+                            },
+                            "add": true,
+                            "conditions": []
+                        }
+                    ]
+                }
+            ],
+            "rolls": 1
+        }
+    ],
+    "functions": []
+}

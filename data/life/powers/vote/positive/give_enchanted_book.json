@@ -1,0 +1,37 @@
+{
+    "hidden": true,
+    "type": "origins:multiple",
+    "main": {
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:choice",
+            "actions": [
+                {
+                    "element": {
+                        "type": "origins:execute_command",
+                        "command": "loot give @s loot life:give/enchanted_book"
+                    },
+                    "weight": 18
+                },
+                {
+                    "element": {
+                        "type": "origins:execute_command",
+                        "command": "give @s minecraft:enchanted_book[stored_enchantments={levels:{aqua_affinity:1,depth_strider:1,efficiency:1,feather_falling:1,fortune:1,impaling:1,infinity:1,knockback:1,looting:1,loyalty:1,power:1,protection:1,punch:1,quick_charge:1,respiration:1,sharpness:1,sweeping_edge:1,unbreaking:1}}] 1"
+                    },
+                    "weight": 1
+                }
+            ]
+        }
+    },
+    "callback": {
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:execute_command",
+            "command": "tag @s add vote.positive.give_diamond"
+        },
+        "entity_action_lost": {
+            "type": "origins:execute_command",
+            "command": "tag @s remove vote.positive.give_diamond"
+        }
+    }
+}

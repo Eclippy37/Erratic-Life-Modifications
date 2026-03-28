@@ -1,10 +1,14 @@
-
 power remove @a[tag=vote.positive.bonemeal] life:vote/positive/bonemeal
 power remove @a[tag=vote.positive.climbing] life:vote/positive/climbing
 power remove @a[tag=vote.positive.elytra] life:vote/positive/elytra
 power grant @a[tag=!vote.positive.fall_immunity] life:vote/positive/fall_immunity
 power remove @a[tag=vote.positive.fire_resistance] life:vote/positive/fire_resistance
 power remove @a[tag=vote.positive.fortune] life:vote/positive/fortune
+power remove @a[tag=vote.positive.give_diamond] life:vote/positive/give_diamond
+power remove @a[tag=vote.positive.give_enchanted_book] life:vote/positive/give_enchanted_book
+power grant @a[tag=!vote.positive.give_golden_apple] life:vote/positive/give_golden_apple
+power remove @a[tag=vote.positive.give_iron] life:vote/positive/give_iron
+power remove @a[tag=vote.positive.give_spawn_egg] life:vote/positive/give_spawn_egg
 power remove @a[tag=vote.positive.gravity] life:vote/positive/gravity
 power remove @a[tag=vote.positive.haste] life:vote/positive/haste
 power remove @a[tag=vote.positive.health] life:vote/positive/health

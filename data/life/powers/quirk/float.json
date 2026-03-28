@@ -50,7 +50,7 @@
                                 "type": "origins:change_resource",
                                 "resource": "*:*_cooldown",
                                 "operation": "set",
-                                "change": 100
+                                "change": 60
                             },
                             {
                                 "type": "origins:set_fall_distance",
@@ -94,7 +94,7 @@
     "cooldown": {
         "type": "origins:resource",
         "min": 0,
-        "max": 100,
+        "max": 60,
         "start_value": 0,
         "hud_render": {
             "should_render": true,

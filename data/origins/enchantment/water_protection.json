@@ -1,0 +1,20 @@
+{
+    "description": {
+        "translate": "enchantment.origins.water_protection"
+    },
+    "exclusive_set": "#origins:exclusive_set/water_protection",
+    "supported_items": "#minecraft:enchantable/armor",
+    "primary_items": [],
+    "weight": 1,
+    "max_level": 1,
+    "min_cost": {
+        "base": 99,
+        "per_level_above_first": 4
+    },
+    "max_cost": {
+        "base": 99,
+        "per_level_above_first": 4
+    },
+    "anvil_cost": 4,
+    "slots": []
+}

@@ -1,8 +1,8 @@
 {
-  "values": [
-    "minecraft:binding_curse",
-    "minecraft:vanishing_curse",
-    "minecraft:mending",
-    "minecraft:wind_burst"
-  ]
+    "values": [
+        "minecraft:binding_curse",
+        "minecraft:vanishing_curse",
+        "minecraft:mending",
+        "minecraft:wind_burst"
+    ]
 }
