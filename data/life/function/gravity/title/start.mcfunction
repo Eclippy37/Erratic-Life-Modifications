@@ -1,4 +1,4 @@
-# Clear Old Schedule
+# Clear old Schedule
 schedule clear life:gravity/title/title
 schedule clear life:vote/title/title
 schedule clear life:title/title

@@ -8,7 +8,6 @@ execute if score #TitleTime erraticlife matches -50 as @a at @s run playsound mi
 execute if score #TitleTime erraticlife matches -25 as @a at @s run playsound minecraft:block.note_block.didgeridoo master @s ~ ~ ~ 0.4 1
 execute if score #TitleTime erraticlife matches 0 as @a at @s run playsound minecraft:entity.elder_guardian.curse master @s ~ ~ ~ 0.5 1
 
-
 # Title Dots
 execute if score #TitleTime erraticlife matches -120..0 run title @a subtitle [{"bold":false,"color":"gray","text":"Gravity is about to be randomised..."}]
 execute if score #TitleTime erraticlife matches -120 run title @a title ""
@@ -29,6 +28,7 @@ execute unless score #TitleTime erraticlife matches ..30 run function life:gravi
 
 # Randomise Gravity
 execute if score #TitleTime erraticlife matches 0 as @a[team=!watcher] run tag @s remove gravity.randomised
+execute if score #TitleTime erraticlife matches 0 as @a[team=!watcher,tag=!gravity] run power grant @s life:gravity
 
 # Set Timer
-execute if score #TitleTime erraticlife matches 0 store result score #GravityTimer erraticlife run random value 18000..36000
+execute if score #TitleTime erraticlife matches 0 store result score #GravityTimer erraticlife run random value 24000..48000

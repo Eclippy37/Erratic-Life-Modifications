@@ -20,11 +20,12 @@ scoreboard players reset #VoteNeg1 erraticlife
 scoreboard players reset #VotePos2 erraticlife
 scoreboard players reset #VoteNeg2 erraticlife
 
-# Reset vote powers
+# Reset Vote powers
 function life:vote/activate/none
 
 # Remove Gravity
-execute as @a run function life:gravity/activate/down
+#execute as @a run function life:gravity/activate/down
+execute as @a run power remove @s life:gravity
 
 # Remove Quirks
 function life:quirk/remove
