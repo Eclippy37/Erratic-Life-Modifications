@@ -262,7 +262,7 @@
                                 "type": "origins:apply_effect",
                                 "effect": {
                                     "id": "gravity_changer:up",
-                                    "duration": 59,
+                                    "duration": 75,
                                     "amplifier": 0,
                                     "ambient": false,
                                     "show_icon": false,
@@ -281,7 +281,7 @@
                                 "type": "origins:apply_effect",
                                 "effect": {
                                     "id": "gravity_changer:north",
-                                    "duration": 59,
+                                    "duration": 75,
                                     "amplifier": 0,
                                     "ambient": false,
                                     "show_icon": false,
@@ -300,7 +300,7 @@
                                 "type": "origins:apply_effect",
                                 "effect": {
                                     "id": "gravity_changer:east",
-                                    "duration": 59,
+                                    "duration": 75,
                                     "amplifier": 0,
                                     "ambient": false,
                                     "show_icon": false,
@@ -319,7 +319,7 @@
                                 "type": "origins:apply_effect",
                                 "effect": {
                                     "id": "gravity_changer:south",
-                                    "duration": 59,
+                                    "duration": 75,
                                     "amplifier": 0,
                                     "ambient": false,
                                     "show_icon": false,
@@ -338,7 +338,7 @@
                                 "type": "origins:apply_effect",
                                 "effect": {
                                     "id": "gravity_changer:west",
-                                    "duration": 59,
+                                    "duration": 75,
                                     "amplifier": 0,
                                     "ambient": false,
                                     "show_icon": false,
