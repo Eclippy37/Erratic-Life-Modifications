@@ -29,6 +29,7 @@ execute unless score #TitleTime erraticlife matches ..30 run function life:gravi
 # Randomise Gravity
 execute if score #TitleTime erraticlife matches 0 as @a[team=!watcher] run tag @s remove gravity.randomised
 execute if score #TitleTime erraticlife matches 0 as @a[team=!watcher,tag=!gravity] run power grant @s life:gravity
+execute if score #TitleTime erraticlife matches 0 as @a[team=!watcher] if items entity @s container.* minecraft:milk_bucket run function life:gravity/milk
 
 # Set Timer
 execute if score #TitleTime erraticlife matches 0 store result score #GravityTimer erraticlife run random value 24000..48000
