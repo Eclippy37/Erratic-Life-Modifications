@@ -390,6 +390,12 @@
         },
         "hud_render": {
             "should_render": false
+        },
+        "condition": {
+            "type": "origins:command",
+            "command": "execute if score #wildcard erraticlife matches 3",
+            "comparison": "==",
+            "compare_to": 1
         }
     },
     "no_fall": {
