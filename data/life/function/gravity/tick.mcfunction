@@ -11,6 +11,3 @@
 # Scoreboard Actions
 execute if score #GravityTimer erraticlife matches 1.. run scoreboard players remove #GravityTimer erraticlife 1
 execute if score #GravityTimer erraticlife matches 0 unless score #TitleTime erraticlife matches -120..31 run function life:gravity/title/start
-
-# Grant Power
-execute as @a[team=!watcher,tag=!gravity] run power grant @s life:gravity
