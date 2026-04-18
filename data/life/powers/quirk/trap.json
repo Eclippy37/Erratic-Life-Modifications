@@ -337,7 +337,7 @@
                                 "type": "origins:change_resource",
                                 "resource": "*:*_cooldown",
                                 "operation": "set",
-                                "change": 12
+                                "change": 1200
                             }
                         ]
                     },

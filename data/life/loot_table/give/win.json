@@ -1,0 +1,83 @@
+{
+    "type": "minecraft:generic",
+    "pools": [
+        {
+            "bonus_rolls": 0,
+            "entries": [
+                {
+                    "type": "minecraft:item",
+                    "name": "minecraft:diamond",
+                    "functions": [
+                        {
+                            "function": "minecraft:set_count",
+                            "count": {
+                                "type": "minecraft:binomial",
+                                "n": 8,
+                                "p": {
+                                    "type": "minecraft:uniform",
+                                    "min": 0.3,
+                                    "max": 0.6
+                                }
+                            },
+                            "add": true,
+                            "conditions": []
+                        }
+                    ]
+                },
+                {
+                    "type": "minecraft:item",
+                    "name": "minecraft:iron_ingot",
+                    "functions": [
+                        {
+                            "function": "minecraft:set_count",
+                            "count": {
+                                "type": "minecraft:binomial",
+                                "n": 63,
+                                "p": {
+                                    "type": "minecraft:uniform",
+                                    "min": 0.15,
+                                    "max": 0.6
+                                }
+                            },
+                            "add": true
+                        }
+                    ]
+                },
+                {
+                    "type": "minecraft:item",
+                    "name": "minecraft:golden_apple",
+                    "functions": [
+                        {
+                            "function": "minecraft:set_count",
+                            "count": {
+                                "type": "minecraft:binomial",
+                                "n": 7,
+                                "p": {
+                                    "type": "minecraft:uniform",
+                                    "min": 0.25,
+                                    "max": 0.5
+                                }
+                            },
+                            "add": true,
+                            "conditions": []
+                        }
+                    ]
+                },
+                {
+                    "type": "minecraft:item",
+                    "functions": [
+                        {
+                            "function": "minecraft:enchant_randomly",
+                            "options": "#life:give_enchantment",
+                            "only_compatible": true,
+                            "conditions": []
+                        }
+                    ],
+                    "name": "minecraft:book"
+                }
+            ],
+            "rolls": 1
+        }
+    ],
+    "functions": []
+}

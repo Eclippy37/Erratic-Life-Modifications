@@ -1,6 +1,7 @@
 # Wildcard Passive Tick
 execute if score Status Session matches 2 if score #wildcard erraticlife matches 2 run function life:vote/tick
 execute if score Status Session matches 2 if score #wildcard erraticlife matches 3 run function life:gravity/tick
+execute if score Status Session matches 2 if score #wildcard erraticlife matches 4 run function life:chain/tick
 execute if score Status Session matches 2 if score #wildcard erraticlife matches 5 run function life:jnv/tick
 execute if score Status Session matches 2 if score #wildcard erraticlife matches 6 run function life:zombies/tick
 execute if score Status Session matches 2 if score #wildcard erraticlife matches 7 run function life:quirk/tick

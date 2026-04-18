@@ -1,0 +1,153 @@
+{
+    "hidden": true,
+    "type": "origins:multiple",
+    "hit": {
+        "type": "origins:action_on_hit",
+        "bientity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:actor_action",
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "tag @s add chain.actor"
+                    }
+                },
+                {
+                    "type": "origins:target_action",
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "power grant @s life:chain"
+                    }
+                },
+                {
+                    "type": "origins:if_else_list",
+                    "actions": [
+                        {
+                            "action": {
+                                "type": "origins:target_action",
+                                "action": {
+                                    "type": "origins:execute_command",
+                                    "command": "function life:chain/tagger/add/1"
+                                }
+                            },
+                            "condition": {
+                                "type": "origins:actor_condition",
+                                "condition": {
+                                    "type": "origins:nbt",
+                                    "nbt": "{Tags:['chain.tagger.1']}"
+                                }
+                            }
+                        },
+                        {
+                            "action": {
+                                "type": "origins:target_action",
+                                "action": {
+                                    "type": "origins:execute_command",
+                                    "command": "function life:chain/tagger/add/2"
+                                }
+                            },
+                            "condition": {
+                                "type": "origins:actor_condition",
+                                "condition": {
+                                    "type": "origins:nbt",
+                                    "nbt": "{Tags:['chain.tagger.2']}"
+                                }
+                            }
+                        },
+                        {
+                            "action": {
+                                "type": "origins:target_action",
+                                "action": {
+                                    "type": "origins:execute_command",
+                                    "command": "function life:chain/tagger/add/3"
+                                }
+                            },
+                            "condition": {
+                                "type": "origins:actor_condition",
+                                "condition": {
+                                    "type": "origins:nbt",
+                                    "nbt": "{Tags:['chain.tagger.3']}"
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:target_action",
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "#chain add @s @p[tag=chain.actor]"
+                    }
+                },
+                {
+                    "type": "origins:actor_action",
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "tag @s remove chain.actor"
+                    }
+                }
+            ]
+        },
+        "bientity_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:target_condition",
+                    "condition": {
+                        "type": "origins:command",
+                        "command": "execute if entity @s[tag=!chain.tagger]",
+                        "comparison": ">=",
+                        "compare_to": 1
+                    }
+                }
+            ]
+        },
+        "damage_condition": {
+            "type": "origins:name",
+            "name": "player"
+        },
+        "cooldown": 20,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "glow": {
+        "type": "origins:entity_glow",
+        "entity_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:nbt",
+                    "nbt": "{Tags:['chain.tagger']}",
+                    "inverted": true
+                },
+                {
+                    "type": "origins:entity_type",
+                    "entity_type": "minecraft:player"
+                }
+            ]
+        },
+        "bientity_condition": {
+            "type": "origins:distance",
+            "comparison": "<=",
+            "compare_to": 256
+        }
+    },
+    "callback": {
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:execute_command",
+            "command": "tag @s add chain.tagger"
+        },
+        "entity_action_lost": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "function life:chain/tagger/clear"
+                }
+            ]
+        }
+    }
+}
