@@ -1,0 +1,26 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "SPS",
+        "PDP",
+        "SPS"
+    ],
+    "key": {
+        "S": {
+            "item": "minecraft:stick"
+        },
+        "P": [
+            {
+                "item": "minecraft:paper"
+            }
+        ],
+        "D": [
+            {
+                "tag": "immersive_paintings:dye"
+            }
+        ]
+    },
+    "result": {
+        "id": "immersive_paintings:painting"
+    }
+}

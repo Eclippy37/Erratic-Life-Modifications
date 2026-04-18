@@ -1,0 +1,26 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "B",
+        "D",
+        "G"
+    ],
+    "key": {
+        "B": [
+            {
+                "tag": "minecraft:buttons"
+            }
+        ],
+        "D": [
+            {
+                "tag": "immersive_paintings:dye"
+            }
+        ],
+        "G": {
+            "item": "minecraft:glass_bottle"
+        }
+    },
+    "result": {
+        "id": "immersive_paintings:graffiti"
+    }
+}
