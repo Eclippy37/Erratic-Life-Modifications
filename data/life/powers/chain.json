@@ -127,11 +127,6 @@
                     "entity_type": "minecraft:player"
                 }
             ]
-        },
-        "bientity_condition": {
-            "type": "origins:distance",
-            "comparison": "<=",
-            "compare_to": 256
         }
     },
     "callback": {

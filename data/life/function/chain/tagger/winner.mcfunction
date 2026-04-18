@@ -19,4 +19,4 @@ execute unless score #ChainWin chain.position = #Chain3 chain.position run tag @
 
 tellraw @a[tag=chain.tagger.win] [{"text":"You have won! Please clear some space in your inventory for your prizes.","color":"gold"}]
 
-schedule function life:chain/tagger/win/go 15s
+schedule function life:chain/tagger/win/go 10s
