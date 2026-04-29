@@ -8,68 +8,219 @@
             "continuous": true
         },
         "entity_action": {
-            "type": "origins:and",
+            "type": "origins:if_else_list",
             "actions": [
                 {
-                    "type": "origins:raycast",
-                    "distance": 10,
-                    "block": true,
-                    "entity": true,
-                    "shape_type": "collider",
-                    "fluid_handling": "none",
-                    "hit_action": {
+                    "action": {
                         "type": "origins:and",
                         "actions": [
                             {
-                                "type": "origins:add_velocity",
-                                "z": -0.125,
-                                "space": "local",
-                                "client": true,
-                                "server": true
+                                "type": "origins:raycast",
+                                "distance": 10,
+                                "block": true,
+                                "entity": true,
+                                "shape_type": "collider",
+                                "fluid_handling": "none",
+                                "hit_action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:add_velocity",
+                                            "z": -0.125,
+                                            "space": "local",
+                                            "client": true,
+                                            "server": true
+                                        },
+                                        {
+                                            "type": "origins:set_fall_distance",
+                                            "fall_distance": 3
+                                        },
+                                        {
+                                            "type": "origins:apply_effect",
+                                            "effects": [
+                                                {
+                                                    "id": "minecraft:slow_falling",
+                                                    "duration": 2,
+                                                    "amplifier": 0,
+                                                    "ambient": true,
+                                                    "show_particles": false,
+                                                    "show_icon": false
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "origins:exhaust",
+                                            "amount": 0.075
+                                        }
+                                    ]
+                                },
+                                "command_at_hit": "particle minecraft:dust{color:[0.0,1.0,1.0],scale:1} ~ ~ ~ 0.25 0.25 0.25 0 3 normal @a",
+                                "command_along_ray": "particle minecraft:dust{color:[0.0,1.0,1.0],scale:1} ~ ~ ~ 0.01 0.01 0.01 0 1 normal @a",
+                                "command_step": 1
                             },
                             {
-                                "type": "origins:set_fall_distance",
-                                "fall_distance": 3
-                            },
-                            {
-                                "type": "origins:apply_effect",
-                                "effects": [
-                                    {
-                                        "id": "minecraft:slow_falling",
-                                        "duration": 5,
-                                        "amplifier": 0,
-                                        "ambient": true,
-                                        "show_particles": false,
-                                        "show_icon": false
-                                    }
-                                ]
-                            },
-                            {
-                                "type": "origins:exhaust",
-                                "amount": 0.075
+                                "type": "origins:raycast",
+                                "distance": 10,
+                                "block": false,
+                                "entity": true,
+                                "shape_type": "collider",
+                                "fluid_handling": "none",
+                                "bientity_action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:add_velocity",
+                                            "z": 0.4,
+                                            "client": true,
+                                            "server": true
+                                        },
+                                        {
+                                            "type": "origins:target_action",
+                                            "action": {
+                                                "type": "origins:and",
+                                                "actions": [
+                                                    {
+                                                        "type": "origins:add_velocity",
+                                                        "y": 0.075,
+                                                        "space": "world",
+                                                        "client": true,
+                                                        "server": true
+                                                    },
+                                                    {
+                                                        "type": "origins:set_fall_distance",
+                                                        "fall_distance": 3
+                                                    },
+                                                    {
+                                                        "type": "origins:apply_effect",
+                                                        "effects": [
+                                                            {
+                                                                "id": "minecraft:slow_falling",
+                                                                "duration": 5,
+                                                                "amplifier": 0,
+                                                                "ambient": true,
+                                                                "show_particles": false,
+                                                                "show_icon": false
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
                             }
                         ]
                     },
-                    "command_at_hit": "particle minecraft:dust{color:[0.0,1.0,1.0],scale:1} ~ ~ ~ 0.25 0.25 0.25 0 3 normal @a",
-                    "command_along_ray": "particle minecraft:dust{color:[0.0,1.0,1.0],scale:1} ~ ~ ~ 0.01 0.01 0.01 0 1 normal @a",
-                    "command_step": 1
+                    "condition": {
+                        "type": "origins:sneaking",
+                        "inverted": true
+                    }
                 },
                 {
-                    "type": "origins:raycast",
-                    "distance": 10,
-                    "block": false,
-                    "entity": true,
-                    "shape_type": "collider",
-                    "fluid_handling": "none",
-                    "bientity_action": {
-                        "type": "origins:add_velocity",
-                        "z": 0.25,
-                        "client": true,
-                        "server": true
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:raycast",
+                                "distance": 10,
+                                "block": true,
+                                "entity": true,
+                                "shape_type": "collider",
+                                "fluid_handling": "none",
+                                "hit_action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:add_velocity",
+                                            "z": -0.025,
+                                            "space": "local",
+                                            "client": true,
+                                            "server": true
+                                        },
+                                        {
+                                            "type": "origins:set_fall_distance",
+                                            "fall_distance": 3
+                                        },
+                                        {
+                                            "type": "origins:apply_effect",
+                                            "effects": [
+                                                {
+                                                    "id": "minecraft:slow_falling",
+                                                    "duration": 2,
+                                                    "amplifier": 0,
+                                                    "ambient": true,
+                                                    "show_particles": false,
+                                                    "show_icon": false
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "origins:exhaust",
+                                            "amount": 0.075
+                                        }
+                                    ]
+                                },
+                                "command_at_hit": "particle minecraft:dust{color:[0.0,1.0,1.0],scale:1} ~ ~ ~ 0.25 0.25 0.25 0 3 normal @a",
+                                "command_along_ray": "particle minecraft:dust{color:[0.0,1.0,1.0],scale:1} ~ ~ ~ 0.01 0.01 0.01 0 1 normal @a",
+                                "command_step": 1
+                            },
+                            {
+                                "type": "origins:raycast",
+                                "distance": 10,
+                                "block": false,
+                                "entity": true,
+                                "shape_type": "collider",
+                                "fluid_handling": "none",
+                                "bientity_action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:add_velocity",
+                                            "z": 0.4,
+                                            "client": true,
+                                            "server": true
+                                        },
+                                        {
+                                            "type": "origins:target_action",
+                                            "action": {
+                                                "type": "origins:and",
+                                                "actions": [
+                                                    {
+                                                        "type": "origins:add_velocity",
+                                                        "y": 0.075,
+                                                        "space": "world",
+                                                        "client": true,
+                                                        "server": true
+                                                    },
+                                                    {
+                                                        "type": "origins:set_fall_distance",
+                                                        "fall_distance": 3
+                                                    },
+                                                    {
+                                                        "type": "origins:apply_effect",
+                                                        "effects": [
+                                                            {
+                                                                "id": "minecraft:slow_falling",
+                                                                "duration": 5,
+                                                                "amplifier": 0,
+                                                                "ambient": true,
+                                                                "show_particles": false,
+                                                                "show_icon": false
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
                     },
-                    "command_at_hit": "particle minecraft:dust{color:[0.0,1.0,1.0],scale:1} ~ ~ ~ 0.25 0.25 0.25 0 3 normal @a",
-                    "command_along_ray": "particle minecraft:dust{color:[0.0,1.0,1.0],scale:1} ~ ~ ~ 0.01 0.01 0.01 0 1 normal @a",
-                    "command_step": 1
+                    "condition": {
+                        "type": "origins:sneaking",
+                        "inverted": false
+                    }
                 }
             ]
         },
