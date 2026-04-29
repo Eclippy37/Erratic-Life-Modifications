@@ -1,28 +1,11 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "  I",
-    "WS ",
-    "WW "
-  ],
-  "key": {
-    "S": [
-      {
-        "item": "minecraft:string"
-      }
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "minecraft:air"
+        }
     ],
-    "I": [
-      {
-        "item": "minecraft:stick"
-      }
-    ],
-    "W": [
-      {
-        "tag": "minecraft:logs"
-      }
-    ]
-  },
-  "result": {
-    "id": "immersive_melodies:vielle"
-  }
+    "result": {
+        "id": "minecraft:air"
+    }
 }

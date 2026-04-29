@@ -1,23 +1,11 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "ICC",
-    " IC",
-    "   "
-  ],
-  "key": {
-    "I": [
-      {
-        "item": "minecraft:iron_ingot"
-      }
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "minecraft:air"
+        }
     ],
-    "C": [
-      {
-        "item": "minecraft:copper_ingot"
-      }
-    ]
-  },
-  "result": {
-    "id": "immersive_melodies:trumpet"
-  }
+    "result": {
+        "id": "minecraft:air"
+    }
 }

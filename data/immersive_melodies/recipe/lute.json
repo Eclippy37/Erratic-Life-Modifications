@@ -1,28 +1,11 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "  I",
-    "PS ",
-    "PP "
-  ],
-  "key": {
-    "S": [
-      {
-        "item": "minecraft:string"
-      }
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "minecraft:air"
+        }
     ],
-    "I": [
-      {
-        "item": "minecraft:stick"
-      }
-    ],
-    "P": [
-      {
-        "tag": "minecraft:planks"
-      }
-    ]
-  },
-  "result": {
-    "id": "immersive_melodies:lute"
-  }
+    "result": {
+        "id": "minecraft:air"
+    }
 }

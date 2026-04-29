@@ -1,23 +1,11 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "BBB",
-    "NNN",
-    "   "
-  ],
-  "key": {
-    "B": [
-      {
-        "item": "minecraft:bone"
-      }
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "minecraft:air"
+        }
     ],
-    "N": [
-      {
-        "item": "minecraft:note_block"
-      }
-    ]
-  },
-  "result": {
-    "id": "immersive_melodies:piano"
-  }
+    "result": {
+        "id": "minecraft:air"
+    }
 }

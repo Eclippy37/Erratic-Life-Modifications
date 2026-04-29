@@ -1,18 +1,11 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    " C ",
-    "C C",
-    "CCC"
-  ],
-  "key": {
-    "C": [
-      {
-        "item": "minecraft:copper_ingot"
-      }
-    ]
-  },
-  "result": {
-    "id": "immersive_melodies:triangle"
-  }
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "minecraft:air"
+        }
+    ],
+    "result": {
+        "id": "minecraft:air"
+    }
 }

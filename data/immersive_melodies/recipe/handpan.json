@@ -1,23 +1,11 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "BBB",
-    "CCC",
-    "   "
-  ],
-  "key": {
-    "B": [
-      {
-        "item": "minecraft:copper_ingot"
-      }
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "minecraft:air"
+        }
     ],
-    "C": [
-      {
-        "item": "minecraft:copper_block"
-      }
-    ]
-  },
-  "result": {
-    "id": "immersive_melodies:handpan"
-  }
+    "result": {
+        "id": "minecraft:air"
+    }
 }

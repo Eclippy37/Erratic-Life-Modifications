@@ -1,23 +1,11 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "FF ",
-    "LLF",
-    "LLL"
-  ],
-  "key": {
-    "F": [
-      {
-        "item": "immersive_melodies:flute"
-      }
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "minecraft:air"
+        }
     ],
-    "L": [
-      {
-        "item": "minecraft:leather"
-      }
-    ]
-  },
-  "result": {
-    "id": "immersive_melodies:bagpipe"
-  }
+    "result": {
+        "id": "minecraft:air"
+    }
 }

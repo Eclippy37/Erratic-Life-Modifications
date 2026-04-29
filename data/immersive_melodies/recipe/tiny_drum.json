@@ -1,28 +1,11 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "LLL",
-    "SWS",
-    "   "
-  ],
-  "key": {
-    "L": [
-      {
-        "item": "minecraft:leather"
-      }
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "minecraft:air"
+        }
     ],
-    "S": [
-      {
-        "item": "minecraft:string"
-      }
-    ],
-    "W": [
-      {
-        "tag": "minecraft:logs"
-      }
-    ]
-  },
-  "result": {
-    "id": "immersive_melodies:tiny_drum"
-  }
+    "result": {
+        "id": "minecraft:air"
+    }
 }
