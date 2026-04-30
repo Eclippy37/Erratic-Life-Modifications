@@ -250,68 +250,64 @@
         },
         "cooldown": 10
     },
-    "push_pull": {
+    "push_pull_primary": {
         "type": "origins:active_self",
         "key": {
             "key": "key.origins.primary_active",
             "continuous": true
         },
         "entity_action": {
-            "type": "origins:if_else_list",
-            "actions": [
-                {
-                    "action": {
-                        "type": "origins:raycast",
-                        "distance": 10,
-                        "block": true,
-                        "entity": true,
-                        "shape_type": "collider",
-                        "fluid_handling": "none",
-                        "hit_action": {
-                            "type": "origins:change_resource",
-                            "resource": "*:quirk/misc/power_resource",
-                            "operation": "set",
-                            "change": 10
-                        }
-                    },
-                    "condition": {
-                        "type": "origins:resource",
-                        "resource": "*:*_resource",
-                        "comparison": "==",
-                        "compare_to": 1
-                    }
-                },
-                {
-                    "action": {
-                        "type": "origins:raycast",
-                        "distance": 16,
-                        "block": true,
-                        "entity": true,
-                        "shape_type": "collider",
-                        "fluid_handling": "none",
-                        "hit_action": {
-                            "type": "origins:change_resource",
-                            "resource": "*:quirk/misc/power_resource",
-                            "operation": "set",
-                            "change": 10
-                        }
-                    },
-                    "condition": {
-                        "type": "origins:resource",
-                        "resource": "*:*_resource",
-                        "comparison": "==",
-                        "compare_to": -1
-                    }
-                }
-            ]
+            "type": "origins:raycast",
+            "distance": 10,
+            "block": true,
+            "entity": true,
+            "shape_type": "collider",
+            "fluid_handling": "none",
+            "hit_action": {
+                "type": "origins:change_resource",
+                "resource": "*:quirk/misc/power_resource",
+                "operation": "set",
+                "change": 10
+            }
         },
         "condition": {
             "type": "origins:and",
             "conditions": [
                 {
-                    "type": "origins:sneaking",
-                    "inverted": true
+                    "type": "origins:food_level",
+                    "comparison": ">",
+                    "compare_to": 6
                 },
+                {
+                    "type": "origins:power",
+                    "power": "life:quirk/push_pull"
+                }
+            ]
+        }
+    },
+    "push_pull_secondary": {
+        "type": "origins:active_self",
+        "key": {
+            "key": "key.origins.secondary_active",
+            "continuous": true
+        },
+        "entity_action": {
+            "type": "origins:raycast",
+            "distance": 24,
+            "block": true,
+            "entity": true,
+            "shape_type": "collider",
+            "fluid_handling": "none",
+            "hit_action": {
+                "type": "origins:change_resource",
+                "resource": "*:quirk/misc/power_resource",
+                "operation": "set",
+                "change": 10
+            }
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
                 {
                     "type": "origins:food_level",
                     "comparison": ">",
@@ -367,7 +363,7 @@
         },
         "entity_action": {
             "type": "origins:raycast",
-            "distance": 16,
+            "distance": 24,
             "block": true,
             "entity": true,
             "shape_type": "collider",
