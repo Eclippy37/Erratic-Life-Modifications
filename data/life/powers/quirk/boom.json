@@ -235,12 +235,9 @@
             "type": "origins:and",
             "conditions": [
                 {
-                    "type": "origins:target_condition",
-                    "condition": {
-                        "type": "origins:nbt",
-                        "nbt": "{Tags:['quirk.boom.target']}",
-                        "inverted": true
-                    }
+                    "type": "origins:in_entity_set",
+                    "set": "*:*_set",
+                    "inverted": true
                 },
                 {
                     "type": "origins:actor_condition",
@@ -271,9 +268,24 @@
     },
     "toggle": {
         "type": "origins:resource",
-        "min": 0,
         "max": 1,
+        "min": 0,
         "start_value": 0,
+        "max_action": {
+            "type": "origins:if_else",
+            "if_action": {
+                "type": "origins:change_resource",
+                "resource": "*:*_activated",
+                "operation": "set",
+                "change": 1
+            },
+            "condition": {
+                "type": "origins:resource",
+                "resource": "*:*_activated",
+                "comparison": "!=",
+                "compare_to": 1
+            }
+        },
         "hud_render": {
             "should_render": true,
             "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
@@ -290,8 +302,8 @@
     },
     "cooldown": {
         "type": "origins:resource",
-        "min": 0,
         "max": 2400,
+        "min": 0,
         "start_value": 0,
         "hud_render": {
             "should_render": true,
@@ -325,8 +337,8 @@
     },
     "resource": {
         "type": "origins:resource",
-        "min": 0,
         "max": 900,
+        "min": 0,
         "start_value": 0,
         "hud_render": {
             "should_render": true,
@@ -356,6 +368,15 @@
             "resource": "*:*_resource",
             "comparison": ">",
             "compare_to": 0
+        }
+    },
+    "activated": {
+        "type": "origins:resource",
+        "max": 1,
+        "min": 0,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
         }
     },
     "set": {
@@ -403,7 +424,7 @@
         "type": "origins:scare_creepers",
         "condition": {
             "type": "origins:resource",
-            "resource": "*:*_toggle",
+            "resource": "*:*_activated",
             "comparison": "==",
             "compare_to": 1
         }
@@ -416,7 +437,7 @@
         },
         "condition": {
             "type": "origins:resource",
-            "resource": "*:*_toggle",
+            "resource": "*:*_activated",
             "comparison": "==",
             "compare_to": 1
         }
