@@ -24,6 +24,10 @@
                                 "change": 0
                             },
                             {
+                                "type": "origins:execute_command",
+                                "command": "playsound minecraft:entity.breeze.inhale player @s ~ ~ ~ 0.8 1"
+                            },
+                            {
                                 "type": "origins:set_fall_distance",
                                 "fall_distance": 0
                             }
@@ -51,6 +55,10 @@
                                 "resource": "*:*_cooldown",
                                 "operation": "set",
                                 "change": 60
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "playsound minecraft:entity.breeze.deflect player @s ~ ~ ~ 0.8 1"
                             },
                             {
                                 "type": "origins:set_fall_distance",
@@ -140,6 +148,10 @@
                         "resource": "*:*_cooldown",
                         "operation": "set",
                         "change": 100
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "playsound minecraft:entity.breeze.deflect player @s ~ ~ ~ 0.8 1"
                     },
                     {
                         "type": "origins:set_fall_distance",
