@@ -37,19 +37,148 @@
                             ]
                         },
                         "condition": {
-                            "type": "origins:or",
+                            "type": "origins:and",
                             "conditions": [
                                 {
-                                    "type": "origins:resource",
-                                    "resource": "*:*_power",
-                                    "comparison": "==",
-                                    "compare_to": 0
+                                    "type": "origins:or",
+                                    "conditions": [
+                                        {
+                                            "type": "origins:resource",
+                                            "resource": "*:*_power",
+                                            "comparison": "==",
+                                            "compare_to": 0
+                                        },
+                                        {
+                                            "type": "origins:resource",
+                                            "resource": "*:*_power",
+                                            "comparison": "==",
+                                            "compare_to": 2
+                                        }
+                                    ]
                                 },
                                 {
-                                    "type": "origins:resource",
-                                    "resource": "*:*_power",
-                                    "comparison": "==",
-                                    "compare_to": 2
+                                    "type": "origins:or",
+                                    "conditions": [
+                                        {
+                                            "type": "origins:and",
+                                            "conditions": [
+                                                {
+                                                    "type": "origins:resource",
+                                                    "resource": "*:*_resource",
+                                                    "comparison": "==",
+                                                    "compare_to": 1
+                                                },
+                                                {
+                                                    "type": "origins:resource",
+                                                    "resource": "*:*_timer_1",
+                                                    "comparison": "<",
+                                                    "compare_to": 600
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "origins:and",
+                                            "conditions": [
+                                                {
+                                                    "type": "origins:resource",
+                                                    "resource": "*:*_resource",
+                                                    "comparison": "==",
+                                                    "compare_to": 2
+                                                },
+                                                {
+                                                    "type": "origins:resource",
+                                                    "resource": "*:*_timer_2",
+                                                    "comparison": "<",
+                                                    "compare_to": 600
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "origins:and",
+                                            "conditions": [
+                                                {
+                                                    "type": "origins:resource",
+                                                    "resource": "*:*_resource",
+                                                    "comparison": "==",
+                                                    "compare_to": 3
+                                                },
+                                                {
+                                                    "type": "origins:resource",
+                                                    "resource": "*:*_timer_3",
+                                                    "comparison": "<",
+                                                    "compare_to": 600
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "origins:and",
+                                            "conditions": [
+                                                {
+                                                    "type": "origins:resource",
+                                                    "resource": "*:*_resource",
+                                                    "comparison": "==",
+                                                    "compare_to": 4
+                                                },
+                                                {
+                                                    "type": "origins:resource",
+                                                    "resource": "*:*_timer_4",
+                                                    "comparison": "<",
+                                                    "compare_to": 600
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "origins:and",
+                                            "conditions": [
+                                                {
+                                                    "type": "origins:resource",
+                                                    "resource": "*:*_resource",
+                                                    "comparison": "==",
+                                                    "compare_to": 5
+                                                },
+                                                {
+                                                    "type": "origins:resource",
+                                                    "resource": "*:*_timer_5",
+                                                    "comparison": "<",
+                                                    "compare_to": 600
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "origins:and",
+                                            "conditions": [
+                                                {
+                                                    "type": "origins:resource",
+                                                    "resource": "*:*_resource",
+                                                    "comparison": "==",
+                                                    "compare_to": 6
+                                                },
+                                                {
+                                                    "type": "origins:resource",
+                                                    "resource": "*:*_timer_6",
+                                                    "comparison": "<",
+                                                    "compare_to": 600
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "origins:and",
+                                            "conditions": [
+                                                {
+                                                    "type": "origins:resource",
+                                                    "resource": "*:*_resource",
+                                                    "comparison": "==",
+                                                    "compare_to": 7
+                                                },
+                                                {
+                                                    "type": "origins:resource",
+                                                    "resource": "*:*_timer_7",
+                                                    "comparison": "<",
+                                                    "compare_to": 600
+                                                }
+                                            ]
+                                        }
+                                    ]
                                 }
                             ]
                         }
@@ -67,10 +196,139 @@
                             ]
                         },
                         "condition": {
-                            "type": "origins:resource",
-                            "resource": "*:*_power",
-                            "comparison": "==",
-                            "compare_to": 1
+                            "type": "origins:or",
+                            "conditions": [
+                                {
+                                    "type": "origins:resource",
+                                    "resource": "*:*_power",
+                                    "comparison": "==",
+                                    "compare_to": 1
+                                },
+                                {
+                                    "type": "origins:or",
+                                    "conditions": [
+                                        {
+                                            "type": "origins:and",
+                                            "conditions": [
+                                                {
+                                                    "type": "origins:resource",
+                                                    "resource": "*:*_resource",
+                                                    "comparison": "==",
+                                                    "compare_to": 1
+                                                },
+                                                {
+                                                    "type": "origins:resource",
+                                                    "resource": "*:*_timer_1",
+                                                    "comparison": ">=",
+                                                    "compare_to": 600
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "origins:and",
+                                            "conditions": [
+                                                {
+                                                    "type": "origins:resource",
+                                                    "resource": "*:*_resource",
+                                                    "comparison": "==",
+                                                    "compare_to": 2
+                                                },
+                                                {
+                                                    "type": "origins:resource",
+                                                    "resource": "*:*_timer_2",
+                                                    "comparison": ">=",
+                                                    "compare_to": 600
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "origins:and",
+                                            "conditions": [
+                                                {
+                                                    "type": "origins:resource",
+                                                    "resource": "*:*_resource",
+                                                    "comparison": "==",
+                                                    "compare_to": 3
+                                                },
+                                                {
+                                                    "type": "origins:resource",
+                                                    "resource": "*:*_timer_3",
+                                                    "comparison": ">=",
+                                                    "compare_to": 600
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "origins:and",
+                                            "conditions": [
+                                                {
+                                                    "type": "origins:resource",
+                                                    "resource": "*:*_resource",
+                                                    "comparison": "==",
+                                                    "compare_to": 4
+                                                },
+                                                {
+                                                    "type": "origins:resource",
+                                                    "resource": "*:*_timer_4",
+                                                    "comparison": ">=",
+                                                    "compare_to": 600
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "origins:and",
+                                            "conditions": [
+                                                {
+                                                    "type": "origins:resource",
+                                                    "resource": "*:*_resource",
+                                                    "comparison": "==",
+                                                    "compare_to": 5
+                                                },
+                                                {
+                                                    "type": "origins:resource",
+                                                    "resource": "*:*_timer_5",
+                                                    "comparison": ">=",
+                                                    "compare_to": 600
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "origins:and",
+                                            "conditions": [
+                                                {
+                                                    "type": "origins:resource",
+                                                    "resource": "*:*_resource",
+                                                    "comparison": "==",
+                                                    "compare_to": 6
+                                                },
+                                                {
+                                                    "type": "origins:resource",
+                                                    "resource": "*:*_timer_6",
+                                                    "comparison": ">=",
+                                                    "compare_to": 600
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "origins:and",
+                                            "conditions": [
+                                                {
+                                                    "type": "origins:resource",
+                                                    "resource": "*:*_resource",
+                                                    "comparison": "==",
+                                                    "compare_to": 7
+                                                },
+                                                {
+                                                    "type": "origins:resource",
+                                                    "resource": "*:*_timer_7",
+                                                    "comparison": ">=",
+                                                    "compare_to": 600
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
                         }
                     }
                 ]
@@ -149,7 +407,7 @@
                 "inverted": true
             }
         },
-        "cooldown": 5
+        "cooldown": 3
     },
     "secondary": {
         "type": "origins:active_self",
@@ -635,7 +893,7 @@
                 "inverted": true
             }
         },
-        "cooldown": 5
+        "cooldown": 1
     },
     "resource": {
         "type": "origins:resource",
@@ -694,6 +952,32 @@
         "min": 0,
         "max": 600,
         "start_value": 0,
+        "max_action": {
+            "type": "origins:if_else",
+            "if_action": {
+                "type": "origins:change_resource",
+                "resource": "*:*_power",
+                "operation": "set",
+                "change": 0
+            },
+            "condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:resource",
+                        "resource": "*:*_power",
+                        "comparison": "==",
+                        "compare_to": 1
+                    },
+                    {
+                        "type": "origins:resource",
+                        "resource": "*:*_resource",
+                        "comparison": "==",
+                        "compare_to": 1
+                    }
+                ]
+            }
+        },
         "hud_render": {
             "should_render": true,
             "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_01.png",
@@ -712,6 +996,32 @@
         "min": 0,
         "max": 600,
         "start_value": 0,
+        "max_action": {
+            "type": "origins:if_else",
+            "if_action": {
+                "type": "origins:change_resource",
+                "resource": "*:*_power",
+                "operation": "set",
+                "change": 0
+            },
+            "condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:resource",
+                        "resource": "*:*_power",
+                        "comparison": "==",
+                        "compare_to": 1
+                    },
+                    {
+                        "type": "origins:resource",
+                        "resource": "*:*_resource",
+                        "comparison": "==",
+                        "compare_to": 2
+                    }
+                ]
+            }
+        },
         "hud_render": {
             "should_render": true,
             "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_01.png",
@@ -730,6 +1040,32 @@
         "min": 0,
         "max": 600,
         "start_value": 0,
+        "max_action": {
+            "type": "origins:if_else",
+            "if_action": {
+                "type": "origins:change_resource",
+                "resource": "*:*_power",
+                "operation": "set",
+                "change": 0
+            },
+            "condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:resource",
+                        "resource": "*:*_power",
+                        "comparison": "==",
+                        "compare_to": 1
+                    },
+                    {
+                        "type": "origins:resource",
+                        "resource": "*:*_resource",
+                        "comparison": "==",
+                        "compare_to": 3
+                    }
+                ]
+            }
+        },
         "hud_render": {
             "should_render": true,
             "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_01.png",
@@ -748,6 +1084,32 @@
         "min": 0,
         "max": 600,
         "start_value": 0,
+        "max_action": {
+            "type": "origins:if_else",
+            "if_action": {
+                "type": "origins:change_resource",
+                "resource": "*:*_power",
+                "operation": "set",
+                "change": 0
+            },
+            "condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:resource",
+                        "resource": "*:*_power",
+                        "comparison": "==",
+                        "compare_to": 1
+                    },
+                    {
+                        "type": "origins:resource",
+                        "resource": "*:*_resource",
+                        "comparison": "==",
+                        "compare_to": 4
+                    }
+                ]
+            }
+        },
         "hud_render": {
             "should_render": true,
             "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_01.png",
@@ -766,6 +1128,32 @@
         "min": 0,
         "max": 600,
         "start_value": 0,
+        "max_action": {
+            "type": "origins:if_else",
+            "if_action": {
+                "type": "origins:change_resource",
+                "resource": "*:*_power",
+                "operation": "set",
+                "change": 0
+            },
+            "condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:resource",
+                        "resource": "*:*_power",
+                        "comparison": "==",
+                        "compare_to": 1
+                    },
+                    {
+                        "type": "origins:resource",
+                        "resource": "*:*_resource",
+                        "comparison": "==",
+                        "compare_to": 5
+                    }
+                ]
+            }
+        },
         "hud_render": {
             "should_render": true,
             "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_01.png",
@@ -784,6 +1172,32 @@
         "min": 0,
         "max": 600,
         "start_value": 0,
+        "max_action": {
+            "type": "origins:if_else",
+            "if_action": {
+                "type": "origins:change_resource",
+                "resource": "*:*_power",
+                "operation": "set",
+                "change": 0
+            },
+            "condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:resource",
+                        "resource": "*:*_power",
+                        "comparison": "==",
+                        "compare_to": 1
+                    },
+                    {
+                        "type": "origins:resource",
+                        "resource": "*:*_resource",
+                        "comparison": "==",
+                        "compare_to": 6
+                    }
+                ]
+            }
+        },
         "hud_render": {
             "should_render": true,
             "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_01.png",
@@ -802,6 +1216,32 @@
         "min": 0,
         "max": 600,
         "start_value": 0,
+        "max_action": {
+            "type": "origins:if_else",
+            "if_action": {
+                "type": "origins:change_resource",
+                "resource": "*:*_power",
+                "operation": "set",
+                "change": 0
+            },
+            "condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:resource",
+                        "resource": "*:*_power",
+                        "comparison": "==",
+                        "compare_to": 1
+                    },
+                    {
+                        "type": "origins:resource",
+                        "resource": "*:*_resource",
+                        "comparison": "==",
+                        "compare_to": 7
+                    }
+                ]
+            }
+        },
         "hud_render": {
             "should_render": true,
             "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_01.png",
@@ -1302,7 +1742,7 @@
                 "id": "life:safe_fall_distance_increase",
                 "attribute": "minecraft:generic.safe_fall_distance",
                 "operation": "add_multiplied_total",
-                "amount": -0.5
+                "amount": -0.25
             },
             {
                 "id": "life:fall_damage_increase",
