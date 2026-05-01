@@ -233,11 +233,28 @@
                 }
             },
             "bientity_condition": {
-                "type": "origins:target_condition",
-                "condition": {
-                    "type": "origins:in_tag",
-                    "tag": "life:projectiles"
-                }
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:owner",
+                        "inverted": true
+                    },
+                    {
+                        "type": "origins:target_condition",
+                        "condition": {
+                            "type": "origins:in_tag",
+                            "tag": "life:projectiles"
+                        }
+                    },
+                    {
+                        "type": "origins:target_condition",
+                        "condition": {
+                            "type": "origins:nbt",
+                            "nbt": "{inGround:1b}",
+                            "inverted": true
+                        }
+                    }
+                ]
             },
             "include_actor": false
         },
