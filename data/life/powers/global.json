@@ -1,0 +1,92 @@
+{
+    "hidden": true,
+    "type": "origins:multiple",
+    "totem": {
+        "type": "origins:prevent_death",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:modify_inventory",
+                    "item_action": {
+                        "type": "origins:consume",
+                        "amount": 1
+                    },
+                    "item_condition": {
+                        "type": "origins:ingredient",
+                        "ingredient": {
+                            "item": "minecraft:totem_of_undying"
+                        }
+                    },
+                    "process_mode": "items",
+                    "limit": 1
+                },
+                {
+                    "type": "origins:clear_effect"
+                },
+                {
+                    "type": "origins:play_sound",
+                    "sound": "minecraft:item.totem.use"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:totem_of_undying ~ ~ ~ 1 1 1 1 600 normal"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "advancement grant @s only minecraft:adventure/totem_of_undying"
+                },
+                {
+                    "type": "origins:apply_effect",
+                    "effects": [
+                        {
+                            "id": "minecraft:regeneration",
+                            "amplifier": 1,
+                            "duration": 900
+                        },
+                        {
+                            "id": "minecraft:fire_resistance",
+                            "duration": 800
+                        },
+                        {
+                            "id": "minecraft:absorption",
+                            "amplifier": 1,
+                            "duration": 100
+                        }
+                    ]
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {      
+                    "type": "origins:inventory",
+                    "item_condition": {
+                        "type": "origins:ingredient",
+                        "ingredient": {
+                            "item": "minecraft:totem_of_undying"
+                        }
+                    },
+                    "process_mode": "items",
+                    "comparison": ">=",
+                    "compare_to": 1
+                },
+                {      
+                    "type": "origins:inventory",
+                    "slot": "weapon",
+                    "item_condition": {
+                        "type": "origins:ingredient",
+                        "ingredient": {
+                            "item": "minecraft:totem_of_undying"
+                        }
+                    },
+                    "process_mode": "items",
+                    "comparison": ">=",
+                    "compare_to": 1,
+                    "inverted": true
+                }
+            ]
+        }
+    }
+}
