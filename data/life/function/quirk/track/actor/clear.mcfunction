@@ -4,3 +4,6 @@ execute unless entity @a[tag=quirk.track.target] run playsound minecraft:block.n
 
 # Remove Targets
 tag @a[tag=quirk.track.target] remove quirk.track.target
+
+# Hide Actionbar
+title @s actionbar ""
