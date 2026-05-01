@@ -12,15 +12,7 @@
       "sound_id": "enhancedcelestials:blue_moon"
     }
   },
-  "dimension_chances": {
-    "minecraft:overworld": {
-      "chance": 0.01,
-      "min_number_of_nights_between": 20,
-      "valid_moon_phases": [
-        0
-      ]
-    }
-  },
+  "dimension_chances": {},
   "drops": {
     "drop_enhancer": {}
   },

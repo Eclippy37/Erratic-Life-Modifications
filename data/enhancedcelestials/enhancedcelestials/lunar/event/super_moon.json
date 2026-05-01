@@ -9,15 +9,7 @@
     "moon_size": 40.0,
     "moon_texture_location": "minecraft:textures/environment/moon_phases.png"
   },
-  "dimension_chances": {
-    "minecraft:overworld": {
-      "chance": 0.01,
-      "min_number_of_nights_between": 20,
-      "valid_moon_phases": [
-        0
-      ]
-    }
-  },
+  "dimension_chances": {},
   "drops": {
     "drop_enhancer": {}
   },
