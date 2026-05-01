@@ -3,7 +3,7 @@
     "type": "origins:multiple",
     "shader": {
         "type": "origins:shader",
-        "shader": "minecraft:shaders/post/blur.json"
+        "shader": "minecraft:shaders/post/color_convolve.json"
     },
     "tick_over_time": {
         "type": "origins:action_over_time",
