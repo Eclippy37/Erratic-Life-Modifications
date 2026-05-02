@@ -530,11 +530,6 @@
                     "type": "origins:distance",
                     "comparison": ">",
                     "compare_to": 0
-                },
-                {
-                    "type": "origins:distance",
-                    "comparison": "<=",
-                    "compare_to": 512
                 }
             ]
         }
