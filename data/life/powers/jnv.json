@@ -13,7 +13,7 @@
     "combat": {
         "type": "origins:resource",
         "min": 0,
-        "max": 600,
+        "max": 30,
         "start_value": 0,
         "hud_render": {
             "should_render": false
@@ -30,7 +30,7 @@
                         "type": "origins:change_resource",
                         "resource": "*:*_combat",
                         "operation": "set",
-                        "change": 600
+                        "change": 30
                     }
                 }
             ]
@@ -450,31 +450,6 @@
                             }
                         ]
                     }
-                },
-                {
-                    "action": {
-                        "type": "origins:change_resource",
-                        "resource": "*:*_combat",
-                        "operation": "add",
-                        "change": -1
-                    },
-                    "condition": {
-                        "type": "origins:resource",
-                        "resource": "*:*_combat",
-                        "comparison": ">",
-                        "compare_to": 0
-                    }
-                },
-                {
-                    "action": {
-                        "type": "origins:feed",
-                        "nutrition": 10,
-                        "saturation": 10
-                    },
-                    "condition": {
-                        "type": "origins:constant",
-                        "value": true
-                    }
                 }
             ]
         },
@@ -501,6 +476,73 @@
                     "compare_to": 1
                 }
             ]
+        }
+    },
+    "timer2_over_time": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "*:*_combat",
+            "operation": "add",
+            "change": -1
+        },
+        "interval": 20,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:command",
+                    "command": "execute if score Status Session matches 2",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:command",
+                    "command": "execute if score #wildcard erraticlife matches 5",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:command",
+                    "command": "execute if entity @s[gamemode=survival]",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_combat",
+                    "comparison": "!=",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+    "glow": {
+        "type": "origins:entity_glow",
+        "entity_condition": {
+            "type": "origins:entity_type",
+            "entity_type": "minecraft:player"
+        },
+        "bientity_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:distance",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:distance",
+                    "comparison": "<=",
+                    "compare_to": 512
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_resource",
+            "comparison": "==",
+            "compare_to": 1
         }
     },
     "join": {
