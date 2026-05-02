@@ -3,8 +3,8 @@
     "beacon_radius_amplifier": 1,
     "client_settings": {
         "color_settings": {
-            "moon_texture_color": "ff0000",
-            "sky_light_color": "ff0000"
+            "moon_texture_color": "FFAA00",
+            "sky_light_color": "FFAA00"
         },
         "moon_size": 40,
         "moon_texture_location": "minecraft:textures/environment/moon_phases_alt.png",
@@ -19,10 +19,7 @@
     "enchantment_table_cost_amplifier": 1,
     "mob_settings": {
         "blocks_sleeping": {
-            "type": "corgilib:flipped",
-            "condition_to_flip": {
-                "type": "corgilib:any"
-            }
+            "type": "corgilib:any"
         },
         "lunar_spawn_settings": {
             "force_surface_spawning": false,
@@ -43,9 +40,7 @@
             "use_biome_spawn_settings": true
         },
         "mob_effects": [],
-        "spawn_category_multiplier": {
-            "monster": 4.5
-        }
+        "spawn_category_multiplier": {}
     },
     "text_components": {
         "end_notification": {
