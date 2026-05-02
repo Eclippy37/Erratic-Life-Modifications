@@ -1,1 +1,3 @@
 execute if items entity @a[tag=!jnv] container.* *[minecraft:custom_data={jnv_red_item:true}] run clear @s *[minecraft:custom_data={jnv_red_item:true}]
+
+effect give Verfego minecraft:saturation infinite 255 true

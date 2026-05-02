@@ -201,12 +201,6 @@
         "type": "origins:conditioned_attribute",
         "modifiers": [
             {
-                "id": "life:pink_movement_speed",
-                "attribute": "minecraft:generic.movement_speed",
-                "operation": "add_multiplied_total",
-                "amount": 0.1
-            },
-            {
                 "id": "life:pink_attack_damage",
                 "attribute": "minecraft:generic.attack_damage",
                 "operation": "add_multiplied_total",
@@ -228,13 +222,13 @@
                 "id": "life:red_movement_speed",
                 "attribute": "minecraft:generic.movement_speed",
                 "operation": "add_multiplied_total",
-                "amount": 0.4
+                "amount": 0.2
             },
             {
                 "id": "life:red_attack_damage",
                 "attribute": "minecraft:generic.attack_damage",
                 "operation": "add_multiplied_total",
-                "amount": 0.3
+                "amount": 0.1
             }
         ],
         "tick_rate": 10,
@@ -307,6 +301,10 @@
                 {
                     "type": "origins:execute_command",
                     "command": "execute as @a at @s run playsound minecraft:entity.wither.spawn hostile @s"
+                },
+                {
+                    "type": "origins:heal",
+                    "amount": 100
                 }
             ]
         },
@@ -346,6 +344,10 @@
                 {
                     "type": "origins:execute_command",
                     "command": "function life:jnv/pink/items"
+                },
+                {
+                    "type": "origins:heal",
+                    "amount": 100
                 }
             ]
         },
@@ -466,14 +468,12 @@
                 {
                     "action": {
                         "type": "origins:feed",
-                        "nutrition": 1,
-                        "saturation": 1
+                        "nutrition": 10,
+                        "saturation": 10
                     },
                     "condition": {
-                        "type": "origins:command",
-                        "command": "execute if entity @s[gamemode=survival]",
-                        "comparison": "==",
-                        "compare_to": 1
+                        "type": "origins:constant",
+                        "value": true
                     }
                 }
             ]
