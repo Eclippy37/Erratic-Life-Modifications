@@ -300,7 +300,7 @@
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "execute as @a at @s run playsound minecraft:entity.wither.spawn hostile @s"
+                    "command": "execute as @a at @s run playsound minecraft:entity.wither.spawn master @s"
                 },
                 {
                     "type": "origins:heal",
@@ -344,6 +344,10 @@
                 {
                     "type": "origins:execute_command",
                     "command": "function life:jnv/pink/items"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute as @a at @s run playsound minecraft:block.beacon.deactivate master @s"
                 },
                 {
                     "type": "origins:heal",
