@@ -1,6 +1,176 @@
 {
     "hidden": true,
     "type": "origins:multiple",
+    "resource": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "combat": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 600,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "attack": {
+        "type": "origins:action_on_hit",
+        "bientity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:actor_action",
+                    "action": {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_combat",
+                        "operation": "set",
+                        "change": 600
+                    }
+                }
+            ]
+        },
+        "bientity_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:actor_condition",
+                    "condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:resource",
+                                "resource": "*:*_resource",
+                                "comparison": "==",
+                                "compare_to": 1
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "attributes": {
+        "type": "origins:attribute",
+        "modifiers": [
+            {
+                "id": "life:jnv_health",
+                "attribute": "minecraft:generic.max_health",
+                "operation": "add_multiplied_total",
+                "amount": 4.0
+            }
+        ]
+    },
+    "exhaustion": {
+        "type": "origins:modify_exhaustion",
+        "modifier": {
+            "operation": "multiply_base",
+            "amount": -1.0
+        }
+    },
+    "disable_regen": {
+        "type": "origins:disable_regen",
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_resource",
+                    "comparison": "==",
+                    "compare_to": 1
+                }
+            ]
+        }
+    },
+    "overlay": {
+        "type": "origins:overlay",
+        "texture": "life:ice",
+        "strength": 0.1,
+        "red": 1,
+        "green": 0,
+        "blue": 0,
+        "draw_mode": "texture",
+        "draw_phase": "below_hud",
+        "hide_with_hud": false,
+        "visible_in_third_person": true,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_resource",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    },
+    "prevent_death": {
+        "type": "origins:prevent_death",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:if_else_list",
+                    "actions": [
+                        {
+                            "action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:change_resource",
+                                        "resource": "*:*_red_timer",
+                                        "operation": "set",
+                                        "change": 0
+                                    },
+                                    {
+                                        "type": "origins:clear_effect"
+                                    },
+                                    {
+                                        "type": "origins:play_sound",
+                                        "sound": "minecraft:item.totem.use"
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "particle minecraft:totem_of_undying ~ ~ ~ 1 1 1 1 600 normal"
+                                    },
+                                    {
+                                        "type": "origins:apply_effect",
+                                        "effects": [
+                                            {
+                                                "id": "minecraft:regeneration",
+                                                "amplifier": 1,
+                                                "duration": 900
+                                            },
+                                            {
+                                                "id": "minecraft:fire_resistance",
+                                                "duration": 800
+                                            },
+                                            {
+                                                "id": "minecraft:absorption",
+                                                "amplifier": 1,
+                                                "duration": 100
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "*:*_resource",
+                                "comparison": "==",
+                                "compare_to": 1
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "damage_conditon": {
+            "type": "origins:in_tag",
+            "tag": "minecraft:bypasses_invulnerability"
+        }
+    },
     "pink_glow": {
         "type": "origins:self_glow",
         "use_teams": false,
@@ -110,111 +280,203 @@
             "compare_to": 1
         }
     },
-    "keep_inventory": {
-        "type": "origins:keep_inventory"
-    },
-    "resource": {
+    "pink_timer": {
         "type": "origins:resource",
         "min": 0,
-        "max": 1,
-        "start_value": 0,
-        "hud_render": {
-            "should_render": false
-        }
-    },
-    "timer": {
-        "type": "origins:resource",
-        "min": 0,
-        "max": 600,
-        "start_value": 600,
+        "max": 1200,
+        "start_value": 1200,
         "min_action": {
             "type": "origins:and",
             "actions": [
                 {
-                    "type": "origins:if_else_list",
-                    "actions": [
-                        {
-                            "action": {
-                                "type": "origins:and",
-                                "actions": [
-                                    {
-                                        "type": "origins:change_resource",
-                                        "resource": "*:*_resource",
-                                        "operation": "set",
-                                        "change": 1
-                                    }
-                                ]
-                            },
-                            "condition": {
-                                "type": "origins:resource",
-                                "resource": "*:*_resource",
-                                "comparison": "==",
-                                "compare_to": 0
-                            }
-                        },
-                        {
-                            "action": {
-                                "type": "origins:and",
-                                "actions": [
-                                    {
-                                        "type": "origins:change_resource",
-                                        "resource": "*:*_resource",
-                                        "operation": "set",
-                                        "change": 0
-                                    }
-                                ]
-                            },
-                            "condition": {
-                                "type": "origins:resource",
-                                "resource": "*:*_resource",
-                                "comparison": "==",
-                                "compare_to": 1
-                            }
-                        }
-                    ]
+                    "type": "origins:change_resource",
+                    "resource": "*:*_resource",
+                    "operation": "set",
+                    "change": 1
                 },
                 {
                     "type": "origins:change_resource",
-                    "resource": "*:*_timer",
+                    "resource": "*:*_red_timer",
                     "operation": "set",
-                    "change": 600
+                    "change": 900
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "function life:jnv/red/items"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute as @a at @s run playsound minecraft:entity.wither.spawn hostile @s"
                 }
             ]
         },
-        "hud_render": [
-            {
-                "should_render": true,
-                "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png",
-                "bar_index": 9,
-                "inverted": false,
-                "condition": {
-                    "type": "origins:resource",
-                    "resource": "*:*_resource",
-                    "comparison": "==",
-                    "compare_to": 0
-                }
-            },
-            {
-                "should_render": true,
-                "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
-                "bar_index": 5,
-                "inverted": false,
-                "condition": {
-                    "type": "origins:resource",
-                    "resource": "*:*_resource",
-                    "comparison": "==",
-                    "compare_to": 1
-                }
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png",
+            "bar_index": 9,
+            "inverted": false,
+            "condition": {
+                "type": "origins:resource",
+                "resource": "*:*_resource",
+                "comparison": "==",
+                "compare_to": 0
             }
-        ]
+        }
+    },
+    "red_timer": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 900,
+        "start_value": 0,
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "*:*_resource",
+                    "operation": "set",
+                    "change": 0
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "*:*_pink_timer",
+                    "operation": "set",
+                    "change": 1200
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "function life:jnv/pink/items"
+                }
+            ]
+        },
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
+            "bar_index": 5,
+            "inverted": false,
+            "condition": {
+                "type": "origins:resource",
+                "resource": "*:*_resource",
+                "comparison": "==",
+                "compare_to": 1
+            }
+        }
+    },
+    "kill": {
+        "type": "origins:self_action_on_kill",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:heal",
+                    "amount": 40
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_resource",
+            "comparison": "==",
+            "compare_to": 1
+        }
     },
     "timer_over_time": {
         "type": "origins:action_over_time",
         "entity_action": {
-            "type": "origins:change_resource",
-            "resource": "*:*_timer",
-            "operation": "add",
-            "change": -1
+            "type": "origins:if_else_list",
+            "actions": [
+                {
+                    "action": {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_pink_timer",
+                        "operation": "add",
+                        "change": -1
+                    },
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "*:*_resource",
+                        "comparison": "==",
+                        "compare_to": 0
+                    }
+                },
+                {
+                    "action": {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_red_timer",
+                        "operation": "add",
+                        "change": -1
+                    },
+                    "condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:resource",
+                                "resource": "*:*_resource",
+                                "comparison": "==",
+                                "compare_to": 1
+                            },
+                            {
+                                "type": "origins:resource",
+                                "resource": "*:*_combat",
+                                "comparison": ">",
+                                "compare_to": 0
+                            }
+                        ]
+                    }
+                },
+                {
+                    "action": {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_red_timer",
+                        "operation": "add",
+                        "change": -3
+                    },
+                    "condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:resource",
+                                "resource": "*:*_resource",
+                                "comparison": "==",
+                                "compare_to": 1
+                            },
+                            {
+                                "type": "origins:resource",
+                                "resource": "*:*_combat",
+                                "comparison": "==",
+                                "compare_to": 0
+                            }
+                        ]
+                    }
+                },
+                {
+                    "action": {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_combat",
+                        "operation": "add",
+                        "change": -1
+                    },
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "*:*_combat",
+                        "comparison": ">",
+                        "compare_to": 0
+                    }
+                },
+                {
+                    "action": {
+                        "type": "origins:feed",
+                        "nutrition": 1,
+                        "saturation": 1
+                    },
+                    "condition": {
+                        "type": "origins:command",
+                        "command": "execute if entity @s[gamemode=survival]",
+                        "comparison": "==",
+                        "compare_to": 1
+                    }
+                }
+            ]
         },
         "interval": 20,
         "condition": {
@@ -227,12 +489,64 @@
                     "compare_to": 1
                 },
                 {
-                    "type": "origins:resource",
-                    "resource": "*:*_timer",
-                    "comparison": ">",
-                    "compare_to": 0
+                    "type": "origins:command",
+                    "command": "execute if score #wildcard erraticlife matches 5",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:command",
+                    "command": "execute if entity @s[gamemode=survival]",
+                    "comparison": "==",
+                    "compare_to": 1
                 }
             ]
+        }
+    },
+    "join": {
+        "type": "origins:active_self",
+        "key": "key.origins.secondary_active",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "execute if score #wildcard erraticlife matches 5 run function life:jnv/join"
+        },
+        "cooldown": 5,
+        "hud_render": {
+            "should_render": false
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:command",
+                    "command": "execute if score Status Session matches 2",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:command",
+                    "command": "execute if score #wildcard erraticlife matches 5",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:command",
+                    "command": "execute if entity @s[gamemode=spectator]",
+                    "comparison": "==",
+                    "compare_to": 1
+                }
+            ]
+        }
+    },
+    "tag": {
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:execute_command",
+            "command": "tag @s add jnv"
+        },
+        "entity_action_lost": {
+            "type": "origins:execute_command",
+            "command": "tag @s remove jnv"
         }
     }
 }
