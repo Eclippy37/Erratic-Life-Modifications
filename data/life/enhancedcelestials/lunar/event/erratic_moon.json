@@ -46,11 +46,11 @@
         "end_notification": {
             "type": "CHAT",
             "component": {
-                "key": "enhancedcelestials.notification.blood_moon.set"
+                "key": "life.notification.erratic_moon.set"
             }
         },
         "name": {
-            "key": "enhancedcelestials.name.blood_moon",
+            "key": "life.name.erratic_moon",
             "style": {
                 "color": "gold"
             }
@@ -58,7 +58,7 @@
         "start_notification": {
             "type": "CHAT",
             "component": {
-                "key": "enhancedcelestials.notification.blood_moon.rise",
+                "key": "life.notification.erratic_moon.rise",
                 "style": {
                     "bold": true,
                     "color": "gold"
