@@ -256,7 +256,7 @@
         "type": "origins:modify_damage_taken",
         "modifier": {
             "operation": "multiply_base_multiplicative",
-            "amount": -0.20
+            "amount": -0.1
         },
         "condition": {
             "type": "origins:resource",
