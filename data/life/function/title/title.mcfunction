@@ -111,6 +111,6 @@ execute unless score #TitleTime erraticlife matches ..230 if score #wildcardset 
 execute unless score #TitleTime erraticlife matches ..230 if score #wildcardset erraticlife matches 3 run function life:wildcard/activate/gravity
 execute unless score #TitleTime erraticlife matches ..230 if score #wildcardset erraticlife matches 4 run function life:wildcard/activate/chain
 execute unless score #TitleTime erraticlife matches ..230 if score #wildcardset erraticlife matches 5 run function life:wildcard/activate/jnv
-execute unless score #TitleTime erraticlife matches ..230 if score #wildcardset erraticlife matches 6 run function life:wildcard/activate/zombie
+execute unless score #TitleTime erraticlife matches ..230 if score #wildcardset erraticlife matches 6 run function life:wildcard/activate/blood
 execute unless score #TitleTime erraticlife matches ..230 if score #wildcardset erraticlife matches 7 run function life:wildcard/activate/quirk
-execute unless score #TitleTime erraticlife matches ..230 if score #wildcardset erraticlife matches 8 run function life:wildcard/activate/callback
+execute unless score #TitleTime erraticlife matches ..230 if score #wildcardset erraticlife matches 8 run function life:wildcard/activate/finale

@@ -3,7 +3,7 @@ execute if score Status Session matches 2 if score #wildcard erraticlife matches
 execute if score Status Session matches 2 if score #wildcard erraticlife matches 3 run function life:gravity/tick
 execute if score Status Session matches 2 if score #wildcard erraticlife matches 4 run function life:chain/tick
 execute if score Status Session matches 2 if score #wildcard erraticlife matches 5 run function life:jnv/tick
-execute if score Status Session matches 2 if score #wildcard erraticlife matches 6 run function life:zombies/tick
+execute if score Status Session matches 2 if score #wildcard erraticlife matches 6 run function life:blood/tick
 execute if score Status Session matches 2 if score #wildcard erraticlife matches 7 run function life:quirk/tick
 execute if score Status Session matches 2 if score #wildcard erraticlife matches 8 run function life:finale/tick
 
