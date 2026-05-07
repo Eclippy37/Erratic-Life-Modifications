@@ -15,11 +15,11 @@
                         "type": "minecraft:lookup",
                         "fallback": {
                             "type": "minecraft:linear",
-                            "base": 2.2,
+                            "base": 1.5,
                             "per_level_above_first": 0.35
                         },
                         "values": [
-                            2.2
+                            1.5
                         ]
                     },
                     "large_particle": {

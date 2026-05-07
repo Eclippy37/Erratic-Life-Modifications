@@ -5,13 +5,13 @@
     },
     "effects": {
         "minecraft:trident_sound": [
-            "minecraft:item.trident.riptide_3"
+            "minecraft:item.trident.riptide_1"
         ],
         "minecraft:trident_spin_attack_strength": {
             "type": "minecraft:add",
             "value": {
                 "type": "minecraft:linear",
-                "base": 3.0,
+                "base": 1.5,
                 "per_level_above_first": 0.75
             }
         }
