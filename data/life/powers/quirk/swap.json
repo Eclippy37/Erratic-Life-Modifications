@@ -50,7 +50,7 @@
                                                 "actions": [
                                                     {
                                                         "type": "origins:execute_command",
-                                                        "command": "title @s actionbar \"This player is already a target\""
+                                                        "command": "title @s actionbar \"That player is already a target\""
                                                     },
                                                     {
                                                         "type": "origins:execute_command",
@@ -191,7 +191,7 @@
                                             "type": "origins:target_action",
                                             "action": {
                                                 "type": "origins:execute_command",
-                                                "command": "execute at @s run function life:quirk/swap/teleport"
+                                                "command": "function life:quirk/swap/teleport"
                                             }
                                         }
                                     ]
@@ -226,12 +226,6 @@
                                 "resource": "*:*_cooldown",
                                 "operation": "set",
                                 "change": 2400
-                            },
-                            {
-                                "type": "origins:change_resource",
-                                "resource": "*:*_resource",
-                                "operation": "set",
-                                "change": 200
                             }
                         ]
                     },
@@ -297,78 +291,6 @@
             "inverted": false
         }
     },
-    "resource": {
-        "type": "origins:resource",
-        "min": 0,
-        "max": 200,
-        "start_value": 0,
-        "max_action": {
-            "type": "origins:apply_effect",
-            "effect": {
-                "id": "minecraft:blindness",
-                "show_icon": false,
-                "show_particles": false,
-                "amplifier": 0,
-                "duration": 210,
-                "ambient": true
-            }
-        },
-        "hud_render": {
-            "should_render": false
-        }
-    },
-    "resource_over_time": {
-        "type": "origins:action_over_time",
-        "entity_action": {
-            "type": "origins:change_resource",
-            "resource": "*:*_resource",
-            "operation": "add",
-            "change": -1
-        },
-        "interval": 1,
-        "condition": {
-            "type": "origins:resource",
-            "resource": "*:*_resource",
-            "comparison": ">",
-            "compare_to": 0
-        }
-    },
-    "attribute": {
-        "type": "origins:conditioned_attribute",
-        "modifiers": [
-            {
-                "id": "life:movement_speed",
-                "attribute": "minecraft:generic.movement_speed",
-                "operation": "add_multiplied_base",
-                "amount": -1
-            },
-            {
-                "id": "life:jump_strength",
-                "attribute": "minecraft:generic.jump_strength",
-                "operation": "add_multiplied_base",
-                "amount": -1
-            },
-            {
-                "id": "life:entity_interaction_range",
-                "attribute": "minecraft:player.entity_interaction_range",
-                "operation": "add_multiplied_base",
-                "amount": -1
-            },
-            {
-                "id": "life:block_interaction_range",
-                "attribute": "minecraft:player.block_interaction_range",
-                "operation": "add_multiplied_base",
-                "amount": -1
-            }
-        ],
-        "tick_rate": 1,
-        "condition": {
-            "type": "origins:resource",
-            "resource": "*:*_resource",
-            "comparison": ">",
-            "compare_to": 0
-        }
-    },
     "remove": {
 	    "type": "origins:action_on_callback",
         "entity_action_respawned": {
@@ -429,6 +351,29 @@
         "green": 0.0,
         "blue": 0.333
     },
+    "death": {
+        "type": "origins:action_on_death",
+        "bientity_action": {
+            "type": "origins:target_action",
+            "action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_cooldown",
+                        "operation": "set",
+                        "change": 0
+                    },
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_resource",
+                        "operation": "set",
+                        "change": 0
+                    }
+                ]
+            }
+        }
+    },
     "tag": {
         "type": "origins:action_on_callback",
         "entity_action_gained": {
@@ -452,5 +397,52 @@
             "power": "life:quirk/misc/power",
             "source": "*:*"
         }
+    },
+    "active_over_time": {
+        "type": "origins:active_self",
+        "key": "key.origins.primary_active",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "*:quirk/misc/power_resource",
+            "operation": "set",
+            "change": 100
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_cooldown",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "origins:entity_set_size",
+                            "set": "*:*_set",
+                            "comparison": "==",
+                            "compare_to": 2
+                        },
+                        {
+                            "type": "origins:raycast",
+                            "block": false,
+                            "entity": true,
+                            "shape_type": "collider",
+                            "fluid_handling": "none",
+                            "hit_bientity_condition": {
+                                "type": "origins:target_condition",
+                                "condition": {
+                                    "type": "origins:entity_type",
+                                    "entity_type": "minecraft:player"
+                                }
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "cooldown": 10
     }
 }

@@ -20,6 +20,12 @@
                             {
                                 "type": "origins:execute_command",
                                 "command": "playsound minecraft:block.vault.activate player @s ~ ~ ~ 0.8 1.2"
+                            },
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "*:quirk/misc/power_resource",
+                                "operation": "set",
+                                "change": 100
                             }
                         ]
                     },
@@ -156,6 +162,12 @@
                                 "resource": "*:*_cooldown",
                                 "operation": "set",
                                 "change": 2400
+                            },
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "*:quirk/misc/power_resource",
+                                "operation": "set",
+                                "change": 100
                             }
                         ]
                     },
@@ -228,6 +240,12 @@
                         "operation": "set",
                         "change": 900
                     }
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "*:quirk/misc/power_resource",
+                    "operation": "set",
+                    "change": 100
                 }
             ]
         },
@@ -450,9 +468,57 @@
         },
         "condition": {
             "type": "origins:resource",
-            "resource": "*:*_toggle",
+            "resource": "*:*_activated",
             "comparison": "==",
             "compare_to": 1
+        }
+    },
+    "death": {
+        "type": "origins:action_on_death",
+        "bientity_action": {
+            "type": "origins:target_action",
+            "action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_toggle",
+                        "operation": "set",
+                        "change": 0
+                    },
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_cooldown",
+                        "operation": "set",
+                        "change": 0
+                    },
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_resource",
+                        "operation": "set",
+                        "change": 0
+                    },
+                    {
+                        "action": {
+                            "type": "origins:if_action",
+                            "action": {
+                                "type": "origins:action_on_entity_set",
+                                "set": "*:*_set",
+                                "bientity_action": {
+                                    "type": "origins:remove_from_entity_set",
+                                    "set": "*:*_set"
+                                }
+                            },
+                            "condition": {
+                                "type": "origins:entity_set_size",
+                                "set": "*:*_set",
+                                "comparison": ">",
+                                "compare_to": 0
+                            }
+                        }
+                    }
+                ]
+            }
         }
     },
     "tag": {
@@ -477,6 +543,22 @@
             "type": "origins:remove_power",
             "power": "*:quirk/misc/power",
             "source": "*:*"
+        }
+    },
+    "active_over_time": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "*:quirk/misc/power_resource",
+            "operation": "set",
+            "change": 100
+        },
+        "interval": 10,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_toggle",
+            "comparison": "==",
+            "compare_to": 1
         }
     }
 }

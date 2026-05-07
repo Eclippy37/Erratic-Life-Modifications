@@ -19,13 +19,19 @@
                                 "type": "origins:change_resource",
                                 "resource": "*:*_timer",
                                 "operation": "set",
-                                "change": 35
+                                "change": 37
                             },
                             {
                                 "type": "origins:change_resource",
                                 "resource": "*:_cooldown",
                                 "operation": "set",
                                 "change": 0
+                            },
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "*:quirk/misc/power_resource",
+                                "operation": "set",
+                                "change": 100
                             }
                         ]
                     },
@@ -54,6 +60,12 @@
                                 "resource": "*:*_cooldown",
                                 "operation": "set",
                                 "change": 300
+                            },
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "*:quirk/misc/power_resource",
+                                "operation": "set",
+                                "change": 100
                             }
                         ]
                     },
@@ -111,7 +123,7 @@
     "timer": {
         "type": "origins:resource",
         "min": 0,
-        "max": 35,
+        "max": 37,
         "start_value": 0,
         "min_action": {
             "type": "origins:if_else",
@@ -138,6 +150,12 @@
                         "resource": "*:*_cooldown",
                         "operation": "set",
                         "change": 300
+                    },
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "*:quirk/misc/power_resource",
+                        "operation": "set",
+                        "change": 100
                     }
                 ]
             }
@@ -180,6 +198,29 @@
             "command": "function life:quirk/travel/clear"
         }
     },
+    "death": {
+        "type": "origins:action_on_death",
+        "bientity_action": {
+            "type": "origins:target_action",
+            "action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_timer",
+                        "operation": "set",
+                        "change": 0
+                    },
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_cooldown",
+                        "operation": "set",
+                        "change": 0
+                    }
+                ]
+            }
+        }
+    },
     "tag": {
         "type": "origins:action_on_callback",
         "entity_action_gained": {
@@ -202,6 +243,22 @@
             "type": "origins:remove_power",
             "power": "life:quirk/misc/power",
             "source": "*:*"
+        }
+    },
+    "active_over_time": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "*:quirk/misc/power_resource",
+            "operation": "set",
+            "change": 100
+        },
+        "interval": 10,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:quirk/travel_timer",
+            "comparison": ">",
+            "compare_to": 0
         }
     }
 }

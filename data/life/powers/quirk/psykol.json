@@ -25,6 +25,12 @@
                                 "type": "origins:grant_power",
                                 "power": "*:quirk/dim/psykol",
                                 "source": "*:*"
+                            },
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "*:quirk/misc/power_resource",
+                                "operation": "set",
+                                "change": 100
                             }
                         ]
                     },
@@ -57,6 +63,12 @@
                                 "type": "origins:remove_power",
                                 "power": "*:quirk/dim/psykol",
                                 "source": "*:*"
+                            },
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "*:quirk/misc/power_resource",
+                                "operation": "set",
+                                "change": 100
                             }
                         ]
                     },
@@ -105,7 +117,7 @@
                 }
             ]
         },
-        "cooldown": 10
+        "cooldown": 5
     },
     "sleeping": {
         "type": "origins:action_over_time",
@@ -138,6 +150,23 @@
                 "comparison": "<",
                 "compare_to": 7,
                 "inverted": false
+            }
+        }
+    },
+    "death": {
+        "type": "origins:action_on_death",
+        "bientity_action": {
+            "type": "origins:target_action",
+            "action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_resource",
+                        "operation": "set",
+                        "change": 7
+                    }
+                ]
             }
         }
     },

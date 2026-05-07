@@ -60,7 +60,7 @@
                 }
             ]
         },
-        "cooldown": 10
+        "cooldown": 1
     },
     "tick_over_time": {
         "type": "origins:action_over_time",
@@ -119,6 +119,22 @@
             "type": "origins:remove_power",
             "power": "life:quirk/misc/power",
             "source": "*:*"
+        }
+    },
+    "active_over_time": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "*:quirk/misc/power_resource",
+            "operation": "set",
+            "change": 100
+        },
+        "interval": 10,
+        "condition": {
+            "type": "origins:command",
+            "command": "execute if entity @a[tag=quirk.track.target]",
+            "comparison": "==",
+            "compare_to": 1
         }
     }
 }

@@ -7,691 +7,708 @@
         "entity_action": {
             "type": "origins:if_else",
             "if_action": {
-                "type": "origins:choice",
+                "type": "origins:and",
                 "actions": [
                     {
-                        "element": {
-                            "type": "origins:and",
-                            "actions": [
-                                {
-                                    "type": "origins:change_resource",
-                                    "resource": "*:*_resource",
-                                    "operation": "set",
-                                    "change": 1
-                                },
-                                {
-                                    "type": "origins:change_resource",
-                                    "resource": "*:*_timer",
-                                    "operation": "set",
-                                    "change": 600
-                                },
-                                {
-                                    "type": "origins:apply_effect",
-                                    "effects": [
+                        "type": "origins:choice",
+                        "actions": [
+                            {
+                                "element": {
+                                    "type": "origins:and",
+                                    "actions": [
                                         {
-                                            "id": "minecraft:speed",
-                                            "duration": 115,
-                                            "amplifier": 9,
-                                            "ambient": true,
-                                            "show_icon": true,
-                                            "show_particles": true
+                                            "type": "origins:change_resource",
+                                            "resource": "*:*_resource",
+                                            "operation": "set",
+                                            "change": 1
                                         },
                                         {
-                                            "id": "minecraft:hunger",
-                                            "duration": 115,
-                                            "amplifier": 4,
-                                            "ambient": true,
-                                            "show_icon": true,
-                                            "show_particles": true
-                                        }
-                                    ]
-                                }
-                            ]
-                        },
-                        "weight": 10
-                    },
-                    {
-                        "element": {
-                            "type": "origins:and",
-                            "actions": [
-                                {
-                                    "type": "origins:change_resource",
-                                    "resource": "*:*_resource",
-                                    "operation": "set",
-                                    "change": 2
-                                },
-                                {
-                                    "type": "origins:change_resource",
-                                    "resource": "*:*_timer",
-                                    "operation": "set",
-                                    "change": 600
-                                },
-                                {
-                                    "type": "origins:apply_effect",
-                                    "effects": [
-                                        {
-                                            "id": "minecraft:slow_falling",
-                                            "duration": 115,
-                                            "amplifier": 0,
-                                            "ambient": true,
-                                            "show_icon": true,
-                                            "show_particles": true
-                                        }
-                                    ]
-                                }
-                            ]
-                        },
-                        "weight": 10
-                    },
-                    {
-                        "element": {
-                            "type": "origins:and",
-                            "actions": [
-                                {
-                                    "type": "origins:change_resource",
-                                    "resource": "*:*_resource",
-                                    "operation": "set",
-                                    "change": 3
-                                },
-                                {
-                                    "type": "origins:change_resource",
-                                    "resource": "*:*_timer",
-                                    "operation": "set",
-                                    "change": 600
-                                },
-                                {
-                                    "type": "origins:apply_effect",
-                                    "effects": [
-                                        {
-                                            "id": "minecraft:conduit_power",
-                                            "duration": 115,
-                                            "amplifier": 0,
-                                            "ambient": true,
-                                            "show_icon": true,
-                                            "show_particles": true
+                                            "type": "origins:change_resource",
+                                            "resource": "*:*_timer",
+                                            "operation": "set",
+                                            "change": 600
                                         },
                                         {
-                                            "id": "minecraft:dolphins_grace",
-                                            "duration": 115,
-                                            "amplifier": 0,
-                                            "ambient": true,
-                                            "show_icon": true,
-                                            "show_particles": true
+                                            "type": "origins:apply_effect",
+                                            "effects": [
+                                                {
+                                                    "id": "minecraft:speed",
+                                                    "duration": 115,
+                                                    "amplifier": 9,
+                                                    "ambient": true,
+                                                    "show_icon": true,
+                                                    "show_particles": true
+                                                },
+                                                {
+                                                    "id": "minecraft:hunger",
+                                                    "duration": 115,
+                                                    "amplifier": 4,
+                                                    "ambient": true,
+                                                    "show_icon": true,
+                                                    "show_particles": true
+                                                }
+                                            ]
                                         }
                                     ]
-                                }
-                            ]
-                        },
-                        "weight": 10
-                    },
-                    {
-                        "element": {
-                            "type": "origins:and",
-                            "actions": [
-                                {
-                                    "type": "origins:change_resource",
-                                    "resource": "*:*_resource",
-                                    "operation": "set",
-                                    "change": 4
                                 },
-                                {
-                                    "type": "origins:change_resource",
-                                    "resource": "*:*_timer",
-                                    "operation": "set",
-                                    "change": 600
-                                },
-                                {
-                                    "type": "origins:apply_effect",
-                                    "effects": [
+                                "weight": 10
+                            },
+                            {
+                                "element": {
+                                    "type": "origins:and",
+                                    "actions": [
                                         {
-                                            "id": "minecraft:invisibility",
-                                            "duration": 115,
-                                            "amplifier": 0,
-                                            "ambient": true,
-                                            "show_icon": true,
-                                            "show_particles": false
-                                        }
-                                    ]
-                                }
-                            ]
-                        },
-                        "weight": 10
-                    },
-                    {
-                        "element": {
-                            "type": "origins:and",
-                            "actions": [
-                                {
-                                    "type": "origins:change_resource",
-                                    "resource": "*:*_resource",
-                                    "operation": "set",
-                                    "change": 5
-                                },
-                                {
-                                    "type": "origins:change_resource",
-                                    "resource": "*:*_timer",
-                                    "operation": "set",
-                                    "change": 600
-                                },
-                                {
-                                    "type": "origins:apply_effect",
-                                    "effects": [
+                                            "type": "origins:change_resource",
+                                            "resource": "*:*_resource",
+                                            "operation": "set",
+                                            "change": 2
+                                        },
                                         {
-                                            "id": "minecraft:saturation",
-                                            "duration": 115,
-                                            "amplifier": 0,
-                                            "ambient": true,
-                                            "show_icon": true,
-                                            "show_particles": false
-                                        }
-                                    ]
-                                }
-                            ]
-                        },
-                        "weight": 10
-                    },
-                    {
-                        "element": {
-                            "type": "origins:and",
-                            "actions": [
-                                {
-                                    "type": "origins:change_resource",
-                                    "resource": "*:*_resource",
-                                    "operation": "set",
-                                    "change": 6
-                                },
-                                {
-                                    "type": "origins:change_resource",
-                                    "resource": "*:*_timer",
-                                    "operation": "set",
-                                    "change": 600
-                                }
-                            ]
-                        },
-                        "weight": 10
-                    },
-                    {
-                        "element": {
-                            "type": "origins:and",
-                            "actions": [
-                                {
-                                    "type": "origins:change_resource",
-                                    "resource": "*:*_resource",
-                                    "operation": "set",
-                                    "change": 7
-                                },
-                                {
-                                    "type": "origins:change_resource",
-                                    "resource": "*:*_timer",
-                                    "operation": "set",
-                                    "change": 600
-                                },
-                                {
-                                    "type": "origins:apply_effect",
-                                    "effects": [
+                                            "type": "origins:change_resource",
+                                            "resource": "*:*_timer",
+                                            "operation": "set",
+                                            "change": 600
+                                        },
                                         {
-                                            "id": "minecraft:levitation",
-                                            "duration": 9,
-                                            "amplifier": 99,
-                                            "ambient": true,
-                                            "show_icon": false,
-                                            "show_particles": false
+                                            "type": "origins:apply_effect",
+                                            "effects": [
+                                                {
+                                                    "id": "minecraft:slow_falling",
+                                                    "duration": 115,
+                                                    "amplifier": 0,
+                                                    "ambient": true,
+                                                    "show_icon": true,
+                                                    "show_particles": true
+                                                }
+                                            ]
                                         }
                                     ]
-                                }
-                            ]
-                        },
-                        "weight": 10
-                    },
-                    {
-                        "element": {
-                            "type": "origins:and",
-                            "actions": [
-                                {
-                                    "type": "origins:change_resource",
-                                    "resource": "*:*_resource",
-                                    "operation": "set",
-                                    "change": 8
                                 },
-                                {
-                                    "type": "origins:change_resource",
-                                    "resource": "*:*_timer",
-                                    "operation": "set",
-                                    "change": 600
-                                }
-                            ]
-                        },
-                        "weight": 10
-                    },
-                    {
-                        "element": {
-                            "type": "origins:and",
-                            "actions": [
-                                {
-                                    "type": "origins:change_resource",
-                                    "resource": "*:*_resource",
-                                    "operation": "set",
-                                    "change": 9
-                                },
-                                {
-                                    "type": "origins:change_resource",
-                                    "resource": "*:*_timer",
-                                    "operation": "set",
-                                    "change": 600
-                                }
-                            ]
-                        },
-                        "weight": 10
-                    },
-                    {
-                        "element": {
-                            "type": "origins:and",
-                            "actions": [
-                                {
-                                    "type": "origins:change_resource",
-                                    "resource": "*:*_resource",
-                                    "operation": "set",
-                                    "change": 10
-                                },
-                                {
-                                    "type": "origins:change_resource",
-                                    "resource": "*:*_timer",
-                                    "operation": "set",
-                                    "change": 600
-                                }
-                            ]
-                        },
-                        "weight": 10
-                    },
-                    {
-                        "element": {
-                            "type": "origins:and",
-                            "actions": [
-                                {
-                                    "type": "origins:change_resource",
-                                    "resource": "*:*_resource",
-                                    "operation": "set",
-                                    "change": 11
-                                },
-                                {
-                                    "type": "origins:change_resource",
-                                    "resource": "*:*_timer",
-                                    "operation": "set",
-                                    "change": 600
-                                }
-                            ]
-                        },
-                        "weight": 10
-                    },
-                    {
-                        "element": {
-                            "type": "origins:and",
-                            "actions": [
-                                {
-                                    "type": "origins:change_resource",
-                                    "resource": "*:*_resource",
-                                    "operation": "set",
-                                    "change": 12
-                                },
-                                {
-                                    "type": "origins:change_resource",
-                                    "resource": "*:*_timer",
-                                    "operation": "set",
-                                    "change": 600
-                                }
-                            ]
-                        },
-                        "weight": 10
-                    },
-                    {
-                        "element": {
-                            "type": "origins:and",
-                            "actions": [
-                                {
-                                    "type": "origins:change_resource",
-                                    "resource": "*:*_cooldown",
-                                    "operation": "set",
-                                    "change": 1200
-                                },
-                                {
-                                    "type": "origins:apply_effect",
-                                    "effects": [
+                                "weight": 10
+                            },
+                            {
+                                "element": {
+                                    "type": "origins:and",
+                                    "actions": [
                                         {
-                                            "id": "minecraft:invisibility",
-                                            "duration": 60,
-                                            "amplifier": 0,
-                                            "ambient": true,
-                                            "show_icon": false,
-                                            "show_particles": false
+                                            "type": "origins:change_resource",
+                                            "resource": "*:*_resource",
+                                            "operation": "set",
+                                            "change": 3
+                                        },
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "*:*_timer",
+                                            "operation": "set",
+                                            "change": 600
+                                        },
+                                        {
+                                            "type": "origins:apply_effect",
+                                            "effects": [
+                                                {
+                                                    "id": "minecraft:conduit_power",
+                                                    "duration": 115,
+                                                    "amplifier": 0,
+                                                    "ambient": true,
+                                                    "show_icon": true,
+                                                    "show_particles": true
+                                                },
+                                                {
+                                                    "id": "minecraft:dolphins_grace",
+                                                    "duration": 115,
+                                                    "amplifier": 0,
+                                                    "ambient": true,
+                                                    "show_icon": true,
+                                                    "show_particles": true
+                                                }
+                                            ]
                                         }
                                     ]
                                 },
-                                {
-                                    "type": "origins:execute_command",
-                                    "command": "execute at @s as @a[distance=0.01..12] at @s run particle dust{color:[0.0,0.0,0.0],scale:1} ~ ~1 ~ 0.25 0.5 0.25 0 100"
+                                "weight": 10
+                            },
+                            {
+                                "element": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "*:*_resource",
+                                            "operation": "set",
+                                            "change": 4
+                                        },
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "*:*_timer",
+                                            "operation": "set",
+                                            "change": 600
+                                        },
+                                        {
+                                            "type": "origins:apply_effect",
+                                            "effects": [
+                                                {
+                                                    "id": "minecraft:invisibility",
+                                                    "duration": 115,
+                                                    "amplifier": 0,
+                                                    "ambient": true,
+                                                    "show_icon": true,
+                                                    "show_particles": false
+                                                }
+                                            ]
+                                        }
+                                    ]
                                 },
-                                {
-                                    "type": "origins:execute_command",
-                                    "command": "execute at @s as @a[distance=0.01..12] at @s run effect give @s minecraft:blindness 10 0 false"
+                                "weight": 10
+                            },
+                            {
+                                "element": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "*:*_resource",
+                                            "operation": "set",
+                                            "change": 5
+                                        },
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "*:*_timer",
+                                            "operation": "set",
+                                            "change": 600
+                                        },
+                                        {
+                                            "type": "origins:apply_effect",
+                                            "effects": [
+                                                {
+                                                    "id": "minecraft:saturation",
+                                                    "duration": 115,
+                                                    "amplifier": 0,
+                                                    "ambient": true,
+                                                    "show_icon": true,
+                                                    "show_particles": false
+                                                }
+                                            ]
+                                        }
+                                    ]
                                 },
-                                {
-                                    "type": "origins:play_sound",
-                                    "sound": "minecraft:entity.player.teleport",
-                                    "category": "players",
-                                    "pitch": 1,
-                                    "volume": 1
-                                }
-                            ]
-                        },
-                        "weight": 10
-                    },
-                    {
-                        "element": {
-                            "type": "origins:and",
-                            "actions": [
-                                {
-                                    "type": "origins:change_resource",
-                                    "resource": "*:*_cooldown",
-                                    "operation": "set",
-                                    "change": 1200
+                                "weight": 10
+                            },
+                            {
+                                "element": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "*:*_resource",
+                                            "operation": "set",
+                                            "change": 6
+                                        },
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "*:*_timer",
+                                            "operation": "set",
+                                            "change": 600
+                                        }
+                                    ]
                                 },
-                                {
-                                    "type": "origins:execute_command",
-                                    "command": "summon minecraft:lightning_bolt ~3.5 ~ ~3.5"
+                                "weight": 10
+                            },
+                            {
+                                "element": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "*:*_resource",
+                                            "operation": "set",
+                                            "change": 7
+                                        },
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "*:*_timer",
+                                            "operation": "set",
+                                            "change": 600
+                                        },
+                                        {
+                                            "type": "origins:apply_effect",
+                                            "effects": [
+                                                {
+                                                    "id": "minecraft:levitation",
+                                                    "duration": 9,
+                                                    "amplifier": 99,
+                                                    "ambient": true,
+                                                    "show_icon": false,
+                                                    "show_particles": false
+                                                }
+                                            ]
+                                        }
+                                    ]
                                 },
-                                {
-                                    "type": "origins:execute_command",
-                                    "command": "summon minecraft:lightning_bolt ~-3.5 ~ ~3.5"
+                                "weight": 10
+                            },
+                            {
+                                "element": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "*:*_resource",
+                                            "operation": "set",
+                                            "change": 8
+                                        },
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "*:*_timer",
+                                            "operation": "set",
+                                            "change": 600
+                                        }
+                                    ]
                                 },
-                                {
-                                    "type": "origins:execute_command",
-                                    "command": "summon minecraft:lightning_bolt ~3.5 ~ ~-3.5"
+                                "weight": 10
+                            },
+                            {
+                                "element": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "*:*_resource",
+                                            "operation": "set",
+                                            "change": 9
+                                        },
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "*:*_timer",
+                                            "operation": "set",
+                                            "change": 600
+                                        }
+                                    ]
                                 },
-                                {
-                                    "type": "origins:execute_command",
-                                    "command": "summon minecraft:lightning_bolt ~-3.5 ~ ~-3.5"
+                                "weight": 10
+                            },
+                            {
+                                "element": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "*:*_resource",
+                                            "operation": "set",
+                                            "change": 10
+                                        },
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "*:*_timer",
+                                            "operation": "set",
+                                            "change": 600
+                                        }
+                                    ]
                                 },
-                                {
-                                    "type": "origins:execute_command",
-                                    "command": "summon minecraft:lightning_bolt ~7 ~ ~"
+                                "weight": 10
+                            },
+                            {
+                                "element": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "*:*_resource",
+                                            "operation": "set",
+                                            "change": 11
+                                        },
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "*:*_timer",
+                                            "operation": "set",
+                                            "change": 600
+                                        }
+                                    ]
                                 },
-                                {
-                                    "type": "origins:execute_command",
-                                    "command": "summon minecraft:lightning_bolt ~ ~ ~7"
+                                "weight": 10
+                            },
+                            {
+                                "element": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "*:*_resource",
+                                            "operation": "set",
+                                            "change": 12
+                                        },
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "*:*_timer",
+                                            "operation": "set",
+                                            "change": 600
+                                        }
+                                    ]
                                 },
-                                {
-                                    "type": "origins:execute_command",
-                                    "command": "summon minecraft:lightning_bolt ~-7 ~ ~"
+                                "weight": 10
+                            },
+                            {
+                                "element": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "*:*_cooldown",
+                                            "operation": "set",
+                                            "change": 1200
+                                        },
+                                        {
+                                            "type": "origins:apply_effect",
+                                            "effects": [
+                                                {
+                                                    "id": "minecraft:invisibility",
+                                                    "duration": 60,
+                                                    "amplifier": 0,
+                                                    "ambient": true,
+                                                    "show_icon": false,
+                                                    "show_particles": false
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "execute at @s as @a[distance=0.01..12] at @s run particle dust{color:[0.0,0.0,0.0],scale:1} ~ ~1 ~ 0.25 0.5 0.25 0 100"
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "execute at @s as @a[distance=0.01..12] at @s run effect give @s minecraft:blindness 10 0 false"
+                                        },
+                                        {
+                                            "type": "origins:play_sound",
+                                            "sound": "minecraft:entity.player.teleport",
+                                            "category": "players",
+                                            "pitch": 1,
+                                            "volume": 1
+                                        }
+                                    ]
                                 },
-                                {
-                                    "type": "origins:execute_command",
-                                    "command": "summon minecraft:lightning_bolt ~ ~ ~-7"
-                                }
-                            ]
-                        },
-                        "weight": 10
-                    },
-                    {
-                        "element": {
-                            "type": "origins:and",
-                            "actions": [
-                                {
-                                    "type": "origins:change_resource",
-                                    "resource": "*:*_cooldown",
-                                    "operation": "set",
-                                    "change": 1200
+                                "weight": 10
+                            },
+                            {
+                                "element": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "*:*_cooldown",
+                                            "operation": "set",
+                                            "change": 1200
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "summon minecraft:lightning_bolt ~3.5 ~ ~3.5"
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "summon minecraft:lightning_bolt ~-3.5 ~ ~3.5"
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "summon minecraft:lightning_bolt ~3.5 ~ ~-3.5"
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "summon minecraft:lightning_bolt ~-3.5 ~ ~-3.5"
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "summon minecraft:lightning_bolt ~7 ~ ~"
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "summon minecraft:lightning_bolt ~ ~ ~7"
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "summon minecraft:lightning_bolt ~-7 ~ ~"
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "summon minecraft:lightning_bolt ~ ~ ~-7"
+                                        }
+                                    ]
                                 },
-                                {
-                                    "type": "origins:execute_command",
-                                    "command": "function life:quirk/jester/swap"
-                                }
-                            ]
-                        },
-                        "weight": 10
-                    },
-                    {
-                        "element": {
-                            "type": "origins:and",
-                            "actions": [
-                                {
-                                    "type": "origins:change_resource",
-                                    "resource": "*:*_cooldown",
-                                    "operation": "set",
-                                    "change": 1200
+                                "weight": 10
+                            },
+                            {
+                                "element": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "*:*_cooldown",
+                                            "operation": "set",
+                                            "change": 1200
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "function life:quirk/jester/swap"
+                                        }
+                                    ]
                                 },
-                                {
-                                    "type": "origins:fire_projectile",
-                                    "entity_type": "origins:enderian_pearl",
-                                    "speed": 1.5,
-                                    "divergence": 1.0,
-                                    "count": 1
-                                }
-                            ]
-                        },
-                        "weight": 10
-                    },
-                    {
-                        "element": {
-                            "type": "origins:and",
-                            "actions": [
-                                {
-                                    "type": "origins:change_resource",
-                                    "resource": "*:*_cooldown",
-                                    "operation": "set",
-                                    "change": 1200
+                                "weight": 10
+                            },
+                            {
+                                "element": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "*:*_cooldown",
+                                            "operation": "set",
+                                            "change": 1200
+                                        },
+                                        {
+                                            "type": "origins:fire_projectile",
+                                            "entity_type": "origins:enderian_pearl",
+                                            "speed": 1.5,
+                                            "divergence": 1.0,
+                                            "count": 1
+                                        }
+                                    ]
                                 },
-                                {
-                                    "type": "origins:fire_projectile",
-                                    "entity_type": "minecraft:arrow",
-                                    "speed": 2,
-                                    "divergence": 32.0,
-                                    "count": 32
-                                }
-                            ]
-                        },
-                        "weight": 10
-                    },
-                    {
-                        "element": {
-                            "type": "origins:and",
-                            "actions": [
-                                {
-                                    "type": "origins:change_resource",
-                                    "resource": "*:*_cooldown",
-                                    "operation": "set",
-                                    "change": 1200
+                                "weight": 10
+                            },
+                            {
+                                "element": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "*:*_cooldown",
+                                            "operation": "set",
+                                            "change": 1200
+                                        },
+                                        {
+                                            "type": "origins:fire_projectile",
+                                            "entity_type": "minecraft:arrow",
+                                            "speed": 2,
+                                            "divergence": 32.0,
+                                            "count": 32
+                                        }
+                                    ]
                                 },
-                                {
-                                    "type": "origins:fire_projectile",
-                                    "entity_type": "minecraft:snowball",
-                                    "speed": 1,
-                                    "divergence": 32.0,
-                                    "count": 64
-                                }
-                            ]
-                        },
-                        "weight": 10
-                    },
-                    {
-                        "element": {
-                            "type": "origins:and",
-                            "actions": [
-                                {
-                                    "type": "origins:change_resource",
-                                    "resource": "*:*_cooldown",
-                                    "operation": "set",
-                                    "change": 1200
+                                "weight": 10
+                            },
+                            {
+                                "element": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "*:*_cooldown",
+                                            "operation": "set",
+                                            "change": 1200
+                                        },
+                                        {
+                                            "type": "origins:fire_projectile",
+                                            "entity_type": "minecraft:snowball",
+                                            "speed": 1,
+                                            "divergence": 32.0,
+                                            "count": 64
+                                        }
+                                    ]
                                 },
-                                {
-                                    "type": "origins:fire_projectile",
-                                    "entity_type": "minecraft:egg",
-                                    "speed": 1.5,
-                                    "divergence": 32.0,
-                                    "count": 64
-                                }
-                            ]
-                        },
-                        "weight": 10
-                    },
-                    {
-                        "element": {
-                            "type": "origins:and",
-                            "actions": [
-                                {
-                                    "type": "origins:change_resource",
-                                    "resource": "*:*_cooldown",
-                                    "operation": "set",
-                                    "change": 1200
+                                "weight": 10
+                            },
+                            {
+                                "element": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "*:*_cooldown",
+                                            "operation": "set",
+                                            "change": 1200
+                                        },
+                                        {
+                                            "type": "origins:fire_projectile",
+                                            "entity_type": "minecraft:egg",
+                                            "speed": 1.5,
+                                            "divergence": 32.0,
+                                            "count": 64
+                                        }
+                                    ]
                                 },
-                                {
-                                    "type": "origins:execute_command",
-                                    "command": "particle minecraft:portal ~ ~1 ~ 0.175 0.25 0.175 1 200 normal @a"
+                                "weight": 10
+                            },
+                            {
+                                "element": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "*:*_cooldown",
+                                            "operation": "set",
+                                            "change": 1200
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "particle minecraft:portal ~ ~1 ~ 0.175 0.25 0.175 1 200 normal @a"
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "spreadplayers ~ ~ 0 16 false @s"
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "particle minecraft:portal ~ ~1 ~ 0.175 0.25 0.175 1 200 normal @a"
+                                        },
+                                        {
+                                            "type": "origins:play_sound",
+                                            "sound": "minecraft:entity.player.teleport",
+                                            "category": "players",
+                                            "pitch": 1,
+                                            "volume": 1
+                                        }
+                                    ]
                                 },
-                                {
-                                    "type": "origins:execute_command",
-                                    "command": "spreadplayers ~ ~ 0 16 false @s"
+                                "weight": 10
+                            },
+                            {
+                                "element": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "*:*_cooldown",
+                                            "operation": "set",
+                                            "change": 1200
+                                        },
+                                        {
+                                            "type": "origins:fire_projectile",
+                                            "entity_type": "origins:enderian_pearl",
+                                            "speed": 1.5,
+                                            "divergence": 50.0,
+                                            "count": 16
+                                        }
+                                    ]
                                 },
-                                {
-                                    "type": "origins:execute_command",
-                                    "command": "particle minecraft:portal ~ ~1 ~ 0.175 0.25 0.175 1 200 normal @a"
+                                "weight": 5
+                            },
+                            {
+                                "element": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "*:*_cooldown",
+                                            "operation": "set",
+                                            "change": 1200
+                                        },
+                                        {
+                                            "type": "origins:fire_projectile",
+                                            "entity_type": "minecraft:endermite",
+                                            "speed": 2.5,
+                                            "divergence": 16.0,
+                                            "count": 25
+                                        },
+                                        {
+                                            "type": "origins:fire_projectile",
+                                            "entity_type": "minecraft:silverfish",
+                                            "speed": 2.5,
+                                            "divergence": 16.0,
+                                            "count": 25
+                                        }
+                                    ]
                                 },
-                                {
-                                    "type": "origins:play_sound",
-                                    "sound": "minecraft:entity.player.teleport",
-                                    "category": "players",
-                                    "pitch": 1,
-                                    "volume": 1
-                                }
-                            ]
-                        },
-                        "weight": 10
-                    },
-                    {
-                        "element": {
-                            "type": "origins:and",
-                            "actions": [
-                                {
-                                    "type": "origins:change_resource",
-                                    "resource": "*:*_cooldown",
-                                    "operation": "set",
-                                    "change": 1200
+                                "weight": 10
+                            },
+                            {
+                                "element": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "*:*_cooldown",
+                                            "operation": "set",
+                                            "change": 1200
+                                        },
+                                        {
+                                            "type": "origins:fire_projectile",
+                                            "entity_type": "minecraft:salmon",
+                                            "speed": 2.5,
+                                            "divergence": 16.0,
+                                            "count": 16
+                                        },
+                                        {
+                                            "type": "origins:fire_projectile",
+                                            "entity_type": "minecraft:cod",
+                                            "speed": 2.5,
+                                            "divergence": 16.0,
+                                            "count": 16
+                                        },
+                                        {
+                                            "type": "origins:fire_projectile",
+                                            "entity_type": "minecraft:tropical_fish",
+                                            "speed": 2.5,
+                                            "divergence": 16.0,
+                                            "count": 16
+                                        }
+                                    ]
                                 },
-                                {
-                                    "type": "origins:fire_projectile",
-                                    "entity_type": "origins:enderian_pearl",
-                                    "speed": 1.5,
-                                    "divergence": 50.0,
-                                    "count": 16
-                                }
-                            ]
-                        },
-                        "weight": 5
-                    },
-                    {
-                        "element": {
-                            "type": "origins:and",
-                            "actions": [
-                                {
-                                    "type": "origins:change_resource",
-                                    "resource": "*:*_cooldown",
-                                    "operation": "set",
-                                    "change": 1200
-                                },
-                                {
-                                    "type": "origins:fire_projectile",
-                                    "entity_type": "minecraft:endermite",
-                                    "speed": 2.5,
-                                    "divergence": 16.0,
-                                    "count": 25
-                                },
-                                {
-                                    "type": "origins:fire_projectile",
-                                    "entity_type": "minecraft:silverfish",
-                                    "speed": 2.5,
-                                    "divergence": 16.0,
-                                    "count": 25
-                                }
-                            ]
-                        },
-                        "weight": 10
-                    },
-                    {
-                        "element": {
-                            "type": "origins:and",
-                            "actions": [
-                                {
-                                    "type": "origins:change_resource",
-                                    "resource": "*:*_cooldown",
-                                    "operation": "set",
-                                    "change": 1200
-                                },
-                                {
-                                    "type": "origins:fire_projectile",
-                                    "entity_type": "minecraft:salmon",
-                                    "speed": 2.5,
-                                    "divergence": 16.0,
-                                    "count": 16
-                                },
-                                {
-                                    "type": "origins:fire_projectile",
-                                    "entity_type": "minecraft:cod",
-                                    "speed": 2.5,
-                                    "divergence": 16.0,
-                                    "count": 16
-                                },
-                                {
-                                    "type": "origins:fire_projectile",
-                                    "entity_type": "minecraft:tropical_fish",
-                                    "speed": 2.5,
-                                    "divergence": 16.0,
-                                    "count": 16
-                                }
-                            ]
-                        },
-                        "weight": 5
-                    },
-                    {
-                        "element": {
-                            "type": "origins:and",
-                            "actions": [
-                                {
-                                    "type": "origins:change_resource",
-                                    "resource": "*:*_cooldown",
-                                    "operation": "set",
-                                    "change": 1200
-                                },
-                                {
-                                    "type": "origins:fire_projectile",
-                                    "entity_type": "minecraft:villager",
-                                    "speed": 2.5,
-                                    "divergence": 1.0,
-                                    "count": 1,
-                                    "projectile_action": {
-                                        "type": "origins:and",
-                                        "actions": [
-                                            {
-                                                "type": "origins:execute_command",
-                                                "command": "data merge entity @s {CustomName:\"Jeremy\",CustomNameVisible:true}"
-                                            },
-                                            {
-                                                "type": "origins:apply_effect",
-                                                "effects": [
+                                "weight": 5
+                            },
+                            {
+                                "element": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "*:*_cooldown",
+                                            "operation": "set",
+                                            "change": 1200
+                                        },
+                                        {
+                                            "type": "origins:fire_projectile",
+                                            "entity_type": "minecraft:villager",
+                                            "speed": 2.5,
+                                            "divergence": 1.0,
+                                            "count": 1,
+                                            "projectile_action": {
+                                                "type": "origins:and",
+                                                "actions": [
                                                     {
-                                                        "id": "minecraft:resistance",
-                                                        "duration": 100,
-                                                        "amplifier": 4,
-                                                        "ambient": true,
-                                                        "show_icon": false,
-                                                        "show_particles": false
+                                                        "type": "origins:execute_command",
+                                                        "command": "data merge entity @s {CustomName:\"Jeremy\",CustomNameVisible:true}"
+                                                    },
+                                                    {
+                                                        "type": "origins:apply_effect",
+                                                        "effects": [
+                                                            {
+                                                                "id": "minecraft:resistance",
+                                                                "duration": 100,
+                                                                "amplifier": 4,
+                                                                "ambient": true,
+                                                                "show_icon": false,
+                                                                "show_particles": false
+                                                            }
+                                                        ]
                                                     }
                                                 ]
                                             }
-                                        ]
-                                    }
-                                }
-                            ]
-                        },
-                        "weight": 1
+                                        }
+                                    ]
+                                },
+                                "weight": 1
+                            }
+                        ]
+                    },
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_cooldown",
+                        "operation": "set",
+                        "change": 1200
+                    },
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "*:quirk/misc/power_resource",
+                        "operation": "set",
+                        "change": 100
                     }
                 ]
             },
@@ -725,7 +742,7 @@
             "comparison": "==",
             "compare_to": 0
         },
-        "cooldown": 10
+        "cooldown": 5
     },
     "resource": {
         "type": "origins:resource",
@@ -1544,6 +1561,35 @@
             ]
         }
     },
+    "death": {
+        "type": "origins:action_on_death",
+        "bientity_action": {
+            "type": "origins:target_action",
+            "action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_resource",
+                        "operation": "set",
+                        "change": 0
+                    },
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_timer",
+                        "operation": "set",
+                        "change": 0
+                    },
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_cooldown",
+                        "operation": "set",
+                        "change": 0
+                    }
+                ]
+            }
+        }
+    },
     "tag": {
         "type": "origins:action_on_callback",
         "entity_action_gained": {
@@ -1553,6 +1599,22 @@
         "entity_action_lost": {
             "type": "origins:execute_command",
             "command": "tag @s remove quirk.jester"
+        }
+    },
+    "active_over_time": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "*:quirk/misc/power_resource",
+            "operation": "set",
+            "change": 100
+        },
+        "interval": 10,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_timer",
+            "comparison": ">",
+            "compare_to": 0
         }
     },
     "seek": {

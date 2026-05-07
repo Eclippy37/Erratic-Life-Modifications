@@ -1836,7 +1836,7 @@
                 "id": "life:attack_damage_increase",
                 "attribute": "minecraft:generic.attack_damage",
                 "operation": "add_multiplied_total",
-                "amount": 0.5
+                "amount": 0.75
             }
         ],
         "condition": {
@@ -2082,7 +2082,7 @@
                 "id": "life:max_health_increase",
                 "attribute": "minecraft:generic.max_health",
                 "operation": "add_multiplied_total",
-                "amount": 0.5
+                "amount": 1
             }
         ],
         "condition": {
@@ -2296,6 +2296,23 @@
             ]
         }
     },
+    "death": {
+        "type": "origins:action_on_death",
+        "bientity_action": {
+            "type": "origins:target_action",
+            "action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_power",
+                        "operation": "set",
+                        "change": 0
+                    }
+                ]
+            }
+        }
+    },
     "tag": {
         "type": "origins:action_on_callback",
         "entity_action_gained": {
@@ -2318,6 +2335,23 @@
             "type": "origins:remove_power",
             "power": "life:quirk/misc/power",
             "source": "*:*"
+        }
+    },
+    "active_over_time": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "*:quirk/misc/power_resource",
+            "operation": "set",
+            "change": 100
+        },
+        "interval": 10,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_power",
+            "comparison": "==",
+            "compare_to": 0,
+            "inverted": true
         }
     }
 }
