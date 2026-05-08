@@ -26,8 +26,19 @@
                                                 {
                                                     "type": "origins:actor_action",
                                                     "action": {
-                                                        "type": "origins:execute_command",
-                                                        "command": "playsound minecraft:block.note_block.chime player @s ~ ~ ~ 0.8 2"
+                                                        "type": "origins:and",
+                                                        "actions": [
+                                                            {
+                                                                "type": "origins:execute_command",
+                                                                "command": "playsound minecraft:block.note_block.chime player @s ~ ~ ~ 0.8 2"
+                                                            },
+                                                            {
+                                                                "type": "origins:change_resource",
+                                                                "resource": "*:quirk/misc/base_active",
+                                                                "operation": "set",
+                                                                "change": 100
+                                                            }
+                                                        ]
                                                     }
                                                 },
                                                 {
@@ -226,6 +237,12 @@
                                 "resource": "*:*_cooldown",
                                 "operation": "set",
                                 "change": 2400
+                            },
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "*:quirk/misc/base_active",
+                                "operation": "set",
+                                "change": 100
                             }
                         ]
                     },
@@ -374,6 +391,19 @@
             }
         }
     },
+    "base": {
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:grant_power",
+            "power": "*:quirk/misc/base",
+            "source": "*:*"
+        },
+        "entity_action_lost": {
+            "type": "origins:remove_power",
+            "power": "*:quirk/misc/base",
+            "source": "*:*"
+        }
+    },
     "tag": {
         "type": "origins:action_on_callback",
         "entity_action_gained": {
@@ -384,65 +414,5 @@
             "type": "origins:execute_command",
             "command": "tag @s remove quirk.swap"
         }
-    },
-    "seek": {
-        "type": "origins:action_on_callback",
-        "entity_action_gained": {
-            "type": "origins:grant_power",
-            "power": "life:quirk/misc/power",
-            "source": "*:*"
-        },
-        "entity_action_lost": {
-            "type": "origins:remove_power",
-            "power": "life:quirk/misc/power",
-            "source": "*:*"
-        }
-    },
-    "active_over_time": {
-        "type": "origins:active_self",
-        "key": "key.origins.primary_active",
-        "entity_action": {
-            "type": "origins:change_resource",
-            "resource": "*:quirk/misc/power_resource",
-            "operation": "set",
-            "change": 100
-        },
-        "condition": {
-            "type": "origins:and",
-            "conditions": [
-                {
-                    "type": "origins:resource",
-                    "resource": "*:*_cooldown",
-                    "comparison": "==",
-                    "compare_to": 0
-                },
-                {
-                    "type": "origins:or",
-                    "conditions": [
-                        {
-                            "type": "origins:entity_set_size",
-                            "set": "*:*_set",
-                            "comparison": "==",
-                            "compare_to": 2
-                        },
-                        {
-                            "type": "origins:raycast",
-                            "block": false,
-                            "entity": true,
-                            "shape_type": "collider",
-                            "fluid_handling": "none",
-                            "hit_bientity_condition": {
-                                "type": "origins:target_condition",
-                                "condition": {
-                                    "type": "origins:entity_type",
-                                    "entity_type": "minecraft:player"
-                                }
-                            }
-                        }
-                    ]
-                }
-            ]
-        },
-        "cooldown": 10
     }
 }

@@ -88,13 +88,53 @@
             "type": "origins:execute_command",
             "command": "function life:quirk/track/clear_full"
         },
-        "entity_action_respawned": {
-            "type": "origins:execute_command",
-            "command": "function life:quirk/track/clear_full"
-        },
         "entity_action_lost": {
             "type": "origins:execute_command",
             "command": "function life:quirk/track/clear_full"
+        }
+    },
+    "death": {
+        "type": "origins:action_on_death",
+        "bientity_action": {
+            "type": "origins:target_action",
+            "action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:execute_command",
+                        "command": "function life:quirk/track/clear_full"
+                    }
+                ]
+            }
+        }
+    },
+    "active_over_time": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "*:quirk/misc/base_active",
+            "operation": "set",
+            "change": 100
+        },
+        "interval": 10,
+        "condition": {
+            "type": "origins:command",
+            "command": "execute if entity @a[tag=quirk.track.target]",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    },
+    "base": {
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:grant_power",
+            "power": "*:quirk/misc/base",
+            "source": "*:*"
+        },
+        "entity_action_lost": {
+            "type": "origins:remove_power",
+            "power": "*:quirk/misc/base",
+            "source": "*:*"
         }
     },
     "tag": {
@@ -106,35 +146,6 @@
         "entity_action_lost": {
             "type": "origins:execute_command",
             "command": "tag @s remove quirk.track"
-        }
-    },
-    "seek": {
-        "type": "origins:action_on_callback",
-        "entity_action_gained": {
-            "type": "origins:grant_power",
-            "power": "life:quirk/misc/power",
-            "source": "*:*"
-        },
-        "entity_action_lost": {
-            "type": "origins:remove_power",
-            "power": "life:quirk/misc/power",
-            "source": "*:*"
-        }
-    },
-    "active_over_time": {
-        "type": "origins:action_over_time",
-        "entity_action": {
-            "type": "origins:change_resource",
-            "resource": "*:quirk/misc/power_resource",
-            "operation": "set",
-            "change": 100
-        },
-        "interval": 10,
-        "condition": {
-            "type": "origins:command",
-            "command": "execute if entity @a[tag=quirk.track.target]",
-            "comparison": "==",
-            "compare_to": 1
         }
     }
 }

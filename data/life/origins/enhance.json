@@ -1,0 +1,14 @@
+{
+    "powers": [
+        "life:quirk/enhance"
+    ],
+    "icon": {
+        "id": "minecraft:potion"
+    },
+    "name": "Enhance",
+    "description": "",
+    "order": 0,
+    "impact": 0,
+    "loading_priority": 1,
+    "unchoosable": false
+}

@@ -1,0 +1,14 @@
+{
+    "powers": [
+        "life:quirk/erase"
+    ],
+    "icon": {
+        "id": "minecraft:barrier"
+    },
+    "name": "Erase",
+    "description": "",
+    "order": 0,
+    "impact": 0,
+    "loading_priority": 1,
+    "unchoosable": false
+}

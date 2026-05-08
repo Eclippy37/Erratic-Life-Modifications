@@ -1,0 +1,183 @@
+{
+    "hidden": true,
+    "type": "origins:multiple",
+    "active": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 8,
+        "min_action": {
+            "type": "origins:execute_command",
+            "command": "tag @s[tag=quirk.active] remove quirk.active"
+        },
+        "max_action": {
+            "type": "origins:execute_command",
+            "command": "tag @s[tag=!quirk.active] add quirk.active"
+        },
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "active_over_time": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "*:*_active",
+            "operation": "add",
+            "change": -1
+        },
+        "interval": 10,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_active",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "enhanced": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 28,
+        "min_action": {
+            "type": "origins:execute_command",
+            "command": "tag @s[tag=quirk.enhanced] remove quirk.enhanced"
+        },
+        "max_action": {
+            "type": "origins:execute_command",
+            "command": "tag @s[tag=!quirk.enhanced] add quirk.enhanced"
+        },
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "enhanced_over_time": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "*:*_enhanced",
+            "operation": "add",
+            "change": -1
+        },
+        "interval": 10,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_enhanced",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "erased": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 21,
+        "min_action": {
+            "type": "origins:execute_command",
+            "command": "tag @s[tag=quirk.erased] remove quirk.erased"
+        },
+        "max_action": {
+            "type": "origins:execute_command",
+            "command": "tag @s[tag=!quirk.erased] add quirk.erased"
+        },
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "erased_over_time": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "*:*_erased",
+            "operation": "add",
+            "change": -1
+        },
+        "interval": 10,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_erased",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "triggered": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 14,
+        "min_action": {
+            "type": "origins:execute_command",
+            "command": "tag @s[tag=quirk.triggered] remove quirk.triggered"
+        },
+        "max_action": {
+            "type": "origins:execute_command",
+            "command": "tag @s[tag=!quirk.triggered] add quirk.triggered"
+        },
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "triggered_over_time": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "*:*_triggered",
+            "operation": "add",
+            "change": -1
+        },
+        "interval": 10,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_triggered",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "remove": {
+        "type": "origins:action_on_callback",
+        "entity_action_lost": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "tag @s remove quirk.active"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tag @s remove quirk.enhanced"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tag @s remove quirk.erased"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tag @s remove quirk.triggered"
+                }
+            ]
+        }
+    },
+    "death": {
+        "type": "origins:action_on_death",
+        "bientity_action": {
+            "type": "origins:target_action",
+            "action": {
+                "type": "origins:change_resource",
+                "resource": "*:*_active",
+                "operation": "set",
+                "change": 0
+            }
+        }
+    },
+    "tag": {
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:execute_command",
+            "command": "tag @s add quirk"
+        },
+        "entity_action_lost": {
+            "type": "origins:execute_command",
+            "command": "tag @s remove quirk"
+        }
+    }
+}

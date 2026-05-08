@@ -1,0 +1,780 @@
+{
+    "hidden": true,
+    "type": "origins:multiple",
+    "main": {
+        "type": "origins:active_self",
+        "key": "key.origins.primary_active",
+        "entity_action": {
+            "type": "origins:if_else_list",
+            "actions": [
+                {
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "*:*_toggle",
+                                "operation": "set",
+                                "change": 1
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "playsound minecraft:block.sculk_sensor.clicking player @s ~ ~ ~ 0.5 0.8"
+                            }
+                        ]
+                    },
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "*:*_toggle",
+                        "comparison": "==",
+                        "compare_to": 0
+                    }
+                },
+                {
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "*:*_toggle",
+                                "operation": "set",
+                                "change": 0
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "playsound minecraft:block.sculk_sensor.clicking_stop player @s ~ ~ ~ 0.5 0.8"
+                            }
+                        ]
+                    },
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "*:*_toggle",
+                        "comparison": "==",
+                        "compare_to": 1
+                    }
+                }
+            ]
+        },
+        "cooldown": 5,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "raycast": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:raycast",
+            "block": false,
+            "entity": true,
+            "shape_type": "collider",
+            "fluid_handling": "none",
+            "bientity_action": {
+                "type": "origins:if_else_list",
+                "actions": [
+                    {
+                        "action": {
+                            "type": "origins:actor_action",
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "title @s actionbar {\"color\":\"gray\",\"text\":\"Boom\"}"
+                            }
+                        },
+                        "condition": {
+                            "type": "origins:target_condition",
+                            "condition": {
+                                "type": "origins:and",
+                                "conditions": [
+                                    {
+                                        "type": "origins:resource",
+                                        "resource": "*:quirk/misc/base_active",
+                                        "comparison": ">",
+                                        "compare_to": 0
+                                    },
+                                    {
+                                        "type": "origins:power",
+                                        "power": "life:quirk/boom"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "action": {
+                            "type": "origins:actor_action",
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "title @s actionbar {\"color\":\"gray\",\"text\":\"Dash\"}"
+                            }
+                        },
+                        "condition": {
+                            "type": "origins:target_condition",
+                            "condition": {
+                                "type": "origins:and",
+                                "conditions": [
+                                    {
+                                        "type": "origins:resource",
+                                        "resource": "*:quirk/misc/base_active",
+                                        "comparison": ">",
+                                        "compare_to": 0
+                                    },
+                                    {
+                                        "type": "origins:power",
+                                        "power": "life:quirk/dash"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "action": {
+                            "type": "origins:actor_action",
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "title @s actionbar {\"color\":\"gray\",\"text\":\"Feruchemy\"}"
+                            }
+                        },
+                        "condition": {
+                            "type": "origins:target_condition",
+                            "condition": {
+                                "type": "origins:and",
+                                "conditions": [
+                                    {
+                                        "type": "origins:resource",
+                                        "resource": "*:quirk/misc/base_active",
+                                        "comparison": ">",
+                                        "compare_to": 0
+                                    },
+                                    {
+                                        "type": "origins:power",
+                                        "power": "life:quirk/feruchemy"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "action": {
+                            "type": "origins:actor_action",
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "title @s actionbar {\"color\":\"gray\",\"text\":\"Float\"}"
+                            }
+                        },
+                        "condition": {
+                            "type": "origins:target_condition",
+                            "condition": {
+                                "type": "origins:and",
+                                "conditions": [
+                                    {
+                                        "type": "origins:resource",
+                                        "resource": "*:quirk/misc/base_active",
+                                        "comparison": ">",
+                                        "compare_to": 0
+                                    },
+                                    {
+                                        "type": "origins:power",
+                                        "power": "life:quirk/float"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "action": {
+                            "type": "origins:actor_action",
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "title @s actionbar {\"color\":\"gray\",\"text\":\"Friction\"}"
+                            }
+                        },
+                        "condition": {
+                            "type": "origins:target_condition",
+                            "condition": {
+                                "type": "origins:and",
+                                "conditions": [
+                                    {
+                                        "type": "origins:resource",
+                                        "resource": "*:quirk/misc/base_active",
+                                        "comparison": ">",
+                                        "compare_to": 0
+                                    },
+                                    {
+                                        "type": "origins:power",
+                                        "power": "life:quirk/friction"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "action": {
+                            "type": "origins:actor_action",
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "title @s actionbar {\"color\":\"gray\",\"text\":\"Gravity\"}"
+                            }
+                        },
+                        "condition": {
+                            "type": "origins:target_condition",
+                            "condition": {
+                                "type": "origins:and",
+                                "conditions": [
+                                    {
+                                        "type": "origins:resource",
+                                        "resource": "*:quirk/misc/base_active",
+                                        "comparison": ">",
+                                        "compare_to": 0
+                                    },
+                                    {
+                                        "type": "origins:power",
+                                        "power": "life:quirk/gravity"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "action": {
+                            "type": "origins:actor_action",
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "title @s actionbar {\"color\":\"gray\",\"text\":\"Jester\"}"
+                            }
+                        },
+                        "condition": {
+                            "type": "origins:target_condition",
+                            "condition": {
+                                "type": "origins:and",
+                                "conditions": [
+                                    {
+                                        "type": "origins:resource",
+                                        "resource": "*:quirk/misc/base_active",
+                                        "comparison": ">",
+                                        "compare_to": 0
+                                    },
+                                    {
+                                        "type": "origins:power",
+                                        "power": "life:quirk/jester"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "action": {
+                            "type": "origins:actor_action",
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "title @s actionbar {\"color\":\"gray\",\"text\":\"Psykol\"}"
+                            }
+                        },
+                        "condition": {
+                            "type": "origins:target_condition",
+                            "condition": {
+                                "type": "origins:and",
+                                "conditions": [
+                                    {
+                                        "type": "origins:resource",
+                                        "resource": "*:quirk/misc/base_active",
+                                        "comparison": ">",
+                                        "compare_to": 0
+                                    },
+                                    {
+                                        "type": "origins:power",
+                                        "power": "life:quirk/psykol"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "action": {
+                            "type": "origins:actor_action",
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "title @s actionbar {\"color\":\"gray\",\"text\":\"Push & Pull\"}"
+                            }
+                        },
+                        "condition": {
+                            "type": "origins:target_condition",
+                            "condition": {
+                                "type": "origins:and",
+                                "conditions": [
+                                    {
+                                        "type": "origins:resource",
+                                        "resource": "*:quirk/misc/base_active",
+                                        "comparison": ">",
+                                        "compare_to": 0
+                                    },
+                                    {
+                                        "type": "origins:power",
+                                        "power": "life:quirk/push_pull"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "action": {
+                            "type": "origins:actor_action",
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "title @s actionbar {\"color\":\"gray\",\"text\":\"Push\"}"
+                            }
+                        },
+                        "condition": {
+                            "type": "origins:target_condition",
+                            "condition": {
+                                "type": "origins:and",
+                                "conditions": [
+                                    {
+                                        "type": "origins:resource",
+                                        "resource": "*:quirk/misc/base_active",
+                                        "comparison": ">",
+                                        "compare_to": 0
+                                    },
+                                    {
+                                        "type": "origins:power",
+                                        "power": "life:quirk/push"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "action": {
+                            "type": "origins:actor_action",
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "title @s actionbar {\"color\":\"gray\",\"text\":\"Pull\"}"
+                            }
+                        },
+                        "condition": {
+                            "type": "origins:target_condition",
+                            "condition": {
+                                "type": "origins:and",
+                                "conditions": [
+                                    {
+                                        "type": "origins:resource",
+                                        "resource": "*:quirk/misc/base_active",
+                                        "comparison": ">",
+                                        "compare_to": 0
+                                    },
+                                    {
+                                        "type": "origins:power",
+                                        "power": "life:quirk/pull"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "action": {
+                            "type": "origins:actor_action",
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "title @s actionbar {\"color\":\"gray\",\"text\":\"Rewind\"}"
+                            }
+                        },
+                        "condition": {
+                            "type": "origins:target_condition",
+                            "condition": {
+                                "type": "origins:and",
+                                "conditions": [
+                                    {
+                                        "type": "origins:resource",
+                                        "resource": "*:quirk/misc/base_active",
+                                        "comparison": ">",
+                                        "compare_to": 0
+                                    },
+                                    {
+                                        "type": "origins:power",
+                                        "power": "life:quirk/rewind"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "action": {
+                            "type": "origins:actor_action",
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "title @s actionbar {\"color\":\"gray\",\"text\":\"Seek\"}"
+                            }
+                        },
+                        "condition": {
+                            "type": "origins:target_condition",
+                            "condition": {
+                                "type": "origins:and",
+                                "conditions": [
+                                    {
+                                        "type": "origins:resource",
+                                        "resource": "*:quirk/misc/base_active",
+                                        "comparison": ">",
+                                        "compare_to": 0
+                                    },
+                                    {
+                                        "type": "origins:power",
+                                        "power": "life:quirk/seek"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "action": {
+                            "type": "origins:actor_action",
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "title @s actionbar {\"color\":\"gray\",\"text\":\"Smoke\"}"
+                            }
+                        },
+                        "condition": {
+                            "type": "origins:target_condition",
+                            "condition": {
+                                "type": "origins:and",
+                                "conditions": [
+                                    {
+                                        "type": "origins:resource",
+                                        "resource": "*:quirk/misc/base_active",
+                                        "comparison": ">",
+                                        "compare_to": 0
+                                    },
+                                    {
+                                        "type": "origins:power",
+                                        "power": "life:quirk/smoke"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "action": {
+                            "type": "origins:actor_action",
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "title @s actionbar {\"color\":\"gray\",\"text\":\"Star\"}"
+                            }
+                        },
+                        "condition": {
+                            "type": "origins:target_condition",
+                            "condition": {
+                                "type": "origins:and",
+                                "conditions": [
+                                    {
+                                        "type": "origins:resource",
+                                        "resource": "*:quirk/misc/base_active",
+                                        "comparison": ">",
+                                        "compare_to": 0
+                                    },
+                                    {
+                                        "type": "origins:power",
+                                        "power": "life:quirk/star"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "action": {
+                            "type": "origins:actor_action",
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "title @s actionbar {\"color\":\"gray\",\"text\":\"Swap\"}"
+                            }
+                        },
+                        "condition": {
+                            "type": "origins:target_condition",
+                            "condition": {
+                                "type": "origins:and",
+                                "conditions": [
+                                    {
+                                        "type": "origins:resource",
+                                        "resource": "*:quirk/misc/base_active",
+                                        "comparison": ">",
+                                        "compare_to": 0
+                                    },
+                                    {
+                                        "type": "origins:power",
+                                        "power": "life:quirk/swap"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "action": {
+                            "type": "origins:actor_action",
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "title @s actionbar {\"color\":\"gray\",\"text\":\"Track\"}"
+                            }
+                        },
+                        "condition": {
+                            "type": "origins:target_condition",
+                            "condition": {
+                                "type": "origins:and",
+                                "conditions": [
+                                    {
+                                        "type": "origins:resource",
+                                        "resource": "*:quirk/misc/base_active",
+                                        "comparison": ">",
+                                        "compare_to": 0
+                                    },
+                                    {
+                                        "type": "origins:power",
+                                        "power": "life:quirk/track"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "action": {
+                            "type": "origins:actor_action",
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "title @s actionbar {\"color\":\"gray\",\"text\":\"Trap\"}"
+                            }
+                        },
+                        "condition": {
+                            "type": "origins:target_condition",
+                            "condition": {
+                                "type": "origins:and",
+                                "conditions": [
+                                    {
+                                        "type": "origins:resource",
+                                        "resource": "*:quirk/misc/base_active",
+                                        "comparison": ">",
+                                        "compare_to": 0
+                                    },
+                                    {
+                                        "type": "origins:power",
+                                        "power": "life:quirk/trap"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "action": {
+                            "type": "origins:actor_action",
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "title @s actionbar {\"color\":\"gray\",\"text\":\"Travel\"}"
+                            }
+                        },
+                        "condition": {
+                            "type": "origins:target_condition",
+                            "condition": {
+                                "type": "origins:and",
+                                "conditions": [
+                                    {
+                                        "type": "origins:resource",
+                                        "resource": "*:quirk/misc/base_active",
+                                        "comparison": ">",
+                                        "compare_to": 0
+                                    },
+                                    {
+                                        "type": "origins:power",
+                                        "power": "life:quirk/travel"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "action": {
+                            "type": "origins:actor_action",
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "title @s actionbar {\"color\":\"gray\",\"text\":\"Void\"}"
+                            }
+                        },
+                        "condition": {
+                            "type": "origins:target_condition",
+                            "condition": {
+                                "type": "origins:and",
+                                "conditions": [
+                                    {
+                                        "type": "origins:resource",
+                                        "resource": "*:quirk/misc/base_active",
+                                        "comparison": ">",
+                                        "compare_to": 0
+                                    },
+                                    {
+                                        "type": "origins:power",
+                                        "power": "life:quirk/void"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_toggle",
+            "comparison": "==",
+            "compare_to": 1
+        },
+        "interval": 1
+    },
+    "toggle": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_03.png",
+            "bar_index": 12,
+            "inverted": false,
+            "condition": {
+                "type": "origins:resource",
+                "resource": "*:*_toggle",
+                "comparison": "==",
+                "compare_to": 1
+            }
+        }
+    },
+    "tick_over_time": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "function life:quirk/seek/tick"
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_toggle",
+            "comparison": "==",
+            "compare_to": 1
+        },
+        "interval": 1
+    },
+    "glow": {
+        "type": "origins:entity_glow",
+        "entity_condition": {
+            "type": "origins:resource",
+            "resource": "*:quirk/misc/base_active",
+            "comparison": ">",
+            "compare_to": 0
+        },
+        "bientity_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:distance",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:distance",
+                    "comparison": "<=",
+                    "compare_to": 512
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_toggle",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    },
+    "glow_trap": {
+        "type": "origins:entity_glow",
+        "entity_condition": {
+            "type": "origins:nbt",
+            "nbt": "{Tags:['quirk.trap.point']}"
+        },
+        "bientity_condition": {
+            "type": "origins:distance",
+            "comparison": "<=",
+            "compare_to": 64
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_toggle",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    },
+    "sound": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "execute at @p[tag=quirk.active,distance=0.1..32] run playsound minecraft:block.note_block.basedrum player @s ~ ~ ~ 1.75 1"
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_toggle",
+            "comparison": "==",
+            "compare_to": 1
+        },
+        "interval": 20
+    },
+    "death": {
+        "type": "origins:action_on_death",
+        "bientity_action": {
+            "type": "origins:target_action",
+            "action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_toggle",
+                        "operation": "set",
+                        "change": 0
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "title @s actionbar \"\""
+                    }
+                ]
+            }
+        }
+    },
+    "active_over_time": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "*:quirk/misc/base_active",
+            "operation": "set",
+            "change": 100
+        },
+        "interval": 10,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_toggle",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "base": {
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:grant_power",
+            "power": "*:quirk/misc/base",
+            "source": "*:*"
+        },
+        "entity_action_lost": {
+            "type": "origins:remove_power",
+            "power": "*:quirk/misc/base",
+            "source": "*:*"
+        }
+    },
+    "tag": {
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:execute_command",
+            "command": "tag @s add quirk.enhance"
+        },
+        "entity_action_lost": {
+            "type": "origins:execute_command",
+            "command": "tag @s remove quirk.enhance"
+        }
+    }
+}

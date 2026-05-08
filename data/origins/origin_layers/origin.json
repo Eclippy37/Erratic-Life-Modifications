@@ -6,6 +6,8 @@
         "life:blank",
         "life:boom",
         "life:dash",
+        "life:enhance",
+        "life:erase",
         "life:feruchemy",
         "life:float",
         "life:friction",
@@ -23,6 +25,7 @@
         "life:track",
         "life:trap",
         "life:travel",
+        "life:trigger",
         "life:void"
     ],
     "allow_random": true,

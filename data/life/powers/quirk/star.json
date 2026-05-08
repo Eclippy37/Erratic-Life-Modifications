@@ -380,35 +380,11 @@
             }
         }
     },
-    "tag": {
-        "type": "origins:action_on_callback",
-        "entity_action_gained": {
-            "type": "origins:execute_command",
-            "command": "tag @s add quirk.star"
-        },
-        "entity_action_lost": {
-            "type": "origins:execute_command",
-            "command": "tag @s remove quirk.star"
-        }
-    },
-    "seek": {
-        "type": "origins:action_on_callback",
-        "entity_action_gained": {
-            "type": "origins:grant_power",
-            "power": "life:quirk/misc/power",
-            "source": "*:*"
-        },
-        "entity_action_lost": {
-            "type": "origins:remove_power",
-            "power": "life:quirk/misc/power",
-            "source": "*:*"
-        }
-    },
-    "active": {
+    "active_over_time": {
         "type": "origins:action_over_time",
         "entity_action": {
             "type": "origins:change_resource",
-            "resource": "*:quirk/misc/power_resource",
+            "resource": "*:quirk/misc/base_active",
             "operation": "set",
             "change": 100
         },
@@ -418,6 +394,30 @@
             "resource": "*:*_toggle",
             "comparison": ">",
             "compare_to": 0
+        }
+    },
+    "base": {
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:grant_power",
+            "power": "*:quirk/misc/base",
+            "source": "*:*"
+        },
+        "entity_action_lost": {
+            "type": "origins:remove_power",
+            "power": "*:quirk/misc/base",
+            "source": "*:*"
+        }
+    },
+    "tag": {
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:execute_command",
+            "command": "tag @s add quirk.star"
+        },
+        "entity_action_lost": {
+            "type": "origins:execute_command",
+            "command": "tag @s remove quirk.star"
         }
     }
 }
