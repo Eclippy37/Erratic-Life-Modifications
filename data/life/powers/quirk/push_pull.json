@@ -53,7 +53,7 @@
                                     "type": "origins:change_resource",
                                     "resource": "*:quirk/misc/base_active",
                                     "operation": "set",
-                                    "change": 100
+                                    "change": 99999
                                 }
                             ]
                         },
@@ -152,7 +152,7 @@
                                     "type": "origins:change_resource",
                                     "resource": "*:quirk/misc/base_active",
                                     "operation": "set",
-                                    "change": 100
+                                    "change": 99999
                                 }
                             ]
                         },
@@ -161,7 +161,7 @@
                             "actions": [
                                 {
                                     "type": "origins:add_velocity",
-                                    "z": 0.4,
+                                    "z": 0.125,
                                     "client": true,
                                     "server": true
                                 },
@@ -229,7 +229,7 @@
                 {
                     "action": {
                         "type": "origins:raycast",
-                        "distance": 24,
+                        "distance": 20,
                         "block": true,
                         "entity": true,
                         "shape_type": "collider",
@@ -277,7 +277,7 @@
                                     "type": "origins:change_resource",
                                     "resource": "*:quirk/misc/base_active",
                                     "operation": "set",
-                                    "change": 100
+                                    "change": 99999
                                 }
                             ]
                         },
@@ -286,7 +286,7 @@
                             "actions": [
                                 {
                                     "type": "origins:add_velocity",
-                                    "z": -0.4,
+                                    "z": -0.15,
                                     "y": 0.03,
                                     "client": true,
                                     "server": true
@@ -337,7 +337,7 @@
                 {
                     "action": {
                         "type": "origins:raycast",
-                        "distance": 24,
+                        "distance": 20,
                         "block": true,
                         "entity": true,
                         "shape_type": "collider",
@@ -347,7 +347,7 @@
                             "actions": [
                                 {
                                     "type": "origins:add_velocity",
-                                    "z": 0.015,
+                                    "z": 0.03,
                                     "y": 0.005,
                                     "space": "local",
                                     "client": true,
@@ -378,7 +378,7 @@
                                     "type": "origins:change_resource",
                                     "resource": "*:quirk/misc/base_active",
                                     "operation": "set",
-                                    "change": 100
+                                    "change": 99999
                                 }
                             ]
                         },
@@ -387,7 +387,7 @@
                             "actions": [
                                 {
                                     "type": "origins:add_velocity",
-                                    "z": -0.4,
+                                    "z": -0.15,
                                     "y": 0.03,
                                     "client": true,
                                     "server": true

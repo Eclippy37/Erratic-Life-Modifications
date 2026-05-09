@@ -147,7 +147,7 @@
                         "type": "origins:change_resource",
                         "resource": "*:*_cooldown",
                         "operation": "set",
-                        "change": 100
+                        "change": 99999
                     },
                     {
                         "type": "origins:execute_command",
@@ -247,7 +247,7 @@
             "type": "origins:change_resource",
             "resource": "*:quirk/misc/base_active",
             "operation": "set",
-            "change": 100
+            "change": 99999
         },
         "interval": 10,
         "condition": {

@@ -26,7 +26,8 @@
         "life:trap",
         "life:travel",
         "life:trigger",
-        "life:void"
+        "life:void",
+        "life:kirby"
     ],
     "allow_random": true,
     "exclude_random": [

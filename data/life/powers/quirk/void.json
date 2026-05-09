@@ -30,7 +30,7 @@
                                             "type": "origins:change_resource",
                                             "resource": "*:quirk/misc/base_active",
                                             "operation": "set",
-                                            "change": 100
+                                            "change": 99999
                                         }
                                     ]
                                 },
@@ -83,7 +83,7 @@
                                 "type": "origins:change_resource",
                                 "resource": "*:quirk/misc/base_active",
                                 "operation": "set",
-                                "change": 100
+                                "change": 99999
                             }
                         ]
                     },
@@ -160,7 +160,7 @@
             "type": "origins:change_resource",
             "resource": "*:quirk/misc/base_active",
             "operation": "set",
-            "change": 100
+            "change": 99999
         },
         "interval": 10,
         "condition": {

@@ -1,0 +1,24 @@
+{
+    "replace": false,
+    "values": [
+        "immersive_paintings:glow_graffiti",
+        "immersive_paintings:glow_painting",
+        "immersive_paintings:graffiti",
+        "immersive_paintings:painting",
+        "minecraft:area_effect_cloud",
+        "minecraft:block_display",
+        "minecraft:end_crystal",
+        "minecraft:evoker_fangs",
+        "minecraft:eye_of_ender",
+        "minecraft:firework_rocket",
+        "minecraft:glow_item_frame",
+        "minecraft:interaction",
+        "minecraft:item_display",
+        "minecraft:item_frame",
+        "minecraft:llama_spit",
+        "minecraft:marker",
+        "minecraft:painting",
+        "minecraft:shulker_bullet",
+        "minecraft:text_display"
+    ]
+}

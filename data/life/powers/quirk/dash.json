@@ -30,13 +30,13 @@
                     "type": "origins:change_resource",
                     "resource": "*:*_fall_resource",
                     "operation": "set",
-                    "change": 1
+                    "change": 99999
                 },
                 {
                     "type": "origins:change_resource",
                     "resource": "*:quirk/misc/base_active",
                     "operation": "set",
-                    "change": 100
+                    "change": 99999
                 }
             ]
         },
@@ -147,12 +147,6 @@
             "action": {
                 "type": "origins:and",
                 "actions": [
-                    {
-                        "type": "origins:change_resource",
-                        "resource": "*:*_cooldown",
-                        "operation": "set",
-                        "change": 0
-                    },
                     {
                         "type": "origins:change_resource",
                         "resource": "*:*_resource",

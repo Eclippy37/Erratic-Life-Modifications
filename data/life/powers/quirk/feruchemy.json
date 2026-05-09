@@ -37,150 +37,10 @@
                             ]
                         },
                         "condition": {
-                            "type": "origins:and",
-                            "conditions": [
-                                {
-                                    "type": "origins:or",
-                                    "conditions": [
-                                        {
-                                            "type": "origins:resource",
-                                            "resource": "*:*_power",
-                                            "comparison": "==",
-                                            "compare_to": 0
-                                        },
-                                        {
-                                            "type": "origins:resource",
-                                            "resource": "*:*_power",
-                                            "comparison": "==",
-                                            "compare_to": 2
-                                        }
-                                    ]
-                                },
-                                {
-                                    "type": "origins:or",
-                                    "conditions": [
-                                        {
-                                            "type": "origins:and",
-                                            "conditions": [
-                                                {
-                                                    "type": "origins:resource",
-                                                    "resource": "*:*_resource",
-                                                    "comparison": "==",
-                                                    "compare_to": 1
-                                                },
-                                                {
-                                                    "type": "origins:resource",
-                                                    "resource": "*:*_timer_1",
-                                                    "comparison": "<",
-                                                    "compare_to": 600
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "type": "origins:and",
-                                            "conditions": [
-                                                {
-                                                    "type": "origins:resource",
-                                                    "resource": "*:*_resource",
-                                                    "comparison": "==",
-                                                    "compare_to": 2
-                                                },
-                                                {
-                                                    "type": "origins:resource",
-                                                    "resource": "*:*_timer_2",
-                                                    "comparison": "<",
-                                                    "compare_to": 600
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "type": "origins:and",
-                                            "conditions": [
-                                                {
-                                                    "type": "origins:resource",
-                                                    "resource": "*:*_resource",
-                                                    "comparison": "==",
-                                                    "compare_to": 3
-                                                },
-                                                {
-                                                    "type": "origins:resource",
-                                                    "resource": "*:*_timer_3",
-                                                    "comparison": "<",
-                                                    "compare_to": 600
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "type": "origins:and",
-                                            "conditions": [
-                                                {
-                                                    "type": "origins:resource",
-                                                    "resource": "*:*_resource",
-                                                    "comparison": "==",
-                                                    "compare_to": 4
-                                                },
-                                                {
-                                                    "type": "origins:resource",
-                                                    "resource": "*:*_timer_4",
-                                                    "comparison": "<",
-                                                    "compare_to": 600
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "type": "origins:and",
-                                            "conditions": [
-                                                {
-                                                    "type": "origins:resource",
-                                                    "resource": "*:*_resource",
-                                                    "comparison": "==",
-                                                    "compare_to": 5
-                                                },
-                                                {
-                                                    "type": "origins:resource",
-                                                    "resource": "*:*_timer_5",
-                                                    "comparison": "<",
-                                                    "compare_to": 600
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "type": "origins:and",
-                                            "conditions": [
-                                                {
-                                                    "type": "origins:resource",
-                                                    "resource": "*:*_resource",
-                                                    "comparison": "==",
-                                                    "compare_to": 6
-                                                },
-                                                {
-                                                    "type": "origins:resource",
-                                                    "resource": "*:*_timer_6",
-                                                    "comparison": "<",
-                                                    "compare_to": 600
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "type": "origins:and",
-                                            "conditions": [
-                                                {
-                                                    "type": "origins:resource",
-                                                    "resource": "*:*_resource",
-                                                    "comparison": "==",
-                                                    "compare_to": 7
-                                                },
-                                                {
-                                                    "type": "origins:resource",
-                                                    "resource": "*:*_timer_7",
-                                                    "comparison": "<",
-                                                    "compare_to": 600
-                                                }
-                                            ]
-                                        }
-                                    ]
-                                }
-                            ]
+                            "type": "origins:resource",
+                            "resource": "*:*_power",
+                            "comparison": "!=",
+                            "compare_to": 1
                         }
                     },
                     {
@@ -191,144 +51,15 @@
                                     "type": "origins:change_resource",
                                     "resource": "*:*_power",
                                     "operation": "set",
-                                    "change": 2
+                                    "change": -1
                                 }
                             ]
                         },
                         "condition": {
-                            "type": "origins:or",
-                            "conditions": [
-                                {
-                                    "type": "origins:resource",
-                                    "resource": "*:*_power",
-                                    "comparison": "==",
-                                    "compare_to": 1
-                                },
-                                {
-                                    "type": "origins:or",
-                                    "conditions": [
-                                        {
-                                            "type": "origins:and",
-                                            "conditions": [
-                                                {
-                                                    "type": "origins:resource",
-                                                    "resource": "*:*_resource",
-                                                    "comparison": "==",
-                                                    "compare_to": 1
-                                                },
-                                                {
-                                                    "type": "origins:resource",
-                                                    "resource": "*:*_timer_1",
-                                                    "comparison": ">=",
-                                                    "compare_to": 600
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "type": "origins:and",
-                                            "conditions": [
-                                                {
-                                                    "type": "origins:resource",
-                                                    "resource": "*:*_resource",
-                                                    "comparison": "==",
-                                                    "compare_to": 2
-                                                },
-                                                {
-                                                    "type": "origins:resource",
-                                                    "resource": "*:*_timer_2",
-                                                    "comparison": ">=",
-                                                    "compare_to": 600
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "type": "origins:and",
-                                            "conditions": [
-                                                {
-                                                    "type": "origins:resource",
-                                                    "resource": "*:*_resource",
-                                                    "comparison": "==",
-                                                    "compare_to": 3
-                                                },
-                                                {
-                                                    "type": "origins:resource",
-                                                    "resource": "*:*_timer_3",
-                                                    "comparison": ">=",
-                                                    "compare_to": 600
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "type": "origins:and",
-                                            "conditions": [
-                                                {
-                                                    "type": "origins:resource",
-                                                    "resource": "*:*_resource",
-                                                    "comparison": "==",
-                                                    "compare_to": 4
-                                                },
-                                                {
-                                                    "type": "origins:resource",
-                                                    "resource": "*:*_timer_4",
-                                                    "comparison": ">=",
-                                                    "compare_to": 600
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "type": "origins:and",
-                                            "conditions": [
-                                                {
-                                                    "type": "origins:resource",
-                                                    "resource": "*:*_resource",
-                                                    "comparison": "==",
-                                                    "compare_to": 5
-                                                },
-                                                {
-                                                    "type": "origins:resource",
-                                                    "resource": "*:*_timer_5",
-                                                    "comparison": ">=",
-                                                    "compare_to": 600
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "type": "origins:and",
-                                            "conditions": [
-                                                {
-                                                    "type": "origins:resource",
-                                                    "resource": "*:*_resource",
-                                                    "comparison": "==",
-                                                    "compare_to": 6
-                                                },
-                                                {
-                                                    "type": "origins:resource",
-                                                    "resource": "*:*_timer_6",
-                                                    "comparison": ">=",
-                                                    "compare_to": 600
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "type": "origins:and",
-                                            "conditions": [
-                                                {
-                                                    "type": "origins:resource",
-                                                    "resource": "*:*_resource",
-                                                    "comparison": "==",
-                                                    "compare_to": 7
-                                                },
-                                                {
-                                                    "type": "origins:resource",
-                                                    "resource": "*:*_timer_7",
-                                                    "comparison": ">=",
-                                                    "compare_to": 600
-                                                }
-                                            ]
-                                        }
-                                    ]
-                                }
-                            ]
+                            "type": "origins:resource",
+                            "resource": "*:*_power",
+                            "comparison": "==",
+                            "compare_to": 1
                         }
                     }
                 ]
@@ -344,7 +75,7 @@
                                     "type": "origins:change_resource",
                                     "resource": "*:*_power",
                                     "operation": "set",
-                                    "change": 2
+                                    "change": -1
                                 },
                                 {
                                     "type": "origins:if_else",
@@ -395,7 +126,7 @@
                                     "type": "origins:resource",
                                     "resource": "*:*_power",
                                     "comparison": "==",
-                                    "compare_to": 2
+                                    "compare_to": -1
                                 }
                             ]
                         }
@@ -413,847 +144,1225 @@
         "type": "origins:active_self",
         "key": "key.origins.secondary_active",
         "entity_action": {
-            "type": "origins:if_else",
-            "if_action": {
-                "type": "origins:if_else_list",
-                "actions": [
-                    {
-                        "action": {
-                            "type": "origins:and",
-                            "actions": [
-                                {
-                                    "type": "origins:execute_command",
-                                    "command": "#title @s actionbar [{\"text\":\"Iron Weight\",\"color\":\"gray\"}]"
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:if_else",
+                    "if_action": {
+                        "type": "origins:if_else_list",
+                        "actions": [
+                            {
+                                "action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "title @s actionbar [{\"text\":\"Iron Weight\",\"color\":\"red\",\"bold\":true}]"
+                                        },
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "*:*_resource",
+                                            "operation": "set",
+                                            "change": 1
+                                        }
+                                    ]
                                 },
-                                {
-                                    "type": "origins:change_resource",
+                                "condition": {
+                                    "type": "origins:resource",
                                     "resource": "*:*_resource",
-                                    "operation": "set",
-                                    "change": 1
-                                },
-                                {
-                                    "type": "origins:change_resource",
-                                    "resource": "*:*_power",
-                                    "operation": "set",
-                                    "change": 0
+                                    "comparison": "==",
+                                    "compare_to": 0
                                 }
-                            ]
-                        },
-                        "condition": {
-                            "type": "origins:resource",
-                            "resource": "*:*_resource",
-                            "comparison": "==",
-                            "compare_to": 0
-                        }
+                            },
+                            {
+                                "action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "title @s actionbar [{\"text\":\"Iron Weight\",\"color\":\"red\",\"bold\":true}]"
+                                        },
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "*:*_resource",
+                                            "operation": "set",
+                                            "change": 1
+                                        }
+                                    ]
+                                },
+                                "condition": {
+                                    "type": "origins:resource",
+                                    "resource": "*:*_resource",
+                                    "comparison": "==",
+                                    "compare_to": 8
+                                }
+                            },
+                            {
+                                "action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "title @s actionbar [{\"text\":\"Steel Speed\",\"color\":\"gold\",\"bold\":true}]"
+                                        },
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "*:*_resource",
+                                            "operation": "set",
+                                            "change": 2
+                                        }
+                                    ]
+                                },
+                                "condition": {
+                                    "type": "origins:resource",
+                                    "resource": "*:*_resource",
+                                    "comparison": "==",
+                                    "compare_to": 1
+                                }
+                            },
+                            {
+                                "action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "title @s actionbar [{\"text\":\"Tin Senses\",\"color\":\"yellow\",\"bold\":true}]"
+                                        },
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "*:*_resource",
+                                            "operation": "set",
+                                            "change": 3
+                                        }
+                                    ]
+                                },
+                                "condition": {
+                                    "type": "origins:resource",
+                                    "resource": "*:*_resource",
+                                    "comparison": "==",
+                                    "compare_to": 2
+                                }
+                            },
+                            {
+                                "action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "title @s actionbar [{\"text\":\"Pewter Strength\",\"color\":\"green\",\"bold\":true}]"
+                                        },
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "*:*_resource",
+                                            "operation": "set",
+                                            "change": 4
+                                        }
+                                    ]
+                                },
+                                "condition": {
+                                    "type": "origins:resource",
+                                    "resource": "*:*_resource",
+                                    "comparison": "==",
+                                    "compare_to": 3
+                                }
+                            },
+                            {
+                                "action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "title @s actionbar [{\"text\":\"Gold Health\",\"color\":\"dark_green\",\"bold\":true}]"
+                                        },
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "*:*_resource",
+                                            "operation": "set",
+                                            "change": 5
+                                        }
+                                    ]
+                                },
+                                "condition": {
+                                    "type": "origins:resource",
+                                    "resource": "*:*_resource",
+                                    "comparison": "==",
+                                    "compare_to": 4
+                                }
+                            },
+                            {
+                                "action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "title @s actionbar [{\"text\":\"Electrum Hunger\",\"color\":\"aqua\",\"bold\":true}]"
+                                        },
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "*:*_resource",
+                                            "operation": "set",
+                                            "change": 6
+                                        }
+                                    ]
+                                },
+                                "condition": {
+                                    "type": "origins:resource",
+                                    "resource": "*:*_resource",
+                                    "comparison": "==",
+                                    "compare_to": 5
+                                }
+                            },
+                            {
+                                "action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "title @s actionbar [{\"text\":\"Zinc Attack Speed\",\"color\":\"dark_aqua\",\"bold\":true}]"
+                                        },
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "*:*_resource",
+                                            "operation": "set",
+                                            "change": 7
+                                        }
+                                    ]
+                                },
+                                "condition": {
+                                    "type": "origins:resource",
+                                    "resource": "*:*_resource",
+                                    "comparison": "==",
+                                    "compare_to": 6
+                                }
+                            },
+                            {
+                                "action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "title @s actionbar [{\"text\":\"Brass Reach\",\"color\":\"blue\",\"bold\":true}]"
+                                        },
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "*:*_resource",
+                                            "operation": "set",
+                                            "change": 8
+                                        }
+                                    ]
+                                },
+                                "condition": {
+                                    "type": "origins:resource",
+                                    "resource": "*:*_resource",
+                                    "comparison": "==",
+                                    "compare_to": 7
+                                }
+                            }
+                        ]
                     },
-                    {
-                        "action": {
-                            "type": "origins:and",
-                            "actions": [
-                                {
-                                    "type": "origins:execute_command",
-                                    "command": "title @s actionbar [{\"text\":\"Iron Weight\",\"color\":\"gray\"}]"
+                    "else_action": {
+                        "type": "origins:if_else_list",
+                        "actions": [
+                            {
+                                "action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "#title @s actionbar [{\"text\":\"Iron Weight\",\"color\":\"red\",\"bold\":true}]"
+                                        },
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "*:*_resource",
+                                            "operation": "set",
+                                            "change": 1
+                                        }
+                                    ]
                                 },
-                                {
-                                    "type": "origins:change_resource",
+                                "condition": {
+                                    "type": "origins:resource",
                                     "resource": "*:*_resource",
-                                    "operation": "set",
-                                    "change": 1
-                                },
-                                {
-                                    "type": "origins:change_resource",
-                                    "resource": "*:*_power",
-                                    "operation": "set",
-                                    "change": 0
+                                    "comparison": "==",
+                                    "compare_to": 0
                                 }
-                            ]
-                        },
-                        "condition": {
-                            "type": "origins:resource",
-                            "resource": "*:*_resource",
-                            "comparison": "==",
-                            "compare_to": 7
-                        }
+                            },
+                            {
+                                "action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "title @s actionbar [{\"text\":\"Iron Weight\",\"color\":\"red\",\"bold\":true}]"
+                                        },
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "*:*_resource",
+                                            "operation": "set",
+                                            "change": 1
+                                        }
+                                    ]
+                                },
+                                "condition": {
+                                    "type": "origins:resource",
+                                    "resource": "*:*_resource",
+                                    "comparison": "==",
+                                    "compare_to": 2
+                                }
+                            },
+                            {
+                                "action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "title @s actionbar [{\"text\":\"Steel Speed\",\"color\":\"gold\",\"bold\":true}]"
+                                        },
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "*:*_resource",
+                                            "operation": "set",
+                                            "change": 2
+                                        }
+                                    ]
+                                },
+                                "condition": {
+                                    "type": "origins:resource",
+                                    "resource": "*:*_resource",
+                                    "comparison": "==",
+                                    "compare_to": 3
+                                }
+                            },
+                            {
+                                "action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "title @s actionbar [{\"text\":\"Tin Senses\",\"color\":\"yellow\",\"bold\":true}]"
+                                        },
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "*:*_resource",
+                                            "operation": "set",
+                                            "change": 3
+                                        }
+                                    ]
+                                },
+                                "condition": {
+                                    "type": "origins:resource",
+                                    "resource": "*:*_resource",
+                                    "comparison": "==",
+                                    "compare_to": 4
+                                }
+                            },
+                            {
+                                "action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "title @s actionbar [{\"text\":\"Pewter Strength\",\"color\":\"green\",\"bold\":true}]"
+                                        },
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "*:*_resource",
+                                            "operation": "set",
+                                            "change": 4
+                                        }
+                                    ]
+                                },
+                                "condition": {
+                                    "type": "origins:resource",
+                                    "resource": "*:*_resource",
+                                    "comparison": "==",
+                                    "compare_to": 5
+                                }
+                            },
+                            {
+                                "action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "title @s actionbar [{\"text\":\"Gold Health\",\"color\":\"dark_green\",\"bold\":true}]"
+                                        },
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "*:*_resource",
+                                            "operation": "set",
+                                            "change": 5
+                                        }
+                                    ]
+                                },
+                                "condition": {
+                                    "type": "origins:resource",
+                                    "resource": "*:*_resource",
+                                    "comparison": "==",
+                                    "compare_to": 6
+                                }
+                            },
+                            {
+                                "action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "title @s actionbar [{\"text\":\"Electrum Hunger\",\"color\":\"aqua\",\"bold\":true}]"
+                                        },
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "*:*_resource",
+                                            "operation": "set",
+                                            "change": 6
+                                        }
+                                    ]
+                                },
+                                "condition": {
+                                    "type": "origins:resource",
+                                    "resource": "*:*_resource",
+                                    "comparison": "==",
+                                    "compare_to": 7
+                                }
+                            },
+                            {
+                                "action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "title @s actionbar [{\"text\":\"Zinc Attack Speed\",\"color\":\"dark_aqua\",\"bold\":true}]"
+                                        },
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "*:*_resource",
+                                            "operation": "set",
+                                            "change": 7
+                                        }
+                                    ]
+                                },
+                                "condition": {
+                                    "type": "origins:resource",
+                                    "resource": "*:*_resource",
+                                    "comparison": "==",
+                                    "compare_to": 8
+                                }
+                            },
+                            {
+                                "action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "title @s actionbar [{\"text\":\"Brass Reach\",\"color\":\"blue\",\"bold\":true}]"
+                                        },
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "*:*_resource",
+                                            "operation": "set",
+                                            "change": 8
+                                        }
+                                    ]
+                                },
+                                "condition": {
+                                    "type": "origins:resource",
+                                    "resource": "*:*_resource",
+                                    "comparison": "==",
+                                    "compare_to": 1
+                                }
+                            }
+                        ]
                     },
-                    {
-                        "action": {
-                            "type": "origins:and",
-                            "actions": [
-                                {
-                                    "type": "origins:execute_command",
-                                    "command": "title @s actionbar [{\"text\":\"Pewter Attack Damage\",\"color\":\"red\"}]"
-                                },
-                                {
-                                    "type": "origins:change_resource",
-                                    "resource": "*:*_resource",
-                                    "operation": "set",
-                                    "change": 2
-                                },
-                                {
-                                    "type": "origins:change_resource",
-                                    "resource": "*:*_power",
-                                    "operation": "set",
-                                    "change": 0
-                                }
-                            ]
-                        },
-                        "condition": {
-                            "type": "origins:resource",
-                            "resource": "*:*_resource",
-                            "comparison": "==",
-                            "compare_to": 1
-                        }
-                    },
-                    {
-                        "action": {
-                            "type": "origins:and",
-                            "actions": [
-                                {
-                                    "type": "origins:execute_command",
-                                    "command": "title @s actionbar [{\"text\":\"Zinc Attack Speed\",\"color\":\"yellow\"}]"
-                                },
-                                {
-                                    "type": "origins:change_resource",
-                                    "resource": "*:*_resource",
-                                    "operation": "set",
-                                    "change": 3
-                                },
-                                {
-                                    "type": "origins:change_resource",
-                                    "resource": "*:*_power",
-                                    "operation": "set",
-                                    "change": 0
-                                }
-                            ]
-                        },
-                        "condition": {
-                            "type": "origins:resource",
-                            "resource": "*:*_resource",
-                            "comparison": "==",
-                            "compare_to": 2
-                        }
-                    },
-                    {
-                        "action": {
-                            "type": "origins:and",
-                            "actions": [
-                                {
-                                    "type": "origins:execute_command",
-                                    "command": "title @s actionbar [{\"text\":\"Steel Movement Speed\",\"color\":\"green\"}]"
-                                },
-                                {
-                                    "type": "origins:change_resource",
-                                    "resource": "*:*_resource",
-                                    "operation": "set",
-                                    "change": 4
-                                },
-                                {
-                                    "type": "origins:change_resource",
-                                    "resource": "*:*_power",
-                                    "operation": "set",
-                                    "change": 0
-                                }
-                            ]
-                        },
-                        "condition": {
-                            "type": "origins:resource",
-                            "resource": "*:*_resource",
-                            "comparison": "==",
-                            "compare_to": 3
-                        }
-                    },
-                    {
-                        "action": {
-                            "type": "origins:and",
-                            "actions": [
-                                {
-                                    "type": "origins:execute_command",
-                                    "command": "title @s actionbar [{\"text\":\"Gold Max Health\",\"color\":\"dark_green\"}]"
-                                },
-                                {
-                                    "type": "origins:change_resource",
-                                    "resource": "*:*_resource",
-                                    "operation": "set",
-                                    "change": 5
-                                },
-                                {
-                                    "type": "origins:change_resource",
-                                    "resource": "*:*_power",
-                                    "operation": "set",
-                                    "change": 0
-                                }
-                            ]
-                        },
-                        "condition": {
-                            "type": "origins:resource",
-                            "resource": "*:*_resource",
-                            "comparison": "==",
-                            "compare_to": 4
-                        }
-                    },
-                    {
-                        "action": {
-                            "type": "origins:and",
-                            "actions": [
-                                {
-                                    "type": "origins:execute_command",
-                                    "command": "title @s actionbar [{\"text\":\"Brass Armor\",\"color\":\"aqua\"}]"
-                                },
-                                {
-                                    "type": "origins:change_resource",
-                                    "resource": "*:*_resource",
-                                    "operation": "set",
-                                    "change": 6
-                                },
-                                {
-                                    "type": "origins:change_resource",
-                                    "resource": "*:*_power",
-                                    "operation": "set",
-                                    "change": 0
-                                }
-                            ]
-                        },
-                        "condition": {
-                            "type": "origins:resource",
-                            "resource": "*:*_resource",
-                            "comparison": "==",
-                            "compare_to": 5
-                        }
-                    },
-                    {
-                        "action": {
-                            "type": "origins:and",
-                            "actions": [
-                                {
-                                    "type": "origins:execute_command",
-                                    "command": "title @s actionbar [{\"text\":\"Tin Vision\",\"color\":\"blue\"}]"
-                                },
-                                {
-                                    "type": "origins:change_resource",
-                                    "resource": "*:*_resource",
-                                    "operation": "set",
-                                    "change": 7
-                                },
-                                {
-                                    "type": "origins:change_resource",
-                                    "resource": "*:*_power",
-                                    "operation": "set",
-                                    "change": 0
-                                }
-                            ]
-                        },
-                        "condition": {
-                            "type": "origins:resource",
-                            "resource": "*:*_resource",
-                            "comparison": "==",
-                            "compare_to": 6
-                        }
+                    "condition": {
+                        "type": "origins:sneaking",
+                        "inverted": true
                     }
-                ]
-            },
-            "else_action": {
-                "type": "origins:if_else_list",
-                "actions": [
-                    {
-                        "action": {
-                            "type": "origins:and",
-                            "actions": [
-                                {
-                                    "type": "origins:execute_command",
-                                    "command": "#title @s actionbar [{\"text\":\"Iron Weight\",\"color\":\"gray\"}]"
-                                },
-                                {
-                                    "type": "origins:change_resource",
-                                    "resource": "*:*_resource",
-                                    "operation": "set",
-                                    "change": 1
-                                },
-                                {
-                                    "type": "origins:change_resource",
-                                    "resource": "*:*_power",
-                                    "operation": "set",
-                                    "change": 0
-                                }
-                            ]
-                        },
-                        "condition": {
-                            "type": "origins:resource",
-                            "resource": "*:*_resource",
-                            "comparison": "==",
-                            "compare_to": 0
-                        }
-                    },
-                    {
-                        "action": {
-                            "type": "origins:and",
-                            "actions": [
-                                {
-                                    "type": "origins:execute_command",
-                                    "command": "title @s actionbar [{\"text\":\"Iron Weight\",\"color\":\"gray\"}]"
-                                },
-                                {
-                                    "type": "origins:change_resource",
-                                    "resource": "*:*_resource",
-                                    "operation": "set",
-                                    "change": 1
-                                },
-                                {
-                                    "type": "origins:change_resource",
-                                    "resource": "*:*_power",
-                                    "operation": "set",
-                                    "change": 0
-                                }
-                            ]
-                        },
-                        "condition": {
-                            "type": "origins:resource",
-                            "resource": "*:*_resource",
-                            "comparison": "==",
-                            "compare_to": 2
-                        }
-                    },
-                    {
-                        "action": {
-                            "type": "origins:and",
-                            "actions": [
-                                {
-                                    "type": "origins:execute_command",
-                                    "command": "title @s actionbar [{\"text\":\"Pewter Attack Damage\",\"color\":\"red\"}]"
-                                },
-                                {
-                                    "type": "origins:change_resource",
-                                    "resource": "*:*_resource",
-                                    "operation": "set",
-                                    "change": 2
-                                },
-                                {
-                                    "type": "origins:change_resource",
-                                    "resource": "*:*_power",
-                                    "operation": "set",
-                                    "change": 0
-                                }
-                            ]
-                        },
-                        "condition": {
-                            "type": "origins:resource",
-                            "resource": "*:*_resource",
-                            "comparison": "==",
-                            "compare_to": 3
-                        }
-                    },
-                    {
-                        "action": {
-                            "type": "origins:and",
-                            "actions": [
-                                {
-                                    "type": "origins:execute_command",
-                                    "command": "title @s actionbar [{\"text\":\"Zinc Attack Speed\",\"color\":\"yellow\"}]"
-                                },
-                                {
-                                    "type": "origins:change_resource",
-                                    "resource": "*:*_resource",
-                                    "operation": "set",
-                                    "change": 3
-                                },
-                                {
-                                    "type": "origins:change_resource",
-                                    "resource": "*:*_power",
-                                    "operation": "set",
-                                    "change": 0
-                                }
-                            ]
-                        },
-                        "condition": {
-                            "type": "origins:resource",
-                            "resource": "*:*_resource",
-                            "comparison": "==",
-                            "compare_to": 4
-                        }
-                    },
-                    {
-                        "action": {
-                            "type": "origins:and",
-                            "actions": [
-                                {
-                                    "type": "origins:execute_command",
-                                    "command": "title @s actionbar [{\"text\":\"Steel Movement Speed\",\"color\":\"green\"}]"
-                                },
-                                {
-                                    "type": "origins:change_resource",
-                                    "resource": "*:*_resource",
-                                    "operation": "set",
-                                    "change": 4
-                                },
-                                {
-                                    "type": "origins:change_resource",
-                                    "resource": "*:*_power",
-                                    "operation": "set",
-                                    "change": 0
-                                }
-                            ]
-                        },
-                        "condition": {
-                            "type": "origins:resource",
-                            "resource": "*:*_resource",
-                            "comparison": "==",
-                            "compare_to": 5
-                        }
-                    },
-                    {
-                        "action": {
-                            "type": "origins:and",
-                            "actions": [
-                                {
-                                    "type": "origins:execute_command",
-                                    "command": "title @s actionbar [{\"text\":\"Gold Max Health\",\"color\":\"dark_green\"}]"
-                                },
-                                {
-                                    "type": "origins:change_resource",
-                                    "resource": "*:*_resource",
-                                    "operation": "set",
-                                    "change": 5
-                                },
-                                {
-                                    "type": "origins:change_resource",
-                                    "resource": "*:*_power",
-                                    "operation": "set",
-                                    "change": 0
-                                }
-                            ]
-                        },
-                        "condition": {
-                            "type": "origins:resource",
-                            "resource": "*:*_resource",
-                            "comparison": "==",
-                            "compare_to": 6
-                        }
-                    },
-                    {
-                        "action": {
-                            "type": "origins:and",
-                            "actions": [
-                                {
-                                    "type": "origins:execute_command",
-                                    "command": "title @s actionbar [{\"text\":\"Brass Armor\",\"color\":\"aqua\"}]"
-                                },
-                                {
-                                    "type": "origins:change_resource",
-                                    "resource": "*:*_resource",
-                                    "operation": "set",
-                                    "change": 6
-                                },
-                                {
-                                    "type": "origins:change_resource",
-                                    "resource": "*:*_power",
-                                    "operation": "set",
-                                    "change": 0
-                                }
-                            ]
-                        },
-                        "condition": {
-                            "type": "origins:resource",
-                            "resource": "*:*_resource",
-                            "comparison": "==",
-                            "compare_to": 7
-                        }
-                    },
-                    {
-                        "action": {
-                            "type": "origins:and",
-                            "actions": [
-                                {
-                                    "type": "origins:execute_command",
-                                    "command": "title @s actionbar [{\"text\":\"Tin Vision\",\"color\":\"blue\"}]"
-                                },
-                                {
-                                    "type": "origins:change_resource",
-                                    "resource": "*:*_resource",
-                                    "operation": "set",
-                                    "change": 7
-                                },
-                                {
-                                    "type": "origins:change_resource",
-                                    "resource": "*:*_power",
-                                    "operation": "set",
-                                    "change": 0
-                                }
-                            ]
-                        },
-                        "condition": {
-                            "type": "origins:resource",
-                            "resource": "*:*_resource",
-                            "comparison": "==",
-                            "compare_to": 1
-                        }
-                    }
-                ]
-            },
-            "condition": {
-                "type": "origins:sneaking",
-                "inverted": true
-            }
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "*:*_power",
+                    "operation": "set",
+                    "change": 0
+                }
+            ]
         },
         "cooldown": 1
     },
-    "resource": {
-        "type": "origins:resource",
-        "min": 0,
-        "max": 7,
-        "start_value": 0,
-        "hud_render": {
-            "should_render": false
-        }
-    },
-    "power": {
-        "type": "origins:resource",
-        "min": 0,
-        "max": 2,
-        "start_value": 0,
-        "hud_render": {
-            "should_render": false
-        }
-    },
-    "visual": {
-        "type": "origins:resource",
-        "min": 0,
-        "max": 1,
-        "start_value": 1,
-        "hud_render": [
+    "attribute_1_decrement": {
+        "type": "origins:conditioned_attribute",
+        "modifiers": [
             {
-                "should_render": true,
-                "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_03.png",
-                "bar_index": 17,
-                "inverted": false,
-                "condition": {
+                "id": "life:gravity_decrease",
+                "attribute": "minecraft:generic.gravity",
+                "operation": "add_multiplied_total",
+                "amount": -0.75
+            },
+            {
+                "id": "life:safe_fall_distance_decrease",
+                "attribute": "minecraft:generic.safe_fall_distance",
+                "operation": "add_multiplied_total",
+                "amount": 1.5
+            },
+            {
+                "id": "life:fall_damage_decrease",
+                "attribute": "minecraft:generic.fall_damage_multiplier",
+                "operation": "add_multiplied_total",
+                "amount": -0.5
+            },
+            {
+                "id": "life:knockback_resistance_decrease",
+                "attribute": "minecraft:generic.knockback_resistance",
+                "operation": "add_value",
+                "amount": -4.0
+            }
+        ],
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
                     "type": "origins:resource",
                     "resource": "*:*_power",
                     "comparison": "==",
                     "compare_to": 1
                 },
-                "order": 1
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_resource",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_timer_1",
+                    "comparison": "<",
+                    "compare_to": 600
+                }
+            ]
+        },
+        "tick_rate": 3
+    },
+    "attribute_1_increment": {
+        "type": "origins:conditioned_attribute",
+        "modifiers": [
+            {
+                "id": "life:gravity_increase",
+                "attribute": "minecraft:generic.gravity",
+                "operation": "add_multiplied_total",
+                "amount": 1.0
             },
             {
-                "should_render": true,
-                "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_03.png",
-                "bar_index": 16,
-                "inverted": false,
-                "condition": {
+                "id": "life:safe_fall_distance_increase",
+                "attribute": "minecraft:generic.safe_fall_distance",
+                "operation": "add_multiplied_total",
+                "amount": -0.25
+            },
+            {
+                "id": "life:fall_damage_increase",
+                "attribute": "minecraft:generic.fall_damage_multiplier",
+                "operation": "add_multiplied_total",
+                "amount": 1.0
+            },
+            {
+                "id": "life:knockback_resistance_increase",
+                "attribute": "minecraft:generic.knockback_resistance",
+                "operation": "add_value",
+                "amount": 4.0
+            }
+        ],
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
                     "type": "origins:resource",
                     "resource": "*:*_power",
                     "comparison": "==",
+                    "compare_to": -1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_resource",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_timer_1",
+                    "comparison": ">",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "tick_rate": 3
+    },
+    "attribute_2_decrement": {
+        "type": "origins:conditioned_attribute",
+        "modifiers": [
+            {
+                "id": "life:movement_speed_decrease",
+                "attribute": "minecraft:generic.movement_speed",
+                "operation": "add_multiplied_total",
+                "amount": -0.5
+            },
+            {
+                "id": "life:step_height_decrease",
+                "attribute": "minecraft:generic.step_height",
+                "operation": "add_multiplied_total",
+                "amount": -0.5
+            }
+        ],
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_power",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_resource",
+                    "comparison": "==",
                     "compare_to": 2
                 },
-                "order": 1
-            }
-        ]
-    },
-    "timer_1": {
-        "type": "origins:resource",
-        "min": 0,
-        "max": 600,
-        "start_value": 0,
-        "max_action": {
-            "type": "origins:if_else",
-            "if_action": {
-                "type": "origins:change_resource",
-                "resource": "*:*_power",
-                "operation": "set",
-                "change": 0
-            },
-            "condition": {
-                "type": "origins:and",
-                "conditions": [
-                    {
-                        "type": "origins:resource",
-                        "resource": "*:*_power",
-                        "comparison": "==",
-                        "compare_to": 1
-                    },
-                    {
-                        "type": "origins:resource",
-                        "resource": "*:*_resource",
-                        "comparison": "==",
-                        "compare_to": 1
-                    }
-                ]
-            }
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_timer_2",
+                    "comparison": "<",
+                    "compare_to": 600
+                }
+            ]
         },
-        "hud_render": {
-            "should_render": true,
-            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_01.png",
-            "bar_index": 17,
-            "inverted": false,
-            "condition": {
-                "type": "origins:resource",
-                "resource": "*:*_resource",
-                "comparison": "==",
-                "compare_to": 1
+        "tick_rate": 3
+    },
+    "attribute_2_increment": {
+        "type": "origins:conditioned_attribute",
+        "modifiers": [
+            {
+                "id": "life:movement_speed_increase",
+                "attribute": "minecraft:generic.movement_speed",
+                "operation": "add_multiplied_total",
+                "amount": 1.0
+            },
+            {
+                "id": "life:step_height_increase",
+                "attribute": "minecraft:generic.step_height",
+                "operation": "add_multiplied_total",
+                "amount": 1.0
             }
+        ],
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_power",
+                    "comparison": "==",
+                    "compare_to": -1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_resource",
+                    "comparison": "==",
+                    "compare_to": 2
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_timer_2",
+                    "comparison": ">",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "tick_rate": 3
+    },
+    "attribute_3_decrement": {
+        "type": "origins:shader",
+        "shader": "minecraft:shaders/post/blobs2.json",
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_power",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_resource",
+                    "comparison": "==",
+                    "compare_to": 3
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_timer_3",
+                    "comparison": "<",
+                    "compare_to": 600
+                }
+            ]
+        },
+        "interval": 5
+    },
+    "attribute_3_increment_glow": {
+        "type": "origins:entity_glow",
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_power",
+                    "comparison": "==",
+                    "compare_to": -1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_resource",
+                    "comparison": "==",
+                    "compare_to": 3
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_timer_3",
+                    "comparison": ">",
+                    "compare_to": 0
+                }
+            ]
         }
     },
-    "timer_2": {
-        "type": "origins:resource",
-        "min": 0,
-        "max": 600,
-        "start_value": 0,
-        "max_action": {
-            "type": "origins:if_else",
-            "if_action": {
-                "type": "origins:change_resource",
-                "resource": "*:*_power",
-                "operation": "set",
-                "change": 0
-            },
-            "condition": {
-                "type": "origins:and",
-                "conditions": [
-                    {
-                        "type": "origins:resource",
-                        "resource": "*:*_power",
-                        "comparison": "==",
-                        "compare_to": 1
-                    },
-                    {
-                        "type": "origins:resource",
-                        "resource": "*:*_resource",
-                        "comparison": "==",
-                        "compare_to": 2
-                    }
-                ]
-            }
-        },
-        "hud_render": {
-            "should_render": true,
-            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_01.png",
-            "bar_index": 23,
-            "inverted": false,
-            "condition": {
-                "type": "origins:resource",
-                "resource": "*:*_resource",
-                "comparison": "==",
-                "compare_to": 2
-            }
+    "attribute_3_increment_night_vision": {
+        "type": "origins:night_vision",
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_power",
+                    "comparison": "==",
+                    "compare_to": -1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_resource",
+                    "comparison": "==",
+                    "compare_to": 3
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_timer_3",
+                    "comparison": ">",
+                    "compare_to": 0
+                }
+            ]
         }
     },
-    "timer_3": {
-        "type": "origins:resource",
-        "min": 0,
-        "max": 600,
-        "start_value": 0,
-        "max_action": {
-            "type": "origins:if_else",
-            "if_action": {
-                "type": "origins:change_resource",
-                "resource": "*:*_power",
-                "operation": "set",
-                "change": 0
-            },
-            "condition": {
-                "type": "origins:and",
-                "conditions": [
-                    {
-                        "type": "origins:resource",
-                        "resource": "*:*_power",
-                        "comparison": "==",
-                        "compare_to": 1
-                    },
-                    {
-                        "type": "origins:resource",
-                        "resource": "*:*_resource",
-                        "comparison": "==",
-                        "compare_to": 3
-                    }
-                ]
+    "attribute_4_decrement": {
+        "type": "origins:conditioned_attribute",
+        "modifiers": [
+            {
+                "id": "life:attack_damage_decrease",
+                "attribute": "minecraft:generic.attack_damage",
+                "operation": "add_multiplied_total",
+                "amount": -0.5
             }
+        ],
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_power",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_resource",
+                    "comparison": "==",
+                    "compare_to": 4
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_timer_4",
+                    "comparison": "<",
+                    "compare_to": 600
+                }
+            ]
         },
-        "hud_render": {
-            "should_render": true,
-            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_01.png",
-            "bar_index": 13,
-            "inverted": false,
-            "condition": {
-                "type": "origins:resource",
-                "resource": "*:*_resource",
-                "comparison": "==",
-                "compare_to": 3
-            }
-        }
+        "tick_rate": 3
     },
-    "timer_4": {
-        "type": "origins:resource",
-        "min": 0,
-        "max": 600,
-        "start_value": 0,
-        "max_action": {
-            "type": "origins:if_else",
-            "if_action": {
-                "type": "origins:change_resource",
-                "resource": "*:*_power",
-                "operation": "set",
-                "change": 0
-            },
-            "condition": {
-                "type": "origins:and",
-                "conditions": [
-                    {
-                        "type": "origins:resource",
-                        "resource": "*:*_power",
-                        "comparison": "==",
-                        "compare_to": 1
-                    },
-                    {
-                        "type": "origins:resource",
-                        "resource": "*:*_resource",
-                        "comparison": "==",
-                        "compare_to": 4
-                    }
-                ]
+    "attribute_4_increment": {
+        "type": "origins:conditioned_attribute",
+        "modifiers": [
+            {
+                "id": "life:attack_damage_increase",
+                "attribute": "minecraft:generic.attack_damage",
+                "operation": "add_multiplied_total",
+                "amount": 0.75
             }
+        ],
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_power",
+                    "comparison": "==",
+                    "compare_to": -1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_resource",
+                    "comparison": "==",
+                    "compare_to": 4
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_timer_4",
+                    "comparison": ">",
+                    "compare_to": 0
+                }
+            ]
         },
-        "hud_render": {
-            "should_render": true,
-            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_01.png",
-            "bar_index": 14,
-            "inverted": false,
-            "condition": {
-                "type": "origins:resource",
-                "resource": "*:*_resource",
-                "comparison": "==",
-                "compare_to": 4
-            }
-        }
+        "tick_rate": 3
     },
-    "timer_5": {
-        "type": "origins:resource",
-        "min": 0,
-        "max": 600,
-        "start_value": 0,
-        "max_action": {
-            "type": "origins:if_else",
-            "if_action": {
-                "type": "origins:change_resource",
-                "resource": "*:*_power",
-                "operation": "set",
-                "change": 0
-            },
-            "condition": {
-                "type": "origins:and",
-                "conditions": [
-                    {
-                        "type": "origins:resource",
-                        "resource": "*:*_power",
-                        "comparison": "==",
-                        "compare_to": 1
-                    },
-                    {
-                        "type": "origins:resource",
-                        "resource": "*:*_resource",
-                        "comparison": "==",
-                        "compare_to": 5
-                    }
-                ]
+    "attribute_5_decrement": {
+        "type": "origins:conditioned_attribute",
+        "modifiers": [
+            {
+                "id": "life:max_health_decrease",
+                "attribute": "minecraft:generic.max_health",
+                "operation": "add_multiplied_total",
+                "amount": -0.5
             }
+        ],
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_power",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_resource",
+                    "comparison": "==",
+                    "compare_to": 5
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_timer_5",
+                    "comparison": "<",
+                    "compare_to": 600
+                }
+            ]
         },
-        "hud_render": {
-            "should_render": true,
-            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_01.png",
-            "bar_index": 22,
-            "inverted": false,
-            "condition": {
-                "type": "origins:resource",
-                "resource": "*:*_resource",
-                "comparison": "==",
-                "compare_to": 5
-            }
-        }
+        "tick_rate": 3
     },
-    "timer_6": {
-        "type": "origins:resource",
-        "min": 0,
-        "max": 600,
-        "start_value": 0,
-        "max_action": {
-            "type": "origins:if_else",
-            "if_action": {
-                "type": "origins:change_resource",
-                "resource": "*:*_power",
-                "operation": "set",
-                "change": 0
-            },
-            "condition": {
-                "type": "origins:and",
-                "conditions": [
-                    {
-                        "type": "origins:resource",
-                        "resource": "*:*_power",
-                        "comparison": "==",
-                        "compare_to": 1
-                    },
-                    {
-                        "type": "origins:resource",
-                        "resource": "*:*_resource",
-                        "comparison": "==",
-                        "compare_to": 6
-                    }
-                ]
+    "attribute_5_increment": {
+        "type": "origins:conditioned_attribute",
+        "modifiers": [
+            {
+                "id": "life:max_health_increase",
+                "attribute": "minecraft:generic.max_health",
+                "operation": "add_multiplied_total",
+                "amount": 1
             }
+        ],
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_power",
+                    "comparison": "==",
+                    "compare_to": -1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_resource",
+                    "comparison": "==",
+                    "compare_to": 5
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_timer_5",
+                    "comparison": ">",
+                    "compare_to": 0
+                }
+            ]
         },
-        "hud_render": {
-            "should_render": true,
-            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_01.png",
-            "bar_index": 12,
-            "inverted": false,
-            "condition": {
-                "type": "origins:resource",
-                "resource": "*:*_resource",
-                "comparison": "==",
-                "compare_to": 6
-            }
-        }
+        "tick_rate": 3
     },
-    "timer_7": {
-        "type": "origins:resource",
-        "min": 0,
-        "max": 600,
-        "start_value": 0,
-        "max_action": {
-            "type": "origins:if_else",
-            "if_action": {
-                "type": "origins:change_resource",
-                "resource": "*:*_power",
-                "operation": "set",
-                "change": 0
-            },
-            "condition": {
-                "type": "origins:and",
-                "conditions": [
-                    {
-                        "type": "origins:resource",
-                        "resource": "*:*_power",
-                        "comparison": "==",
-                        "compare_to": 1
-                    },
-                    {
-                        "type": "origins:resource",
-                        "resource": "*:*_resource",
-                        "comparison": "==",
-                        "compare_to": 7
-                    }
-                ]
-            }
+    "attribute_6_decrement": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:exhaust",
+                    "amount": 4
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "*:*_timer_6",
+                    "operation": "add",
+                    "change": 2
+                }
+            ]
         },
-        "hud_render": {
-            "should_render": true,
-            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_01.png",
-            "bar_index": 20,
-            "inverted": false,
-            "condition": {
-                "type": "origins:resource",
-                "resource": "*:*_resource",
-                "comparison": "==",
-                "compare_to": 7
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_power",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_resource",
+                    "comparison": "==",
+                    "compare_to": 6
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_timer_6",
+                    "comparison": "<",
+                    "compare_to": 600
+                },
+                {
+                    "type": "origins:food_level",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:food_level",
+                    "comparison": "<=",
+                    "compare_to": 20
+                },
+                {
+                    "type": "origins:saturation_level",
+                    "comparison": "<=",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "interval": 10
+    },
+    "attribute_6_decrement_saturation": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:exhaust",
+                    "amount": 8
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "*:*_timer_6",
+                    "operation": "add",
+                    "change": 2
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_power",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_resource",
+                    "comparison": "==",
+                    "compare_to": 6
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_timer_6",
+                    "comparison": "<",
+                    "compare_to": 600
+                },
+                {
+                    "type": "origins:saturation_level",
+                    "comparison": ">",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "interval": 10
+    },
+    "attribute_6_increment": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:feed",
+                    "nutrition": 1,
+                    "saturation": 0
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "*:*_timer_6",
+                    "operation": "add",
+                    "change": -2
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_power",
+                    "comparison": "==",
+                    "compare_to": -1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_resource",
+                    "comparison": "==",
+                    "compare_to": 6
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_timer_6",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:food_level",
+                    "comparison": "<",
+                    "compare_to": 20
+                }
+            ]
+        },
+        "interval": 10
+    },
+    "attribute_6_increment_saturation": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:feed",
+                    "nutrition": 1,
+                    "saturation": 1
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "*:*_timer_6",
+                    "operation": "add",
+                    "change": -2
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_power",
+                    "comparison": "==",
+                    "compare_to": -1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_resource",
+                    "comparison": "==",
+                    "compare_to": 6
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_timer_6",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:food_level",
+                    "comparison": ">=",
+                    "compare_to": 20
+                },
+                {
+                    "type": "origins:saturation_level",
+                    "comparison": "<",
+                    "compare_to": 20
+                }
+            ]
+        },
+        "interval": 10
+    },
+    "attribute_7_decrement": {
+        "type": "origins:conditioned_attribute",
+        "modifiers": [
+            {
+                "id": "life:attack_speed_decrease",
+                "attribute": "minecraft:generic.attack_speed",
+                "operation": "add_multiplied_total",
+                "amount": -0.5
+            },
+            {
+                "id": "life:mining_speed_decrease",
+                "attribute": "minecraft:player.block_break_speed",
+                "operation": "add_multiplied_total",
+                "amount": -0.5
             }
-        }
+        ],
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_power",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_resource",
+                    "comparison": "==",
+                    "compare_to": 7
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_timer_7",
+                    "comparison": "<",
+                    "compare_to": 600
+                }
+            ]
+        },
+        "tick_rate": 3
+    },
+    "attribute_7_increment": {
+        "type": "origins:conditioned_attribute",
+        "modifiers": [
+            {
+                "id": "life:attack_speed_increase",
+                "attribute": "minecraft:generic.attack_speed",
+                "operation": "add_multiplied_total",
+                "amount": 0.5
+            },
+            {
+                "id": "life:mining_speed_increase",
+                "attribute": "minecraft:player.block_break_speed",
+                "operation": "add_multiplied_total",
+                "amount": 1.25
+            }
+        ],
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_power",
+                    "comparison": "==",
+                    "compare_to": -1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_resource",
+                    "comparison": "==",
+                    "compare_to": 7
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_timer_7",
+                    "comparison": ">",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "tick_rate": 3
+    },
+    "attribute_8_decrement": {
+        "type": "origins:conditioned_attribute",
+        "modifiers": [
+            {
+                "id": "life:block_interaction_range_decrease",
+                "attribute": "minecraft:player.block_interaction_range",
+                "operation": "add_multiplied_total",
+                "amount": -0.5
+            },
+            {
+                "id": "life:entity_interaction_range_decrease",
+                "attribute": "minecraft:player.entity_interaction_range",
+                "operation": "add_multiplied_total",
+                "amount": -0.5
+            }
+        ],
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_power",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_resource",
+                    "comparison": "==",
+                    "compare_to": 8
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_timer_8",
+                    "comparison": "<",
+                    "compare_to": 600
+                }
+            ]
+        },
+        "tick_rate": 3
+    },
+    "attribute_8_increment": {
+        "type": "origins:conditioned_attribute",
+        "modifiers": [
+            {
+                "id": "life:block_interaction_range_decrease",
+                "attribute": "minecraft:player.block_interaction_range",
+                "operation": "add_multiplied_total",
+                "amount": 0.65
+            },
+            {
+                "id": "life:entity_interaction_range_decrease",
+                "attribute": "minecraft:player.entity_interaction_range",
+                "operation": "add_multiplied_total",
+                "amount": 0.65
+            }
+        ],
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_power",
+                    "comparison": "==",
+                    "compare_to": -1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_resource",
+                    "comparison": "==",
+                    "compare_to": 8
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_timer_8",
+                    "comparison": ">",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "tick_rate": 3
     },
     "timer_increase_over_time": {
         "type": "origins:action_over_time",
@@ -1333,20 +1442,6 @@
                 {
                     "action": {
                         "type": "origins:change_resource",
-                        "resource": "*:*_timer_6",
-                        "operation": "add",
-                        "change": 1
-                    },
-                    "condition": {
-                        "type": "origins:resource",
-                        "resource": "*:*_resource",
-                        "comparison": "==",
-                        "compare_to": 6
-                    }
-                },
-                {
-                    "action": {
-                        "type": "origins:change_resource",
                         "resource": "*:*_timer_7",
                         "operation": "add",
                         "change": 1
@@ -1356,6 +1451,20 @@
                         "resource": "*:*_resource",
                         "comparison": "==",
                         "compare_to": 7
+                    }
+                },
+                {
+                    "action": {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_timer_8",
+                        "operation": "add",
+                        "change": 1
+                    },
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "*:*_resource",
+                        "comparison": "==",
+                        "compare_to": 8
                     }
                 }
             ]
@@ -1446,20 +1555,6 @@
                 {
                     "action": {
                         "type": "origins:change_resource",
-                        "resource": "*:*_timer_6",
-                        "operation": "add",
-                        "change": -1
-                    },
-                    "condition": {
-                        "type": "origins:resource",
-                        "resource": "*:*_resource",
-                        "comparison": "==",
-                        "compare_to": 6
-                    }
-                },
-                {
-                    "action": {
-                        "type": "origins:change_resource",
                         "resource": "*:*_timer_7",
                         "operation": "add",
                         "change": -1
@@ -1470,6 +1565,20 @@
                         "comparison": "==",
                         "compare_to": 7
                     }
+                },
+                {
+                    "action": {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_timer_8",
+                        "operation": "add",
+                        "change": -1
+                    },
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "*:*_resource",
+                        "comparison": "==",
+                        "compare_to": 8
+                    }
                 }
             ]
         },
@@ -1478,7 +1587,7 @@
             "type": "origins:resource",
             "resource": "*:*_power",
             "comparison": "==",
-            "compare_to": 2
+            "compare_to": -1
         }
     },
     "timer_fix_over_time": {
@@ -1514,7 +1623,7 @@
                                     {
                                         "type": "origins:resource",
                                         "resource": "*:*_power",
-                                        "comparison": ">",
+                                        "comparison": "!=",
                                         "compare_to": 0
                                     }
                                 ]
@@ -1537,7 +1646,7 @@
                                     {
                                         "type": "origins:resource",
                                         "resource": "*:*_power",
-                                        "comparison": ">",
+                                        "comparison": "!=",
                                         "compare_to": 0
                                     }
                                 ]
@@ -1560,7 +1669,7 @@
                                     {
                                         "type": "origins:resource",
                                         "resource": "*:*_power",
-                                        "comparison": ">",
+                                        "comparison": "!=",
                                         "compare_to": 0
                                     }
                                 ]
@@ -1583,7 +1692,7 @@
                                     {
                                         "type": "origins:resource",
                                         "resource": "*:*_power",
-                                        "comparison": ">",
+                                        "comparison": "!=",
                                         "compare_to": 0
                                     }
                                 ]
@@ -1606,7 +1715,7 @@
                                     {
                                         "type": "origins:resource",
                                         "resource": "*:*_power",
-                                        "comparison": ">",
+                                        "comparison": "!=",
                                         "compare_to": 0
                                     }
                                 ]
@@ -1629,7 +1738,7 @@
                                     {
                                         "type": "origins:resource",
                                         "resource": "*:*_power",
-                                        "comparison": ">",
+                                        "comparison": "!=",
                                         "compare_to": 0
                                     }
                                 ]
@@ -1652,7 +1761,30 @@
                                     {
                                         "type": "origins:resource",
                                         "resource": "*:*_power",
-                                        "comparison": ">",
+                                        "comparison": "!=",
+                                        "compare_to": 0
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "origins:and",
+                                "conditions": [
+                                    {
+                                        "type": "origins:resource",
+                                        "resource": "*:*_resource",
+                                        "comparison": "==",
+                                        "compare_to": 8
+                                    },
+                                    {
+                                        "type": "origins:resource",
+                                        "resource": "*:*_timer_8",
+                                        "comparison": "==",
+                                        "compare_to": 0
+                                    },
+                                    {
+                                        "type": "origins:resource",
+                                        "resource": "*:*_power",
+                                        "comparison": "!=",
                                         "compare_to": 0
                                     }
                                 ]
@@ -1667,633 +1799,411 @@
             "type": "origins:resource",
             "resource": "*:*_power",
             "comparison": "==",
-            "compare_to": 2
+            "compare_to": -1
         }
     },
-    "attribute_1_decrement": {
-        "type": "origins:conditioned_attribute",
-        "modifiers": [
-            {
-                "id": "life:gravity_decrease",
-                "attribute": "minecraft:generic.gravity",
-                "operation": "add_multiplied_total",
-                "amount": -0.75
+    "timer_1": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 600,
+        "start_value": 0,
+        "max_action": {
+            "type": "origins:if_else",
+            "if_action": {
+                "type": "origins:change_resource",
+                "resource": "*:*_power",
+                "operation": "set",
+                "change": 0
             },
-            {
-                "id": "life:safe_fall_distance_decrease",
-                "attribute": "minecraft:generic.safe_fall_distance",
-                "operation": "add_multiplied_total",
-                "amount": 2.5
-            },
-            {
-                "id": "life:fall_damage_decrease",
-                "attribute": "minecraft:generic.fall_damage_multiplier",
-                "operation": "add_multiplied_total",
-                "amount": -0.5
-            },
-            {
-                "id": "life:knockback_resistance_decrease",
-                "attribute": "minecraft:generic.knockback_resistance",
-                "operation": "add_value",
-                "amount": -4.0
+            "condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:resource",
+                        "resource": "*:*_power",
+                        "comparison": "==",
+                        "compare_to": 1
+                    },
+                    {
+                        "type": "origins:resource",
+                        "resource": "*:*_resource",
+                        "comparison": "==",
+                        "compare_to": 1
+                    }
+                ]
             }
-        ],
-        "condition": {
-            "type": "origins:and",
-            "conditions": [
-                {
-                    "type": "origins:resource",
-                    "resource": "*:*_power",
-                    "comparison": "==",
-                    "compare_to": 1
-                },
-                {
-                    "type": "origins:resource",
-                    "resource": "*:*_resource",
-                    "comparison": "==",
-                    "compare_to": 1
-                },
-                {
-                    "type": "origins:resource",
-                    "resource": "*:*_timer_1",
-                    "comparison": ">=",
-                    "compare_to": 1
-                },
-                {
-                    "type": "origins:resource",
-                    "resource": "*:*_timer_1",
-                    "comparison": "<",
-                    "compare_to": 600
-                }
-            ]
         },
-        "tick_rate": 5
-    },
-    "attribute_1_increment": {
-        "type": "origins:conditioned_attribute",
-        "modifiers": [
-            {
-                "id": "life:gravity_increase",
-                "attribute": "minecraft:generic.gravity",
-                "operation": "add_multiplied_total",
-                "amount": 1.0
-            },
-            {
-                "id": "life:safe_fall_distance_increase",
-                "attribute": "minecraft:generic.safe_fall_distance",
-                "operation": "add_multiplied_total",
-                "amount": -0.25
-            },
-            {
-                "id": "life:fall_damage_increase",
-                "attribute": "minecraft:generic.fall_damage_multiplier",
-                "operation": "add_multiplied_total",
-                "amount": 1.0
-            },
-            {
-                "id": "life:knockback_resistance_increase",
-                "attribute": "minecraft:generic.knockback_resistance",
-                "operation": "add_value",
-                "amount": 4.0
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "life:textures/gui/resource_bar/resource_bar_01.png",
+            "bar_index": 0,
+            "inverted": false,
+            "condition": {
+                "type": "origins:resource",
+                "resource": "*:*_resource",
+                "comparison": "==",
+                "compare_to": 1
             }
-        ],
-        "condition": {
-            "type": "origins:and",
-            "conditions": [
-                {
-                    "type": "origins:resource",
-                    "resource": "*:*_power",
-                    "comparison": "==",
-                    "compare_to": 2
-                },
-                {
-                    "type": "origins:resource",
-                    "resource": "*:*_resource",
-                    "comparison": "==",
-                    "compare_to": 1
-                },
-                {
-                    "type": "origins:resource",
-                    "resource": "*:*_timer_1",
-                    "comparison": ">=",
-                    "compare_to": 1
-                },
-                {
-                    "type": "origins:resource",
-                    "resource": "*:*_timer_1",
-                    "comparison": "<",
-                    "compare_to": 600
-                }
-            ]
-        },
-        "tick_rate": 5
-    },
-    "attribute_2_decrement": {
-        "type": "origins:conditioned_attribute",
-        "modifiers": [
-            {
-                "id": "life:attack_damage_decrease",
-                "attribute": "minecraft:generic.attack_damage",
-                "operation": "add_multiplied_total",
-                "amount": -0.5
-            }
-        ],
-        "condition": {
-            "type": "origins:and",
-            "conditions": [
-                {
-                    "type": "origins:resource",
-                    "resource": "*:*_power",
-                    "comparison": "==",
-                    "compare_to": 1
-                },
-                {
-                    "type": "origins:resource",
-                    "resource": "*:*_resource",
-                    "comparison": "==",
-                    "compare_to": 2
-                },
-                {
-                    "type": "origins:resource",
-                    "resource": "*:*_timer_2",
-                    "comparison": ">=",
-                    "compare_to": 1
-                },
-                {
-                    "type": "origins:resource",
-                    "resource": "*:*_timer_2",
-                    "comparison": "<",
-                    "compare_to": 600
-                }
-            ]
-        },
-        "tick_rate": 5
-    },
-    "attribute_2_increment": {
-        "type": "origins:conditioned_attribute",
-        "modifiers": [
-            {
-                "id": "life:attack_damage_increase",
-                "attribute": "minecraft:generic.attack_damage",
-                "operation": "add_multiplied_total",
-                "amount": 0.75
-            }
-        ],
-        "condition": {
-            "type": "origins:and",
-            "conditions": [
-                {
-                    "type": "origins:resource",
-                    "resource": "*:*_power",
-                    "comparison": "==",
-                    "compare_to": 2
-                },
-                {
-                    "type": "origins:resource",
-                    "resource": "*:*_resource",
-                    "comparison": "==",
-                    "compare_to": 2
-                },
-                {
-                    "type": "origins:resource",
-                    "resource": "*:*_timer_2",
-                    "comparison": ">=",
-                    "compare_to": 1
-                },
-                {
-                    "type": "origins:resource",
-                    "resource": "*:*_timer_1",
-                    "comparison": "<",
-                    "compare_to": 600
-                }
-            ]
-        },
-        "tick_rate": 5
-    },
-    "attribute_3_decrement": {
-        "type": "origins:conditioned_attribute",
-        "modifiers": [
-            {
-                "id": "life:attack_speed_decrease",
-                "attribute": "minecraft:generic.attack_speed",
-                "operation": "add_multiplied_total",
-                "amount": -0.5
-            }
-        ],
-        "condition": {
-            "type": "origins:and",
-            "conditions": [
-                {
-                    "type": "origins:resource",
-                    "resource": "*:*_power",
-                    "comparison": "==",
-                    "compare_to": 1
-                },
-                {
-                    "type": "origins:resource",
-                    "resource": "*:*_resource",
-                    "comparison": "==",
-                    "compare_to": 3
-                },
-                {
-                    "type": "origins:resource",
-                    "resource": "*:*_timer_3",
-                    "comparison": ">=",
-                    "compare_to": 1
-                },
-                {
-                    "type": "origins:resource",
-                    "resource": "*:*_timer_3",
-                    "comparison": "<",
-                    "compare_to": 600
-                }
-            ]
-        },
-        "tick_rate": 5
-    },
-    "attribute_3_increment": {
-        "type": "origins:conditioned_attribute",
-        "modifiers": [
-            {
-                "id": "life:attack_speed_increase",
-                "attribute": "minecraft:generic.attack_speed",
-                "operation": "add_multiplied_total",
-                "amount": 0.5
-            }
-        ],
-        "condition": {
-            "type": "origins:and",
-            "conditions": [
-                {
-                    "type": "origins:resource",
-                    "resource": "*:*_power",
-                    "comparison": "==",
-                    "compare_to": 2
-                },
-                {
-                    "type": "origins:resource",
-                    "resource": "*:*_resource",
-                    "comparison": "==",
-                    "compare_to": 3
-                },
-                {
-                    "type": "origins:resource",
-                    "resource": "*:*_timer_3",
-                    "comparison": ">=",
-                    "compare_to": 1
-                },
-                {
-                    "type": "origins:resource",
-                    "resource": "*:*_timer_3",
-                    "comparison": "<",
-                    "compare_to": 600
-                }
-            ]
-        },
-        "tick_rate": 10
-    },
-    "attribute_4_decrement": {
-        "type": "origins:conditioned_attribute",
-        "modifiers": [
-            {
-                "id": "life:movement_speed_decrease",
-                "attribute": "minecraft:generic.movement_speed",
-                "operation": "add_multiplied_total",
-                "amount": -0.5
-            }
-        ],
-        "condition": {
-            "type": "origins:and",
-            "conditions": [
-                {
-                    "type": "origins:resource",
-                    "resource": "*:*_power",
-                    "comparison": "==",
-                    "compare_to": 1
-                },
-                {
-                    "type": "origins:resource",
-                    "resource": "*:*_resource",
-                    "comparison": "==",
-                    "compare_to": 4
-                },
-                {
-                    "type": "origins:resource",
-                    "resource": "*:*_timer_4",
-                    "comparison": ">=",
-                    "compare_to": 1
-                },
-                {
-                    "type": "origins:resource",
-                    "resource": "*:*_timer_4",
-                    "comparison": "<",
-                    "compare_to": 600
-                }
-            ]
-        },
-        "tick_rate": 5
-    },
-    "attribute_4_increment": {
-        "type": "origins:conditioned_attribute",
-        "modifiers": [
-            {
-                "id": "life:movement_speed_increase",
-                "attribute": "minecraft:generic.movement_speed",
-                "operation": "add_multiplied_total",
-                "amount": 1.0
-            }
-        ],
-        "condition": {
-            "type": "origins:and",
-            "conditions": [
-                {
-                    "type": "origins:resource",
-                    "resource": "*:*_power",
-                    "comparison": "==",
-                    "compare_to": 2
-                },
-                {
-                    "type": "origins:resource",
-                    "resource": "*:*_resource",
-                    "comparison": "==",
-                    "compare_to": 4
-                },
-                {
-                    "type": "origins:resource",
-                    "resource": "*:*_timer_4",
-                    "comparison": ">=",
-                    "compare_to": 1
-                },
-                {
-                    "type": "origins:resource",
-                    "resource": "*:*_timer_4",
-                    "comparison": "<",
-                    "compare_to": 600
-                }
-            ]
-        },
-        "tick_rate": 5
-    },
-    "attribute_5_decrement": {
-        "type": "origins:conditioned_attribute",
-        "modifiers": [
-            {
-                "id": "life:max_health_decrease",
-                "attribute": "minecraft:generic.max_health",
-                "operation": "add_multiplied_total",
-                "amount": -0.5
-            }
-        ],
-        "condition": {
-            "type": "origins:and",
-            "conditions": [
-                {
-                    "type": "origins:resource",
-                    "resource": "*:*_power",
-                    "comparison": "==",
-                    "compare_to": 1
-                },
-                {
-                    "type": "origins:resource",
-                    "resource": "*:*_resource",
-                    "comparison": "==",
-                    "compare_to": 5
-                },
-                {
-                    "type": "origins:resource",
-                    "resource": "*:*_timer_5",
-                    "comparison": ">=",
-                    "compare_to": 1
-                },
-                {
-                    "type": "origins:resource",
-                    "resource": "*:*_timer_5",
-                    "comparison": "<",
-                    "compare_to": 600
-                }
-            ]
-        },
-        "tick_rate": 5
-    },
-    "attribute_5_increment": {
-        "type": "origins:conditioned_attribute",
-        "modifiers": [
-            {
-                "id": "life:max_health_increase",
-                "attribute": "minecraft:generic.max_health",
-                "operation": "add_multiplied_total",
-                "amount": 1
-            }
-        ],
-        "condition": {
-            "type": "origins:and",
-            "conditions": [
-                {
-                    "type": "origins:resource",
-                    "resource": "*:*_power",
-                    "comparison": "==",
-                    "compare_to": 2
-                },
-                {
-                    "type": "origins:resource",
-                    "resource": "*:*_resource",
-                    "comparison": "==",
-                    "compare_to": 5
-                },
-                {
-                    "type": "origins:resource",
-                    "resource": "*:*_timer_5",
-                    "comparison": ">=",
-                    "compare_to": 1
-                },
-                {
-                    "type": "origins:resource",
-                    "resource": "*:*_timer_5",
-                    "comparison": "<",
-                    "compare_to": 600
-                }
-            ]
-        },
-        "tick_rate": 5
-    },
-    "attribute_6_decrement": {
-        "type": "origins:conditioned_attribute",
-        "modifiers": [
-            {
-                "id": "life:armor_decrease",
-                "attribute": "minecraft:generic.armor",
-                "operation": "add_multiplied_total",
-                "amount": -0.5
-            }
-        ],
-        "condition": {
-            "type": "origins:and",
-            "conditions": [
-                {
-                    "type": "origins:resource",
-                    "resource": "*:*_power",
-                    "comparison": "==",
-                    "compare_to": 1
-                },
-                {
-                    "type": "origins:resource",
-                    "resource": "*:*_resource",
-                    "comparison": "==",
-                    "compare_to": 6
-                },
-                {
-                    "type": "origins:resource",
-                    "resource": "*:*_timer_6",
-                    "comparison": ">=",
-                    "compare_to": 1
-                },
-                {
-                    "type": "origins:resource",
-                    "resource": "*:*_timer_6",
-                    "comparison": "<",
-                    "compare_to": 600
-                }
-            ]
-        },
-        "tick_rate": 5
-    },
-    "attribute_6_increment": {
-        "type": "origins:conditioned_attribute",
-        "modifiers": [
-            {
-                "id": "life:armor_increase",
-                "attribute": "minecraft:generic.armor",
-                "operation": "add_multiplied_total",
-                "amount": 0.5
-            }
-        ],
-        "condition": {
-            "type": "origins:and",
-            "conditions": [
-                {
-                    "type": "origins:resource",
-                    "resource": "*:*_power",
-                    "comparison": "==",
-                    "compare_to": 2
-                },
-                {
-                    "type": "origins:resource",
-                    "resource": "*:*_resource",
-                    "comparison": "==",
-                    "compare_to": 6
-                },
-                {
-                    "type": "origins:resource",
-                    "resource": "*:*_timer_6",
-                    "comparison": ">=",
-                    "compare_to": 1
-                },
-                {
-                    "type": "origins:resource",
-                    "resource": "*:*_timer_6",
-                    "comparison": "<",
-                    "compare_to": 600
-                }
-            ]
-        },
-        "tick_rate": 5
-    },
-    "attribute_7_decrement": {
-        "type": "origins:shader",
-        "shader": "minecraft:shaders/post/blobs2.json",
-        "condition": {
-            "type": "origins:and",
-            "conditions": [
-                {
-                    "type": "origins:resource",
-                    "resource": "*:*_power",
-                    "comparison": "==",
-                    "compare_to": 1
-                },
-                {
-                    "type": "origins:resource",
-                    "resource": "*:*_resource",
-                    "comparison": "==",
-                    "compare_to": 7
-                },
-                {
-                    "type": "origins:resource",
-                    "resource": "*:*_timer_7",
-                    "comparison": ">=",
-                    "compare_to": 1
-                },
-                {
-                    "type": "origins:resource",
-                    "resource": "*:*_timer_7",
-                    "comparison": "<",
-                    "compare_to": 600
-                }
-            ]
-        },
-        "interval": 5
-    },
-    "attribute_7_increment_glow": {
-        "type": "origins:entity_glow",
-        "condition": {
-            "type": "origins:and",
-            "conditions": [
-                {
-                    "type": "origins:resource",
-                    "resource": "*:*_power",
-                    "comparison": "==",
-                    "compare_to": 2
-                },
-                {
-                    "type": "origins:resource",
-                    "resource": "*:*_resource",
-                    "comparison": "==",
-                    "compare_to": 7
-                },
-                {
-                    "type": "origins:resource",
-                    "resource": "*:*_timer_7",
-                    "comparison": ">=",
-                    "compare_to": 1
-                },
-                {
-                    "type": "origins:resource",
-                    "resource": "*:*_timer_7",
-                    "comparison": "<",
-                    "compare_to": 600
-                }
-            ]
         }
     },
-    "attribute_7_increment_night_vision": {
-        "type": "origins:night_vision",
-        "condition": {
-            "type": "origins:and",
-            "conditions": [
-                {
+    "timer_2": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 600,
+        "start_value": 0,
+        "max_action": {
+            "type": "origins:if_else",
+            "if_action": {
+                "type": "origins:change_resource",
+                "resource": "*:*_power",
+                "operation": "set",
+                "change": 0
+            },
+            "condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:resource",
+                        "resource": "*:*_power",
+                        "comparison": "==",
+                        "compare_to": 1
+                    },
+                    {
+                        "type": "origins:resource",
+                        "resource": "*:*_resource",
+                        "comparison": "==",
+                        "compare_to": 2
+                    }
+                ]
+            }
+        },
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "life:textures/gui/resource_bar/resource_bar_01.png",
+            "bar_index": 1,
+            "inverted": false,
+            "condition": {
+                "type": "origins:resource",
+                "resource": "*:*_resource",
+                "comparison": "==",
+                "compare_to": 2
+            }
+        }
+    },
+    "timer_3": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 600,
+        "start_value": 0,
+        "max_action": {
+            "type": "origins:if_else",
+            "if_action": {
+                "type": "origins:change_resource",
+                "resource": "*:*_power",
+                "operation": "set",
+                "change": 0
+            },
+            "condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:resource",
+                        "resource": "*:*_power",
+                        "comparison": "==",
+                        "compare_to": 1
+                    },
+                    {
+                        "type": "origins:resource",
+                        "resource": "*:*_resource",
+                        "comparison": "==",
+                        "compare_to": 3
+                    }
+                ]
+            }
+        },
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "life:textures/gui/resource_bar/resource_bar_01.png",
+            "bar_index": 2,
+            "inverted": false,
+            "condition": {
+                "type": "origins:resource",
+                "resource": "*:*_resource",
+                "comparison": "==",
+                "compare_to": 3
+            }
+        }
+    },
+    "timer_4": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 600,
+        "start_value": 0,
+        "max_action": {
+            "type": "origins:if_else",
+            "if_action": {
+                "type": "origins:change_resource",
+                "resource": "*:*_power",
+                "operation": "set",
+                "change": 0
+            },
+            "condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:resource",
+                        "resource": "*:*_power",
+                        "comparison": "==",
+                        "compare_to": 1
+                    },
+                    {
+                        "type": "origins:resource",
+                        "resource": "*:*_resource",
+                        "comparison": "==",
+                        "compare_to": 4
+                    }
+                ]
+            }
+        },
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "life:textures/gui/resource_bar/resource_bar_01.png",
+            "bar_index": 3,
+            "inverted": false,
+            "condition": {
+                "type": "origins:resource",
+                "resource": "*:*_resource",
+                "comparison": "==",
+                "compare_to": 4
+            }
+        }
+    },
+    "timer_5": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 600,
+        "start_value": 0,
+        "max_action": {
+            "type": "origins:if_else",
+            "if_action": {
+                "type": "origins:change_resource",
+                "resource": "*:*_power",
+                "operation": "set",
+                "change": 0
+            },
+            "condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:resource",
+                        "resource": "*:*_power",
+                        "comparison": "==",
+                        "compare_to": 1
+                    },
+                    {
+                        "type": "origins:resource",
+                        "resource": "*:*_resource",
+                        "comparison": "==",
+                        "compare_to": 5
+                    }
+                ]
+            }
+        },
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "life:textures/gui/resource_bar/resource_bar_01.png",
+            "bar_index": 4,
+            "inverted": false,
+            "condition": {
+                "type": "origins:resource",
+                "resource": "*:*_resource",
+                "comparison": "==",
+                "compare_to": 5
+            }
+        }
+    },
+    "timer_6": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 600,
+        "start_value": 0,
+        "max_action": {
+            "type": "origins:if_else",
+            "if_action": {
+                "type": "origins:change_resource",
+                "resource": "*:*_power",
+                "operation": "set",
+                "change": 0
+            },
+            "condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:resource",
+                        "resource": "*:*_power",
+                        "comparison": "==",
+                        "compare_to": 1
+                    },
+                    {
+                        "type": "origins:resource",
+                        "resource": "*:*_resource",
+                        "comparison": "==",
+                        "compare_to": 6
+                    }
+                ]
+            }
+        },
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "life:textures/gui/resource_bar/resource_bar_01.png",
+            "bar_index": 5,
+            "inverted": false,
+            "condition": {
+                "type": "origins:resource",
+                "resource": "*:*_resource",
+                "comparison": "==",
+                "compare_to": 6
+            }
+        }
+    },
+    "timer_7": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 600,
+        "start_value": 0,
+        "max_action": {
+            "type": "origins:if_else",
+            "if_action": {
+                "type": "origins:change_resource",
+                "resource": "*:*_power",
+                "operation": "set",
+                "change": 0
+            },
+            "condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:resource",
+                        "resource": "*:*_power",
+                        "comparison": "==",
+                        "compare_to": 1
+                    },
+                    {
+                        "type": "origins:resource",
+                        "resource": "*:*_resource",
+                        "comparison": "==",
+                        "compare_to": 7
+                    }
+                ]
+            }
+        },
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "life:textures/gui/resource_bar/resource_bar_01.png",
+            "bar_index": 6,
+            "inverted": false,
+            "condition": {
+                "type": "origins:resource",
+                "resource": "*:*_resource",
+                "comparison": "==",
+                "compare_to": 7
+            }
+        }
+    },
+    "timer_8": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 600,
+        "start_value": 0,
+        "max_action": {
+            "type": "origins:if_else",
+            "if_action": {
+                "type": "origins:change_resource",
+                "resource": "*:*_power",
+                "operation": "set",
+                "change": 0
+            },
+            "condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:resource",
+                        "resource": "*:*_power",
+                        "comparison": "==",
+                        "compare_to": 1
+                    },
+                    {
+                        "type": "origins:resource",
+                        "resource": "*:*_resource",
+                        "comparison": "==",
+                        "compare_to": 8
+                    }
+                ]
+            }
+        },
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "life:textures/gui/resource_bar/resource_bar_01.png",
+            "bar_index": 7,
+            "inverted": false,
+            "condition": {
+                "type": "origins:resource",
+                "resource": "*:*_resource",
+                "comparison": "==",
+                "compare_to": 8
+            }
+        }
+    },
+    "visual": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "start_value": 1,
+        "hud_render": [
+            {
+                "should_render": true,
+                "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_03.png",
+                "bar_index": 17,
+                "inverted": false,
+                "condition": {
                     "type": "origins:resource",
                     "resource": "*:*_power",
                     "comparison": "==",
-                    "compare_to": 2
-                },
-                {
-                    "type": "origins:resource",
-                    "resource": "*:*_resource",
-                    "comparison": "==",
-                    "compare_to": 7
-                },
-                {
-                    "type": "origins:resource",
-                    "resource": "*:*_timer_7",
-                    "comparison": ">=",
                     "compare_to": 1
                 },
-                {
+                "order": 1
+            },
+            {
+                "should_render": true,
+                "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_03.png",
+                "bar_index": 16,
+                "inverted": false,
+                "condition": {
                     "type": "origins:resource",
-                    "resource": "*:*_timer_7",
-                    "comparison": "<",
-                    "compare_to": 600
-                }
-            ]
+                    "resource": "*:*_power",
+                    "comparison": "==",
+                    "compare_to": -1
+                },
+                "order": 1
+            }
+        ]
+    },
+    "resource": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 8,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "power": {
+        "type": "origins:resource",
+        "min": -1,
+        "max": 1,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
         }
     },
     "death": {
@@ -2319,7 +2229,7 @@
             "type": "origins:change_resource",
             "resource": "*:quirk/misc/base_active",
             "operation": "set",
-            "change": 100
+            "change": 99999
         },
         "interval": 10,
         "condition": {
