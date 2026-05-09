@@ -2,4 +2,4 @@
 scoreboard players set #wildcardset erraticlife 7
 
 # Tellraw
-tellraw @s [{"text":"Prepared Quirks wildcard","color":"gray"}]
+tellraw @s [{"text":"Prepared Session 7 wildcard","color":"gray"}]

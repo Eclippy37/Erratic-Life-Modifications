@@ -2,4 +2,4 @@
 scoreboard players set #wildcardset erraticlife 3
 
 # Tellraw
-tellraw @s [{"text":"Prepared Gravity wildcard","color":"gray"}]
+tellraw @s [{"text":"Prepared Session 3 wildcard","color":"gray"}]

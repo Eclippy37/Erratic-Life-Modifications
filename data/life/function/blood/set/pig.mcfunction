@@ -1,0 +1,9 @@
+# Set
+summon minecraft:zombie ~ ~ ~ {CustomName:'["Zombie Pig"]',Tags:["blood.rider"],CanPickUpLoot:false,IsBaby:true,Invulnerable:true,Silent:true,PersistenceRequired:true,HasVisualFire:false,DeathLootTable:"",HandItems:[{id:"minecraft:air"},{id:"minecraft:air"}],ArmorItems:[{id:"minecraft:air"},{id:"minecraft:air"},{id:"minecraft:air"},{id:"minecraft:air"}],attributes:[{id:"additionalentityattributes:generic.hitbox_scale",base:0.0},{id:"minecraft:generic.scale",base:0.0}],active_effects:[{id:"minecraft:invisibility",duration:-1,show_particles:false},{id:"minecraft:fire_resistance",duration:-1,show_particles:false}]}
+tag @s[type=minecraft:pig,tag=!blood.riden] add blood.riden
+tag @s[type=minecraft:pig,tag=!blood.pig.zombie] add blood.pig.zombie
+ride @n[type=minecraft:zombie,tag=blood.rider] mount @s[type=minecraft:pig,tag=blood.riden]
+effect give @s[type=minecraft:pig,tag=blood.riden] minecraft:speed infinite 1 true
+
+# Add Blood Spawned Tag
+tag @s[tag=!blood.spawned] add blood.spawned

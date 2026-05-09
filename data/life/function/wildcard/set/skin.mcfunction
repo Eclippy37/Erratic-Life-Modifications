@@ -2,4 +2,4 @@
 scoreboard players set #wildcardset erraticlife 1
 
 # Tellraw
-tellraw @s [{"text":"Prepared Skinwalker wildcard","color":"gray"}]
+tellraw @s [{"text":"Prepared Session 1 wildcard","color":"gray"}]

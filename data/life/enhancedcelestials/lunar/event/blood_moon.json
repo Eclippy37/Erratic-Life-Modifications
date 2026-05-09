@@ -25,7 +25,7 @@
             }
         },
         "lunar_spawn_settings": {
-            "force_surface_spawning": false,
+            "force_surface_spawning": true,
             "mob_spawn_settings": {
                 "spawn_costs": {},
                 "spawners": {
@@ -33,18 +33,37 @@
                     "axolotls": [],
                     "creature": [],
                     "misc": [],
-                    "monster": [],
+                    "monster": [
+                        {
+                            "type": "minecraft:zombie",
+                            "maxCount": 4,
+                            "minCount": 4,
+                            "weight": 500
+                        },
+                        {
+                            "type": "minecraft:zombie_villager",
+                            "maxCount": 1,
+                            "minCount": 1,
+                            "weight": 10
+                        },
+                        {
+                            "type": "minecraft:giant",
+                            "maxCount": 1,
+                            "minCount": 1,
+                            "weight": 1
+                        }
+                    ],
                     "underground_water_creature": [],
                     "water_ambient": [],
                     "water_creature": []
                 }
             },
             "slimes_spawn_everywhere": false,
-            "use_biome_spawn_settings": true
+            "use_biome_spawn_settings": false
         },
         "mob_effects": [],
         "spawn_category_multiplier": {
-            "monster": 4.5
+            "monster": 2.5
         }
     },
     "text_components": {

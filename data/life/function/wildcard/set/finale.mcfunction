@@ -2,4 +2,4 @@
 scoreboard players set #wildcardset erraticlife 8
 
 # Tellraw
-tellraw @s [{"text":"Prepared Finale wildcard","color":"gray"}]
+tellraw @s [{"text":"Prepared Session 8 wildcard","color":"gray"}]

@@ -9,6 +9,14 @@ execute if score Status Session matches 2 if score #wildcard erraticlife matches
 
 # Creaking Danger
 execute as @e[distance=0..,type=palegardenbackport:creaking] run attribute @s minecraft:generic.attack_damage base set 7
+#execute as @e[disance=0..,type=mutantmonsters:mutant_zombie] run attribute @s minecraft:generic.max_health base set 150
 
 # Dimension Powers
 #execute in life:psykol as @a[distance=0..] run power grant @s life:quirk/dim/psykol
+
+# Mutant Zombie Bossbar
+bossbar set life:mutant_zombie players @a
+execute if entity @e[type=mutantmonsters:mutant_zombie] run bossbar set life:mutant_zombie players @a
+execute if entity @e[type=mutantmonsters:mutant_zombie] run bossbar set life:mutant_zombie visible true
+execute unless entity @e[type=mutantmonsters:mutant_zombie] run bossbar set life:mutant_zombie visible false
+execute if entity @e[type=mutantmonsters:mutant_zombie] store result bossbar life:mutant_zombie value run data get entity @n[type=mutantmonsters:mutant_zombie] Health
