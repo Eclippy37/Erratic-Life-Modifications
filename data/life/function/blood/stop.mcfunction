@@ -9,3 +9,6 @@ enhancedcelestials setLunarEvent life:default
 
 # Set Blood Moon Scoreboard
 scoreboard players reset #BloodMoon erraticlife
+
+# Gamerule
+gamerule playersSleepingPercentage 100

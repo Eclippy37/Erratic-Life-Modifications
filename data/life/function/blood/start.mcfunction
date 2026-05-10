@@ -12,3 +12,6 @@ execute as @a at @s run playsound minecraft:block.trial_spawner.about_to_spawn_i
 
 # Set Blood Moon Scoreboard
 scoreboard players set #BloodMoon erraticlife 1
+
+# Gamerule
+gamerule playersSleepingPercentage 200

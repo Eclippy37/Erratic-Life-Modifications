@@ -69,7 +69,7 @@
     "exhaustion": {
         "type": "origins:modify_exhaustion",
         "modifier": {
-            "operation": "multiply_base",
+            "operation": "multiply_base_multiplicative",
             "amount": -1.0
         }
     },
