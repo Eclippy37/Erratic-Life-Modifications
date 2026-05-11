@@ -9,7 +9,7 @@
         "type": "origins:action_over_time",
         "entity_action": {
             "type": "origins:execute_command",
-            "command": "function life:quirk/psykol/tick"
+            "command": "function life:quirk/dream/tick"
         },
         "interval": 1
     },
@@ -90,7 +90,7 @@
         "interval": 10,
         "condition": {
             "type": "origins:dimension",
-            "dimension": "life:psykol",
+            "dimension": "life:dream",
             "inverted": true
         }
     },
@@ -98,11 +98,11 @@
         "type": "origins:action_on_callback",
         "entity_action_gained": {
             "type": "origins:execute_command",
-            "command": "tag @s add quirk.psykol.dimension"
+            "command": "tag @s add quirk.dream.dimension"
         },
         "entity_action_lost": {
             "type": "origins:execute_command",
-            "command": "tag @s remove quirk.psykol.dimension"
+            "command": "tag @s remove quirk.dream.dimension"
         }
     }
 }

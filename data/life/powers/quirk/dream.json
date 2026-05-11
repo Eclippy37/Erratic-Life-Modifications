@@ -19,11 +19,11 @@
                             },
                             {
                                 "type": "origins:execute_command",
-                                "command": "execute in life:psykol run tp @s ~ ~.5 ~"
+                                "command": "execute in life:dream run tp @s ~ ~.5 ~"
                             },
                             {
                                 "type": "origins:grant_power",
-                                "power": "*:quirk/dim/psykol",
+                                "power": "*:quirk/dim/dream",
                                 "source": "*:*"
                             },
                             {
@@ -61,7 +61,7 @@
                             },
                             {
                                 "type": "origins:remove_power",
-                                "power": "*:quirk/dim/psykol",
+                                "power": "*:quirk/dim/dream",
                                 "source": "*:*"
                             },
                             {
@@ -74,7 +74,7 @@
                     },
                     "condition": {
                         "type": "origins:dimension",
-                        "dimension": "life:psykol",
+                        "dimension": "life:dream",
                         "inverted": false
                     }
                 },
@@ -93,7 +93,7 @@
                         "conditions": [
                             {
                                 "type": "origins:dimension",
-                                "dimension": "life:psykol",
+                                "dimension": "life:dream",
                                 "inverted": true
                             },
                             {
@@ -148,7 +148,7 @@
                 "type": "origins:resource",
                 "resource": "*:*_resource",
                 "comparison": "<",
-                "compare_to": 7,
+                "compare_to": 21,
                 "inverted": false
             }
         }
@@ -164,7 +164,7 @@
                         "type": "origins:change_resource",
                         "resource": "*:*_resource",
                         "operation": "set",
-                        "change": 7
+                        "change": 21
                     }
                 ]
             }
@@ -187,11 +187,11 @@
         "type": "origins:action_on_callback",
         "entity_action_gained": {
             "type": "origins:execute_command",
-            "command": "tag @s add quirk.psykol"
+            "command": "tag @s add quirk.dream"
         },
         "entity_action_lost": {
             "type": "origins:execute_command",
-            "command": "tag @s remove quirk.psykol"
+            "command": "tag @s remove quirk.dream"
         }
     }
 }

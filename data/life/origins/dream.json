@@ -1,11 +1,11 @@
 {
     "powers": [
-        "life:quirk/psykol"
+        "life:quirk/dream"
     ],
     "icon": {
         "id": "minecraft:red_bed"
     },
-    "name": "Psykol",
+    "name": "Dream",
     "description": "",
     "order": 0,
     "impact": 0,

@@ -1,9 +1,9 @@
 {
-    "type": "life:psykol",
+    "type": "life:dream",
     "generator": {
         "type": "minecraft:flat",
         "settings": {
-            "biome": "life:psykol",
+            "biome": "life:dream",
             "lakes": false,
             "features": false,
             "layers": [
