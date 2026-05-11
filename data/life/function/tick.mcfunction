@@ -20,3 +20,11 @@ execute if entity @e[type=mutantmonsters:mutant_zombie] run bossbar set life:mut
 execute if entity @e[type=mutantmonsters:mutant_zombie] run bossbar set life:mutant_zombie visible true
 execute unless entity @e[type=mutantmonsters:mutant_zombie] run bossbar set life:mutant_zombie visible false
 execute if entity @e[type=mutantmonsters:mutant_zombie] store result bossbar life:mutant_zombie value run data get entity @n[type=mutantmonsters:mutant_zombie] Health
+
+# Blood moon rider mobs silence
+execute if entity @e[tag=blood.riden,predicate=!life:has_passenger] as @e[tag=blood.riden,predicate=!life:has_passenger] run data merge entity @s {Silent:true}
+execute if entity @e[tag=blood.rider,predicate=!life:has_vehicle] as @e[tag=blood.rider,predicate=!life:has_vehicle] run data merge entity @s {Silent:true}
+
+# Blood moon rider mobs kill
+execute if entity @e[tag=blood.riden,predicate=!life:has_passenger] as @e[tag=blood.riden,predicate=!life:has_passenger] run kill @s
+execute if entity @e[tag=blood.rider,predicate=!life:has_vehicle] as @e[tag=blood.rider,predicate=!life:has_vehicle] run kill @s
