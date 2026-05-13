@@ -1,10 +1,6 @@
 {
     "replace": false,
     "values": [
-        "immersive_paintings:glow_graffiti",
-        "immersive_paintings:glow_painting",
-        "immersive_paintings:graffiti",
-        "immersive_paintings:painting",
         "minecraft:area_effect_cloud",
         "minecraft:block_display",
         "minecraft:end_crystal",
@@ -15,10 +11,17 @@
         "minecraft:interaction",
         "minecraft:item_display",
         "minecraft:item_frame",
-        "minecraft:llama_spit",
+        "minecraft:leash_knot",
+        "minecraft:lightning_bolt",
+        "minecraft:lingering_potion",
         "minecraft:marker",
+        "minecraft:ominous_item_spawner",
         "minecraft:painting",
-        "minecraft:shulker_bullet",
-        "minecraft:text_display"
+        "minecraft:text_display",
+        "immersive_paintings:glow_graffiti",
+        "immersive_paintings:glow_painting",
+        "immersive_paintings:graffiti",
+        "immersive_paintings:painting",
+        "mutantmonsters:body_part"
     ]
 }
