@@ -37,7 +37,7 @@
     "enhanced": {
         "type": "origins:resource",
         "min": 0,
-        "max": 28,
+        "max": 70,
         "min_action": {
             "type": "origins:execute_command",
             "command": "tag @s[tag=quirk.enhanced] remove quirk.enhanced"
@@ -48,7 +48,16 @@
         },
         "start_value": 0,
         "hud_render": {
-            "should_render": false
+            "should_render": true,
+            "sprite_location": "life:textures/gui/community/eclipse37/resource_bar_02.png",
+            "bar_index": 1,
+            "order": 10,
+            "condition": {
+                "type": "origins:resource",
+                "resource": "*:*_enhanced",
+                "comparison": ">",
+                "compare_to": 0
+            }
         }
     },
     "enhanced_over_time": {
@@ -70,7 +79,7 @@
     "erased": {
         "type": "origins:resource",
         "min": 0,
-        "max": 21,
+        "max": 70,
         "min_action": {
             "type": "origins:execute_command",
             "command": "tag @s[tag=quirk.erased] remove quirk.erased"
@@ -81,7 +90,16 @@
         },
         "start_value": 0,
         "hud_render": {
-            "should_render": false
+            "should_render": true,
+            "sprite_location": "life:textures/gui/community/eclipse37/resource_bar_02.png",
+            "bar_index": 0,
+            "order": 10,
+            "condition": {
+                "type": "origins:resource",
+                "resource": "*:*_erased",
+                "comparison": ">",
+                "compare_to": 0
+            }
         }
     },
     "erased_over_time": {
@@ -103,7 +121,7 @@
     "triggered": {
         "type": "origins:resource",
         "min": 0,
-        "max": 14,
+        "max": 21,
         "min_action": {
             "type": "origins:execute_command",
             "command": "tag @s[tag=quirk.triggered] remove quirk.triggered"
