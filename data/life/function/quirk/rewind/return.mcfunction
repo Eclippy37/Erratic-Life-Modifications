@@ -1,11 +1,11 @@
 # Event 1
-execute at @s run playsound minecraft:wildlife_time_speed_up player @s ~ ~ ~ 100 2
+execute at @s run playsound minecraft:wildlife_time_speed_up player @a[distance=0.001..] ~ ~ ~ 100 2
 execute at @s run particle minecraft:glow ~ ~.5 ~ 0.25 0.5 0.25 0 64 normal
 
 # Return to location
 tp @s @n[type=minecraft:marker,tag=quirk.rewind.point]
 
-# Function 
+# Damage
 execute if score @s health.save matches 1 run damage @s 19 minecraft:generic_kill
 execute if score @s health.save matches 2 run damage @s 18 minecraft:generic_kill
 execute if score @s health.save matches 3 run damage @s 17 minecraft:generic_kill

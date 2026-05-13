@@ -9,4 +9,4 @@ tp @n[type=minecraft:marker,tag=quirk.rewind.point] @s
 
 # Set Save Health
 scoreboard players add @s health.save 0
-scoreboard players operation @s health.save = @s health
+scoreboard players operation @s health.save = @s HP
