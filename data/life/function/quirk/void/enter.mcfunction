@@ -8,7 +8,7 @@ summon minecraft:marker ~ ~ ~ {Tags:["quirk.void.save"]}
 tp @e[type=minecraft:marker,tag=quirk.void.save] @s
 
 # Enter Dimension
-execute in life:the_void run tp ~ 1 ~
+execute in life:the_void run tp 0 1 0
 
 # Grant Dimension Power
 power grant @s life:quirk/dim/void
