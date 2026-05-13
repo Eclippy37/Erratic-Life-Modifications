@@ -27,7 +27,6 @@
         "base": 1,
         "per_level_above_first": 11
     },
-    "primary_items": "#minecraft:enchantable/sharp_weapon",
     "slots": [
         "mainhand"
     ],
