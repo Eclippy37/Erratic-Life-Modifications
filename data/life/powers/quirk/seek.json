@@ -55,7 +55,13 @@
                 }
             ]
         },
-        "cooldown": 5,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:quirk/misc/base_erased",
+            "comparison": "==",
+            "compare_to": 0
+        },
+        "cooldown": 3,
         "hud_render": {
             "should_render": false
         }
@@ -612,13 +618,42 @@
                         }
                     }
                 ]
+            },
+            "bientity_condition": {
+                "type": "origins:target_condition",
+                "condition": {
+                    "type": "origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:resource",
+                            "resource": "*:quirk/misc/base_active",
+                            "comparison": ">",
+                            "compare_to": 0
+                        },
+                        {
+                            "type": "origins:power",
+                            "power": "life:quirk/void"
+                        }
+                    ]
+                }
             }
         },
         "condition": {
-            "type": "origins:resource",
-            "resource": "*:*_toggle",
-            "comparison": "==",
-            "compare_to": 1
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_toggle",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_erased",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
         },
         "interval": 1
     },
@@ -629,14 +664,24 @@
         "start_value": 0,
         "hud_render": {
             "should_render": true,
-            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_03.png",
-            "bar_index": 12,
-            "inverted": false,
+            "sprite_location": "life:textures/gui/community/eclipse37/resource_bar_02.png",
+            "bar_index": 8,
             "condition": {
-                "type": "origins:resource",
-                "resource": "*:*_toggle",
-                "comparison": "==",
-                "compare_to": 1
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:resource",
+                        "resource": "*:*_toggle",
+                        "comparison": "==",
+                        "compare_to": 1
+                    },
+                    {
+                        "type": "origins:resource",
+                        "resource": "*:quirk/misc/base_erased",
+                        "comparison": "==",
+                        "compare_to": 0
+                    }
+                ]
             }
         }
     },
@@ -647,10 +692,21 @@
             "command": "function life:quirk/seek/tick"
         },
         "condition": {
-            "type": "origins:resource",
-            "resource": "*:*_toggle",
-            "comparison": "==",
-            "compare_to": 1
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_toggle",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_erased",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
         },
         "interval": 1
     },
@@ -678,10 +734,21 @@
             ]
         },
         "condition": {
-            "type": "origins:resource",
-            "resource": "*:*_toggle",
-            "comparison": "==",
-            "compare_to": 1
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_toggle",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_erased",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
         }
     },
     "glow_trap": {
@@ -696,10 +763,21 @@
             "compare_to": 64
         },
         "condition": {
-            "type": "origins:resource",
-            "resource": "*:*_toggle",
-            "comparison": "==",
-            "compare_to": 1
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_toggle",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_erased",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
         }
     },
     "sound": {
@@ -735,6 +813,27 @@
                     }
                 ]
             }
+        }
+    },
+    "erased_over_time": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_toggle",
+                        "operation": "set",
+                        "change": 0
+                    }
+                ]
+            },
+        "interval": 5,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:quirk/misc/base_erased",
+            "comparison": ">",
+            "compare_to": 0
         }
     },
     "active_over_time": {

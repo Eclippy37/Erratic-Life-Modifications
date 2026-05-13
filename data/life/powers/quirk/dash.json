@@ -8,23 +8,75 @@
             "type": "origins:and",
             "actions": [
                 {
-                    "type": "origins:add_velocity",
-                    "z": 1.25,
-                    "space": "local"
-                },
-                {
-                    "type": "origins:add_velocity",
-                    "y": 0.25
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "playsound minecraft:entity.breeze.jump player @s ~ ~ ~ 1 1.25"
-                },
-                {
-                    "type": "origins:change_resource",
-                    "resource": "*:*_resource",
-                    "operation": "add",
-                    "change": -200
+                    "type": "origins:if_else",
+                    "if_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:add_velocity",
+                                "y": 0.25
+                            },
+                            {
+                                "type": "origins:add_velocity",
+                                "z": 1.25,
+                                "space": "local"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "playsound minecraft:entity.breeze.jump player @s ~ ~ ~ 0.8 1.25"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "playsound minecraft:entity.breeze.jump player @a[distance=0.01..] ~ ~ ~ 0.3 1.05"
+                            },
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "*:*_resource",
+                                "operation": "add",
+                                "change": -200
+                            }
+                        ]
+                    },
+                    "else_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:add_velocity",
+                                "y": 0.75
+                            },
+                            {
+                                "type": "origins:add_velocity",
+                                "z": 12.5,
+                                "space": "local"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "playsound minecraft:entity.breeze.jump player @s ~ ~ ~ 1.0 0.9"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "playsound minecraft:entity.breeze.jump player @a[distance=0.01..] ~ ~ ~ 0.5 0.85"
+                            },
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "*:*_resource",
+                                "operation": "set",
+                                "change": 0
+                            },
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "*:quirk/misc/base_enhanced",
+                                "operation": "set",
+                                "change": 0
+                            }
+                        ]
+                    },
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "*:quirk/misc/base_enhanced",
+                        "comparison": "==",
+                        "compare_to": 0
+                    }
                 },
                 {
                     "type": "origins:change_resource",
@@ -41,11 +93,23 @@
             ]
         },
         "condition": {
-            "type": "origins:resource",
-            "resource": "*:*_resource",
-            "comparison": ">=",
-            "compare_to": 200
-        }
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_resource",
+                    "comparison": ">=",
+                    "compare_to": 200
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_erased",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "cooldown": 1
     },
     "resource": {
         "hidden": true,
@@ -55,14 +119,24 @@
         "start_value": 700,
         "hud_render": {
             "should_render": true,
-            "sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
-            "bar_index": 3,
-            "inverted": false,
+            "sprite_location": "life:textures/gui/community/eclipse37/resource_bar_02.png",
+            "bar_index": 6,
             "condition": {
-                "type": "origins:resource",
-                "resource": "*:*_resource",
-                "comparison": "<",
-                "compare_to": 700
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:resource",
+                        "resource": "*:*_resource",
+                        "comparison": "<",
+                        "compare_to": 700
+                    },
+                    {
+                        "type": "origins:resource",
+                        "resource": "*:quirk/misc/base_erased",
+                        "comparison": "==",
+                        "compare_to": 0
+                    }
+                ]
             }
         }
     },
@@ -76,10 +150,21 @@
         },
         "interval": 1,
         "condition": {
-            "type": "origins:resource",
-            "resource": "*:*_resource",
-            "comparison": "<",
-            "compare_to": 700
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_resource",
+                    "comparison": "<",
+                    "compare_to": 700
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_erased",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
         }
     },
     "no_fall": {
@@ -89,10 +174,21 @@
             "name": "fall"
         },
         "condition": {
-            "type": "origins:resource",
-            "resource": "*:*_fall_resource",
-            "comparison": "==",
-            "compare_to": 1
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_fall_resource",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_erased",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
         }
     },
     "fall_resource": {
@@ -151,7 +247,7 @@
                         "type": "origins:change_resource",
                         "resource": "*:*_resource",
                         "operation": "set",
-                        "change": 0
+                        "change": 99999
                     }
                 ]
             }

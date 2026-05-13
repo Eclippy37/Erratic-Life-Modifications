@@ -77,30 +77,51 @@
                 }
             ]
         },
-        "cooldown": 5,
         "condition": {
-            "type": "origins:resource",
-            "resource": "*:*_cooldown",
-            "comparison": "==",
-            "compare_to": 0
-        }
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_cooldown",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_erased",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "cooldown": 3
     },
     "cooldown": {
         "type": "origins:resource",
         "min": 0,
-        "max": 300,
+        "max": 400,
         "start_value": 0,
         "hud_render": {
             "should_render": true,
-            "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
-            "bar_index": 1,
+            "sprite_location": "life:textures/gui/community/eclipse37/resource_bar_01.png",
+            "bar_index": 0,
             "inverted": false,
             "condition": {
-                "type": "origins:resource",
-                "resource": "*:*_cooldown",
-                "comparison": ">",
-                "compare_to": 0,
-                "inverted": false
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:resource",
+                        "resource": "*:*_cooldown",
+                        "comparison": ">",
+                        "compare_to": 0
+                    },
+                    {
+                        "type": "origins:resource",
+                        "resource": "*:quirk/misc/base_erased",
+                        "comparison": "==",
+                        "compare_to": 0
+                    }
+                ]
             }
         }
     },
@@ -114,10 +135,21 @@
         },
         "interval": 1,
         "condition": {
-            "type": "origins:resource",
-            "resource": "*:*_cooldown",
-            "comparison": ">",
-            "compare_to": 0
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_cooldown",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_erased",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
         }
     },
     "timer": {
@@ -162,15 +194,24 @@
         },
         "hud_render": {
             "should_render": true,
-            "sprite_location": "origins:textures/gui/resource_bar.png",
-            "bar_index": 6,
-            "inverted": false,
+            "sprite_location": "life:textures/gui/community/eclipse37/resource_bar_02.png",
+            "bar_index": 10,
             "condition": {
-                "type": "origins:resource",
-                "resource": "*:*_timer",
-                "comparison": ">",
-                "compare_to": 0,
-                "inverted": false
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:resource",
+                        "resource": "*:*_timer",
+                        "comparison": ">",
+                        "compare_to": 0
+                    },
+                    {
+                        "type": "origins:resource",
+                        "resource": "*:quirk/misc/base_erased",
+                        "comparison": "==",
+                        "compare_to": 0
+                    }
+                ]
             }
         }
     },
@@ -184,11 +225,21 @@
         },
         "interval": 1,
         "condition": {
-            "type": "origins:resource",
-            "resource": "*:*_timer",
-            "comparison": ">",
-            "compare_to": 0,
-            "inverted": false
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_timer",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_erased",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
         }
     },
     "remove": {

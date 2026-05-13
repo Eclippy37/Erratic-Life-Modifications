@@ -207,9 +207,15 @@
                 }
             ]
         },
-        "cooldown": 2,
+        "cooldown": 3,
         "hud_render": {
             "should_render": false
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:quirk/misc/base_erased",
+            "comparison": "==",
+            "compare_to": 0
         }
     },
     "attack": {
@@ -277,8 +283,22 @@
                             {
                                 "type": "origins:sneaking",
                                 "inverted": true
+                            },
+                            {
+                                "type": "origins:resource",
+                                "resource": "*:quirk/misc/base_erased",
+                                "comparison": "==",
+                                "compare_to": 0
                             }
                         ]
+                    }
+                },
+                {
+                    "type": "origins:target_condition",
+                    "condition": {
+                        "type": "origins:in_tag",
+                        "tag": "life:quirk_immune",
+                        "inverted": true
                     }
                 }
             ]
@@ -306,15 +326,28 @@
         },
         "hud_render": {
             "should_render": true,
-            "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
-            "bar_index": 5,
+            "sprite_location": "life:textures/gui/community/eclipse37/resource_bar_02.png",
+            "bar_index": 4,
+            "icon_index": 1,
             "inverted": false,
             "order": -1,
             "condition": {
-                "type": "origins:resource",
-                "resource": "*:*_toggle",
-                "comparison": "==",
-                "compare_to": 1
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:resource",
+                        "resource": "*:*_toggle",
+                        "comparison": ">",
+                        "compare_to": 0
+                    },
+                    {
+                        "type": "origins:resource",
+                        "resource": "*:quirk/misc/base_erased",
+                        "comparison": "==",
+                        "compare_to": 0
+                    }
+
+                ]
             }
         }
     },
@@ -325,15 +358,26 @@
         "start_value": 0,
         "hud_render": {
             "should_render": true,
-            "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
-            "bar_index": 1,
+            "sprite_location": "life:textures/gui/community/eclipse37/resource_bar_01.png",
+            "bar_index": 0,
             "inverted": false,
             "order": 1,
             "condition": {
-                "type": "origins:resource",
-                "resource": "*:*_cooldown",
-                "comparison": ">",
-                "compare_to": 0
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:resource",
+                        "resource": "*:*_cooldown",
+                        "comparison": ">",
+                        "compare_to": 0
+                    },
+                    {
+                        "type": "origins:resource",
+                        "resource": "*:quirk/misc/base_erased",
+                        "comparison": "==",
+                        "compare_to": 0
+                    }
+                ]
             }
         }
     },
@@ -347,10 +391,22 @@
         },
         "interval": 1,
         "condition": {
-            "type": "origins:resource",
-            "resource": "*:*_cooldown",
-            "comparison": ">",
-            "compare_to": 0
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_cooldown",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_erased",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+
+            ]
         }
     },
     "resource": {
@@ -360,8 +416,8 @@
         "start_value": 0,
         "hud_render": {
             "should_render": true,
-            "sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
-            "bar_index": 7,
+            "sprite_location": "life:textures/gui/community/eclipse37/resource_bar_02.png",
+            "bar_index": 5,
             "inverted": false,
             "order": 2,
             "condition": {
@@ -499,6 +555,12 @@
                         "change": 0
                     },
                     {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_activated",
+                        "operation": "set",
+                        "change": 0
+                    },
+                    {
                         "action": {
                             "type": "origins:if_action",
                             "action": {
@@ -519,6 +581,52 @@
                     }
                 ]
             }
+        }
+    },
+    "erased_over_time": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_toggle",
+                        "operation": "set",
+                        "change": 0
+                    },
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_resource",
+                        "operation": "set",
+                        "change": 0
+                    },
+                    {
+                        "action": {
+                            "type": "origins:if_action",
+                            "action": {
+                                "type": "origins:action_on_entity_set",
+                                "set": "*:*_set",
+                                "bientity_action": {
+                                    "type": "origins:remove_from_entity_set",
+                                    "set": "*:*_set"
+                                }
+                            },
+                            "condition": {
+                                "type": "origins:entity_set_size",
+                                "set": "*:*_set",
+                                "comparison": ">",
+                                "compare_to": 0
+                            }
+                        }
+                    }
+                ]
+            },
+        "interval": 5,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:quirk/misc/base_erased",
+            "comparison": ">",
+            "compare_to": 0
         }
     },
     "active_over_time": {

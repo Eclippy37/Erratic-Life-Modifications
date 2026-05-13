@@ -22,202 +22,14 @@
                     "type": "origins:and",
                     "actions": [
                         {
-                            "type": "origins:if_else_list",
-                            "actions": [
-                                {
-                                    "action": {
-                                        "type": "origins:and",
-                                        "actions": [
-                                            {
-                                                "type": "origins:change_resource",
-                                                "resource": "*:quirk/boom_toggle",
-                                                "operation": "set",
-                                                "change": 0
-                                            },
-                                            {
-                                                "type": "origins:change_resource",
-                                                "resource": "*:quirk/boom_cooldown",
-                                                "operation": "set",
-                                                "change": 99999
-                                            },
-                                            {
-                                                "action": {
-                                                    "type": "origins:if_action",
-                                                    "action": {
-                                                        "type": "origins:action_on_entity_set",
-                                                        "set": "*:quirk/boom_set",
-                                                        "bientity_action": {
-                                                            "type": "origins:remove_from_entity_set",
-                                                            "set": "*:quirk/boom_set"
-                                                        }
-                                                    },
-                                                    "condition": {
-                                                        "type": "origins:entity_set_size",
-                                                        "set": "*:quirk/boom_set",
-                                                        "comparison": ">",
-                                                        "compare_to": 0
-                                                    }
-                                                }
-                                            }
-                                        ]
-                                    },
-                                    "condition": {
-                                        "type": "origins:power",
-                                        "power": "life:quirk/boom"
-                                    }
-                                },
-                                {
-                                    "action": {
-                                        "type": "origins:and",
-                                        "actions": [
-                                            {
-                                                "type": "origins:change_resource",
-                                                "resource": "*:quirk/dash_resource",
-                                                "operation": "set",
-                                                "change": 0
-                                            },
-                                            {
-                                                "type": "origins:change_resource",
-                                                "resource": "*:quirk/dash_fall_resource",
-                                                "operation": "set",
-                                                "change": 0
-                                            }
-                                        ]
-                                    },
-                                    "condition": {
-                                        "type": "origins:power",
-                                        "power": "life:quirk/dash"
-                                    }
-                                },
-                                {
-                                    "action": {
-                                        "type": "origins:and",
-                                        "actions": [
-                                            {
-                                                "type": "origins:change_resource",
-                                                "resource": "*:quirk/feruchemy_power",
-                                                "operation": "set",
-                                                "change": 0
-                                            },
-                                            {
-                                                "type": "origins:change_resource",
-                                                "resource": "*:quirk/feruchemy_resource",
-                                                "operation": "set",
-                                                "change": 0
-                                            }
-                                        ]
-                                    },
-                                    "condition": {
-                                        "type": "origins:power",
-                                        "power": "life:quirk/feruchemy"
-                                    }
-                                },
-                                {
-                                    "action": {
-                                        "type": "origins:and",
-                                        "actions": [
-                                            {
-                                                "type": "origins:change_resource",
-                                                "resource": "*:quirk/float_timer",
-                                                "operation": "set",
-                                                "change": 0
-                                            },
-                                            {
-                                                "type": "origins:change_resource",
-                                                "resource": "*:quirk/float_cooldown",
-                                                "operation": "set",
-                                                "change": 99999
-                                            }
-                                        ]
-                                    },
-                                    "condition": {
-                                        "type": "origins:power",
-                                        "power": "life:quirk/float"
-                                    }
-                                },
-                                {
-                                    "action": {
-                                        "type": "origins:and",
-                                        "actions": [
-                                            {
-                                                "type": "origins:change_resource",
-                                                "resource": "*:quirk/friction_resource",
-                                                "operation": "set",
-                                                "change": 0
-                                            }
-                                        ]
-                                    },
-                                    "condition": {
-                                        "type": "origins:power",
-                                        "power": "life:quirk/friction"
-                                    }
-                                },
-                                {
-                                    "action": {
-                                        "type": "origins:and",
-                                        "actions": [
-                                            {
-                                                "type": "origins:change_resource",
-                                                "resource": "*:quirk/gravity_gravity",
-                                                "operation": "set",
-                                                "change": 1
-                                            },
-                                            {
-                                                "type": "origins:and",
-                                                "actions": [
-                                                    {
-                                                        "type": "origins:clear_effect",
-                                                        "effect": "gravity_changer:up"
-                                                    },
-                                                    {
-                                                        "type": "origins:clear_effect",
-                                                        "effect": "gravity_changer:north"
-                                                    },
-                                                    {
-                                                        "type": "origins:clear_effect",
-                                                        "effect": "gravity_changer:east"
-                                                    },
-                                                    {
-                                                        "type": "origins:clear_effect",
-                                                        "effect": "gravity_changer:south"
-                                                    },
-                                                    {
-                                                        "type": "origins:clear_effect",
-                                                        "effect": "gravity_changer:west"
-                                                    }
-                                                ]
-                                            },
-                                            {
-                                                "type": "origins:change_resource",
-                                                "resource": "*:*_fall_resource",
-                                                "operation": "set",
-                                                "change": 0
-                                            }
-                                        ]
-                                    },
-                                    "condition": {
-                                        "type": "origins:power",
-                                        "power": "life:quirk/gravity"
-                                    }
-                                },
-                                {
-                                    "action": {
-                                        "type": "origins:and",
-                                        "actions": [
-                                            {
-                                                "type": "origins:change_resource",
-                                                "resource": "*:quirk/jester_cooldown",
-                                                "operation": "set",
-                                                "change": 99999
-                                            }
-                                        ]
-                                    },
-                                    "condition": {
-                                        "type": "origins:power",
-                                        "power": "life:quirk/jester"
-                                    }
-                                }
-                            ]
+                            "type": "origins:change_resource",
+                            "resource": "*:quirk/misc/base_erased",
+                            "operation": "set",
+                            "change": 99999
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "playsound life:quirk.erase player @a ~ ~ ~ 1 1"
                         },
                         {
                             "type": "origins:change_resource",
@@ -227,9 +39,29 @@
                         }
                     ]
                 }
+            },
+            "miss_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:execute_command",
+                        "command": "title @s actionbar \"You are not looking at a player\""
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "playsound minecraft:block.note_block.bass player @s ~ ~ ~ 0.8 1"
+                    }
+                ]
             }
         },
-        "interval": 1
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "life:textures/gui/community/eclipse37/resource_bar_01.png",
+            "bar_index": 0,
+            "inverted": true,
+            "order": 1
+        },
+        "cooldown": 20
     },
     "base": {
         "type": "origins:action_on_callback",

@@ -8,64 +8,159 @@
             "continuous": true
         },
         "entity_action": {
-            "type": "origins:if_else_list",
-            "actions": [
-                {
-                    "action": {
-                        "type": "origins:raycast",
-                        "distance": 20,
-                        "block": true,
-                        "entity": true,
-                        "shape_type": "collider",
-                        "fluid_handling": "none",
-                        "hit_action": {
+            "type": "origins:raycast",
+            "distance": 24,
+            "block": true,
+            "entity": true,
+            "shape_type": "collider",
+            "fluid_handling": "none",
+            "hit_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:if_else",
+                        "if_action": {
                             "type": "origins:and",
                             "actions": [
                                 {
-                                    "type": "origins:add_velocity",
-                                    "z": 0.15,
-                                    "y": 0.01,
-                                    "space": "local",
-                                    "client": true,
-                                    "server": true
-                                },
-                                {
-                                    "type": "origins:add_velocity",
-                                    "y": 0.035,
-                                    "space": "world",
-                                    "client": true,
-                                    "server": true
-                                },
-                                {
-                                    "type": "origins:set_fall_distance",
-                                    "fall_distance": 1
-                                },
-                                {
-                                    "type": "origins:apply_effect",
-                                    "effects": [
-                                        {
-                                            "id": "minecraft:slow_falling",
-                                            "duration": 2,
-                                            "amplifier": 0,
-                                            "ambient": true,
-                                            "show_particles": false,
-                                            "show_icon": false
-                                        }
-                                    ]
+                                    "type": "origins:if_else",
+                                    "if_action": {
+                                        "type": "origins:and",
+                                        "actions": [
+                                            {
+                                                "type": "origins:add_velocity",
+                                                "z": 0.15,
+                                                "y": 0.01,
+                                                "space": "local",
+                                                "client": true,
+                                                "server": true
+                                            },
+                                            {
+                                                "type": "origins:add_velocity",
+                                                "y": 0.035,
+                                                "space": "world",
+                                                "client": true,
+                                                "server": true
+                                            }
+                                        ]
+                                    },
+                                    "else_action": {
+                                        "type": "origins:and",
+                                        "actions": [
+                                            {
+                                                "type": "origins:add_velocity",
+                                                "z": 0.03,
+                                                "y": 0.005,
+                                                "space": "local",
+                                                "client": true,
+                                                "server": true
+                                            }
+                                        ]
+                                    },
+                                    "condition": {
+                                        "type": "origins:sneaking",
+                                        "inverted": true
+                                    }
                                 },
                                 {
                                     "type": "origins:exhaust",
                                     "amount": 0.075
-                                },
-                                {
-                                    "type": "origins:change_resource",
-                                    "resource": "*:quirk/misc/base_active",
-                                    "operation": "set",
-                                    "change": 99999
                                 }
                             ]
                         },
-                        "bientity_action": {
+                        "else_action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:if_else",
+                                    "if_action": {
+                                        "type": "origins:and",
+                                        "actions": [
+                                           {
+                                                "type": "origins:add_velocity",
+                                                "z": 1.5,
+                                                "y": 0.05,
+                                                "space": "local",
+                                                "client": true,
+                                                "server": true
+                                            },
+                                            {
+                                                "type": "origins:add_velocity",
+                                                "y": 0.075,
+                                                "space": "world",
+                                                "client": true,
+                                                "server": true
+                                            }
+                                        ]
+                                    },
+                                    "else_action": {
+                                        "type": "origins:and",
+                                        "actions": [
+                                            {
+                                                "type": "origins:add_velocity",
+                                                "z": 0.15,
+                                                "y": 0.01,
+                                                "space": "local",
+                                                "client": true,
+                                                "server": true
+                                            }
+                                        ]
+                                    },
+                                    "condition": {
+                                        "type": "origins:sneaking",
+                                        "inverted": true
+                                    }
+                                },
+                                {
+                                    "type": "origins:exhaust",
+                                    "amount": 1.25
+                                },
+                                {
+                                    "type": "origins:change_resource",
+                                    "resource": "*:quirk/misc/base_enhanced",
+                                    "operation": "add",
+                                    "change": -1
+                                }
+                            ]
+                        },
+                        "condition": {
+                            "type": "origins:resource",
+                            "resource": "*:quirk/misc/base_enhanced",
+                            "comparison": "==",
+                            "compare_to": 0
+                        }
+                    },
+                    {
+                        "type": "origins:set_fall_distance",
+                        "fall_distance": 2
+                    },
+                    {
+                        "type": "origins:apply_effect",
+                        "effects": [
+                            {
+                                "id": "minecraft:slow_falling",
+                                "duration": 2,
+                                "amplifier": 0,
+                                "ambient": true,
+                                "show_particles": false,
+                                "show_icon": false
+                            }
+                        ]
+                    },
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "*:quirk/misc/base_active",
+                        "operation": "set",
+                        "change": 99999
+                    }
+                ]
+            },
+            "bientity_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:if_else",
+                        "if_action": {
                             "type": "origins:and",
                             "actions": [
                                 {
@@ -78,153 +173,101 @@
                                 {
                                     "type": "origins:target_action",
                                     "action": {
-                                        "type": "origins:and",
-                                        "actions": [
-                                            {
-                                                "type": "origins:add_velocity",
-                                                "y": 0.075,
-                                                "space": "world",
-                                                "client": true,
-                                                "server": true
-                                            },
-                                            {
-                                                "type": "origins:set_fall_distance",
-                                                "fall_distance": 1
-                                            },
-                                            {
-                                                "type": "origins:apply_effect",
-                                                "effects": [
-                                                    {
-                                                        "id": "minecraft:slow_falling",
-                                                        "duration": 5,
-                                                        "amplifier": 0,
-                                                        "ambient": true,
-                                                        "show_particles": false,
-                                                        "show_icon": false
-                                                    }
-                                                ]
-                                            }
-                                        ]
+                                        "type": "origins:add_velocity",
+                                        "y": 0.075,
+                                        "space": "world",
+                                        "client": true,
+                                        "server": true
                                     }
                                 }
                             ]
                         },
-                        "command_at_hit": "particle minecraft:dust{color:[1.0,0.1,0.1],scale:1} ~ ~ ~ 0.25 0.25 0.25 0 3 normal @a",
-                        "command_along_ray": "particle minecraft:dust{color:[1.0,0.1,0.1],scale:1} ~ ~ ~ 0.01 0.01 0.01 0 1 normal @a",
-                        "command_step": 1
-                    },
-                    "condition": {
-                        "type": "origins:sneaking",
-                        "inverted": true
-                    }
-                },
-                {
-                    "action": {
-                        "type": "origins:raycast",
-                        "distance": 20,
-                        "block": true,
-                        "entity": true,
-                        "shape_type": "collider",
-                        "fluid_handling": "none",
-                        "hit_action": {
+                        "else_action": {
                             "type": "origins:and",
                             "actions": [
                                 {
                                     "type": "origins:add_velocity",
-                                    "z": 0.03,
-                                    "y": 0.005,
-                                    "space": "local",
-                                    "client": true,
-                                    "server": true
-                                },
-                                {
-                                    "type": "origins:set_fall_distance",
-                                    "fall_distance": 1
-                                },
-                                {
-                                    "type": "origins:apply_effect",
-                                    "effects": [
-                                        {
-                                            "id": "minecraft:slow_falling",
-                                            "duration": 2,
-                                            "amplifier": 0,
-                                            "ambient": true,
-                                            "show_particles": false,
-                                            "show_icon": false
-                                        }
-                                    ]
-                                },
-                                {
-                                    "type": "origins:exhaust",
-                                    "amount": 0.075
-                                },
-                                {
-                                    "type": "origins:change_resource",
-                                    "resource": "*:quirk/misc/base_active",
-                                    "operation": "set",
-                                    "change": 99999
-                                }
-                            ]
-                        },
-                        "bientity_action": {
-                            "type": "origins:and",
-                            "actions": [
-                                {
-                                    "type": "origins:add_velocity",
-                                    "z": -0.15,
-                                    "y": 0.03,
+                                    "z": -1.5,
+                                    "y": 0.05,
                                     "client": true,
                                     "server": true
                                 },
                                 {
                                     "type": "origins:target_action",
                                     "action": {
-                                        "type": "origins:and",
-                                        "actions": [
-                                            {
-                                                "type": "origins:add_velocity",
-                                                "y": 0.075,
-                                                "space": "world",
-                                                "client": true,
-                                                "server": true
-                                            },
-                                            {
-                                                "type": "origins:set_fall_distance",
-                                                "fall_distance": 1
-                                            },
-                                            {
-                                                "type": "origins:apply_effect",
-                                                "effects": [
-                                                    {
-                                                        "id": "minecraft:slow_falling",
-                                                        "duration": 5,
-                                                        "amplifier": 0,
-                                                        "ambient": true,
-                                                        "show_particles": false,
-                                                        "show_icon": false
-                                                    }
-                                                ]
-                                            }
-                                        ]
+                                        "type": "origins:add_velocity",
+                                        "y": 0.1,
+                                        "space": "world",
+                                        "client": true,
+                                        "server": true
                                     }
                                 }
                             ]
                         },
-                        "command_at_hit": "particle minecraft:dust{color:[1.0,0.1,0.1],scale:1} ~ ~ ~ 0.25 0.25 0.25 0 3 normal @a",
-                        "command_along_ray": "particle minecraft:dust{color:[1.0,0.1,0.1],scale:1} ~ ~ ~ 0.01 0.01 0.01 0 1 normal @a",
-                        "command_step": 1
+                        "condition": {
+                            "type": "origins:actor_condition",
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "*:quirk/misc/base_enhanced",
+                                "comparison": "==",
+                                "compare_to": 0
+                            }
+                        }
                     },
-                    "condition": {
-                        "type": "origins:sneaking",
-                        "inverted": false
+                    {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:set_fall_distance",
+                                    "fall_distance": 2
+                                },
+                                {
+                                    "type": "origins:apply_effect",
+                                    "effects": [
+                                        {
+                                            "id": "minecraft:slow_falling",
+                                            "duration": 5,
+                                            "amplifier": 0,
+                                            "ambient": true,
+                                            "show_particles": false,
+                                            "show_icon": false
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
                     }
+                ]
+            },
+            "bientity_condition": {
+                "type": "origins:target_condition",
+                "condition": {
+                    "type": "origins:in_tag",
+                    "tag": "life:quirk_immune",
+                    "inverted": true
                 }
-            ]
+            },
+            "command_at_hit": "particle minecraft:dust{color:[1.0,0.1,0.1],scale:1} ~ ~ ~ 0.25 0.25 0.25 0 3 normal @a",
+            "command_along_ray": "particle minecraft:dust{color:[1.0,0.1,0.1],scale:1} ~ ~ ~ 0.01 0.01 0.01 0 1 normal @a",
+            "command_step": 1
         },
         "condition": {
-            "type": "origins:food_level",
-            "comparison": ">",
-            "compare_to": 6
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:food_level",
+                    "comparison": ">",
+                    "compare_to": 6
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_erased",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
         },
         "cooldown": 1
     },

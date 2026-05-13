@@ -20,6 +20,19 @@
                             {
                                 "type": "origins:execute_command",
                                 "command": "playsound minecraft:block.beacon.activate player @s ~ ~ ~ 0.3 1.75"
+                            },
+                            {
+                                "type": "origins:apply_effect",
+                                "effects": [
+                                    {
+                                        "id": "gravity_changer:strength_decrease",
+                                        "duration": 79,
+                                        "amplifier": 1,
+                                        "ambient": true,
+                                        "show_particles": false,
+                                        "show_icon": false
+                                    }
+                                ]
                             }
                         ]
                     },
@@ -55,11 +68,17 @@
                 }
             ]
         },
-        "cooldown": 5,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:quirk/misc/base_erased",
+            "comparison": "==",
+            "compare_to": 0
+        },
+        "cooldown": 3,
         "hud_render": {
             "should_render": false,
-            "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
-            "bar_index": 1,
+            "sprite_location": "life:textures/gui/community/eclipse37/resource_bar_01.png",
+            "bar_index": 0,
             "order": 1,
             "inverted": false
         }
@@ -75,14 +94,25 @@
         "start_value": 0,
         "hud_render": {
             "should_render": true,
-            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png",
-            "bar_index": 8,
+            "sprite_location": "life:textures/gui/community/eclipse37/resource_bar_02.png",
+            "bar_index": 9,
             "inverted": false,
             "condition": {
-                "type": "origins:resource",
-                "resource": "*:*_toggle",
-                "comparison": "==",
-                "compare_to": 1
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:resource",
+                        "resource": "*:*_toggle",
+                        "comparison": "==",
+                        "compare_to": 1
+                    },
+                    {
+                        "type": "origins:resource",
+                        "resource": "*:quirk/misc/base_erased",
+                        "comparison": "==",
+                        "compare_to": 0
+                    }
+                ]
             }
         }
     },
@@ -108,10 +138,21 @@
         },
         "interval": 1,
         "condition": {
-            "type": "origins:resource",
-            "resource": "*:*_toggle",
-            "comparison": "==",
-            "compare_to": 1
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_toggle",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_erased",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
         }
     },
     "gravity_aura": {
@@ -155,43 +196,72 @@
                     ]
                 }
             },
+            "bientity_condition": {
+                "type": "origins:target_condition",
+                "condition": {
+                    "type": "origins:in_tag",
+                    "tag": "life:living_entity"
+                }
+            },
             "include_actor": false
         },
         "interval": 3,
         "condition": {
-            "type": "origins:resource",
-            "resource": "*:*_toggle",
-            "comparison": "==",
-            "compare_to": 1
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_toggle",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_erased",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
         }
     },
     "gravity_attribute": {
         "type": "origins:conditioned_attribute",
         "modifiers": [
             {
-                "id": "life:gravity",
+                "id": "life:star_gravity",
                 "attribute": "minecraft:generic.gravity",
                 "operation": "add_multiplied_total",
                 "amount": -0.0
             },
             {
-                "id": "life:safe_fall_distance",
+                "id": "life:star_safe_fall_distance",
                 "attribute": "minecraft:generic.safe_fall_distance",
                 "operation": "add_multiplied_total",
                 "amount": 2.5
             },
             {
-                "id": "life:fall_damage",
+                "id": "life:star_fall_damage",
                 "attribute": "minecraft:generic.fall_damage_multiplier",
                 "operation": "add_multiplied_total",
                 "amount": -0.75
             }
         ],
         "condition": {
-            "type": "origins:resource",
-            "resource": "*:*_toggle",
-            "comparison": "==",
-            "compare_to": 1
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_toggle",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_erased",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
         },
         "tick_rate": 10
     },
@@ -243,7 +313,7 @@
                         "type": "origins:target_condition",
                         "condition": {
                             "type": "origins:in_tag",
-                            "tag": "life:projectiles"
+                            "tag": "life:star_projectiles"
                         }
                     },
                     {
@@ -260,10 +330,21 @@
         },
         "interval": 1,
         "condition": {
-            "type": "origins:resource",
-            "resource": "*:*_toggle",
-            "comparison": "==",
-            "compare_to": 1
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_toggle",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_erased",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
         }
     },
     "meteor_strike": {
@@ -290,14 +371,26 @@
         "cooldown": 900,
         "hud_render": {
             "should_render": true,
-            "sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
+            "sprite_location": "life:textures/gui/community/eclipse37/resource_bar_01.png",
             "bar_index": 0,
             "order": 1,
+            "inverted": true,
             "condition": {
-                "type": "origins:resource",
-                "resource": "*:*_toggle",
-                "comparison": "==",
-                "compare_to": 1
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:resource",
+                        "resource": "*:*_toggle",
+                        "comparison": "==",
+                        "compare_to": 1
+                    },
+                    {
+                        "type": "origins:resource",
+                        "resource": "*:quirk/misc/base_erased",
+                        "comparison": "==",
+                        "compare_to": 0
+                    }
+                ]
             }
         },
         "condition": {
@@ -315,6 +408,12 @@
                     "resource": "*:*_toggle",
                     "comparison": "==",
                     "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_erased",
+                    "comparison": "==",
+                    "compare_to": 0
                 }
             ]
         }
@@ -327,16 +426,27 @@
             "amount": -0.1
         },
         "condition": {
-            "type": "origins:resource",
-            "resource": "*:*_toggle",
-            "comparison": "==",
-            "compare_to": 1
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_toggle",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_erased",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
         }
     },
     "overlay": {
         "type": "origins:overlay",
         "texture": "life:ice",
-        "strength": 0.1,
+        "strength": 0.05,
         "red": 0,
         "green": 0,
         "blue": 1,
@@ -345,10 +455,21 @@
         "hide_with_hud": false,
         "visible_in_third_person": true,
         "condition": {
-            "type": "origins:resource",
-            "resource": "*:*_toggle",
-            "comparison": "==",
-            "compare_to": 1
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_toggle",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_erased",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
         }
     },
     "death": {
@@ -372,6 +493,27 @@
                     }
                 ]
             }
+        }
+    },
+    "erased_over_time": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "*:*_toggle",
+                    "operation": "set",
+                    "change": 0
+                }
+            ]
+        },
+        "interval": 5,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:quirk/misc/base_erased",
+            "comparison": ">",
+            "compare_to": 0
         }
     },
     "active_over_time": {

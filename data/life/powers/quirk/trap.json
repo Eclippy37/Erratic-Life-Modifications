@@ -222,7 +222,7 @@
                                 "type": "origins:change_resource",
                                 "resource": "*:*_cooldown",
                                 "operation": "set",
-                                "change": 12
+                                "change": 99999
                             },
                             {
                                 "type": "origins:change_resource",
@@ -343,7 +343,7 @@
                                 "type": "origins:change_resource",
                                 "resource": "*:*_cooldown",
                                 "operation": "set",
-                                "change": 1200
+                                "change": 99999
                             },
                             {
                                 "type": "origins:change_resource",
@@ -377,6 +377,12 @@
                 }
             ]
         },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:quirk/misc/base_erased",
+            "comparison": "==",
+            "compare_to": 0
+        },
         "cooldown": 3
     },
     "cooldown": {
@@ -386,14 +392,25 @@
         "start_value": 0,
         "hud_render": {
             "should_render": true,
-            "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
-            "bar_index": 1,
+            "sprite_location": "life:textures/gui/community/eclipse37/resource_bar_01.png",
+            "bar_index": 0,
             "inverted": false,
             "condition": {
-                "type": "origins:resource",
-                "resource": "*:*_cooldown",
-                "comparison": ">",
-                "compare_to": 0
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:resource",
+                        "resource": "*:*_cooldown",
+                        "comparison": ">",
+                        "compare_to": 0
+                    },
+                    {
+                        "type": "origins:resource",
+                        "resource": "*:quirk/misc/base_erased",
+                        "comparison": "==",
+                        "compare_to": 0
+                    }
+                ]
             }
         }
     },
@@ -407,10 +424,21 @@
         },
         "interval": 1,
         "condition": {
-            "type": "origins:resource",
-            "resource": "*:*_cooldown",
-            "comparison": ">",
-            "compare_to": 0
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_cooldown",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_erased",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
         }
     },
     "resource": {
@@ -428,6 +456,12 @@
             "type": "origins:execute_command",
             "command": "function life:quirk/trap/tick"
         },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:quirk/misc/base_erased",
+            "comparison": "==",
+            "compare_to": 0
+        },
         "interval": 1
     },
     "glow": {
@@ -440,14 +474,16 @@
             "type": "origins:distance",
             "comparison": "<=",
             "compare_to": 64
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:quirk/misc/base_erased",
+            "comparison": "==",
+            "compare_to": 0
         }
     },
     "remove": {
         "type": "origins:action_on_callback",
-        "entity_action_respawned": {
-            "type": "origins:execute_command",
-            "command": "kill @e[type=minecraft:block_display,tag=quirk.trap.point]"
-        },
         "entity_action_lost": {
             "type": "origins:execute_command",
             "command": "kill @e[type=minecraft:block_display,tag=quirk.trap.point]"
@@ -478,6 +514,25 @@
                     }
                 ]
             }
+        }
+    },
+    "erased_over_time": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "kill @e[type=minecraft:block_display,tag=quirk.trap.point]"
+                }
+            ]
+        },
+        "interval": 5,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:quirk/misc/base_erased",
+            "comparison": ">",
+            "compare_to": 0
         }
     },
     "base": {

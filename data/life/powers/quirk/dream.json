@@ -117,6 +117,12 @@
                 }
             ]
         },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:quirk/misc/base_erased",
+            "comparison": "==",
+            "compare_to": 0
+        },
         "cooldown": 5
     },
     "sleeping": {
@@ -129,9 +135,26 @@
         },
         "interval": 10,
         "condition": {
-            "type": "origins:nbt",
-            "nbt": "{SleepTimer:0s}",
-            "inverted": true
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:nbt",
+                    "nbt": "{SleepTimer:0s}",
+                    "inverted": true
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_resource",
+                    "comparison": "<",
+                    "compare_to": 21
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_erased",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
         }
     },
     "resource": {
@@ -145,11 +168,21 @@
             "bar_index": 7,
             "inverted": false,
             "condition": {
-                "type": "origins:resource",
-                "resource": "*:*_resource",
-                "comparison": "<",
-                "compare_to": 21,
-                "inverted": false
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:resource",
+                        "resource": "*:*_resource",
+                        "comparison": "<",
+                        "compare_to": 21
+                    },
+                    {
+                        "type": "origins:resource",
+                        "resource": "*:quirk/misc/base_erased",
+                        "comparison": "==",
+                        "compare_to": 0
+                    }
+                ]
             }
         }
     },

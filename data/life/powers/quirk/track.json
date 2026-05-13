@@ -37,8 +37,17 @@
                                     ]
                                 },
                                 "miss_action": {
-                                    "type": "origins:execute_command",
-                                    "command": "function life:quirk/track/actor/miss"
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "title @s actionbar \"You are not looking at a player\""
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "playsound minecraft:block.note_block.bass player @s ~ ~ ~ 0.8 1"
+                                        }
+                                    ]
                                 }
                             }
                         ]
@@ -60,6 +69,12 @@
                 }
             ]
         },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:quirk/misc/base_erased",
+            "comparison": "==",
+            "compare_to": 0
+        },
         "cooldown": 1
     },
     "tick_over_time": {
@@ -67,6 +82,12 @@
         "entity_action": {
             "type": "origins:execute_command",
             "command": "function life:quirk/track/tick"
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:quirk/misc/base_erased",
+            "comparison": "==",
+            "compare_to": 0
         },
         "interval": 1
     },
@@ -80,6 +101,12 @@
             "type": "origins:distance",
             "comparison": "<=",
             "compare_to": 128
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:quirk/misc/base_erased",
+            "comparison": "==",
+            "compare_to": 0
         }
     },
     "remove": {
@@ -106,6 +133,31 @@
                     }
                 ]
             }
+        }
+    },
+    "erased_over_time": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "*:*_timer",
+                    "operation": "set",
+                    "change": 0
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "function life:quirk/track/clear_full"
+                }
+            ]
+        },
+        "interval": 5,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:quirk/misc/base_erased",
+            "comparison": ">",
+            "compare_to": 0
         }
     },
     "active_over_time": {

@@ -77,10 +77,21 @@
         },
         "cooldown": 5,
         "condition": {
-            "type": "origins:resource",
-            "resource": "*:*_cooldown",
-            "comparison": "==",
-            "compare_to": 0
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_cooldown",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_erased",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
         }
     },
     "attribute": {
@@ -93,10 +104,21 @@
         },
         "tick_rate": 1,
         "condition": {
-            "type": "origins:resource",
-            "resource": "*:*_timer",
-            "comparison": ">",
-            "compare_to": 0
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_timer",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_erased",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
         }
     },
     "cooldown": {
@@ -106,14 +128,25 @@
         "start_value": 0,
         "hud_render": {
             "should_render": true,
-            "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
-            "bar_index": 1,
+            "sprite_location": "life:textures/gui/community/eclipse37/resource_bar_01.png",
+            "bar_index": 0,
             "inverted": false,
             "condition": {
-                "type": "origins:resource",
-                "resource": "*:*_cooldown",
-                "comparison": ">",
-                "compare_to": 0
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:resource",
+                        "resource": "*:*_cooldown",
+                        "comparison": ">",
+                        "compare_to": 0
+                    },
+                    {
+                        "type": "origins:resource",
+                        "resource": "*:quirk/misc/base_erased",
+                        "comparison": "==",
+                        "compare_to": 0
+                    }
+                ]
             }
         }
     },
@@ -127,10 +160,21 @@
         },
         "interval": 1,
         "condition": {
-            "type": "origins:resource",
-            "resource": "*:*_cooldown",
-            "comparison": ">",
-            "compare_to": 0
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_cooldown",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_erased",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
         }
     },
     "timer": {
@@ -172,10 +216,21 @@
             "bar_index": 4,
             "inverted": false,
             "condition": {
-                "type": "origins:resource",
-                "resource": "*:*_timer",
-                "comparison": ">",
-                "compare_to": 0
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:resource",
+                        "resource": "*:*_timer",
+                        "comparison": ">",
+                        "compare_to": 0
+                    },
+                    {
+                        "type": "origins:resource",
+                        "resource": "*:quirk/misc/base_erased",
+                        "comparison": "==",
+                        "compare_to": 0
+                    }
+                ]
             }
         }
     },
@@ -189,10 +244,21 @@
         },
         "interval": 1,
         "condition": {
-            "type": "origins:resource",
-            "resource": "*:*_timer",
-            "comparison": ">",
-            "compare_to": 0
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_timer",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_erased",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
         }
     },
     "effect_over_time": {
@@ -212,10 +278,21 @@
         },
         "interval": 5,
         "condition": {
-            "type": "origins:resource",
-            "resource": "*:*_timer",
-            "comparison": ">",
-            "compare_to": 0
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_timer",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_erased",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
         }
     },
     "death": {
@@ -227,13 +304,13 @@
                 "actions": [
                     {
                         "type": "origins:change_resource",
-                        "resource": "*:*_cooldown",
+                        "resource": "*:*_timer",
                         "operation": "set",
                         "change": 0
                     },
                     {
                         "type": "origins:change_resource",
-                        "resource": "*:*_timer",
+                        "resource": "*:*_cooldown",
                         "operation": "set",
                         "change": 0
                     }

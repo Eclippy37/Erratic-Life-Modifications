@@ -48,29 +48,51 @@
                 }
             ]
         },
-        "cooldown": 5,
+        "cooldown": 3,
         "condition": {
-            "type": "origins:resource",
-            "resource": "*:*_cooldown",
-            "comparison": "==",
-            "compare_to": 0
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_cooldown",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_erased",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
         }
     },
     "cooldown": {
         "type": "origins:resource",
         "min": 0,
-        "max": 1200,
+        "max": 400,
         "start_value": 0,
         "hud_render": {
             "should_render": true,
-            "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
-            "bar_index": 1,
+            "sprite_location": "life:textures/gui/community/eclipse37/resource_bar_01.png",
+            "bar_index": 0,
             "inverted": false,
             "condition": {
-                "type": "origins:resource",
-                "resource": "*:*_cooldown",
-                "comparison": ">",
-                "compare_to": 0
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:resource",
+                        "resource": "*:*_cooldown",
+                        "comparison": ">",
+                        "compare_to": 0
+                    },
+                    {
+                        "type": "origins:resource",
+                        "resource": "*:quirk/misc/base_erased",
+                        "comparison": "==",
+                        "compare_to": 0
+                    }
+                ]
             }
         }
     },
@@ -84,10 +106,21 @@
         },
         "interval": 1,
         "condition": {
-            "type": "origins:resource",
-            "resource": "*:*_cooldown",
-            "comparison": ">",
-            "compare_to": 0
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_cooldown",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_erased",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
         }
     },
     "timer": {
@@ -98,12 +131,6 @@
         "min_action": {
             "type": "origins:and",
             "actions": [
-                {
-                    "type": "origins:change_resource",
-                    "resource": "*:*_timer",
-                    "operation": "set",
-                    "change": 0
-                },
                 {
                     "type": "origins:change_resource",
                     "resource": "*:*_cooldown",
@@ -118,10 +145,21 @@
             "bar_index": 0,
             "inverted": false,
             "condition": {
-                "type": "origins:resource",
-                "resource": "*:*_timer",
-                "comparison": ">",
-                "compare_to": 0
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:resource",
+                        "resource": "*:*_timer",
+                        "comparison": ">",
+                        "compare_to": 0
+                    },
+                    {
+                        "type": "origins:resource",
+                        "resource": "*:quirk/misc/base_erased",
+                        "comparison": "==",
+                        "compare_to": 0
+                    }
+                ]
             }
         }
     },
@@ -135,10 +173,21 @@
         },
         "interval": 1,
         "condition": {
-            "type": "origins:resource",
-            "resource": "*:*_timer",
-            "comparison": ">",
-            "compare_to": 0
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_timer",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_erased",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
         }
     },
     "invisibility": {
@@ -146,10 +195,21 @@
         "render_armor": false,
         "render_outline": false,
         "condition": {
-            "type": "origins:resource",
-            "resource": "*:*_timer",
-            "comparison": ">",
-            "compare_to": 0
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_timer",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_erased",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
         }
     },
     "effect_over_time": {
@@ -177,10 +237,50 @@
             ]
         },
         "condition": {
-            "type": "origins:resource",
-            "resource": "*:*_timer",
-            "comparison": ">",
-            "compare_to": 0
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_timer",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_erased",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+    "prevent_feature_render": {
+        "type": "origins:prevent_feature_render",
+        "features": [
+            "armor",
+            "cape",
+            "elytra",
+            "head",
+            "held_item",
+            "trident_riptide",
+            "stuck_objects"
+        ],
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_timer",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_erased",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
         }
     },
     "prevent_item_use": {
@@ -191,10 +291,21 @@
             "value": true
         },
         "condition": {
-            "type": "origins:resource",
-            "resource": "*:*_timer",
-            "comparison": ">",
-            "compare_to": 1
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_timer",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_erased",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
         }
     },
     "smoke_attributes": {
@@ -215,10 +326,21 @@
         ],
         "tick_rate": 10,
         "condition": {
-            "type": "origins:resource",
-            "resource": "*:*_timer",
-            "comparison": ">",
-            "compare_to": 1
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_timer",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_erased",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
         }
     },
     "smoke_over_time": {
@@ -231,10 +353,21 @@
                 "command": "particle minecraft:campfire_signal_smoke ~ ~ ~ 0.5 0.5 0.5 0 15 force @a"
             },
             "condition": {
-                "type": "origins:resource",
-                "resource": "*:*_timer",
-                "comparison": ">",
-                "compare_to": 0
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:resource",
+                        "resource": "*:*_timer",
+                        "comparison": ">",
+                        "compare_to": 0
+                    },
+                    {
+                        "type": "origins:resource",
+                        "resource": "*:quirk/misc/base_erased",
+                        "comparison": "==",
+                        "compare_to": 0
+                    }
+                ]
             }
         }
     },
@@ -242,19 +375,41 @@
         "type": "origins:elytra_flight",
         "render_elytra": false,
         "condition": {
-            "type": "origins:resource",
-            "resource": "*:*_timer",
-            "comparison": ">",
-            "compare_to": 0
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_timer",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_erased",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
         }
     },
     "air_swim": {
         "type": "origins:swimming",
         "condition": {
-            "type": "origins:resource",
-            "resource": "*:*_timer",
-            "comparison": ">",
-            "compare_to": 0
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_timer",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_erased",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
         }
     },
     "damage_cooldown": {
@@ -277,10 +432,21 @@
             ]
         },
         "condition": {
-            "type": "origins:resource",
-            "resource": "*:*_timer",
-            "comparison": ">",
-            "compare_to": 0
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_timer",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_erased",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
         }
     },
     "modify_damage_taken": {
@@ -291,10 +457,21 @@
             "amount": 2.0
         },
         "condition": {
-            "type": "origins:resource",
-            "resource": "*:*_timer",
-            "comparison": ">",
-            "compare_to": 0
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_timer",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_erased",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
         }
     },
     "death": {
@@ -318,6 +495,27 @@
                     }
                 ]
             }
+        }
+    },
+    "erased_over_time": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "*:*_timer",
+                    "operation": "set",
+                    "change": 0
+                }
+            ]
+        },
+        "interval": 5,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:quirk/misc/base_erased",
+            "comparison": ">",
+            "compare_to": 0
         }
     },
     "active_over_time": {

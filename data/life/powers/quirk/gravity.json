@@ -1363,6 +1363,12 @@
                 ]
             }
         },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:quirk/misc/base_erased",
+            "comparison": "==",
+            "compare_to": 0
+        },
         "cooldown": 10,
         "hud_render": {
             "should_render": false
@@ -1540,6 +1546,12 @@
                 }
             ]
         },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:quirk/misc/base_erased",
+            "comparison": "==",
+            "compare_to": 0
+        },
         "interval": 1
     },
     "gravity": {
@@ -1603,10 +1615,21 @@
             "sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
             "bar_index": 3,
             "condition": {
-                "type": "origins:resource",
-                "resource": "*:*_resource",
-                "comparison": "<",
-                "compare_to": 3000
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:resource",
+                        "resource": "*:*_resource",
+                        "comparison": "<",
+                        "compare_to": 3000
+                    },
+                    {
+                        "type": "origins:resource",
+                        "resource": "*:quirk/misc/base_erased",
+                        "comparison": "==",
+                        "compare_to": 0
+                    }
+                ]
             }
         }
     },
@@ -1616,7 +1639,7 @@
             "type": "origins:change_resource",
             "resource": "*:*_resource",
             "operation": "add",
-            "change": 1
+            "change": 2
         },
         "interval": 1,
         "condition": {
@@ -1637,6 +1660,12 @@
                 {
                     "type": "origins:resource",
                     "resource": "*:*_fall_resource",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_erased",
                     "comparison": "==",
                     "compare_to": 0
                 }
@@ -1677,48 +1706,18 @@
                             "compare_to": 0
                         }
                     ]
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_erased",
+                    "comparison": "==",
+                    "compare_to": 0
                 }
             ]
         }
     },
     "remove": {
         "type": "origins:action_on_callback",
-        "entity_action_respawned": {
-            "type": "origins:and",
-            "actions": [
-                {
-                    "type": "origins:change_resource",
-                    "resource": "*:*_gravity",
-                    "operation": "set",
-                    "change": 1
-                },
-                {
-                    "type": "origins:and",
-                    "actions": [
-                        {
-                            "type": "origins:clear_effect",
-                            "effect": "gravity_changer:up"
-                        },
-                        {
-                            "type": "origins:clear_effect",
-                            "effect": "gravity_changer:north"
-                        },
-                        {
-                            "type": "origins:clear_effect",
-                            "effect": "gravity_changer:east"
-                        },
-                        {
-                            "type": "origins:clear_effect",
-                            "effect": "gravity_changer:south"
-                        },
-                        {
-                            "type": "origins:clear_effect",
-                            "effect": "gravity_changer:west"
-                        }
-                    ]
-                }
-            ]
-        },
         "entity_action_lost": {
             "type": "origins:and",
             "actions": [
@@ -1763,10 +1762,21 @@
             "name": "fall"
         },
         "condition": {
-            "type": "origins:resource",
-            "resource": "*:*_fall_resource",
-            "comparison": ">",
-            "compare_to": 0
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_fall_resource",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_erased",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
         }
     },
     "fall_resource": {
@@ -1904,6 +1914,58 @@
                     ]
                 }
             ]
+        }
+    },
+    "erased_over_time": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_gravity",
+                        "operation": "set",
+                        "change": 1
+                    },
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_fall_resource",
+                        "operation": "set",
+                        "change": 0
+                    },
+                    {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:clear_effect",
+                                "effect": "gravity_changer:up"
+                            },
+                            {
+                                "type": "origins:clear_effect",
+                                "effect": "gravity_changer:north"
+                            },
+                            {
+                                "type": "origins:clear_effect",
+                                "effect": "gravity_changer:east"
+                            },
+                            {
+                                "type": "origins:clear_effect",
+                                "effect": "gravity_changer:south"
+                            },
+                            {
+                                "type": "origins:clear_effect",
+                                "effect": "gravity_changer:west"
+                            }
+                        ]
+                    }
+                ]
+            },
+        "interval": 5,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:quirk/misc/base_erased",
+            "comparison": ">",
+            "compare_to": 0
         }
     },
     "base": {
