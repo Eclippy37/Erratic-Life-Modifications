@@ -488,11 +488,15 @@
                                             "entity_type": "minecraft:arrow",
                                             "speed": 2,
                                             "divergence": 32.0,
-                                            "count": 32
+                                            "count": 32,
+                                            "tag": {
+                                                "pickup": false,
+                                                "life": 1000
+                                            }
                                         }
                                     ]
                                 },
-                                "weight": 10
+                                "weight": 10000
                             },
                             {
                                 "element": {
