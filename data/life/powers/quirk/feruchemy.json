@@ -278,7 +278,7 @@
                                     "actions": [
                                         {
                                             "type": "origins:execute_command",
-                                            "command": "title @s actionbar [{\"text\":\"Gold Health\",\"color\":\"dark_green\",\"bold\":true}]"
+                                            "command": "title @s actionbar [{\"text\":\"Zinc Attack Speed\",\"color\":\"dark_aqua\",\"bold\":true}]"
                                         },
                                         {
                                             "type": "origins:change_resource",
@@ -301,7 +301,7 @@
                                     "actions": [
                                         {
                                             "type": "origins:execute_command",
-                                            "command": "title @s actionbar [{\"text\":\"Electrum Hunger\",\"color\":\"aqua\",\"bold\":true}]"
+                                            "command": "title @s actionbar [{\"text\":\"Brass Reach\",\"color\":\"blue\",\"bold\":true}]"
                                         },
                                         {
                                             "type": "origins:change_resource",
@@ -324,7 +324,7 @@
                                     "actions": [
                                         {
                                             "type": "origins:execute_command",
-                                            "command": "title @s actionbar [{\"text\":\"Zinc Attack Speed\",\"color\":\"dark_aqua\",\"bold\":true}]"
+                                            "command": "title @s actionbar [{\"text\":\"Gold Health\",\"color\":\"dark_purple\",\"bold\":true}]"
                                         },
                                         {
                                             "type": "origins:change_resource",
@@ -347,7 +347,7 @@
                                     "actions": [
                                         {
                                             "type": "origins:execute_command",
-                                            "command": "title @s actionbar [{\"text\":\"Brass Reach\",\"color\":\"blue\",\"bold\":true}]"
+                                            "command": "title @s actionbar [{\"text\":\"Electrum Hunger\",\"color\":\"light_purple\",\"bold\":true}]"
                                         },
                                         {
                                             "type": "origins:change_resource",
@@ -490,7 +490,7 @@
                                     "actions": [
                                         {
                                             "type": "origins:execute_command",
-                                            "command": "title @s actionbar [{\"text\":\"Gold Health\",\"color\":\"dark_green\",\"bold\":true}]"
+                                            "command": "title @s actionbar [{\"text\":\"Zinc Attack Speed\",\"color\":\"dark_aqua\",\"bold\":true}]"
                                         },
                                         {
                                             "type": "origins:change_resource",
@@ -513,7 +513,7 @@
                                     "actions": [
                                         {
                                             "type": "origins:execute_command",
-                                            "command": "title @s actionbar [{\"text\":\"Electrum Hunger\",\"color\":\"aqua\",\"bold\":true}]"
+                                            "command": "title @s actionbar [{\"text\":\"Brass Reach\",\"color\":\"blue\",\"bold\":true}]"
                                         },
                                         {
                                             "type": "origins:change_resource",
@@ -536,7 +536,7 @@
                                     "actions": [
                                         {
                                             "type": "origins:execute_command",
-                                            "command": "title @s actionbar [{\"text\":\"Zinc Attack Speed\",\"color\":\"dark_aqua\",\"bold\":true}]"
+                                            "command": "title @s actionbar [{\"text\":\"Gold Health\",\"color\":\"dark_purple\",\"bold\":true}]"
                                         },
                                         {
                                             "type": "origins:change_resource",
@@ -559,7 +559,7 @@
                                     "actions": [
                                         {
                                             "type": "origins:execute_command",
-                                            "command": "title @s actionbar [{\"text\":\"Brass Reach\",\"color\":\"blue\",\"bold\":true}]"
+                                            "command": "title @s actionbar [{\"text\":\"Electrum Hunger\",\"color\":\"light_purple\",\"bold\":true}]"
                                         },
                                         {
                                             "type": "origins:change_resource",
@@ -995,8 +995,14 @@
         "type": "origins:conditioned_attribute",
         "modifiers": [
             {
-                "id": "life:max_health_decrease",
-                "attribute": "minecraft:generic.max_health",
+                "id": "life:attack_speed_decrease",
+                "attribute": "minecraft:generic.attack_speed",
+                "operation": "add_multiplied_total",
+                "amount": -0.5
+            },
+            {
+                "id": "life:mining_speed_decrease",
+                "attribute": "minecraft:player.block_break_speed",
                 "operation": "add_multiplied_total",
                 "amount": -0.5
             }
@@ -1036,10 +1042,16 @@
         "type": "origins:conditioned_attribute",
         "modifiers": [
             {
-                "id": "life:max_health_increase",
-                "attribute": "minecraft:generic.max_health",
+                "id": "life:attack_speed_increase",
+                "attribute": "minecraft:generic.attack_speed",
                 "operation": "add_multiplied_total",
-                "amount": 1
+                "amount": 0.5
+            },
+            {
+                "id": "life:mining_speed_increase",
+                "attribute": "minecraft:player.block_break_speed",
+                "operation": "add_multiplied_total",
+                "amount": 1.25
             }
         ],
         "condition": {
@@ -1074,22 +1086,21 @@
         "tick_rate": 3
     },
     "attribute_6_decrement": {
-        "type": "origins:action_over_time",
-        "entity_action": {
-            "type": "origins:and",
-            "actions": [
-                {
-                    "type": "origins:exhaust",
-                    "amount": 4
-                },
-                {
-                    "type": "origins:change_resource",
-                    "resource": "*:*_timer_6",
-                    "operation": "add",
-                    "change": 2
-                }
-            ]
-        },
+        "type": "origins:conditioned_attribute",
+        "modifiers": [
+            {
+                "id": "life:block_interaction_range_decrease",
+                "attribute": "minecraft:player.block_interaction_range",
+                "operation": "add_multiplied_total",
+                "amount": -0.5
+            },
+            {
+                "id": "life:entity_interaction_range_decrease",
+                "attribute": "minecraft:player.entity_interaction_range",
+                "operation": "add_multiplied_total",
+                "amount": -0.5
+            }
+        ],
         "condition": {
             "type": "origins:and",
             "conditions": [
@@ -1112,21 +1123,6 @@
                     "compare_to": 600
                 },
                 {
-                    "type": "origins:food_level",
-                    "comparison": ">",
-                    "compare_to": 0
-                },
-                {
-                    "type": "origins:food_level",
-                    "comparison": "<=",
-                    "compare_to": 20
-                },
-                {
-                    "type": "origins:saturation_level",
-                    "comparison": "<=",
-                    "compare_to": 0
-                },
-                {
                     "type": "origins:resource",
                     "resource": "*:quirk/misc/base_erased",
                     "comparison": "==",
@@ -1134,79 +1130,24 @@
                 }
             ]
         },
-        "interval": 10
-    },
-    "attribute_6_decrement_saturation": {
-        "type": "origins:action_over_time",
-        "entity_action": {
-            "type": "origins:and",
-            "actions": [
-                {
-                    "type": "origins:exhaust",
-                    "amount": 8
-                },
-                {
-                    "type": "origins:change_resource",
-                    "resource": "*:*_timer_6",
-                    "operation": "add",
-                    "change": 2
-                }
-            ]
-        },
-        "condition": {
-            "type": "origins:and",
-            "conditions": [
-                {
-                    "type": "origins:resource",
-                    "resource": "*:*_power",
-                    "comparison": "==",
-                    "compare_to": 1
-                },
-                {
-                    "type": "origins:resource",
-                    "resource": "*:*_resource",
-                    "comparison": "==",
-                    "compare_to": 6
-                },
-                {
-                    "type": "origins:resource",
-                    "resource": "*:*_timer_6",
-                    "comparison": "<",
-                    "compare_to": 600
-                },
-                {
-                    "type": "origins:saturation_level",
-                    "comparison": ">",
-                    "compare_to": 0
-                },
-                {
-                    "type": "origins:resource",
-                    "resource": "*:quirk/misc/base_erased",
-                    "comparison": "==",
-                    "compare_to": 0
-                }
-            ]
-        },
-        "interval": 10
+        "tick_rate": 3
     },
     "attribute_6_increment": {
-        "type": "origins:action_over_time",
-        "entity_action": {
-            "type": "origins:and",
-            "actions": [
-                {
-                    "type": "origins:feed",
-                    "nutrition": 1,
-                    "saturation": 0
-                },
-                {
-                    "type": "origins:change_resource",
-                    "resource": "*:*_timer_6",
-                    "operation": "add",
-                    "change": -2
-                }
-            ]
-        },
+        "type": "origins:conditioned_attribute",
+        "modifiers": [
+            {
+                "id": "life:block_interaction_range_decrease",
+                "attribute": "minecraft:player.block_interaction_range",
+                "operation": "add_multiplied_total",
+                "amount": 0.65
+            },
+            {
+                "id": "life:entity_interaction_range_decrease",
+                "attribute": "minecraft:player.entity_interaction_range",
+                "operation": "add_multiplied_total",
+                "amount": 0.65
+            }
+        ],
         "condition": {
             "type": "origins:and",
             "conditions": [
@@ -1229,11 +1170,6 @@
                     "compare_to": 0
                 },
                 {
-                    "type": "origins:food_level",
-                    "comparison": "<",
-                    "compare_to": 20
-                },
-                {
                     "type": "origins:resource",
                     "resource": "*:quirk/misc/base_erased",
                     "comparison": "==",
@@ -1241,79 +1177,14 @@
                 }
             ]
         },
-        "interval": 10
-    },
-    "attribute_6_increment_saturation": {
-        "type": "origins:action_over_time",
-        "entity_action": {
-            "type": "origins:and",
-            "actions": [
-                {
-                    "type": "origins:feed",
-                    "nutrition": 1,
-                    "saturation": 1
-                },
-                {
-                    "type": "origins:change_resource",
-                    "resource": "*:*_timer_6",
-                    "operation": "add",
-                    "change": -2
-                }
-            ]
-        },
-        "condition": {
-            "type": "origins:and",
-            "conditions": [
-                {
-                    "type": "origins:resource",
-                    "resource": "*:*_power",
-                    "comparison": "==",
-                    "compare_to": -1
-                },
-                {
-                    "type": "origins:resource",
-                    "resource": "*:*_resource",
-                    "comparison": "==",
-                    "compare_to": 6
-                },
-                {
-                    "type": "origins:resource",
-                    "resource": "*:*_timer_6",
-                    "comparison": ">",
-                    "compare_to": 0
-                },
-                {
-                    "type": "origins:food_level",
-                    "comparison": ">=",
-                    "compare_to": 20
-                },
-                {
-                    "type": "origins:saturation_level",
-                    "comparison": "<",
-                    "compare_to": 20
-                },
-                {
-                    "type": "origins:resource",
-                    "resource": "*:quirk/misc/base_erased",
-                    "comparison": "==",
-                    "compare_to": 0
-                }
-            ]
-        },
-        "interval": 10
+        "tick_rate": 3
     },
     "attribute_7_decrement": {
         "type": "origins:conditioned_attribute",
         "modifiers": [
             {
-                "id": "life:attack_speed_decrease",
-                "attribute": "minecraft:generic.attack_speed",
-                "operation": "add_multiplied_total",
-                "amount": -0.5
-            },
-            {
-                "id": "life:mining_speed_decrease",
-                "attribute": "minecraft:player.block_break_speed",
+                "id": "life:max_health_decrease",
+                "attribute": "minecraft:generic.max_health",
                 "operation": "add_multiplied_total",
                 "amount": -0.5
             }
@@ -1353,16 +1224,10 @@
         "type": "origins:conditioned_attribute",
         "modifiers": [
             {
-                "id": "life:attack_speed_increase",
-                "attribute": "minecraft:generic.attack_speed",
+                "id": "life:max_health_increase",
+                "attribute": "minecraft:generic.max_health",
                 "operation": "add_multiplied_total",
-                "amount": 0.5
-            },
-            {
-                "id": "life:mining_speed_increase",
-                "attribute": "minecraft:player.block_break_speed",
-                "operation": "add_multiplied_total",
-                "amount": 1.25
+                "amount": 1
             }
         ],
         "condition": {
@@ -1397,21 +1262,22 @@
         "tick_rate": 3
     },
     "attribute_8_decrement": {
-        "type": "origins:conditioned_attribute",
-        "modifiers": [
-            {
-                "id": "life:block_interaction_range_decrease",
-                "attribute": "minecraft:player.block_interaction_range",
-                "operation": "add_multiplied_total",
-                "amount": -0.5
-            },
-            {
-                "id": "life:entity_interaction_range_decrease",
-                "attribute": "minecraft:player.entity_interaction_range",
-                "operation": "add_multiplied_total",
-                "amount": -0.5
-            }
-        ],
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:exhaust",
+                    "amount": 4
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "*:*_timer_8",
+                    "operation": "add",
+                    "change": 2
+                }
+            ]
+        },
         "condition": {
             "type": "origins:and",
             "conditions": [
@@ -1434,6 +1300,21 @@
                     "compare_to": 600
                 },
                 {
+                    "type": "origins:food_level",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:food_level",
+                    "comparison": "<=",
+                    "compare_to": 20
+                },
+                {
+                    "type": "origins:saturation_level",
+                    "comparison": "<=",
+                    "compare_to": 0
+                },
+                {
                     "type": "origins:resource",
                     "resource": "*:quirk/misc/base_erased",
                     "comparison": "==",
@@ -1441,24 +1322,79 @@
                 }
             ]
         },
-        "tick_rate": 3
+        "interval": 10
+    },
+    "attribute_8_decrement_saturation": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:exhaust",
+                    "amount": 8
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "*:*_timer_8",
+                    "operation": "add",
+                    "change": 2
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_power",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_resource",
+                    "comparison": "==",
+                    "compare_to": 8
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_timer_8",
+                    "comparison": "<",
+                    "compare_to": 600
+                },
+                {
+                    "type": "origins:saturation_level",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_erased",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "interval": 10
     },
     "attribute_8_increment": {
-        "type": "origins:conditioned_attribute",
-        "modifiers": [
-            {
-                "id": "life:block_interaction_range_decrease",
-                "attribute": "minecraft:player.block_interaction_range",
-                "operation": "add_multiplied_total",
-                "amount": 0.65
-            },
-            {
-                "id": "life:entity_interaction_range_decrease",
-                "attribute": "minecraft:player.entity_interaction_range",
-                "operation": "add_multiplied_total",
-                "amount": 0.65
-            }
-        ],
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:feed",
+                    "nutrition": 1,
+                    "saturation": 0
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "*:*_timer_8",
+                    "operation": "add",
+                    "change": -2
+                }
+            ]
+        },
         "condition": {
             "type": "origins:and",
             "conditions": [
@@ -1481,6 +1417,11 @@
                     "compare_to": 0
                 },
                 {
+                    "type": "origins:food_level",
+                    "comparison": "<",
+                    "compare_to": 20
+                },
+                {
                     "type": "origins:resource",
                     "resource": "*:quirk/misc/base_erased",
                     "comparison": "==",
@@ -1488,7 +1429,66 @@
                 }
             ]
         },
-        "tick_rate": 3
+        "interval": 10
+    },
+    "attribute_8_increment_saturation": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:feed",
+                    "nutrition": 1,
+                    "saturation": 1
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "*:*_timer_8",
+                    "operation": "add",
+                    "change": -2
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_power",
+                    "comparison": "==",
+                    "compare_to": -1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_resource",
+                    "comparison": "==",
+                    "compare_to": 8
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_timer_8",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:food_level",
+                    "comparison": ">=",
+                    "compare_to": 20
+                },
+                {
+                    "type": "origins:saturation_level",
+                    "comparison": "<",
+                    "compare_to": 20
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_erased",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "interval": 10
     },
     "timer_increase_over_time": {
         "type": "origins:action_over_time",
@@ -1692,6 +1692,20 @@
                 {
                     "action": {
                         "type": "origins:change_resource",
+                        "resource": "*:*_timer_6",
+                        "operation": "add",
+                        "change": -1
+                    },
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "*:*_resource",
+                        "comparison": "==",
+                        "compare_to": 6
+                    }
+                },
+                {
+                    "action": {
+                        "type": "origins:change_resource",
                         "resource": "*:*_timer_7",
                         "operation": "add",
                         "change": -1
@@ -1701,20 +1715,6 @@
                         "resource": "*:*_resource",
                         "comparison": "==",
                         "compare_to": 7
-                    }
-                },
-                {
-                    "action": {
-                        "type": "origins:change_resource",
-                        "resource": "*:*_timer_8",
-                        "operation": "add",
-                        "change": -1
-                    },
-                    "condition": {
-                        "type": "origins:resource",
-                        "resource": "*:*_resource",
-                        "comparison": "==",
-                        "compare_to": 8
                     }
                 }
             ]
@@ -2277,7 +2277,7 @@
         "hud_render": {
             "should_render": true,
             "sprite_location": "life:textures/gui/community/eclipse37/resource_bar_01.png",
-            "bar_index": 9,
+            "bar_index": 10,
             "inverted": false,
             "condition": {
                 "type": "origins:and",
@@ -2363,7 +2363,7 @@
                 "should_render": true,
                 "sprite_location": "life:textures/gui/community/eclipse37/resource_bar_02.png",
                 "bar_index": 3,
-                "icon_index": 1,
+                "icon_index": 0,
                 "inverted": false,
                 "condition": {
                     "type": "origins:and",
@@ -2388,7 +2388,7 @@
                 "should_render": true,
                 "sprite_location": "life:textures/gui/community/eclipse37/resource_bar_02.png",
                 "bar_index": 2,
-                "icon_index": 1,
+                "icon_index": 0,
                 "inverted": false,
                 "condition": {
                     "type": "origins:and",
