@@ -89,7 +89,7 @@
                     },
                     "condition": {
                         "type": "origins:command",
-                        "command": "execute in life:the_void if entity @a[distance=0..]",
+                        "command": "execute in life:the_void if entity @a[type=minecraft:player,distance=0..]",
                         "comparison": "==",
                         "compare_to": 1
                     }
