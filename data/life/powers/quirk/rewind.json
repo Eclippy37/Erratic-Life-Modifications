@@ -12,35 +12,10 @@
                         "type": "origins:and",
                         "actions": [
                             {
-                                "type": "origins:heal",
-                                "amount": 100
-                            },
-                            {
-                                "type": "origins:execute_command",
-                                "command": "function life:quirk/rewind/return"
-                            },
-                            {
                                 "type": "origins:change_resource",
                                 "resource": "*:*_timer",
                                 "operation": "set",
                                 "change": 0
-                            },
-                            {
-                                "type": "origins:change_resource",
-                                "resource": "*:*_cooldown",
-                                "operation": "set",
-                                "change": 1200
-                            },
-                            {
-                                "type": "origins:set_fall_distance",
-                                "fall_distance": 0
-                            },
-                            {
-                                "type": "origins:extinguish"
-                            },
-                            {
-                                "type": "origins:gain_air",
-                                "value": 20
                             }
                         ]
                     },
@@ -63,7 +38,7 @@
                                 "type": "origins:change_resource",
                                 "resource": "*:*_timer",
                                 "operation": "set",
-                                "change": 1200
+                                "change": 99999
                             },
                             {
                                 "type": "origins:change_resource",
@@ -107,35 +82,10 @@
             "type": "origins:and",
             "actions": [
                 {
-                    "type": "origins:heal",
-                    "amount": 100
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "function life:quirk/rewind/return"
-                },
-                {
                     "type": "origins:change_resource",
                     "resource": "*:*_timer",
                     "operation": "set",
                     "change": 0
-                },
-                {
-                    "type": "origins:change_resource",
-                    "resource": "*:*_cooldown",
-                    "operation": "set",
-                    "change": 1200
-                },
-                {
-                    "type": "origins:set_fall_distance",
-                    "fall_distance": 0
-                },
-                {
-                    "type": "origins:extinguish"
-                },
-                {
-                    "type": "origins:gain_air",
-                    "value": 20
                 }
             ]
         },
@@ -219,47 +169,49 @@
         "max": 1200,
         "start_value": 0,
         "min_action": {
-            "type": "origins:and",
-            "actions": [
-                {
-                    "type": "origins:heal",
-                    "amount": 100
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "function life:quirk/rewind/return"
-                },
-                {
-                    "type": "origins:change_resource",
-                    "resource": "*:*_timer",
-                    "operation": "set",
-                    "change": 0
-                },
-                {
-                    "type": "origins:change_resource",
-                    "resource": "*:*_cooldown",
-                    "operation": "set",
-                    "change": 1200
-                },
-                {
-                    "type": "origins:set_fall_distance",
-                    "fall_distance": 0
-                },
-                {
-                    "type": "origins:extinguish"
-                },
-                {
-                    "type": "origins:gain_air",
-                    "value": 20
-                }
-            ]
+            "type": "origins:if_else",
+            "if_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:heal",
+                        "amount": 20
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "function life:quirk/rewind/return"
+                    },
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_cooldown",
+                        "operation": "set",
+                        "change": 1200
+                    },
+                    {
+                        "type": "origins:set_fall_distance",
+                        "fall_distance": 0
+                    },
+                    {
+                        "type": "origins:extinguish"
+                    },
+                    {
+                        "type": "origins:gain_air",
+                        "value": 20
+                    }
+                ]
+            },
+            "condition": {
+                "type": "origins:command",
+                "command": "execute if entity @e[type=minecraft:marker,tag=quirk.rewind.point]",
+                "comparison": "==",
+                "compare_to": 1
+            }
         },
         "hud_render": {
             "should_render": true,
             "sprite_location": "life:textures/gui/community/eclipse37/resource_bar_02.png",
             "bar_index": 7,
             "icon_index": 1,
-            "inverted": false,
             "condition": {
                 "type": "origins:and",
                 "conditions": [
