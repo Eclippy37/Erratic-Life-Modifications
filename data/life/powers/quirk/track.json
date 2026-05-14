@@ -36,6 +36,13 @@
                                         }
                                     ]
                                 },
+                                "bientity_condition": {
+                                    "type": "origins:target_condition",
+                                    "condition": {
+                                        "type": "origins:in_tag",
+                                        "tag": "life:living_entity"
+                                    }
+                                },
                                 "miss_action": {
                                     "type": "origins:and",
                                     "actions": [
