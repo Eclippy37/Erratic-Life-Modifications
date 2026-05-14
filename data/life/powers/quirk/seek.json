@@ -88,19 +88,8 @@
                         "condition": {
                             "type": "origins:target_condition",
                             "condition": {
-                                "type": "origins:and",
-                                "conditions": [
-                                    {
-                                        "type": "origins:resource",
-                                        "resource": "*:quirk/misc/base_active",
-                                        "comparison": ">",
-                                        "compare_to": 0
-                                    },
-                                    {
-                                        "type": "origins:power",
-                                        "power": "life:quirk/boom"
-                                    }
-                                ]
+                                "type": "origins:power",
+                                "power": "life:quirk/boom"
                             }
                         }
                     },
@@ -115,19 +104,56 @@
                         "condition": {
                             "type": "origins:target_condition",
                             "condition": {
-                                "type": "origins:and",
-                                "conditions": [
-                                    {
-                                        "type": "origins:resource",
-                                        "resource": "*:quirk/misc/base_active",
-                                        "comparison": ">",
-                                        "compare_to": 0
-                                    },
-                                    {
-                                        "type": "origins:power",
-                                        "power": "life:quirk/dash"
-                                    }
-                                ]
+                                "type": "origins:power",
+                                "power": "life:quirk/dash"
+                            }
+                        }
+                    },
+                    {
+                        "action": {
+                            "type": "origins:actor_action",
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "title @s actionbar {\"color\":\"gray\",\"text\":\"Dream\"}"
+                            }
+                        },
+                        "condition": {
+                            "type": "origins:target_condition",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "life:quirk/dream"
+                            }
+                        }
+                    },
+                    {
+                        "action": {
+                            "type": "origins:actor_action",
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "title @s actionbar {\"color\":\"gray\",\"text\":\"Enhance\"}"
+                            }
+                        },
+                        "condition": {
+                            "type": "origins:target_condition",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "life:quirk/enhance"
+                            }
+                        }
+                    },
+                    {
+                        "action": {
+                            "type": "origins:actor_action",
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "title @s actionbar {\"color\":\"gray\",\"text\":\"Erase\"}"
+                            }
+                        },
+                        "condition": {
+                            "type": "origins:target_condition",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "life:quirk/erase"
                             }
                         }
                     },
@@ -142,19 +168,8 @@
                         "condition": {
                             "type": "origins:target_condition",
                             "condition": {
-                                "type": "origins:and",
-                                "conditions": [
-                                    {
-                                        "type": "origins:resource",
-                                        "resource": "*:quirk/misc/base_active",
-                                        "comparison": ">",
-                                        "compare_to": 0
-                                    },
-                                    {
-                                        "type": "origins:power",
-                                        "power": "life:quirk/feruchemy"
-                                    }
-                                ]
+                                "type": "origins:power",
+                                "power": "life:quirk/feruchemy"
                             }
                         }
                     },
@@ -169,19 +184,8 @@
                         "condition": {
                             "type": "origins:target_condition",
                             "condition": {
-                                "type": "origins:and",
-                                "conditions": [
-                                    {
-                                        "type": "origins:resource",
-                                        "resource": "*:quirk/misc/base_active",
-                                        "comparison": ">",
-                                        "compare_to": 0
-                                    },
-                                    {
-                                        "type": "origins:power",
-                                        "power": "life:quirk/float"
-                                    }
-                                ]
+                                "type": "origins:power",
+                                "power": "life:quirk/float"
                             }
                         }
                     },
@@ -196,19 +200,8 @@
                         "condition": {
                             "type": "origins:target_condition",
                             "condition": {
-                                "type": "origins:and",
-                                "conditions": [
-                                    {
-                                        "type": "origins:resource",
-                                        "resource": "*:quirk/misc/base_active",
-                                        "comparison": ">",
-                                        "compare_to": 0
-                                    },
-                                    {
-                                        "type": "origins:power",
-                                        "power": "life:quirk/friction"
-                                    }
-                                ]
+                                "type": "origins:power",
+                                "power": "life:quirk/friction"
                             }
                         }
                     },
@@ -223,19 +216,8 @@
                         "condition": {
                             "type": "origins:target_condition",
                             "condition": {
-                                "type": "origins:and",
-                                "conditions": [
-                                    {
-                                        "type": "origins:resource",
-                                        "resource": "*:quirk/misc/base_active",
-                                        "comparison": ">",
-                                        "compare_to": 0
-                                    },
-                                    {
-                                        "type": "origins:power",
-                                        "power": "life:quirk/gravity"
-                                    }
-                                ]
+                                "type": "origins:power",
+                                "power": "life:quirk/gravity"
                             }
                         }
                     },
@@ -250,19 +232,8 @@
                         "condition": {
                             "type": "origins:target_condition",
                             "condition": {
-                                "type": "origins:and",
-                                "conditions": [
-                                    {
-                                        "type": "origins:resource",
-                                        "resource": "*:quirk/misc/base_active",
-                                        "comparison": ">",
-                                        "compare_to": 0
-                                    },
-                                    {
-                                        "type": "origins:power",
-                                        "power": "life:quirk/jester"
-                                    }
-                                ]
+                                "type": "origins:power",
+                                "power": "life:quirk/jester"
                             }
                         }
                     },
@@ -271,25 +242,14 @@
                             "type": "origins:actor_action",
                             "action": {
                                 "type": "origins:execute_command",
-                                "command": "title @s actionbar {\"color\":\"gray\",\"text\":\"Psykol\"}"
+                                "command": "title @s actionbar {\"color\":\"gray\",\"text\":\"Kirby\"}"
                             }
                         },
                         "condition": {
                             "type": "origins:target_condition",
                             "condition": {
-                                "type": "origins:and",
-                                "conditions": [
-                                    {
-                                        "type": "origins:resource",
-                                        "resource": "*:quirk/misc/base_active",
-                                        "comparison": ">",
-                                        "compare_to": 0
-                                    },
-                                    {
-                                        "type": "origins:power",
-                                        "power": "life:quirk/psykol"
-                                    }
-                                ]
+                                "type": "origins:power",
+                                "power": "life:quirk/kirby"
                             }
                         }
                     },
@@ -304,19 +264,8 @@
                         "condition": {
                             "type": "origins:target_condition",
                             "condition": {
-                                "type": "origins:and",
-                                "conditions": [
-                                    {
-                                        "type": "origins:resource",
-                                        "resource": "*:quirk/misc/base_active",
-                                        "comparison": ">",
-                                        "compare_to": 0
-                                    },
-                                    {
-                                        "type": "origins:power",
-                                        "power": "life:quirk/push_pull"
-                                    }
-                                ]
+                                "type": "origins:power",
+                                "power": "life:quirk/push_pull"
                             }
                         }
                     },
@@ -331,19 +280,8 @@
                         "condition": {
                             "type": "origins:target_condition",
                             "condition": {
-                                "type": "origins:and",
-                                "conditions": [
-                                    {
-                                        "type": "origins:resource",
-                                        "resource": "*:quirk/misc/base_active",
-                                        "comparison": ">",
-                                        "compare_to": 0
-                                    },
-                                    {
-                                        "type": "origins:power",
-                                        "power": "life:quirk/push"
-                                    }
-                                ]
+                                "type": "origins:power",
+                                "power": "life:quirk/push"
                             }
                         }
                     },
@@ -358,19 +296,8 @@
                         "condition": {
                             "type": "origins:target_condition",
                             "condition": {
-                                "type": "origins:and",
-                                "conditions": [
-                                    {
-                                        "type": "origins:resource",
-                                        "resource": "*:quirk/misc/base_active",
-                                        "comparison": ">",
-                                        "compare_to": 0
-                                    },
-                                    {
-                                        "type": "origins:power",
-                                        "power": "life:quirk/pull"
-                                    }
-                                ]
+                                "type": "origins:power",
+                                "power": "life:quirk/pull"
                             }
                         }
                     },
@@ -385,19 +312,8 @@
                         "condition": {
                             "type": "origins:target_condition",
                             "condition": {
-                                "type": "origins:and",
-                                "conditions": [
-                                    {
-                                        "type": "origins:resource",
-                                        "resource": "*:quirk/misc/base_active",
-                                        "comparison": ">",
-                                        "compare_to": 0
-                                    },
-                                    {
-                                        "type": "origins:power",
-                                        "power": "life:quirk/rewind"
-                                    }
-                                ]
+                                "type": "origins:power",
+                                "power": "life:quirk/rewind"
                             }
                         }
                     },
@@ -412,19 +328,8 @@
                         "condition": {
                             "type": "origins:target_condition",
                             "condition": {
-                                "type": "origins:and",
-                                "conditions": [
-                                    {
-                                        "type": "origins:resource",
-                                        "resource": "*:quirk/misc/base_active",
-                                        "comparison": ">",
-                                        "compare_to": 0
-                                    },
-                                    {
-                                        "type": "origins:power",
-                                        "power": "life:quirk/seek"
-                                    }
-                                ]
+                                "type": "origins:power",
+                                "power": "life:quirk/seek"
                             }
                         }
                     },
@@ -439,19 +344,8 @@
                         "condition": {
                             "type": "origins:target_condition",
                             "condition": {
-                                "type": "origins:and",
-                                "conditions": [
-                                    {
-                                        "type": "origins:resource",
-                                        "resource": "*:quirk/misc/base_active",
-                                        "comparison": ">",
-                                        "compare_to": 0
-                                    },
-                                    {
-                                        "type": "origins:power",
-                                        "power": "life:quirk/smoke"
-                                    }
-                                ]
+                                "type": "origins:power",
+                                "power": "life:quirk/smoke"
                             }
                         }
                     },
@@ -466,19 +360,8 @@
                         "condition": {
                             "type": "origins:target_condition",
                             "condition": {
-                                "type": "origins:and",
-                                "conditions": [
-                                    {
-                                        "type": "origins:resource",
-                                        "resource": "*:quirk/misc/base_active",
-                                        "comparison": ">",
-                                        "compare_to": 0
-                                    },
-                                    {
-                                        "type": "origins:power",
-                                        "power": "life:quirk/star"
-                                    }
-                                ]
+                                "type": "origins:power",
+                                "power": "life:quirk/star"
                             }
                         }
                     },
@@ -493,19 +376,8 @@
                         "condition": {
                             "type": "origins:target_condition",
                             "condition": {
-                                "type": "origins:and",
-                                "conditions": [
-                                    {
-                                        "type": "origins:resource",
-                                        "resource": "*:quirk/misc/base_active",
-                                        "comparison": ">",
-                                        "compare_to": 0
-                                    },
-                                    {
-                                        "type": "origins:power",
-                                        "power": "life:quirk/swap"
-                                    }
-                                ]
+                                "type": "origins:power",
+                                "power": "life:quirk/swap"
                             }
                         }
                     },
@@ -520,19 +392,8 @@
                         "condition": {
                             "type": "origins:target_condition",
                             "condition": {
-                                "type": "origins:and",
-                                "conditions": [
-                                    {
-                                        "type": "origins:resource",
-                                        "resource": "*:quirk/misc/base_active",
-                                        "comparison": ">",
-                                        "compare_to": 0
-                                    },
-                                    {
-                                        "type": "origins:power",
-                                        "power": "life:quirk/track"
-                                    }
-                                ]
+                                "type": "origins:power",
+                                "power": "life:quirk/track"
                             }
                         }
                     },
@@ -547,19 +408,8 @@
                         "condition": {
                             "type": "origins:target_condition",
                             "condition": {
-                                "type": "origins:and",
-                                "conditions": [
-                                    {
-                                        "type": "origins:resource",
-                                        "resource": "*:quirk/misc/base_active",
-                                        "comparison": ">",
-                                        "compare_to": 0
-                                    },
-                                    {
-                                        "type": "origins:power",
-                                        "power": "life:quirk/trap"
-                                    }
-                                ]
+                                "type": "origins:power",
+                                "power": "life:quirk/trap"
                             }
                         }
                     },
@@ -574,19 +424,24 @@
                         "condition": {
                             "type": "origins:target_condition",
                             "condition": {
-                                "type": "origins:and",
-                                "conditions": [
-                                    {
-                                        "type": "origins:resource",
-                                        "resource": "*:quirk/misc/base_active",
-                                        "comparison": ">",
-                                        "compare_to": 0
-                                    },
-                                    {
-                                        "type": "origins:power",
-                                        "power": "life:quirk/travel"
-                                    }
-                                ]
+                                "type": "origins:power",
+                                "power": "life:quirk/travel"
+                            }
+                        }
+                    },
+                    {
+                        "action": {
+                            "type": "origins:actor_action",
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "title @s actionbar {\"color\":\"gray\",\"text\":\"Trigger\"}"
+                            }
+                        },
+                        "condition": {
+                            "type": "origins:target_condition",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "life:quirk/trigger"
                             }
                         }
                     },
@@ -601,19 +456,8 @@
                         "condition": {
                             "type": "origins:target_condition",
                             "condition": {
-                                "type": "origins:and",
-                                "conditions": [
-                                    {
-                                        "type": "origins:resource",
-                                        "resource": "*:quirk/misc/base_active",
-                                        "comparison": ">",
-                                        "compare_to": 0
-                                    },
-                                    {
-                                        "type": "origins:power",
-                                        "power": "life:quirk/void"
-                                    }
-                                ]
+                                "type": "origins:power",
+                                "power": "life:quirk/void"
                             }
                         }
                     }
@@ -622,19 +466,10 @@
             "bientity_condition": {
                 "type": "origins:target_condition",
                 "condition": {
-                    "type": "origins:and",
-                    "conditions": [
-                        {
-                            "type": "origins:resource",
-                            "resource": "*:quirk/misc/base_active",
-                            "comparison": ">",
-                            "compare_to": 0
-                        },
-                        {
-                            "type": "origins:power",
-                            "power": "life:quirk/void"
-                        }
-                    ]
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_active",
+                    "comparison": ">",
+                    "compare_to": 0
                 }
             }
         },
