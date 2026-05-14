@@ -242,6 +242,22 @@
                             "type": "origins:actor_action",
                             "action": {
                                 "type": "origins:execute_command",
+                                "command": "title @s actionbar {\"color\":\"gray\",\"text\":\"Phantom\"}"
+                            }
+                        },
+                        "condition": {
+                            "type": "origins:target_condition",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "life:quirk/phantom"
+                            }
+                        }
+                    },
+                    {
+                        "action": {
+                            "type": "origins:actor_action",
+                            "action": {
+                                "type": "origins:execute_command",
                                 "command": "title @s actionbar {\"color\":\"gray\",\"text\":\"Kirby\"}"
                             }
                         },
