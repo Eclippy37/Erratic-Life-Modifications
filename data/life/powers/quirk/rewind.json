@@ -79,15 +79,14 @@
     "prevent_death": {
         "type": "origins:prevent_death",
         "entity_action": {
-            "type": "origins:and",
-            "actions": [
-                {
-                    "type": "origins:change_resource",
-                    "resource": "*:*_timer",
-                    "operation": "set",
-                    "change": 0
-                }
-            ]
+            "type": "origins:delay",
+            "ticks": 1,
+            "action": {
+                "type": "origins:change_resource",
+                "resource": "*:*_timer",
+                "operation": "set",
+                "change": 0
+            }
         },
         "condition": {
             "type": "origins:and",
@@ -197,6 +196,19 @@
                     {
                         "type": "origins:gain_air",
                         "value": 20
+                    },
+                    {
+                        "type": "origins:apply_effect",
+                        "effects": [
+                            {
+                                "id": "minecraft:resistance",
+                                "duration": 9,
+                                "amplifier": 4,
+                                "ambient": true,
+                                "show_particles": false,
+                                "show_icon": false
+                            }
+                        ]
                     }
                 ]
             },
