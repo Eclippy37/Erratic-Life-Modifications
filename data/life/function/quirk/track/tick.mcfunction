@@ -15,6 +15,6 @@ scoreboard players operation @s quirk.track.rotation.player %= #ErraticLife quir
 scoreboard players remove @s quirk.track.rotation.player 180
 
 # Check if runner is in same dimension and render compass
-execute at @s if entity @e[limit=1,sort=nearest,tag=quirk.track.target,distance=0..] run function life:quirk/track/render
+execute at @s if entity @e[limit=1,sort=nearest,tag=quirk.track.target] run function life:quirk/track/render
 
 execute if entity @e[type=minecraft:marker,tag=quirk.track.pointer] run kill @e[type=minecraft:marker,tag=quirk.track.pointer]
