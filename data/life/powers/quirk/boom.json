@@ -59,7 +59,7 @@
                             },
                             {
                                 "type": "origins:change_resource",
-                                "resource": "*:*_resource",
+                                "resource": "*:*_timer",
                                 "operation": "set",
                                 "change": 0
                             },
@@ -121,15 +121,77 @@
                                                 "type": "origins:and",
                                                 "actions": [
                                                     {
-                                                        "type": "origins:explode",
-                                                        "power": 5,
-                                                        "damage_self": false,
-                                                        "create_fire": true
+                                                        "type": "origins:execute_command",
+                                                        "command": "playsound minecraft:entity.tnt.primed block @a ~ ~ ~ 1 1"
                                                     },
                                                     {
-                                                        "type": "origins:damage",
-                                                        "amount": 8,
-                                                        "damage_type": "minecraft:explosion"
+                                                        "type": "origins:execute_command",
+                                                        "command": "title @a[distance=..12] actionbar [{\"selector\":\"@s\",\"bold\":true},{\"text\":\" is about to explode.\",\"color\":\"red\",\"bold\":true}]"
+                                                    },
+                                                    {
+                                                        "type": "origins:execute_command",
+                                                        "command": "title @s actionbar [{\"text\":\"You are about to explode.\",\"color\":\"red\",\"bold\":true}]"
+                                                    },
+                                                    {
+                                                        "type": "origins:apply_effect",
+                                                        "effects": [
+                                                            {
+                                                                "id": "minecraft:glowing",
+                                                                "duration": 80,
+                                                                "amplifier": 0,
+                                                                "ambient": true,
+                                                                "show_particles": false,
+                                                                "show_icon": false
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "type": "origins:delay",
+                                                        "ticks": 80,
+                                                        "action": {
+                                                            "type": "origins:and",
+                                                            "actions": [
+                                                                {
+                                                                    "type": "origins:area_of_effect",
+                                                                    "radius": 5,
+                                                                    "bientity_action": {
+                                                                        "type": "origins:target_action",
+                                                                        "action": {
+                                                                            "type": "origins:apply_effect",
+                                                                            "effects": [
+                                                                                {
+                                                                                    "id": "minecraft:resistance",
+                                                                                    "duration": 3,
+                                                                                    "amplifier": 0,
+                                                                                    "ambient": true,
+                                                                                    "show_particles": false,
+                                                                                    "show_icon": false
+                                                                                }
+                                                                            ]
+                                                                        }
+                                                                    },
+                                                                    "bientity_condition": {
+                                                                        "type": "origins:target_condition",
+                                                                        "condition": {
+                                                                            "type": "origins:in_tag",
+                                                                            "tag": "life:living_entity"
+                                                                        }
+                                                                    },
+                                                                    "include_actor": false
+                                                                },
+                                                                {
+                                                                    "type": "origins:explode",
+                                                                    "power": 2.5,
+                                                                    "damage_self": false,
+                                                                    "create_fire": true
+                                                                },
+                                                                {
+                                                                    "type": "origins:damage",
+                                                                    "amount": 8,
+                                                                    "damage_type": "minecraft:explosion"
+                                                                }
+                                                            ]
+                                                        }
                                                     }
                                                 ]
                                             }
@@ -176,7 +238,7 @@
                             },
                             {
                                 "type": "origins:resource",
-                                "resource": "*:*_resource",
+                                "resource": "*:*_timer",
                                 "comparison": "==",
                                 "compare_to": 0
                             },
@@ -236,7 +298,7 @@
                     "type": "origins:actor_action",
                     "action": {
                         "type": "origins:change_resource",
-                        "resource": "*:*_resource",
+                        "resource": "*:*_timer",
                         "operation": "set",
                         "change": 99999
                     }
@@ -397,7 +459,7 @@
             ]
         }
     },
-    "resource": {
+    "timer": {
         "type": "origins:resource",
         "max": 740,
         "min": 0,
@@ -410,24 +472,24 @@
             "order": 2,
             "condition": {
                 "type": "origins:resource",
-                "resource": "*:*_resource",
+                "resource": "*:*_timer",
                 "comparison": ">",
                 "compare_to": 0
             }
         }
     },
-    "resource_over_time": {
+    "timer_over_time": {
         "type": "origins:action_over_time",
         "entity_action": {
             "type": "origins:change_resource",
-            "resource": "*:*_resource",
+            "resource": "*:*_timer",
             "operation": "add",
             "change": -1
         },
         "interval": 1,
         "condition": {
             "type": "origins:resource",
-            "resource": "*:*_resource",
+            "resource": "*:*_timer",
             "comparison": ">",
             "compare_to": 0
         }
@@ -482,39 +544,24 @@
         "green": 0.3828,
         "blue": 0.25
     },
-    "scare": {
-        "type": "origins:scare_creepers",
-        "condition": {
-            "type": "origins:resource",
-            "resource": "*:*_activated",
-            "comparison": "==",
-            "compare_to": 1
-        }
-    },
-    "explosion_immunity": {
-        "type": "origins:invulnerability",
-        "damage_condition": {
-            "type": "origins:name",
-            "name": "explosion"
-        },
-        "condition": {
-            "type": "origins:resource",
-            "resource": "*:*_activated",
-            "comparison": "==",
-            "compare_to": 1
-        }
-    },
-    "player_explosion_immunity": {
-        "type": "origins:invulnerability",
-        "damage_condition": {
-            "type": "origins:name",
-            "name": "explosion.player"
-        },
-        "condition": {
-            "type": "origins:resource",
-            "resource": "*:*_activated",
-            "comparison": "==",
-            "compare_to": 1
+    "remove": {
+        "type": "origins:action_on_callback",
+        "entity_action_lost": {
+            "type": "origins:if_else",
+            "if_action": {
+                "type": "origins:action_on_entity_set",
+                "set": "*:*_set",
+                "bientity_action": {
+                    "type": "origins:remove_from_entity_set",
+                    "set": "*:*_set"
+                }
+            },
+            "condition": {
+                "type": "origins:entity_set_size",
+                "set": "*:*_set",
+                "comparison": ">",
+                "compare_to": 0
+            }
         }
     },
     "death": {
@@ -538,7 +585,7 @@
                     },
                     {
                         "type": "origins:change_resource",
-                        "resource": "*:*_resource",
+                        "resource": "*:*_timer",
                         "operation": "set",
                         "change": 0
                     },
@@ -549,22 +596,20 @@
                         "change": 0
                     },
                     {
-                        "action": {
-                            "type": "origins:if_action",
-                            "action": {
-                                "type": "origins:action_on_entity_set",
-                                "set": "*:*_set",
-                                "bientity_action": {
-                                    "type": "origins:remove_from_entity_set",
-                                    "set": "*:*_set"
-                                }
-                            },
-                            "condition": {
-                                "type": "origins:entity_set_size",
-                                "set": "*:*_set",
-                                "comparison": ">",
-                                "compare_to": 0
+                        "type": "origins:if_else",
+                        "if_action": {
+                            "type": "origins:action_on_entity_set",
+                            "set": "*:*_set",
+                            "bientity_action": {
+                                "type": "origins:remove_from_entity_set",
+                                "set": "*:*_set"
                             }
+                        },
+                        "condition": {
+                            "type": "origins:entity_set_size",
+                            "set": "*:*_set",
+                            "comparison": ">",
+                            "compare_to": 0
                         }
                     }
                 ]
@@ -584,7 +629,7 @@
                     },
                     {
                         "type": "origins:change_resource",
-                        "resource": "*:*_resource",
+                        "resource": "*:*_timer",
                         "operation": "set",
                         "change": 0
                     },
