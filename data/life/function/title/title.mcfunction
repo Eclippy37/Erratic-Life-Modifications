@@ -96,21 +96,21 @@ execute if score #TitleTime erraticlife matches 181..190 run function life:title
 
 
 # Scoreboard Change
-execute if score #TitleTime erraticlife matches ..230 run scoreboard players add #TitleTime erraticlife 1
+execute if score #TitleTime erraticlife matches ..250 run scoreboard players add #TitleTime erraticlife 1
 
 # Schedule
-execute if score #TitleTime erraticlife matches ..230 run schedule function life:title/title 1.25t append
+execute if score #TitleTime erraticlife matches ..250 run schedule function life:title/title 1.25t append
 
 # Title Settings Fix
-execute unless score #TitleTime erraticlife matches ..230 run function life:title/stop
+execute unless score #TitleTime erraticlife matches ..250 run function life:title/stop
 
 # Activate Wildcard
-execute unless score #TitleTime erraticlife matches ..230 unless score #wildcardset erraticlife matches 1..8 run tellraw @a {"color":"red","text":"No wildcard was activated"}
-execute unless score #TitleTime erraticlife matches ..230 if score #wildcardset erraticlife matches 1 run function life:wildcard/activate/skin
-execute unless score #TitleTime erraticlife matches ..230 if score #wildcardset erraticlife matches 2 run function life:wildcard/activate/vote
-execute unless score #TitleTime erraticlife matches ..230 if score #wildcardset erraticlife matches 3 run function life:wildcard/activate/gravity
-execute unless score #TitleTime erraticlife matches ..230 if score #wildcardset erraticlife matches 4 run function life:wildcard/activate/chain
-execute unless score #TitleTime erraticlife matches ..230 if score #wildcardset erraticlife matches 5 run function life:wildcard/activate/jnv
-execute unless score #TitleTime erraticlife matches ..230 if score #wildcardset erraticlife matches 6 run function life:wildcard/activate/blood
-execute unless score #TitleTime erraticlife matches ..230 if score #wildcardset erraticlife matches 7 run function life:wildcard/activate/quirk
-execute unless score #TitleTime erraticlife matches ..230 if score #wildcardset erraticlife matches 8 run function life:wildcard/activate/finale
+execute unless score #TitleTime erraticlife matches ..250 unless score #wildcardset erraticlife matches 1..8 run tellraw @a {"color":"red","text":"No wildcard was activated"}
+execute unless score #TitleTime erraticlife matches ..250 if score #wildcardset erraticlife matches 1 run function life:wildcard/activate/skin
+execute unless score #TitleTime erraticlife matches ..250 if score #wildcardset erraticlife matches 2 run function life:wildcard/activate/vote
+execute unless score #TitleTime erraticlife matches ..250 if score #wildcardset erraticlife matches 3 run function life:wildcard/activate/gravity
+execute unless score #TitleTime erraticlife matches ..250 if score #wildcardset erraticlife matches 4 run function life:wildcard/activate/chain
+execute unless score #TitleTime erraticlife matches ..250 if score #wildcardset erraticlife matches 5 run function life:wildcard/activate/jnv
+execute unless score #TitleTime erraticlife matches ..250 if score #wildcardset erraticlife matches 6 run function life:wildcard/activate/blood
+execute unless score #TitleTime erraticlife matches ..250 if score #wildcardset erraticlife matches 7 run function life:wildcard/activate/quirk
+execute unless score #TitleTime erraticlife matches ..250 if score #wildcardset erraticlife matches 8 run function life:wildcard/activate/finale
