@@ -160,8 +160,8 @@
     "resource": {
         "type": "origins:resource",
         "min": 0,
-        "max": 21,
-        "start_value": 21,
+        "max": 14,
+        "start_value": 14,
         "hud_render": {
             "should_render": true,
             "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png",
@@ -174,7 +174,7 @@
                         "type": "origins:resource",
                         "resource": "*:*_resource",
                         "comparison": "<",
-                        "compare_to": 21
+                        "compare_to": 14
                     },
                     {
                         "type": "origins:resource",
