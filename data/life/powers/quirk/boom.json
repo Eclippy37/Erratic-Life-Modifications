@@ -98,12 +98,6 @@
                                         "set": "*:*_set",
                                         "comparison": "==",
                                         "compare_to": 0
-                                    },
-                                    {
-                                        "type": "origins:resource",
-                                        "resource": "*:*_resource",
-                                        "comparison": ">",
-                                        "compare_to": 0
                                     }
                                 ]
                             }
@@ -167,7 +161,7 @@
                                 "type": "origins:change_resource",
                                 "resource": "*:quirk/misc/base_active",
                                 "operation": "set",
-                                "change": 100
+                                "change": 99999
                             }
                         ]
                     },
@@ -246,12 +240,6 @@
                         "operation": "set",
                         "change": 99999
                     }
-                },
-                {
-                    "type": "origins:change_resource",
-                    "resource": "*:quirk/misc/base_active",
-                    "operation": "set",
-                    "change": 99999
                 }
             ]
         },
@@ -411,14 +399,14 @@
     },
     "resource": {
         "type": "origins:resource",
-        "max": 900,
+        "max": 740,
         "min": 0,
         "start_value": 0,
         "hud_render": {
             "should_render": true,
             "sprite_location": "life:textures/gui/community/eclipse37/resource_bar_02.png",
             "bar_index": 5,
-            "inverted": false,
+            "inverted": true,
             "order": 2,
             "condition": {
                 "type": "origins:resource",
