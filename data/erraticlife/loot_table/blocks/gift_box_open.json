@@ -47,22 +47,8 @@
                 },
                 {
                     "type": "minecraft:item",
-                    "name": "minecraft:cobweb",
-                    "weight": 5,
-                    "functions": [
-                        {
-                            "function": "minecraft:set_count",
-                            "count": {
-                                "min": 2,
-                                "max": 6
-                            }
-                        }
-                    ]
-                },
-                {
-                    "type": "minecraft:item",
                     "name": "minecraft:trident",
-                    "weight": 10
+                    "weight": 7
                 },
                 {
                     "type": "minecraft:item",
