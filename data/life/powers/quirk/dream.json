@@ -22,6 +22,27 @@
                                 "command": "execute in life:dream run tp @s ~ ~.5 ~"
                             },
                             {
+                                "type": "origins:apply_effect",
+                                "effects": [
+                                    {
+                                        "id": "minecraft:water_breathing",
+                                        "duration": 19,
+                                        "amplifier": 0,
+                                        "ambient": false,
+                                        "show_icon": false,
+                                        "show_particles": false
+                                    },
+                                    {
+                                        "id": "minecraft:slow_falling",
+                                        "duration": 59,
+                                        "amplifier": 0,
+                                        "ambient": false,
+                                        "show_icon": false,
+                                        "show_particles": false
+                                    }
+                                ]
+                            },
+                            {
                                 "type": "origins:grant_power",
                                 "power": "*:quirk/dim/dream",
                                 "source": "*:*"
@@ -39,8 +60,7 @@
                         "conditions": [
                             {
                                 "type": "origins:dimension",
-                                "dimension": "minecraft:overworld",
-                                "inverted": false
+                                "dimension": "minecraft:overworld"
                             },
                             {
                                 "type": "origins:resource",
@@ -74,8 +94,7 @@
                     },
                     "condition": {
                         "type": "origins:dimension",
-                        "dimension": "life:dream",
-                        "inverted": false
+                        "dimension": "life:dream"
                     }
                 },
                 {
@@ -160,8 +179,8 @@
     "resource": {
         "type": "origins:resource",
         "min": 0,
-        "max": 14,
-        "start_value": 14,
+        "max": 21,
+        "start_value": 21,
         "hud_render": {
             "should_render": true,
             "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png",
@@ -174,7 +193,7 @@
                         "type": "origins:resource",
                         "resource": "*:*_resource",
                         "comparison": "<",
-                        "compare_to": 14
+                        "compare_to": 21
                     },
                     {
                         "type": "origins:resource",
@@ -183,6 +202,30 @@
                         "compare_to": 0
                     }
                 ]
+            }
+        }
+    },
+    "remove": {
+        "type": "origins:action_on_callback",
+        "entity_action_lost": {
+            "type": "origins:if_else",
+            "if_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:execute_command",
+                        "command": "execute in minecraft:overworld run tp @s ~ ~.5 ~"
+                    },
+                    {
+                        "type": "origins:remove_power",
+                        "power": "*:quirk/dim/dream",
+                        "source": "*:*"
+                    }
+                ]
+            },
+            "condition": {
+                "type": "origins:dimension",
+                "dimension": "life:dream"
             }
         }
     },
@@ -197,7 +240,7 @@
                         "type": "origins:change_resource",
                         "resource": "*:*_resource",
                         "operation": "set",
-                        "change": 21
+                        "change": 99999
                     }
                 ]
             }
