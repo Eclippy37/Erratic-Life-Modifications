@@ -1716,45 +1716,6 @@
             ]
         }
     },
-    "remove": {
-        "type": "origins:action_on_callback",
-        "entity_action_lost": {
-            "type": "origins:and",
-            "actions": [
-                {
-                    "type": "origins:change_resource",
-                    "resource": "*:*_gravity",
-                    "operation": "set",
-                    "change": 1
-                },
-                {
-                    "type": "origins:and",
-                    "actions": [
-                        {
-                            "type": "origins:clear_effect",
-                            "effect": "gravity_changer:up"
-                        },
-                        {
-                            "type": "origins:clear_effect",
-                            "effect": "gravity_changer:north"
-                        },
-                        {
-                            "type": "origins:clear_effect",
-                            "effect": "gravity_changer:east"
-                        },
-                        {
-                            "type": "origins:clear_effect",
-                            "effect": "gravity_changer:south"
-                        },
-                        {
-                            "type": "origins:clear_effect",
-                            "effect": "gravity_changer:west"
-                        }
-                    ]
-                }
-            ]
-        }
-    },
     "no_fall": {
         "type": "origins:invulnerability",
         "damage_condition": {
@@ -1820,6 +1781,34 @@
                     "resource": "*:*_fall_resource",
                     "comparison": ">",
                     "compare_to": 0
+                }
+            ]
+        }
+    },
+    "remove": {
+        "type": "origins:action_on_callback",
+        "entity_action_lost": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:clear_effect",
+                    "effect": "gravity_changer:up"
+                },
+                {
+                    "type": "origins:clear_effect",
+                    "effect": "gravity_changer:north"
+                },
+                {
+                    "type": "origins:clear_effect",
+                    "effect": "gravity_changer:east"
+                },
+                {
+                    "type": "origins:clear_effect",
+                    "effect": "gravity_changer:south"
+                },
+                {
+                    "type": "origins:clear_effect",
+                    "effect": "gravity_changer:west"
                 }
             ]
         }
