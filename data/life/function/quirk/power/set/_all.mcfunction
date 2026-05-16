@@ -15,5 +15,5 @@ execute as OffSuperJust run function life:quirk/power/set/swap
 execute as Erythroid run function life:quirk/power/set/track
 execute as Trash_Panda2006 run function life:quirk/power/set/trap
 execute as Tabycat55 run function life:quirk/power/set/travel
-execute as Sp1nney run function life:quirk/power/set/trigger
+execute as Sp1nney run function life:quirk/power/set/erase
 execute as SignalCipher run function life:quirk/power/set/void
