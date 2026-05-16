@@ -448,6 +448,44 @@
             }
         }
     },
+    "erased_over_time": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:if_else",
+                        "if_action": {
+                            "type": "origins:action_on_entity_set",
+                            "set": "*:*_set",
+                            "bientity_action": {
+                                "type": "origins:remove_from_entity_set",
+                                "set": "*:*_set"
+                            }
+                        },
+                        "condition": {
+                            "type": "origins:entity_set_size",
+                            "set": "*:*_set",
+                            "comparison": ">",
+                            "compare_to": 0
+                        }
+                    },
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_timer",
+                        "operation": "set",
+                        "change": 0
+                    }
+                ]
+            },
+        "interval": 5,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:quirk/misc/base_erased",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
     "active_over_time": {
         "type": "origins:action_over_time",
         "entity_action": {
