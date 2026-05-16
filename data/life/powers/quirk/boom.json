@@ -153,7 +153,7 @@
                                                             "actions": [
                                                                 {
                                                                     "type": "origins:area_of_effect",
-                                                                    "radius": 5,
+                                                                    "radius": 10,
                                                                     "bientity_action": {
                                                                         "type": "origins:target_action",
                                                                         "action": {
@@ -161,8 +161,8 @@
                                                                             "effects": [
                                                                                 {
                                                                                     "id": "minecraft:resistance",
-                                                                                    "duration": 3,
-                                                                                    "amplifier": 0,
+                                                                                    "duration": 2,
+                                                                                    "amplifier": 1,
                                                                                     "ambient": true,
                                                                                     "show_particles": false,
                                                                                     "show_icon": false
@@ -181,14 +181,13 @@
                                                                 },
                                                                 {
                                                                     "type": "origins:explode",
-                                                                    "power": 2.5,
+                                                                    "power": 3.5,
                                                                     "damage_self": false,
                                                                     "create_fire": true
                                                                 },
                                                                 {
-                                                                    "type": "origins:damage",
-                                                                    "amount": 8,
-                                                                    "damage_type": "minecraft:explosion"
+                                                                    "type": "origins:execute_command",
+                                                                    "command": "damage @s 8 minecraft:player_explosion by @s"
                                                                 }
                                                             ]
                                                         }
@@ -455,7 +454,6 @@
                     "comparison": "==",
                     "compare_to": 0
                 }
-
             ]
         }
     },
@@ -464,6 +462,39 @@
         "max": 740,
         "min": 0,
         "start_value": 0,
+        "min_action": {
+            "type": "origins:if_else",
+            "if_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:execute_command",
+                        "command": "playsound minecraft:block.trial_spawner.open_shutter player @s ~ ~ ~ 0.8 1.2"
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "title @s actionbar [{\"text\":\"Power Ready!\",\"color\":\"gold\",\"bold\":true}]"
+                    }
+                ]
+            },
+            "condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:entity_set_size",
+                        "set": "*:*_set",
+                        "comparison": ">",
+                        "compare_to": 0
+                    },
+                    {
+                        "type": "origins:resource",
+                        "resource": "*:quirk/misc/base_erased",
+                        "comparison": "==",
+                        "compare_to": 0
+                    }
+                ]
+            }
+        },
         "hud_render": {
             "should_render": true,
             "sprite_location": "life:textures/gui/community/eclipse37/resource_bar_02.png",
@@ -471,10 +502,32 @@
             "inverted": true,
             "order": 2,
             "condition": {
-                "type": "origins:resource",
-                "resource": "*:*_timer",
-                "comparison": ">",
-                "compare_to": 0
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:or",
+                        "conditions": [
+                            {
+                                "type": "origins:resource",
+                                "resource": "*:*_timer",
+                                "comparison": ">",
+                                "compare_to": 0
+                            },
+                            {
+                                "type": "origins:entity_set_size",
+                                "set": "*:*_set",
+                                "comparison": ">",
+                                "compare_to": 0
+                            }
+                        ]
+                    },
+                    {
+                        "type": "origins:resource",
+                        "resource": "*:quirk/misc/base_erased",
+                        "comparison": "==",
+                        "compare_to": 0
+                    }
+                ]
             }
         }
     },
@@ -543,6 +596,41 @@
         "red": 0.9258,
         "green": 0.3828,
         "blue": 0.25
+    },
+    "scare": {
+        "type": "origins:scare_creepers",
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_activated",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    },
+    "explosion_immunity": {
+        "type": "origins:invulnerability",
+        "damage_condition": {
+            "type": "origins:name",
+            "name": "explosion"
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_activated",
+            "comparison": "==",
+            "compare_to": 0
+        }
+    },
+    "player_explosion_immunity": {
+        "type": "origins:invulnerability",
+        "damage_condition": {
+            "type": "origins:name",
+            "name": "explosion.player"
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_activated",
+            "comparison": "==",
+            "compare_to": 0
+        }
     },
     "remove": {
         "type": "origins:action_on_callback",
