@@ -35,11 +35,20 @@
                                     ]
                                 },
                                 "bientity_action": {
-                                    "type": "origins:target_action",
-                                    "action": {
-                                        "type": "origins:execute_command",
-                                        "command": "function life:quirk/void/enter"
-                                    }
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:target_action",
+                                            "action": {
+                                                "type": "origins:execute_command",
+                                                "command": "playsound minecraft:block.beacon.deactivate player @a ~ ~ ~ 1 0.5"
+                                            }
+                                        },
+                                        {
+                                            "type": "origins:add_to_entity_set",
+                                            "set": "*:*_set"
+                                        }
+                                    ]
                                 },
                                 "miss_action": {
                                     "type": "origins:and",
@@ -57,18 +66,44 @@
                                 "bientity_condition": {
                                     "type": "origins:target_condition",
                                     "condition": {
-                                        "type": "origins:entity_type",
-                                        "entity_type": "minecraft:player"
+                                        "type": "origins:and",
+                                        "conditions": [
+                                            {
+                                                "type": "origins:entity_type",
+                                                "entity_type": "minecraft:player"
+                                            },
+                                            {
+                                                "type": "origins:dimension",
+                                                "dimension": "life:the_void",
+                                                "inverted": true
+                                            },
+                                            {
+                                                "type": "origins:dimension",
+                                                "dimension": "life:dream",
+                                                "inverted": true
+                                            }
+                                        ]
                                     }
                                 }
                             }
                         ]
                     },
                     "condition": {
-                        "type": "origins:resource",
-                        "resource": "*:*_cooldown",
-                        "comparison": "==",
-                        "compare_to": 0
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:resource",
+                                "resource": "*:*_cooldown",
+                                "comparison": "==",
+                                "compare_to": 0
+                            },
+                            {
+                                "type": "origins:resource",
+                                "resource": "*:*_timer",
+                                "comparison": "==",
+                                "compare_to": 0
+                            }
+                        ]
                     }
                 },
                 {
@@ -80,14 +115,33 @@
                                 "resource": "*:*_timer",
                                 "operation": "set",
                                 "change": 0
+                            },
+                            {
+                                "type": "origins:action_on_entity_set",
+                                "set": "*:*_set",
+                                "bientity_action": {
+                                    "type": "origins:remove_from_entity_set",
+                                    "set": "*:*_set"
+                                }
                             }
                         ]
                     },
                     "condition": {
-                        "type": "origins:command",
-                        "command": "execute in life:the_void if entity @a[type=minecraft:player,distance=0..]",
-                        "comparison": "==",
-                        "compare_to": 1
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:entity_set_size",
+                                "set": "*:*_set",
+                                "comparison": ">",
+                                "compare_to": 0
+                            },
+                            {
+                                "type": "origins:resource",
+                                "resource": "*:*_timer",
+                                "comparison": ">",
+                                "compare_to": 0
+                            }
+                        ]
                     }
                 }
             ]
@@ -103,7 +157,7 @@
     "cooldown": {
         "type": "origins:resource",
         "min": 0,
-        "max": 3600,
+        "max": 3000,
         "start_value": 0,
         "hud_render": {
             "should_render": true,
@@ -116,6 +170,12 @@
                         "type": "origins:resource",
                         "resource": "*:*_cooldown",
                         "comparison": ">",
+                        "compare_to": 0
+                    },
+                    {
+                        "type": "origins:resource",
+                        "resource": "*:*_timer",
+                        "comparison": "==",
                         "compare_to": 0
                     },
                     {
@@ -148,6 +208,12 @@
                 },
                 {
                     "type": "origins:resource",
+                    "resource": "*:*_timer",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
                     "resource": "*:quirk/misc/base_erased",
                     "comparison": "==",
                     "compare_to": 0
@@ -164,8 +230,12 @@
             "type": "origins:and",
             "actions": [
                 {
-                    "type": "origins:execute_command",
-                    "command": "execute in life:the_void as @a[distance=0..] run resource set @s life:quirk/dim/void_timer 0"
+                    "type": "origins:action_on_entity_set",
+                    "set": "*:*_set",
+                    "bientity_action": {
+                        "type": "origins:remove_from_entity_set",
+                        "set": "*:*_set"
+                    }
                 },
                 {
                     "type": "origins:change_resource",
@@ -185,7 +255,23 @@
             "should_render": true,
             "sprite_location": "life:textures/gui/community/eclipse37/resource_bar_02.png",
             "bar_index": 11,
-            "inverted": false
+            "condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:resource",
+                        "resource": "*:*_timer",
+                        "comparison": ">",
+                        "compare_to": 0
+                    },
+                    {
+                        "type": "origins:resource",
+                        "resource": "*:quirk/misc/base_erased",
+                        "comparison": "==",
+                        "compare_to": 0
+                    }
+                ]
+            }
         }
     },
     "timer_over_time": {
@@ -196,7 +282,137 @@
             "operation": "add",
             "change": -1
         },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_timer",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_erased",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        },
         "interval": 1
+    },
+    "void_over_time": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:action_on_entity_set",
+            "set": "*:*_set",
+            "bientity_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:actor_action",
+                        "action": {
+                            "type": "origins:change_resource",
+                            "resource": "*:*_timer",
+                            "operation": "set",
+                            "change": 0
+                        }
+                    },
+                    {
+                        "type": "origins:remove_from_entity_set",
+                        "set": "*:*_set"
+                    }
+                ]
+            },
+            "bientity_condition" : {
+                "type": "origins:target_condition",
+                "condition": {
+                    "type": "origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:dimension",
+                            "dimension": "life:the_void",
+                            "inverted": true
+                        }
+                    ]
+                }
+            }
+        },
+        "interval": 1
+    },
+    "set": {
+        "type": "origins:entity_set",
+        "action_on_add": {
+            "type": "origins:target_action",
+            "action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:grant_power",
+                        "power": "*:quirk/dim/void",
+                        "source": "*:*"
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "summon minecraft:marker ~ ~ ~ {Tags:[\"quirk.void.save\",\"quirk.void.save.created\"],data:{name:\"Quirk Void Save Point\"}}"
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "playsound minecraft:entity.player.teleport player @a ~ ~ ~ 1 1"
+                    },
+                    {
+                        "type": "origins:area_of_effect",
+                        "radius": 0.001,
+                        "bientity_action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:add_to_entity_set",
+                                    "set": "*:quirk/dim/void_set"
+                                },
+                                {
+                                    "type": "origins:target_action",
+                                    "action": {
+                                        "type": "origins:execute_command",
+                                        "command": "tag @s remove quirk.void.save.created"
+                                    }
+                                }
+                            ]
+                        },
+                        "bientity_condition": {
+                            "type": "origins:target_condition",
+                            "condition": {
+                                "type": "origins:and",
+                                "conditions": [
+                                    {
+                                        "type": "origins:entity_type",
+                                        "entity_type": "minecraft:marker"
+                                    },
+                                    {
+                                        "type": "origins:nbt",
+                                        "nbt": "{Tags:[\"quirk.void.save\",\"quirk.void.save.created\"]}"
+                                    }
+                                ]
+                            }
+                        },
+                        "include_actor": false
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "execute in life:the_void run tp 0 1 0"
+                    }
+                ]
+            }
+        },
+        "action_on_remove": {
+            "type": "origins:target_action",
+            "action": {
+                "type": "origins:change_resource",
+                "resource": "*:quirk/dim/void_timer",
+                "operation": "set",
+                "change": 0
+            }
+        }
     },
     "death": {
         "type": "origins:action_on_death",
@@ -212,8 +428,21 @@
                         "change": 0
                     },
                     {
-                        "type": "origins:execute_command",
-                        "command": "execute in life:the_void as @a[distance=0..] run resource set @s life:quirk/dim/void_timer 0"
+                        "type": "origins:if_else",
+                        "if_action": {
+                            "type": "origins:action_on_entity_set",
+                            "set": "*:*_set",
+                            "bientity_action": {
+                                "type": "origins:remove_from_entity_set",
+                                "set": "*:*_set"
+                            }
+                        },
+                        "condition": {
+                            "type": "origins:entity_set_size",
+                            "set": "*:*_set",
+                            "comparison": ">",
+                            "compare_to": 0
+                        }
                     }
                 ]
             }

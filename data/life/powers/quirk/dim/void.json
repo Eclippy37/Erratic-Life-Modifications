@@ -7,8 +7,69 @@
         "max": 1200,
         "start_value": 1200,
         "min_action": {
-            "type": "origins:execute_command",
-            "command": "function life:quirk/void/exit"
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:if_else",
+                    "if_action": {
+                        "type": "origins:action_on_entity_set",
+                        "set": "*:*_set",
+                        "bientity_action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:target_action",
+                                    "action": {
+                                        "type": "origins:execute_command",
+                                        "command": "tag @s add quirk.void.save.active"
+                                    }
+                                },
+                                {
+                                    "type": "origins:actor_action",
+                                    "action": {
+                                        "type": "origins:execute_command",
+                                        "command": "execute in minecraft:overworld run tp @s @e[type=minecraft:marker,tag=quirk.void.save.active,limit=1,sort=nearest]"
+                                    }
+                                },
+                                {
+                                    "type": "origins:target_action",
+                                    "action": {
+                                        "type": "origins:execute_command",
+                                        "command": "kill @e[type=minecraft:marker,tag=quirk.void.save.active,limit=1,sort=nearest]"
+                                    }
+                                },
+                                {
+                                    "type": "origins:remove_from_entity_set",
+                                    "set": "*:*_set"
+                                }
+                            ]
+                        }
+                    },
+                    "else_action": {
+                        "type": "origins:execute_command",
+                        "command": "execute in minecraft:overworld run spreadplayers ~ ~ 0 3 false @s"
+                    },
+                    "condition": {
+                        "type": "origins:entity_set_size",
+                        "set": "*:*_set",
+                        "comparison": ">",
+                        "compare_to": 0
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.beacon.activate player @a ~ ~ ~ 1 1.5"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.player.teleport player @a ~ ~ ~ 1 1"
+                },
+                {
+                    "type": "origins:remove_power",
+                    "power": "*:quirk/dim/void",
+                    "source": "*:*"
+                }
+            ]
         },
         "hud_render": {
             "should_render": true,
@@ -30,8 +91,10 @@
     "remove_on_leave": {
         "type": "origins:action_over_time",
         "entity_action": {
-            "type": "origins:remove_power",
-            "power": "life:quirk/dim/void"
+            "type": "origins:change_resource",
+            "resource": "*:*_timer",
+            "operation": "set",
+            "change": 0
         },
         "interval": 10,
         "condition": {
@@ -48,5 +111,8 @@
             "saturation": 10
         },
         "interval": 20
+    },
+    "set": {
+        "type": "origins:entity_set"
     }
 }
