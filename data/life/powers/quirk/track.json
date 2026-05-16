@@ -107,13 +107,53 @@
         "bientity_condition": {
             "type": "origins:distance",
             "comparison": "<=",
-            "compare_to": 128
+            "compare_to": 256
         },
         "condition": {
-            "type": "origins:resource",
-            "resource": "*:quirk/misc/base_erased",
-            "comparison": "==",
-            "compare_to": 0
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_erased",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_enhanced",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+    "glow_enhanced": {
+        "type": "origins:entity_glow",
+        "entity_condition": {
+            "type": "origins:in_tag",
+            "tag": "life:living_entity"
+        },
+        "bientity_condition": {
+            "type": "origins:distance",
+            "comparison": "<=",
+            "compare_to": 256
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_erased",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_enhanced",
+                    "comparison": ">",
+                    "compare_to": 0
+                }
+            ]
         }
     },
     "remove": {

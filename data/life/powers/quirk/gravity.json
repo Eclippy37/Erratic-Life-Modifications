@@ -1813,6 +1813,78 @@
             ]
         }
     },
+    "enhanced_over_time": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:apply_effect",
+                    "effect": {
+                        "id": "gravity_changer:strength_increase",
+                        "duration": 9,
+                        "amplifier": 1,
+                        "ambient": false,
+                        "show_icon": false,
+                        "show_particles": false
+                    }
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "*:*_resource",
+                    "operation": "set",
+                    "change": 99999
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "*:quirk/misc/base_enhanced",
+                    "operation": "add",
+                    "change": -1
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_resource",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "origins:resource",
+                            "resource": "*:*_gravity",
+                            "comparison": ">",
+                            "compare_to": 1
+                        },
+                        {
+                            "type": "origins:resource",
+                            "resource": "*:*_fall_resource",
+                            "comparison": ">",
+                            "compare_to": 0
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_erased",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_enhanced",
+                    "comparison": ">",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
     "death": {
         "type": "origins:action_on_death",
         "bientity_action": {

@@ -12,10 +12,25 @@
                         "type": "origins:and",
                         "actions": [
                             {
-                                "type": "origins:change_resource",
-                                "resource": "*:*_resource",
-                                "operation": "add",
-                                "change": -1
+                                "type": "origins:if_else",
+                                "if_action": {
+                                    "type": "origins:change_resource",
+                                    "resource": "*:*_resource",
+                                    "operation": "add",
+                                    "change": -1
+                                },
+                                "else_action": {
+                                    "type": "origins:change_resource",
+                                    "resource": "*:quirk/misc/base_enhanced",
+                                    "operation": "add",
+                                    "change": -5
+                                },
+                                "condition": {
+                                    "type": "origins:resource",
+                                    "resource": "*:quirk/misc/base_enhanced",
+                                    "comparison": "==",
+                                    "compare_to": 0
+                                }
                             },
                             {
                                 "type": "origins:execute_command",

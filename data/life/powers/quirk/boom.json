@@ -116,83 +116,175 @@
                                     "type": "origins:and",
                                     "actions": [
                                         {
-                                            "type": "origins:target_action",
-                                            "action": {
-                                                "type": "origins:and",
-                                                "actions": [
-                                                    {
-                                                        "type": "origins:execute_command",
-                                                        "command": "playsound minecraft:entity.tnt.primed block @a ~ ~ ~ 1 1"
-                                                    },
-                                                    {
-                                                        "type": "origins:execute_command",
-                                                        "command": "title @a[distance=..12] actionbar [{\"selector\":\"@s\",\"bold\":true},{\"text\":\" is about to explode.\",\"color\":\"red\",\"bold\":true}]"
-                                                    },
-                                                    {
-                                                        "type": "origins:execute_command",
-                                                        "command": "title @s actionbar [{\"text\":\"You are about to explode.\",\"color\":\"red\",\"bold\":true}]"
-                                                    },
-                                                    {
-                                                        "type": "origins:apply_effect",
-                                                        "effects": [
-                                                            {
-                                                                "id": "minecraft:glowing",
-                                                                "duration": 80,
-                                                                "amplifier": 0,
-                                                                "ambient": true,
-                                                                "show_particles": false,
-                                                                "show_icon": false
-                                                            }
-                                                        ]
-                                                    },
-                                                    {
-                                                        "type": "origins:delay",
-                                                        "ticks": 80,
-                                                        "action": {
-                                                            "type": "origins:and",
-                                                            "actions": [
+                                            "type": "origins:if_else",
+                                            "if_action": {
+                                                "type": "origins:target_action",
+                                                "action": {
+                                                    "type": "origins:and",
+                                                    "actions": [
+                                                        {
+                                                            "type": "origins:execute_command",
+                                                            "command": "playsound minecraft:entity.tnt.primed block @a ~ ~ ~ 1 1"
+                                                        },
+                                                        {
+                                                            "type": "origins:execute_command",
+                                                            "command": "title @a[distance=..12] actionbar [{\"selector\":\"@s\",\"bold\":true},{\"text\":\" is about to explode.\",\"color\":\"red\",\"bold\":true}]"
+                                                        },
+                                                        {
+                                                            "type": "origins:execute_command",
+                                                            "command": "title @s actionbar [{\"text\":\"You are about to explode.\",\"color\":\"red\",\"bold\":true}]"
+                                                        },
+                                                        {
+                                                            "type": "origins:apply_effect",
+                                                            "effects": [
                                                                 {
-                                                                    "type": "origins:area_of_effect",
-                                                                    "radius": 10,
-                                                                    "bientity_action": {
-                                                                        "type": "origins:target_action",
-                                                                        "action": {
-                                                                            "type": "origins:apply_effect",
-                                                                            "effects": [
-                                                                                {
-                                                                                    "id": "minecraft:resistance",
-                                                                                    "duration": 2,
-                                                                                    "amplifier": 1,
-                                                                                    "ambient": true,
-                                                                                    "show_particles": false,
-                                                                                    "show_icon": false
-                                                                                }
-                                                                            ]
-                                                                        }
-                                                                    },
-                                                                    "bientity_condition": {
-                                                                        "type": "origins:target_condition",
-                                                                        "condition": {
-                                                                            "type": "origins:in_tag",
-                                                                            "tag": "life:living_entity"
-                                                                        }
-                                                                    },
-                                                                    "include_actor": false
-                                                                },
-                                                                {
-                                                                    "type": "origins:explode",
-                                                                    "power": 3.5,
-                                                                    "damage_self": false,
-                                                                    "create_fire": true
-                                                                },
-                                                                {
-                                                                    "type": "origins:execute_command",
-                                                                    "command": "damage @s 8 minecraft:player_explosion by @s"
+                                                                    "id": "minecraft:glowing",
+                                                                    "duration": 80,
+                                                                    "amplifier": 0,
+                                                                    "ambient": true,
+                                                                    "show_particles": false,
+                                                                    "show_icon": false
                                                                 }
                                                             ]
+                                                        },
+                                                        {
+                                                            "type": "origins:delay",
+                                                            "ticks": 80,
+                                                            "action": {
+                                                                "type": "origins:and",
+                                                                "actions": [
+                                                                    {
+                                                                        "type": "origins:area_of_effect",
+                                                                        "radius": 10,
+                                                                        "bientity_action": {
+                                                                            "type": "origins:target_action",
+                                                                            "action": {
+                                                                                "type": "origins:apply_effect",
+                                                                                "effects": [
+                                                                                    {
+                                                                                        "id": "minecraft:resistance",
+                                                                                        "duration": 2,
+                                                                                        "amplifier": 1,
+                                                                                        "ambient": true,
+                                                                                        "show_particles": false,
+                                                                                        "show_icon": false
+                                                                                    }
+                                                                                ]
+                                                                            }
+                                                                        },
+                                                                        "bientity_condition": {
+                                                                            "type": "origins:target_condition",
+                                                                            "condition": {
+                                                                                "type": "origins:in_tag",
+                                                                                "tag": "life:living_entity"
+                                                                            }
+                                                                        },
+                                                                        "include_actor": false
+                                                                    },
+                                                                    {
+                                                                        "type": "origins:explode",
+                                                                        "power": 3.5,
+                                                                        "damage_self": false,
+                                                                        "create_fire": true
+                                                                    },
+                                                                    {
+                                                                        "type": "origins:execute_command",
+                                                                        "command": "damage @s 8 minecraft:player_explosion by @s"
+                                                                    }
+                                                                ]
+                                                            }
                                                         }
-                                                    }
-                                                ]
+                                                    ]
+                                                }
+                                            },
+                                            "else_action": {
+                                                "type": "origins:target_action",
+                                                "action": {
+                                                    "type": "origins:and",
+                                                    "actions": [
+                                                        {
+                                                            "type": "origins:execute_command",
+                                                            "command": "playsound minecraft:entity.tnt.primed block @a ~ ~ ~ 1 1"
+                                                        },
+                                                        {
+                                                            "type": "origins:execute_command",
+                                                            "command": "title @a[distance=..12] actionbar [{\"selector\":\"@s\",\"bold\":true},{\"text\":\" is about to explode.\",\"color\":\"red\",\"bold\":true}]"
+                                                        },
+                                                        {
+                                                            "type": "origins:execute_command",
+                                                            "command": "title @s actionbar [{\"text\":\"You are about to explode.\",\"color\":\"red\",\"bold\":true}]"
+                                                        },
+                                                        {
+                                                            "type": "origins:apply_effect",
+                                                            "effects": [
+                                                                {
+                                                                    "id": "minecraft:glowing",
+                                                                    "duration": 80,
+                                                                    "amplifier": 0,
+                                                                    "ambient": true,
+                                                                    "show_particles": false,
+                                                                    "show_icon": false
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "type": "origins:delay",
+                                                            "ticks": 80,
+                                                            "action": {
+                                                                "type": "origins:and",
+                                                                "actions": [
+                                                                    {
+                                                                        "type": "origins:area_of_effect",
+                                                                        "radius": 12,
+                                                                        "bientity_action": {
+                                                                            "type": "origins:target_action",
+                                                                            "action": {
+                                                                                "type": "origins:apply_effect",
+                                                                                "effects": [
+                                                                                    {
+                                                                                        "id": "minecraft:resistance",
+                                                                                        "duration": 2,
+                                                                                        "amplifier": 3,
+                                                                                        "ambient": true,
+                                                                                        "show_particles": false,
+                                                                                        "show_icon": false
+                                                                                    }
+                                                                                ]
+                                                                            }
+                                                                        },
+                                                                        "bientity_condition": {
+                                                                            "type": "origins:target_condition",
+                                                                            "condition": {
+                                                                                "type": "origins:in_tag",
+                                                                                "tag": "life:living_entity"
+                                                                            }
+                                                                        },
+                                                                        "include_actor": false
+                                                                    },
+                                                                    {
+                                                                        "type": "origins:explode",
+                                                                        "power": 7,
+                                                                        "damage_self": false,
+                                                                        "create_fire": true
+                                                                    },
+                                                                    {
+                                                                        "type": "origins:execute_command",
+                                                                        "command": "damage @s 8 minecraft:player_explosion by @s"
+                                                                    }
+                                                                ]
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            "condition": {
+                                                "type": "origins:actor_condition",
+                                                "condition": {
+                                                    "type": "origins:resource",
+                                                    "resource": "*:quirk/misc/base_enhanced",
+                                                    "comparison": "==",
+                                                    "compare_to": 0
+                                                }
                                             }
                                         },
                                         {

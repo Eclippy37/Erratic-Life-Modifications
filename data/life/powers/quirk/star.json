@@ -138,22 +138,39 @@
     "gravity_self": {
         "type": "origins:action_over_time",
         "entity_action": {
-            "type": "origins:and",
-            "actions": [
-                {
-                    "type": "origins:apply_effect",
-                    "effects": [
-                        {
-                            "id": "gravity_changer:strength_decrease",
-                            "duration": 79,
-                            "amplifier": 1,
-                            "ambient": true,
-                            "show_particles": false,
-                            "show_icon": false
-                        }
-                    ]
-                }
-            ]
+            "type": "origins:if_else",
+            "if_action": {
+                "type": "origins:apply_effect",
+                "effects": [
+                    {
+                        "id": "gravity_changer:strength_decrease",
+                        "duration": 79,
+                        "amplifier": 1,
+                        "ambient": true,
+                        "show_particles": false,
+                        "show_icon": false
+                    }
+                ]
+            },
+            "else_action": {
+                "type": "origins:apply_effect",
+                "effects": [
+                    {
+                        "id": "gravity_changer:strength_decrease",
+                        "duration": 79,
+                        "amplifier": 3,
+                        "ambient": true,
+                        "show_particles": false,
+                        "show_icon": false
+                    }
+                ]
+            },
+            "condition": {
+                "type": "origins:resource",
+                "resource": "*:quirk/misc/base_enhanced",
+                "comparison": "==",
+                "compare_to": 0
+            }
         },
         "interval": 1,
         "condition": {
@@ -177,52 +194,109 @@
     "gravity_aura": {
         "type": "origins:action_over_time",
         "entity_action": {
-            "type": "origins:area_of_effect",
-            "radius": 12,
-            "bientity_action": {
-                "type": "origins:target_action",
-                "action": {
-                    "type": "origins:and",
-                    "actions": [
-                        {
-                            "type": "origins:spawn_particles",
-                            "particle": {
-                                "type": "minecraft:electric_spark"
+            "type": "origins:if_else",
+            "if_action": {
+                "type": "origins:area_of_effect",
+                "radius": 12,
+                "bientity_action": {
+                    "type": "origins:target_action",
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:spawn_particles",
+                                "particle": {
+                                    "type": "minecraft:electric_spark"
+                                },
+                                "count": 1,
+                                "speed": 0,
+                                "force": true,
+                                "spread": {
+                                    "x": 0.3,
+                                    "y": 0.3,
+                                    "z": 0.3
+                                },
+                                "offset_y": 0.5
                             },
-                            "count": 1,
-                            "speed": 0,
-                            "force": true,
-                            "spread": {
-                                "x": 0.3,
-                                "y": 0.3,
-                                "z": 0.3
+                            {
+                                "type": "origins:apply_effect",
+                                "effects": [
+                                    {
+                                        "id": "gravity_changer:strength_decrease",
+                                        "duration": 79,
+                                        "amplifier": 1,
+                                        "ambient": true,
+                                        "show_particles": false,
+                                        "show_icon": false
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                "bientity_condition": {
+                    "type": "origins:target_condition",
+                    "condition": {
+                        "type": "origins:in_tag",
+                        "tag": "life:living_entity"
+                    }
+                },
+                "include_actor": false
+            },
+            "else_action": {
+                "type": "origins:area_of_effect",
+                "radius": 24,
+                "bientity_action": {
+                    "type": "origins:target_action",
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:spawn_particles",
+                                "particle": {
+                                    "type": "minecraft:electric_spark"
+                                },
+                                "count": 1,
+                                "speed": 0,
+                                "force": true,
+                                "spread": {
+                                    "x": 0.3,
+                                    "y": 0.3,
+                                    "z": 0.3
+                                },
+                                "offset_y": 0.5
                             },
-                            "offset_y": 0.5
-                        },
-                        {
-                            "type": "origins:apply_effect",
-                            "effects": [
-                                {
-                                    "id": "gravity_changer:strength_decrease",
-                                    "duration": 79,
-                                    "amplifier": 1,
-                                    "ambient": true,
-                                    "show_particles": false,
-                                    "show_icon": false
-                                }
-                            ]
-                        }
-                    ]
-                }
+                            {
+                                "type": "origins:apply_effect",
+                                "effects": [
+                                    {
+                                        "id": "gravity_changer:strength_decrease",
+                                        "duration": 79,
+                                        "amplifier": 3,
+                                        "ambient": true,
+                                        "show_particles": false,
+                                        "show_icon": false
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                "bientity_condition": {
+                    "type": "origins:target_condition",
+                    "condition": {
+                        "type": "origins:in_tag",
+                        "tag": "life:living_entity"
+                    }
+                },
+                "include_actor": false
             },
-            "bientity_condition": {
-                "type": "origins:target_condition",
-                "condition": {
-                    "type": "origins:in_tag",
-                    "tag": "life:living_entity"
-                }
-            },
-            "include_actor": false
+            "condition": {
+                "type": "origins:resource",
+                "resource": "*:quirk/misc/base_enhanced",
+                "comparison": "==",
+                "compare_to": 0
+            }
         },
         "interval": 3,
         "condition": {
@@ -279,6 +353,59 @@
                     "resource": "*:quirk/misc/base_erased",
                     "comparison": "==",
                     "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_enhanced",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "tick_rate": 10
+    },
+    "gravity_attribute_enhanced": {
+        "type": "origins:conditioned_attribute",
+        "modifiers": [
+            {
+                "id": "life:star_gravity",
+                "attribute": "minecraft:generic.gravity",
+                "operation": "add_multiplied_total",
+                "amount": -0.0
+            },
+            {
+                "id": "life:star_safe_fall_distance",
+                "attribute": "minecraft:generic.safe_fall_distance",
+                "operation": "add_multiplied_total",
+                "amount": 6.5
+            },
+            {
+                "id": "life:star_fall_damage",
+                "attribute": "minecraft:generic.fall_damage_multiplier",
+                "operation": "add_multiplied_total",
+                "amount": -0.9
+            }
+        ],
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_toggle",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_erased",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_enhanced",
+                    "comparison": ">",
+                    "compare_to": 0
                 }
             ]
         },
@@ -290,65 +417,135 @@
             "type": "origins:and",
             "actions": [
                 {
-                    "type": "origins:area_of_effect",
-                    "radius": 6,
-                    "bientity_action": {
-                        "type": "origins:target_action",
-                        "action": {
+                    "type": "origins:if_else",
+                    "if_action": {
+                        "type": "origins:area_of_effect",
+                        "radius": 6,
+                        "bientity_action": {
+                            "type": "origins:target_action",
+                            "action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:spawn_particles",
+                                        "particle": {
+                                            "type": "minecraft:dust",
+                                            "params": "{color:[0.3,0.8,1.0],scale:1.8}"
+                                        },
+                                        "count": 100,
+                                        "speed": 0,
+                                        "force": true,
+                                        "spread": {
+                                            "x": 0.3,
+                                            "y": 0.3,
+                                            "z": 0.3
+                                        },
+                                        "offset_y": 0.5
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "kill @s"
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "playsound minecraft:block.enchantment_table.use player @s ~ ~ ~ 0.6 2"
+                                    }
+                                ]
+                            }
+                        },
+                        "bientity_condition": {
                             "type": "origins:and",
-                            "actions": [
+                            "conditions": [
                                 {
-                                    "type": "origins:spawn_particles",
-                                    "particle": {
-                                        "type": "minecraft:dust",
-                                        "params": "{color:[0.3,0.8,1.0],scale:1.8}"
-                                    },
-                                    "count": 100,
-                                    "speed": 0,
-                                    "force": true,
-                                    "spread": {
-                                        "x": 0.3,
-                                        "y": 0.3,
-                                        "z": 0.3
-                                    },
-                                    "offset_y": 0.5
+                                    "type": "origins:owner",
+                                    "inverted": true
                                 },
                                 {
-                                    "type": "origins:execute_command",
-                                    "command": "kill @s"
+                                    "type": "origins:target_condition",
+                                    "condition": {
+                                        "type": "origins:in_tag",
+                                        "tag": "life:star_kill_projectiles"
+                                    }
                                 },
                                 {
-                                    "type": "origins:execute_command",
-                                    "command": "playsound minecraft:block.enchantment_table.use player @s ~ ~ ~ 0.6 2"
+                                    "type": "origins:target_condition",
+                                    "condition": {
+                                        "type": "origins:nbt",
+                                        "nbt": "{inGround:1b}",
+                                        "inverted": true
+                                    }
                                 }
                             ]
-                        }
+                        },
+                        "include_actor": false
                     },
-                    "bientity_condition": {
-                        "type": "origins:and",
-                        "conditions": [
-                            {
-                                "type": "origins:owner",
-                                "inverted": true
-                            },
-                            {
-                                "type": "origins:target_condition",
-                                "condition": {
-                                    "type": "origins:in_tag",
-                                    "tag": "life:star_kill_projectiles"
-                                }
-                            },
-                            {
-                                "type": "origins:target_condition",
-                                "condition": {
-                                    "type": "origins:nbt",
-                                    "nbt": "{inGround:1b}",
-                                    "inverted": true
-                                }
+                    "else_action": {
+                        "type": "origins:area_of_effect",
+                        "radius": 16,
+                        "bientity_action": {
+                            "type": "origins:target_action",
+                            "action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:spawn_particles",
+                                        "particle": {
+                                            "type": "minecraft:dust",
+                                            "params": "{color:[0.2,0.7,1.0],scale:1.8}"
+                                        },
+                                        "count": 200,
+                                        "speed": 0,
+                                        "force": true,
+                                        "spread": {
+                                            "x": 0.5,
+                                            "y": 0.5,
+                                            "z": 0.5
+                                        },
+                                        "offset_y": 0.5
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "kill @s"
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "playsound minecraft:block.enchantment_table.use player @s ~ ~ ~ 0.7 1.75"
+                                    }
+                                ]
                             }
-                        ]
+                        },
+                        "bientity_condition": {
+                            "type": "origins:and",
+                            "conditions": [
+                                {
+                                    "type": "origins:owner",
+                                    "inverted": true
+                                },
+                                {
+                                    "type": "origins:target_condition",
+                                    "condition": {
+                                        "type": "origins:in_tag",
+                                        "tag": "life:star_kill_projectiles"
+                                    }
+                                },
+                                {
+                                    "type": "origins:target_condition",
+                                    "condition": {
+                                        "type": "origins:nbt",
+                                        "nbt": "{inGround:1b}",
+                                        "inverted": true
+                                    }
+                                }
+                            ]
+                        },
+                        "include_actor": false
                     },
-                    "include_actor": false
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "*:quirk/misc/base_enhanced",
+                        "comparison": "==",
+                        "compare_to": 0
+                    }
                 },
                 {
                     "type": "origins:area_of_effect",
@@ -421,8 +618,42 @@
                     "type": "origins:delay",
                     "ticks": 20,
                     "action": {
-                        "type": "origins:execute_command",
-                        "command": "summon firework_rocket ~ ~25 ~ {Silent:1b,LifeTime:1200,ShotAtAngle:1b,Motion:[0.0,-1.5,0.0],FireworksItem:{id:\"minecraft:firework_rocket\",count:1,components:{\"minecraft:fireworks\":{explosions:[{shape:\"burst\",colors:[I;2651799,2437522,1973019],fade_colors:[I;2651799,2437522,1973019]},{shape:\"burst\",colors:[I;2651799,2437522,1973019],fade_colors:[I;2651799,2437522,1973019]},{shape:\"burst\",colors:[I;2651799,2437522,1973019],fade_colors:[I;2651799,2437522,1973019]}]}}}}"
+                        "type": "origins:if_else",
+                        "if_action": {
+                            "type": "origins:execute_command",
+                            "command": "summon firework_rocket ~ ~25 ~ {Silent:1b,LifeTime:1200,ShotAtAngle:1b,Motion:[0.0,-1.5,0.0],FireworksItem:{id:\"minecraft:firework_rocket\",count:1,components:{\"minecraft:fireworks\":{explosions:[{shape:\"burst\",colors:[I;2651799,2437522,1973019],fade_colors:[I;2651799,2437522,1973019]},{shape:\"burst\",colors:[I;2651799,2437522,1973019],fade_colors:[I;2651799,2437522,1973019]},{shape:\"burst\",colors:[I;2651799,2437522,1973019],fade_colors:[I;2651799,2437522,1973019]}]}}}}"
+                        },
+                        "else_action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "summon firework_rocket ~ ~25 ~ {Silent:1b,LifeTime:1200,ShotAtAngle:1b,Motion:[0.0,-1.5,0.0],FireworksItem:{id:\"minecraft:firework_rocket\",count:1,components:{\"minecraft:fireworks\":{explosions:[{shape:\"burst\",colors:[I;2651799,2437522,1973019],fade_colors:[I;2651799,2437522,1973019]},{shape:\"burst\",colors:[I;2651799,2437522,1973019],fade_colors:[I;2651799,2437522,1973019]},{shape:\"burst\",colors:[I;2651799,2437522,1973019],fade_colors:[I;2651799,2437522,1973019]}]}}}}"
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "summon firework_rocket ~1 ~25 ~1 {Silent:1b,LifeTime:1200,ShotAtAngle:1b,Motion:[0.0,-1.5,0.0],FireworksItem:{id:\"minecraft:firework_rocket\",count:1,components:{\"minecraft:fireworks\":{explosions:[{shape:\"burst\",colors:[I;2651799,2437522,1973019],fade_colors:[I;2651799,2437522,1973019]},{shape:\"burst\",colors:[I;2651799,2437522,1973019],fade_colors:[I;2651799,2437522,1973019]},{shape:\"burst\",colors:[I;2651799,2437522,1973019],fade_colors:[I;2651799,2437522,1973019]}]}}}}"
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "summon firework_rocket ~1 ~25 ~-1 {Silent:1b,LifeTime:1200,ShotAtAngle:1b,Motion:[0.0,-1.5,0.0],FireworksItem:{id:\"minecraft:firework_rocket\",count:1,components:{\"minecraft:fireworks\":{explosions:[{shape:\"burst\",colors:[I;2651799,2437522,1973019],fade_colors:[I;2651799,2437522,1973019]},{shape:\"burst\",colors:[I;2651799,2437522,1973019],fade_colors:[I;2651799,2437522,1973019]},{shape:\"burst\",colors:[I;2651799,2437522,1973019],fade_colors:[I;2651799,2437522,1973019]}]}}}}"
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "summon firework_rocket ~-1 ~25 ~1 {Silent:1b,LifeTime:1200,ShotAtAngle:1b,Motion:[0.0,-1.5,0.0],FireworksItem:{id:\"minecraft:firework_rocket\",count:1,components:{\"minecraft:fireworks\":{explosions:[{shape:\"burst\",colors:[I;2651799,2437522,1973019],fade_colors:[I;2651799,2437522,1973019]},{shape:\"burst\",colors:[I;2651799,2437522,1973019],fade_colors:[I;2651799,2437522,1973019]},{shape:\"burst\",colors:[I;2651799,2437522,1973019],fade_colors:[I;2651799,2437522,1973019]}]}}}}"
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "summon firework_rocket ~-1 ~25 ~-1 {Silent:1b,LifeTime:1200,ShotAtAngle:1b,Motion:[0.0,-1.5,0.0],FireworksItem:{id:\"minecraft:firework_rocket\",count:1,components:{\"minecraft:fireworks\":{explosions:[{shape:\"burst\",colors:[I;2651799,2437522,1973019],fade_colors:[I;2651799,2437522,1973019]},{shape:\"burst\",colors:[I;2651799,2437522,1973019],fade_colors:[I;2651799,2437522,1973019]},{shape:\"burst\",colors:[I;2651799,2437522,1973019],fade_colors:[I;2651799,2437522,1973019]}]}}}}"
+                                }
+                            ]
+                        },
+                        "condition": {
+                            "type": "origins:resource",
+                            "resource": "*:quirk/misc/base_enhanced",
+                            "comparison": "==",
+                            "compare_to": 0
+                        }
                     }
                 },
                 {

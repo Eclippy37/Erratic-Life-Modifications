@@ -599,7 +599,7 @@
         },
         "cooldown": 1
     },
-    "attribute_1_decrement": {
+    "attribute_1_decrement_attribute": {
         "type": "origins:conditioned_attribute",
         "modifiers": [
             {
@@ -653,12 +653,83 @@
                     "resource": "*:quirk/misc/base_erased",
                     "comparison": "==",
                     "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_enhanced",
+                    "comparison": "==",
+                    "compare_to": 0
                 }
             ]
         },
         "tick_rate": 3
     },
-    "attribute_1_increment": {
+    "attribute_1_decrement_attribute_enhanced": {
+        "type": "origins:conditioned_attribute",
+        "modifiers": [
+            {
+                "id": "life:gravity_decrease",
+                "attribute": "minecraft:generic.gravity",
+                "operation": "add_multiplied_total",
+                "amount": -0.9
+            },
+            {
+                "id": "life:safe_fall_distance_decrease",
+                "attribute": "minecraft:generic.safe_fall_distance",
+                "operation": "add_multiplied_total",
+                "amount": 3.0
+            },
+            {
+                "id": "life:fall_damage_decrease",
+                "attribute": "minecraft:generic.fall_damage_multiplier",
+                "operation": "add_multiplied_total",
+                "amount": -0.75
+            },
+            {
+                "id": "life:knockback_resistance_decrease",
+                "attribute": "minecraft:generic.knockback_resistance",
+                "operation": "add_value",
+                "amount": -16.0
+            }
+        ],
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_power",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_resource",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_timer_1",
+                    "comparison": "<",
+                    "compare_to": 600
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_erased",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_enhanced",
+                    "comparison": ">",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "tick_rate": 3
+    },
+    "attribute_1_increment_attribute": {
         "type": "origins:conditioned_attribute",
         "modifiers": [
             {
@@ -712,6 +783,77 @@
                     "resource": "*:quirk/misc/base_erased",
                     "comparison": "==",
                     "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_enhanced",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "tick_rate": 3
+    },
+    "attribute_1_increment_attribute_enhanced": {
+        "type": "origins:conditioned_attribute",
+        "modifiers": [
+            {
+                "id": "life:gravity_increase",
+                "attribute": "minecraft:generic.gravity",
+                "operation": "add_multiplied_total",
+                "amount": 3.0
+            },
+            {
+                "id": "life:safe_fall_distance_increase",
+                "attribute": "minecraft:generic.safe_fall_distance",
+                "operation": "add_multiplied_total",
+                "amount": -0.75
+            },
+            {
+                "id": "life:fall_damage_increase",
+                "attribute": "minecraft:generic.fall_damage_multiplier",
+                "operation": "add_multiplied_total",
+                "amount": 3.0
+            },
+            {
+                "id": "life:knockback_resistance_increase",
+                "attribute": "minecraft:generic.knockback_resistance",
+                "operation": "add_value",
+                "amount": 16.0
+            }
+        ],
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_power",
+                    "comparison": "==",
+                    "compare_to": -1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_resource",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_timer_1",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_erased",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_enhanced",
+                    "comparison": ">",
+                    "compare_to": 0
                 }
             ]
         },
@@ -759,6 +901,12 @@
                     "resource": "*:quirk/misc/base_erased",
                     "comparison": "==",
                     "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_enhanced",
+                    "comparison": "==",
+                    "compare_to": 0
                 }
             ]
         },
@@ -795,6 +943,108 @@
                     "type": "origins:resource",
                     "resource": "*:quirk/misc/base_erased",
                     "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_enhanced",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "tick_rate": 3
+    },
+    "attribute_2_decrement_attribute_enhanced": {
+        "type": "origins:conditioned_attribute",
+        "modifiers": [
+            {
+                "id": "life:movement_speed_decrease",
+                "attribute": "minecraft:generic.movement_speed",
+                "operation": "add_multiplied_total",
+                "amount": -0.75
+            },
+            {
+                "id": "life:step_height_decrease",
+                "attribute": "minecraft:generic.step_height",
+                "operation": "add_multiplied_total",
+                "amount": -0.5
+            }
+        ],
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_power",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_resource",
+                    "comparison": "==",
+                    "compare_to": 2
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_timer_2",
+                    "comparison": "<",
+                    "compare_to": 600
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_erased",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_enhanced",
+                    "comparison": ">",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "tick_rate": 3
+    },
+    "attribute_2_decrement_air_speed_enhanced": {
+        "type": "origins:modify_air_speed",
+        "modifier": {
+            "operation": "multiply_total_multiplicative",
+            "amount": -0.75
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_power",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_resource",
+                    "comparison": "==",
+                    "compare_to": 2
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_timer_2",
+                    "comparison": "<",
+                    "compare_to": 600
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_erased",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_enhanced",
+                    "comparison": ">",
                     "compare_to": 0
                 }
             ]
@@ -843,6 +1093,12 @@
                     "resource": "*:quirk/misc/base_erased",
                     "comparison": "==",
                     "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_enhanced",
+                    "comparison": "==",
+                    "compare_to": 0
                 }
             ]
         },
@@ -879,6 +1135,108 @@
                     "type": "origins:resource",
                     "resource": "*:quirk/misc/base_erased",
                     "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_enhanced",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "tick_rate": 3
+    },
+    "attribute_2_increment_attribute_enhanced": {
+        "type": "origins:conditioned_attribute",
+        "modifiers": [
+            {
+                "id": "life:movement_speed_increase",
+                "attribute": "minecraft:generic.movement_speed",
+                "operation": "add_multiplied_total",
+                "amount": 3.0
+            },
+            {
+                "id": "life:step_height_increase",
+                "attribute": "minecraft:generic.step_height",
+                "operation": "add_multiplied_total",
+                "amount": 1.5
+            }
+        ],
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_power",
+                    "comparison": "==",
+                    "compare_to": -1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_resource",
+                    "comparison": "==",
+                    "compare_to": 2
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_timer_2",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_erased",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_enhanced",
+                    "comparison": ">",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "tick_rate": 3
+    },
+    "attribute_2_increment_air_speed_enhanced": {
+        "type": "origins:modify_air_speed",
+        "modifier": {
+            "operation": "multiply_total_multiplicative",
+            "amount": 2.5
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_power",
+                    "comparison": "==",
+                    "compare_to": -1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_resource",
+                    "comparison": "==",
+                    "compare_to": 2
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_timer_2",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_erased",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_enhanced",
+                    "comparison": ">",
                     "compare_to": 0
                 }
             ]
@@ -1025,6 +1383,65 @@
                     "resource": "*:quirk/misc/base_erased",
                     "comparison": "==",
                     "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_enhanced",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "tick_rate": 3
+    },
+    "attribute_4_decrement_attribute_enhanced": {
+        "type": "origins:conditioned_attribute",
+        "modifiers": [
+            {
+                "id": "life:attack_damage_decrease",
+                "attribute": "minecraft:generic.attack_damage",
+                "operation": "add_multiplied_total",
+                "amount": -0.75
+            },
+            {
+                "id": "life:attack_knockback_decrease",
+                "attribute": "minecraft:generic.attack_knockback",
+                "operation": "add_value",
+                "amount": -3.0
+            }
+        ],
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_power",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_resource",
+                    "comparison": "==",
+                    "compare_to": 4
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_timer_4",
+                    "comparison": "<",
+                    "compare_to": 600
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_erased",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_enhanced",
+                    "comparison": ">",
+                    "compare_to": 0
                 }
             ]
         },
@@ -1071,6 +1488,65 @@
                     "type": "origins:resource",
                     "resource": "*:quirk/misc/base_erased",
                     "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_enhanced",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "tick_rate": 3
+    },
+    "attribute_4_increment_attribute_enhanced": {
+        "type": "origins:conditioned_attribute",
+        "modifiers": [
+            {
+                "id": "life:attack_damage_increase",
+                "attribute": "minecraft:generic.attack_damage",
+                "operation": "add_multiplied_total",
+                "amount": 1.5
+            },
+            {
+                "id": "life:attack_knockback_increase",
+                "attribute": "minecraft:generic.attack_knockback",
+                "operation": "add_value",
+                "amount": 5.0
+            }
+        ],
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_power",
+                    "comparison": "==",
+                    "compare_to": -1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_resource",
+                    "comparison": "==",
+                    "compare_to": 4
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_timer_4",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_erased",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_enhanced",
+                    "comparison": ">",
                     "compare_to": 0
                 }
             ]
@@ -1119,6 +1595,65 @@
                     "resource": "*:quirk/misc/base_erased",
                     "comparison": "==",
                     "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_enhanced",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "tick_rate": 3
+    },
+    "attribute_5_decrement_attribute_enhanced": {
+        "type": "origins:conditioned_attribute",
+        "modifiers": [
+            {
+                "id": "life:attack_speed_decrease",
+                "attribute": "minecraft:generic.attack_speed",
+                "operation": "add_multiplied_total",
+                "amount": -0.75
+            },
+            {
+                "id": "life:mining_speed_decrease",
+                "attribute": "minecraft:player.block_break_speed",
+                "operation": "add_multiplied_total",
+                "amount": -0.75
+            }
+        ],
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_power",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_resource",
+                    "comparison": "==",
+                    "compare_to": 5
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_timer_5",
+                    "comparison": "<",
+                    "compare_to": 600
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_erased",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_enhanced",
+                    "comparison": ">",
+                    "compare_to": 0
                 }
             ]
         },
@@ -1165,6 +1700,65 @@
                     "type": "origins:resource",
                     "resource": "*:quirk/misc/base_erased",
                     "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_enhanced",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "tick_rate": 3
+    },
+    "attribute_5_increment_attribute_enhanced": {
+        "type": "origins:conditioned_attribute",
+        "modifiers": [
+            {
+                "id": "life:attack_speed_increase",
+                "attribute": "minecraft:generic.attack_speed",
+                "operation": "add_multiplied_total",
+                "amount": 1.25
+            },
+            {
+                "id": "life:mining_speed_increase",
+                "attribute": "minecraft:player.block_break_speed",
+                "operation": "add_multiplied_total",
+                "amount": 3.0
+            }
+        ],
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_power",
+                    "comparison": "==",
+                    "compare_to": -1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_resource",
+                    "comparison": "==",
+                    "compare_to": 5
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_timer_5",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_erased",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_enhanced",
+                    "comparison": ">",
                     "compare_to": 0
                 }
             ]
@@ -1213,6 +1807,65 @@
                     "resource": "*:quirk/misc/base_erased",
                     "comparison": "==",
                     "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_enhanced",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "tick_rate": 3
+    },
+    "attribute_6_decrement_attribute_enhanced": {
+        "type": "origins:conditioned_attribute",
+        "modifiers": [
+            {
+                "id": "life:block_interaction_range_decrease",
+                "attribute": "minecraft:player.block_interaction_range",
+                "operation": "add_multiplied_total",
+                "amount": -0.75
+            },
+            {
+                "id": "life:entity_interaction_range_decrease",
+                "attribute": "minecraft:player.entity_interaction_range",
+                "operation": "add_multiplied_total",
+                "amount": -0.75
+            }
+        ],
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_power",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_resource",
+                    "comparison": "==",
+                    "compare_to": 6
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_timer_6",
+                    "comparison": "<",
+                    "compare_to": 600
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_erased",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_enhanced",
+                    "comparison": ">",
+                    "compare_to": 0
                 }
             ]
         },
@@ -1260,6 +1913,65 @@
                     "resource": "*:quirk/misc/base_erased",
                     "comparison": "==",
                     "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_enhanced",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "tick_rate": 3
+    },
+    "attribute_6_increment_attribute_enhanced": {
+        "type": "origins:conditioned_attribute",
+        "modifiers": [
+            {
+                "id": "life:block_interaction_range_decrease",
+                "attribute": "minecraft:player.block_interaction_range",
+                "operation": "add_multiplied_total",
+                "amount": 1.25
+            },
+            {
+                "id": "life:entity_interaction_range_decrease",
+                "attribute": "minecraft:player.entity_interaction_range",
+                "operation": "add_multiplied_total",
+                "amount": 1.25
+            }
+        ],
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_power",
+                    "comparison": "==",
+                    "compare_to": -1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_resource",
+                    "comparison": "==",
+                    "compare_to": 6
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_timer_6",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_erased",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_enhanced",
+                    "comparison": ">",
+                    "compare_to": 0
                 }
             ]
         },
@@ -1301,6 +2013,59 @@
                     "resource": "*:quirk/misc/base_erased",
                     "comparison": "==",
                     "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_enhanced",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "tick_rate": 3
+    },
+    "attribute_7_decrement_attribute_enhanced": {
+        "type": "origins:conditioned_attribute",
+        "modifiers": [
+            {
+                "id": "life:max_health_decrease",
+                "attribute": "minecraft:generic.max_health",
+                "operation": "add_multiplied_total",
+                "amount": -0.8
+            }
+        ],
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_power",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_resource",
+                    "comparison": "==",
+                    "compare_to": 7
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_timer_7",
+                    "comparison": "<",
+                    "compare_to": 600
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_erased",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_enhanced",
+                    "comparison": ">",
+                    "compare_to": 0
                 }
             ]
         },
@@ -1341,6 +2106,59 @@
                     "type": "origins:resource",
                     "resource": "*:quirk/misc/base_erased",
                     "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_enhanced",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "tick_rate": 3
+    },
+    "attribute_7_increment_attribute_enhanced": {
+        "type": "origins:conditioned_attribute",
+        "modifiers": [
+            {
+                "id": "life:max_health_increase",
+                "attribute": "minecraft:generic.max_health",
+                "operation": "add_multiplied_total",
+                "amount": 3
+            }
+        ],
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_power",
+                    "comparison": "==",
+                    "compare_to": -1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_resource",
+                    "comparison": "==",
+                    "compare_to": 7
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_timer_7",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_erased",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_enhanced",
+                    "comparison": ">",
                     "compare_to": 0
                 }
             ]
@@ -1405,6 +2223,12 @@
                     "resource": "*:quirk/misc/base_erased",
                     "comparison": "==",
                     "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_enhanced",
+                    "comparison": "==",
+                    "compare_to": 0
                 }
             ]
         },
@@ -1458,10 +2282,144 @@
                     "resource": "*:quirk/misc/base_erased",
                     "comparison": "==",
                     "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_enhanced",
+                    "comparison": "==",
+                    "compare_to": 0
                 }
             ]
         },
         "interval": 10
+    },
+    "attribute_8_decrement_nutrition_enhanced": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:exhaust",
+                    "amount": 4
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "*:*_timer_8",
+                    "operation": "add",
+                    "change": 2
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_power",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_resource",
+                    "comparison": "==",
+                    "compare_to": 8
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_timer_8",
+                    "comparison": "<",
+                    "compare_to": 600
+                },
+                {
+                    "type": "origins:food_level",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:food_level",
+                    "comparison": "<=",
+                    "compare_to": 20
+                },
+                {
+                    "type": "origins:saturation_level",
+                    "comparison": "<=",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_erased",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_enhanced",
+                    "comparison": ">",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "interval": 2
+    },
+    "attribute_8_decrement_saturation_enhanced": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:exhaust",
+                    "amount": 8
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "*:*_timer_8",
+                    "operation": "add",
+                    "change": 2
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_power",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_resource",
+                    "comparison": "==",
+                    "compare_to": 8
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_timer_8",
+                    "comparison": "<",
+                    "compare_to": 600
+                },
+                {
+                    "type": "origins:saturation_level",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_erased",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_enhanced",
+                    "comparison": ">",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "interval": 2
     },
     "attribute_8_increment_nutrition": {
         "type": "origins:action_over_time",
@@ -1510,6 +2468,12 @@
                 {
                     "type": "origins:resource",
                     "resource": "*:quirk/misc/base_erased",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_enhanced",
                     "comparison": "==",
                     "compare_to": 0
                 }
@@ -1571,10 +2535,141 @@
                     "resource": "*:quirk/misc/base_erased",
                     "comparison": "==",
                     "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_enhanced",
+                    "comparison": "==",
+                    "compare_to": 0
                 }
             ]
         },
         "interval": 10
+    },
+    "attribute_8_increment_nutrition_enhanced": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:feed",
+                    "nutrition": 1,
+                    "saturation": 0
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "*:*_timer_8",
+                    "operation": "add",
+                    "change": -2
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_power",
+                    "comparison": "==",
+                    "compare_to": -1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_resource",
+                    "comparison": "==",
+                    "compare_to": 8
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_timer_8",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:food_level",
+                    "comparison": "<",
+                    "compare_to": 20
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_erased",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_enhanced",
+                    "comparison": ">",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "interval": 10
+    },
+    "attribute_8_increment_saturation_enhanced": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:feed",
+                    "nutrition": 1,
+                    "saturation": 1
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "*:*_timer_8",
+                    "operation": "add",
+                    "change": -2
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_power",
+                    "comparison": "==",
+                    "compare_to": -1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_resource",
+                    "comparison": "==",
+                    "compare_to": 8
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_timer_8",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:food_level",
+                    "comparison": ">=",
+                    "compare_to": 20
+                },
+                {
+                    "type": "origins:saturation_level",
+                    "comparison": "<",
+                    "compare_to": 20
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_erased",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_enhanced",
+                    "comparison": ">",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "interval": 2
     },
     "timer_increase_over_time": {
         "type": "origins:action_over_time",
@@ -1695,6 +2790,142 @@
                     "type": "origins:resource",
                     "resource": "*:quirk/misc/base_erased",
                     "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_enhanced",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+    "timer_increase_over_time_enhanced": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:if_else_list",
+            "actions": [
+                {
+                    "action": {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_timer_1",
+                        "operation": "add",
+                        "change": 1
+                    },
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "*:*_resource",
+                        "comparison": "==",
+                        "compare_to": 1
+                    }
+                },
+                {
+                    "action": {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_timer_2",
+                        "operation": "add",
+                        "change": 1
+                    },
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "*:*_resource",
+                        "comparison": "==",
+                        "compare_to": 2
+                    }
+                },
+                {
+                    "action": {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_timer_3",
+                        "operation": "add",
+                        "change": 1
+                    },
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "*:*_resource",
+                        "comparison": "==",
+                        "compare_to": 3
+                    }
+                },
+                {
+                    "action": {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_timer_4",
+                        "operation": "add",
+                        "change": 1
+                    },
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "*:*_resource",
+                        "comparison": "==",
+                        "compare_to": 4
+                    }
+                },
+                {
+                    "action": {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_timer_5",
+                        "operation": "add",
+                        "change": 1
+                    },
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "*:*_resource",
+                        "comparison": "==",
+                        "compare_to": 5
+                    }
+                },
+                {
+                    "action": {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_timer_6",
+                        "operation": "add",
+                        "change": 1
+                    },
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "*:*_resource",
+                        "comparison": "==",
+                        "compare_to": 6
+                    }
+                },
+                {
+                    "action": {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_timer_7",
+                        "operation": "add",
+                        "change": 1
+                    },
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "*:*_resource",
+                        "comparison": "==",
+                        "compare_to": 7
+                    }
+                }
+            ]
+        },
+        "interval": 5,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_power",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_erased",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_enhanced",
+                    "comparison": ">",
                     "compare_to": 0
                 }
             ]
@@ -1819,6 +3050,142 @@
                     "type": "origins:resource",
                     "resource": "*:quirk/misc/base_erased",
                     "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_enhanced",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+    "timer_decrease_over_time_enhanced": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:if_else_list",
+            "actions": [
+                {
+                    "action": {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_timer_1",
+                        "operation": "add",
+                        "change": -1
+                    },
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "*:*_resource",
+                        "comparison": "==",
+                        "compare_to": 1
+                    }
+                },
+                {
+                    "action": {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_timer_2",
+                        "operation": "add",
+                        "change": -1
+                    },
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "*:*_resource",
+                        "comparison": "==",
+                        "compare_to": 2
+                    }
+                },
+                {
+                    "action": {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_timer_3",
+                        "operation": "add",
+                        "change": -1
+                    },
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "*:*_resource",
+                        "comparison": "==",
+                        "compare_to": 3
+                    }
+                },
+                {
+                    "action": {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_timer_4",
+                        "operation": "add",
+                        "change": -1
+                    },
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "*:*_resource",
+                        "comparison": "==",
+                        "compare_to": 4
+                    }
+                },
+                {
+                    "action": {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_timer_5",
+                        "operation": "add",
+                        "change": -1
+                    },
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "*:*_resource",
+                        "comparison": "==",
+                        "compare_to": 5
+                    }
+                },
+                {
+                    "action": {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_timer_6",
+                        "operation": "add",
+                        "change": -1
+                    },
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "*:*_resource",
+                        "comparison": "==",
+                        "compare_to": 6
+                    }
+                },
+                {
+                    "action": {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_timer_7",
+                        "operation": "add",
+                        "change": -1
+                    },
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "*:*_resource",
+                        "comparison": "==",
+                        "compare_to": 7
+                    }
+                }
+            ]
+        },
+        "interval": 5,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_power",
+                    "comparison": "==",
+                    "compare_to": -1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_erased",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_enhanced",
+                    "comparison": ">",
                     "compare_to": 0
                 }
             ]
