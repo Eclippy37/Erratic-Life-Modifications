@@ -481,15 +481,9 @@
             "actions": [
                 {
                     "type": "origins:change_resource",
-                    "resource": "*:*_cooldown",
+                    "resource": "*:*_timer",
                     "operation": "set",
-                    "change": 0
-                },
-                {
-                    "type": "origins:change_resource",
-                    "resource": "*:quirk/misc/base_enhanced",
-                    "operation": "set",
-                    "change": 0
+                    "change": 99999
                 }
             ]
         },
@@ -499,7 +493,7 @@
             "conditions": [
                 {
                     "type": "origins:resource",
-                    "resource": "*:*_cooldown",
+                    "resource": "*:*_timer",
                     "comparison": ">",
                     "compare_to": 0
                 },

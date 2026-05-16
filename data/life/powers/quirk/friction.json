@@ -147,6 +147,42 @@
                     "resource": "*:quirk/misc/base_erased",
                     "comparison": "==",
                     "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_enhanced",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+    "increase_slipperiness_enhanced": {
+        "type": "origins:modify_slipperiness",
+        "modifier": {
+            "operation": "set_total",
+            "amount": 0.99
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_resource",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_erased",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_enhanced",
+                    "comparison": ">",
+                    "compare_to": 0
                 }
             ]
         }
@@ -173,6 +209,45 @@
                     "type": "origins:resource",
                     "resource": "*:quirk/misc/base_erased",
                     "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_enhanced",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+    "increase_movement_speed_enhanced": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "id": "life:increase_movement_speed",
+            "attribute": "minecraft:generic.movement_speed",
+            "operation": "add_multiplied_total",
+            "amount": 2.0
+        },
+        "tick_rate": 5,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_resource",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_erased",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_enhanced",
+                    "comparison": ">",
                     "compare_to": 0
                 }
             ]
