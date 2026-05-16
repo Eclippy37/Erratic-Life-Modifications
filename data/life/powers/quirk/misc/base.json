@@ -151,6 +151,38 @@
             "compare_to": 0
         }
     },
+    "erased_key": {
+        "type": "origins:active_self",
+        "key": "key.origins.primary_active",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "title @s actionbar [{\"text\":\"Your quirk has been blocked\",\"color\":\"red\",\"bold\":true}]"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound life:quirk.erase player @s ~ ~ ~ 1 2"
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_erased",
+                    "comparison": ">",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "hud_render": {
+            "should_render": false
+        },
+        "cooldown": 3
+    },
     "remove": {
         "type": "origins:action_on_callback",
         "entity_action_lost": {
