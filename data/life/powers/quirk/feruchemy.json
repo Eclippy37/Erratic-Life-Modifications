@@ -278,7 +278,7 @@
                                     "actions": [
                                         {
                                             "type": "origins:execute_command",
-                                            "command": "title @s actionbar [{\"text\":\"Zinc Attack Speed\",\"color\":\"dark_aqua\",\"bold\":true}]"
+                                            "command": "title @s actionbar [{\"text\":\"Zinc Mining Speed\",\"color\":\"aqua\",\"bold\":true}]"
                                         },
                                         {
                                             "type": "origins:change_resource",
@@ -490,7 +490,7 @@
                                     "actions": [
                                         {
                                             "type": "origins:execute_command",
-                                            "command": "title @s actionbar [{\"text\":\"Zinc Attack Speed\",\"color\":\"dark_aqua\",\"bold\":true}]"
+                                            "command": "title @s actionbar [{\"text\":\"Zinc Mining Speed\",\"color\":\"aqua\",\"bold\":true}]"
                                         },
                                         {
                                             "type": "origins:change_resource",
@@ -717,7 +717,7 @@
         },
         "tick_rate": 3
     },
-    "attribute_2_decrement": {
+    "attribute_2_decrement_attribute": {
         "type": "origins:conditioned_attribute",
         "modifiers": [
             {
@@ -764,7 +764,44 @@
         },
         "tick_rate": 3
     },
-    "attribute_2_increment": {
+    "attribute_2_decrement_air_speed": {
+        "type": "origins:modify_air_speed",
+        "modifier": {
+            "operation": "multiply_total_multiplicative",
+            "amount": -0.5
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_power",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_resource",
+                    "comparison": "==",
+                    "compare_to": 2
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_timer_2",
+                    "comparison": "<",
+                    "compare_to": 600
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_erased",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "tick_rate": 3
+    },
+    "attribute_2_increment_attribute": {
         "type": "origins:conditioned_attribute",
         "modifiers": [
             {
@@ -811,7 +848,44 @@
         },
         "tick_rate": 3
     },
-    "attribute_3_decrement": {
+    "attribute_2_increment_air_speed": {
+        "type": "origins:modify_air_speed",
+        "modifier": {
+            "operation": "multiply_total_multiplicative",
+            "amount": 1.0
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_power",
+                    "comparison": "==",
+                    "compare_to": -1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_resource",
+                    "comparison": "==",
+                    "compare_to": 2
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_timer_2",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_erased",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "tick_rate": 3
+    },
+    "attribute_3_decrement_shader": {
         "type": "origins:shader",
         "shader": "minecraft:shaders/post/blobs2.json",
         "condition": {
@@ -909,7 +983,7 @@
             ]
         }
     },
-    "attribute_4_decrement": {
+    "attribute_4_decrement_attribute": {
         "type": "origins:conditioned_attribute",
         "modifiers": [
             {
@@ -950,7 +1024,7 @@
         },
         "tick_rate": 3
     },
-    "attribute_4_increment": {
+    "attribute_4_increment_attribute": {
         "type": "origins:conditioned_attribute",
         "modifiers": [
             {
@@ -991,7 +1065,7 @@
         },
         "tick_rate": 3
     },
-    "attribute_5_decrement": {
+    "attribute_5_decrement_attribute": {
         "type": "origins:conditioned_attribute",
         "modifiers": [
             {
@@ -1038,7 +1112,7 @@
         },
         "tick_rate": 3
     },
-    "attribute_5_increment": {
+    "attribute_5_increment_attribute": {
         "type": "origins:conditioned_attribute",
         "modifiers": [
             {
@@ -1085,7 +1159,7 @@
         },
         "tick_rate": 3
     },
-    "attribute_6_decrement": {
+    "attribute_6_decrement_attribute": {
         "type": "origins:conditioned_attribute",
         "modifiers": [
             {
@@ -1132,7 +1206,7 @@
         },
         "tick_rate": 3
     },
-    "attribute_6_increment": {
+    "attribute_6_increment_attribute": {
         "type": "origins:conditioned_attribute",
         "modifiers": [
             {
@@ -1179,7 +1253,7 @@
         },
         "tick_rate": 3
     },
-    "attribute_7_decrement": {
+    "attribute_7_decrement_attribute": {
         "type": "origins:conditioned_attribute",
         "modifiers": [
             {
@@ -1220,7 +1294,7 @@
         },
         "tick_rate": 3
     },
-    "attribute_7_increment": {
+    "attribute_7_increment_attribute": {
         "type": "origins:conditioned_attribute",
         "modifiers": [
             {
@@ -1261,7 +1335,7 @@
         },
         "tick_rate": 3
     },
-    "attribute_8_decrement": {
+    "attribute_8_decrement_nutrition": {
         "type": "origins:action_over_time",
         "entity_action": {
             "type": "origins:and",
@@ -1377,7 +1451,7 @@
         },
         "interval": 10
     },
-    "attribute_8_increment": {
+    "attribute_8_increment_nutrition": {
         "type": "origins:action_over_time",
         "entity_action": {
             "type": "origins:and",
@@ -1568,6 +1642,20 @@
                 {
                     "action": {
                         "type": "origins:change_resource",
+                        "resource": "*:*_timer_6",
+                        "operation": "add",
+                        "change": 1
+                    },
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "*:*_resource",
+                        "comparison": "==",
+                        "compare_to": 6
+                    }
+                },
+                {
+                    "action": {
+                        "type": "origins:change_resource",
                         "resource": "*:*_timer_7",
                         "operation": "add",
                         "change": 1
@@ -1577,20 +1665,6 @@
                         "resource": "*:*_resource",
                         "comparison": "==",
                         "compare_to": 7
-                    }
-                },
-                {
-                    "action": {
-                        "type": "origins:change_resource",
-                        "resource": "*:*_timer_8",
-                        "operation": "add",
-                        "change": 1
-                    },
-                    "condition": {
-                        "type": "origins:resource",
-                        "resource": "*:*_resource",
-                        "comparison": "==",
-                        "compare_to": 8
                     }
                 }
             ]
