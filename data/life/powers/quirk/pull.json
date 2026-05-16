@@ -148,6 +148,10 @@
                         ]
                     },
                     {
+                        "type": "origins:execute_command",
+                        "command": "playsound minecraft:entity.evoker.cast_spell player @s ~ ~ ~ 0.01 2"
+                    },
+                    {
                         "type": "origins:change_resource",
                         "resource": "*:quirk/misc/base_active",
                         "operation": "set",
