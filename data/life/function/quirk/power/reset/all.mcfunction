@@ -1,2 +1,2 @@
-function life:quirk/remove_all
-function life:quirk/add_all
+function life:quirk/power/remove/all
+function life:quirk/power/add/all

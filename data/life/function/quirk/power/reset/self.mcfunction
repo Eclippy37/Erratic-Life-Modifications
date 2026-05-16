@@ -1,2 +1,2 @@
-function life:quirk/remove_self
-function life:quirk/add_self
+function life:quirk/power/remove/self
+function life:quirk/power/add/self
