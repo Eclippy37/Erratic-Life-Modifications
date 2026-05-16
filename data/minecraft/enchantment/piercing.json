@@ -30,6 +30,7 @@
     "slots": [
         "mainhand"
     ],
+    "primary_items": "#minecraft:enchantable/crossbow",
     "supported_items": "#minecraft:enchantable/ranged_weapon",
     "weight": 10
 }
