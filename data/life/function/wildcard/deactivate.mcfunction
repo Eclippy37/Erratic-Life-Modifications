@@ -28,4 +28,4 @@ function life:vote/activate/none
 execute as @a run power remove @s life:gravity
 
 # Remove Quirks
-function life:quirk/remove_all
+function life:quirk/power/remove/all
