@@ -1,9 +1,6 @@
 # Set #wildcard scoreboard
 scoreboard players set #wildcard erraticlife 2
 
-# Reset #wildcardset scoreboard
-scoreboard players reset #wildcardset erraticlife
-
 # Initialize numbers
 scoreboard players set #VoteOptionActive erraticlife 0
 scoreboard players set #VotePos1 erraticlife 0
