@@ -991,6 +991,12 @@
                 "attribute": "minecraft:generic.attack_damage",
                 "operation": "add_multiplied_total",
                 "amount": -0.5
+            },
+            {
+                "id": "life:attack_knockback_decrease",
+                "attribute": "minecraft:generic.attack_knockback",
+                "operation": "add_value",
+                "amount": -1.5
             }
         ],
         "condition": {
@@ -1032,6 +1038,12 @@
                 "attribute": "minecraft:generic.attack_damage",
                 "operation": "add_multiplied_total",
                 "amount": 0.75
+            },
+            {
+                "id": "life:attack_knockback_increase",
+                "attribute": "minecraft:generic.attack_knockback",
+                "operation": "add_value",
+                "amount": 1.5
             }
         ],
         "condition": {
