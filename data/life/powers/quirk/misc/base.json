@@ -121,7 +121,7 @@
     "triggered": {
         "type": "origins:resource",
         "min": 0,
-        "max": 21,
+        "max": 28,
         "min_action": {
             "type": "origins:execute_command",
             "command": "tag @s[tag=quirk.triggered] remove quirk.triggered"
