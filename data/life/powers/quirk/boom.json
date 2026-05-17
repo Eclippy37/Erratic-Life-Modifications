@@ -708,7 +708,7 @@
             "type": "origins:resource",
             "resource": "*:*_activated",
             "comparison": "==",
-            "compare_to": 0
+            "compare_to": 1
         }
     },
     "player_explosion_immunity": {
@@ -721,7 +721,7 @@
             "type": "origins:resource",
             "resource": "*:*_activated",
             "comparison": "==",
-            "compare_to": 0
+            "compare_to": 1
         }
     },
     "remove": {

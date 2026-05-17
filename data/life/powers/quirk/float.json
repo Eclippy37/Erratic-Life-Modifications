@@ -257,6 +257,12 @@
                     "resource": "*:quirk/misc/base_erased",
                     "comparison": "==",
                     "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:quirk/misc/base_enhanced",
+                    "comparison": "==",
+                    "compare_to": 0
                 }
             ]
         }
@@ -290,50 +296,6 @@
                     "type": "origins:resource",
                     "resource": "*:quirk/misc/base_erased",
                     "comparison": "==",
-                    "compare_to": 0
-                }
-            ]
-        }
-    },
-    "enhanced_over_time": {
-        "type": "origins:action_over_time",
-        "entity_action": {
-            "type": "origins:and",
-            "actions": [
-                {
-                    "type": "origins:change_resource",
-                    "resource": "*:*_timer",
-                    "operation": "set",
-                    "change": 99999
-                },
-                {
-                    "type": "origins:change_resource",
-                    "resource": "*:quirk/misc/base_enhanced",
-                    "operation": "add",
-                    "change": -1
-                }
-            ]
-        },
-        "interval": 1,
-        "condition": {
-            "type": "origins:and",
-            "conditions": [
-                {
-                    "type": "origins:resource",
-                    "resource": "*:*_cooldown",
-                    "comparison": ">",
-                    "compare_to": 0
-                },
-                {
-                    "type": "origins:resource",
-                    "resource": "*:quirk/misc/base_erased",
-                    "comparison": "==",
-                    "compare_to": 0
-                },
-                {
-                    "type": "origins:resource",
-                    "resource": "*:quirk/misc/base_enhanced",
-                    "comparison": ">",
                     "compare_to": 0
                 }
             ]

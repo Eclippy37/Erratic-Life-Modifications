@@ -230,6 +230,10 @@
                                         "show_icon": false
                                     }
                                 ]
+                            },
+                            {
+                                "type": "origins:set_fall_distance",
+                                "fall_distance": 0
                             }
                         ]
                     }
@@ -278,6 +282,10 @@
                                         "show_icon": false
                                     }
                                 ]
+                            },
+                            {
+                                "type": "origins:set_fall_distance",
+                                "fall_distance": 0
                             }
                         ]
                     }

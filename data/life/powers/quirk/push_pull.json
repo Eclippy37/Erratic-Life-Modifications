@@ -233,6 +233,11 @@
                     "inverted": true
                 }
             },
+            "block_condition": {
+                "type": "origins:block",
+                "block": "minecraft:barrier",
+                "inverted": true
+            },
             "command_at_hit": "particle minecraft:dust{color:[0.0,1.0,1.0],scale:1} ~ ~ ~ 0.25 0.25 0.25 0 3 normal @a",
             "command_along_ray": "particle minecraft:dust{color:[0.0,1.0,1.0],scale:1} ~ ~ ~ 0.01 0.01 0.01 0 1 normal @a",
             "command_step": 1
@@ -506,6 +511,11 @@
                     "tag": "life:quirk_immune",
                     "inverted": true
                 }
+            },
+            "block_condition": {
+                "type": "origins:block",
+                "block": "minecraft:barrier",
+                "inverted": true
             },
             "command_at_hit": "particle minecraft:dust{color:[1.0,0.1,0.1],scale:1} ~ ~ ~ 0.25 0.25 0.25 0 3 normal @a",
             "command_along_ray": "particle minecraft:dust{color:[1.0,0.1,0.1],scale:1} ~ ~ ~ 0.01 0.01 0.01 0 1 normal @a",

@@ -14,7 +14,7 @@
                 {
                     "type": "minecraft:item",
                     "name": "erraticlife:gift_box",
-                    "weight": 5,
+                    "weight": 3,
                     "functions": []
                 },
                 {
@@ -39,7 +39,7 @@
                         {
                             "function": "minecraft:set_count",
                             "count": {
-                                "min": 8,
+                                "min": 4,
                                 "max": 32
                             }
                         }
@@ -48,7 +48,7 @@
                 {
                     "type": "minecraft:item",
                     "name": "minecraft:diamond",
-                    "weight": 20,
+                    "weight": 15,
                     "functions": [
                         {
                             "function": "minecraft:set_count",
@@ -58,7 +58,7 @@
                                     "min": 4,
                                     "max": {
                                         "min": 8,
-                                        "max": 12
+                                        "max": 10
                                     }
                                 }
                             }
@@ -74,7 +74,7 @@
                             "function": "minecraft:set_count",
                             "count": {
                                 "min": 1,
-                                "max": 4
+                                "max": 3
                             }
                         }
                     ]
@@ -82,13 +82,13 @@
                 {
                     "type": "minecraft:item",
                     "name": "minecraft:golden_apple",
-                    "weight": 20,
+                    "weight": 10,
                     "functions": [
                         {
                             "function": "minecraft:set_count",
                             "count": {
                                 "min": 1,
-                                "max": 6
+                                "max": 4
                             }
                         }
                     ]
@@ -102,7 +102,7 @@
                             "function": "minecraft:set_count",
                             "count": {
                                 "min": 4,
-                                "max": 16
+                                "max": 12
                             }
                         }
                     ]
@@ -116,7 +116,7 @@
                             "function": "minecraft:set_count",
                             "count": {
                                 "min": 1,
-                                "max": 4
+                                "max": 3
                             }
                         }
                     ]
@@ -131,8 +131,8 @@
                             "count": {
                                 "min": 4,
                                 "max": {
-                                    "min": 8,
-                                    "max": 20
+                                    "min": 3,
+                                    "max": 15
                                 }
                             }
                         }
@@ -147,7 +147,7 @@
                             "function": "minecraft:set_count",
                             "count": {
                                 "min": 4,
-                                "max": 12
+                                "max": 10
                             }
                         }
                     ]
@@ -160,7 +160,7 @@
                         {
                             "function": "minecraft:set_count",
                             "count": {
-                                "min": 32,
+                                "min": 8,
                                 "max": 64
                             }
                         }
@@ -378,11 +378,6 @@
                 {
                     "type": "minecraft:loot_table",
                     "value": "life:give/spawn_egg",
-                    "weight": 7
-                },
-                {
-                    "type": "minecraft:loot_table",
-                    "value": "life:give/iron",
                     "weight": 7
                 }
             ]

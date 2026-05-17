@@ -1,2 +1,2 @@
 # Remove dead players quirks
-execute as @a[scores={Lives=..0},tag=quirk,gamemode=spectator] run function life:quirk/power/remove_self
+execute as @a[scores={Lives=..0},tag=quirk,gamemode=spectator] run function life:quirk/power/remove/self
